@@ -159,16 +159,10 @@ export default function ServicesPage() {
                   Медицинские<br />услуги
                 </h1>
               </div>
-              <p className="text-gray-800 text-sm leading-relaxed mb-10 max-w-md">
+              <p className="text-gray-800 text-sm leading-relaxed max-w-md">
                 Erensau Hospital предоставляет широкий спектр
                 медицинских услуг по международным стандартам.
               </p>
-              <Link
-                to="/contacts"
-                className="bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-4 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors w-fit"
-              >
-                Записаться на приём
-              </Link>
             </div>
 
             {/* Правая колонка: фото врача + визитка возле плеча */}
@@ -198,15 +192,15 @@ export default function ServicesPage() {
         {/* Табы внизу hero — отдельные пилюли, активная голубая */}
         <div className="absolute left-0 right-0 bottom-6 z-20">
           <div className="container-main flex justify-center">
-            <div className="inline-flex gap-2 flex-wrap justify-center">
+            <div className="inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
               {tabs.map((t) => (
                 <button
                   key={t.id}
                   onClick={() => setActiveTab(t.id)}
-                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap shadow-sm ${
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                     activeTab === t.id
                       ? 'bg-[#00b5e2] text-white'
-                      : 'bg-[#ececec] text-gray-800 hover:bg-white'
+                      : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
                   }`}
                 >
                   {t.label}

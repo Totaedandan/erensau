@@ -154,7 +154,7 @@ export default function HomePage() {
               >
                 {/* Фото со «стажем» — пилюлей сверху */}
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] mb-5">
-                  <span className="absolute top-3 left-3 bg-white rounded-full px-3.5 py-1.5 text-[11px] font-medium italic text-gray-900 shadow-sm z-10">
+                  <span className="absolute top-3 left-3 bg-white rounded-full px-3.5 py-1.5 text-[11px] font-medium text-gray-900 shadow-sm z-10">
                     {d.experience}
                   </span>
                   <img
@@ -294,14 +294,12 @@ export default function HomePage() {
               className="absolute left-8 lg:left-16 top-1/2 -translate-y-1/2 h-40 lg:h-56 w-auto opacity-20"
               style={{ ['--fill-0' as string]: '#ffffff' }}
             />
-            {/* Контент справа */}
-            <div className="relative z-10 ml-auto w-full lg:w-1/2 px-8 lg:px-14 py-12 text-right lg:text-left">
-              <div className="flex flex-col items-end lg:items-start">
-                <div className="text-white font-bold text-4xl lg:text-5xl lowercase leading-none mb-1">erensau</div>
-                <div className="text-white/70 text-lg tracking-widest uppercase mb-6">hospital</div>
-                <p className="text-white/70 text-sm mb-8">Точные решения для сложных случаев</p>
-                <button className="btn-primary text-sm px-8 py-3.5">Начать 3D-тур</button>
-              </div>
+            {/* Контент по центру */}
+            <div className="relative z-10 w-full px-8 py-12 flex flex-col items-center text-center">
+              <div className="text-white font-bold text-4xl lg:text-5xl lowercase leading-none mb-1">erensau</div>
+              <div className="text-white/70 text-lg tracking-widest uppercase mb-6">hospital</div>
+              <p className="text-white/70 text-sm mb-8">Точные решения для сложных случаев</p>
+              <button className="btn-primary text-sm px-8 py-3.5">Начать 3D-тур</button>
             </div>
           </div>
         </div>

@@ -11,12 +11,17 @@ const STANDARD_DETAILS = [
   { label: 'Условия пребывания', content: 'Комфортные палаты, индивидуальный график, медицинское сопровождение.' },
 ]
 
+// В дизайне иконки повторяются попарно: сердце (Кардио/Мужское), монитор с ЭКГ (Базовый/Детский), матка (Женское)
+const IC_HEART = 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
+const IC_MONITOR = 'M4 6h16a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zM7 11h2l1.5 2.5L13 8l1 3h3M9 19h6'
+const IC_UTERUS = 'M12 4v5m0 0c-3.5 0-6 2.2-6 5.5M12 9c3.5 0 6 2.2 6 5.5M6.2 14.5a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0zm15.6 0a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0z'
+
 const programCards = [
-  { name: 'Кардио чек-ап',    price: '50 000тг',  icon: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z' },
-  { name: 'Базовый чек-ап',   price: '85 000тг',  icon: 'M9 12l2 2 4-4M7.5 21h9a1.5 1.5 0 001.5-1.5V7.5L13.5 3H7.5A1.5 1.5 0 006 4.5v15A1.5 1.5 0 007.5 21z' },
-  { name: 'Женское здоровье', price: '100 000тг', icon: 'M12 13a4 4 0 100-8 4 4 0 000 8zm0 0v7m-3-3h6' },
-  { name: 'Мужское здоровье', price: '50 000тг',  icon: 'M10 15a4 4 0 100-8 4 4 0 000 8zm2.5-6.5L19 4m0 0h-4.5M19 4v4.5' },
-  { name: 'Детский чекап',    price: '85 000тг',  icon: 'M12 21a9 9 0 100-18 9 9 0 000 18zm-3-10h.01M15 11h.01M9 15s1 1.5 3 1.5 3-1.5 3-1.5' },
+  { name: 'Кардио чек-ап',    price: '50 000тг',  icon: IC_HEART },
+  { name: 'Базовый чек-ап',   price: '85 000тг',  icon: IC_MONITOR },
+  { name: 'Женское здоровье', price: '100 000тг', icon: IC_UTERUS },
+  { name: 'Мужское здоровье', price: '50 000тг',  icon: IC_HEART },
+  { name: 'Детский чекап',    price: '85 000тг',  icon: IC_MONITOR },
 ]
 
 const programFilters = ['Все программы', 'Женское здоровье', 'Детский чекап', 'Мужское здоровье']
@@ -200,7 +205,7 @@ export default function CheckupPage() {
       {/* ── FAQ — 2 колонки ── */}
       <section className="bg-white py-14 lg:py-20">
         <div className="container-main">
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8">Ответы на популярные вопросы</h2>
+          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-[#f4f4f4] rounded-2xl overflow-hidden">

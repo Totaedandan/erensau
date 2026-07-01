@@ -44,7 +44,7 @@ export default function PatientsPage() {
         <div className="absolute inset-0 bg-[#0a1628]/55" />
         <div className="relative z-10 container-main flex flex-col justify-end min-h-[520px] py-16">
           <div className="flex items-start gap-4 mb-8">
-            <LogoMark className="h-12 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+            <LogoMark className="h-12 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
             <h1 className="text-5xl lg:text-[72px] font-bold text-white leading-none">
               Руководство<br />для пациентов
             </h1>
@@ -106,23 +106,25 @@ export default function PatientsPage() {
           <div className="space-y-5">
             {reviews.map((r, idx) => (
               <div key={r.name} className={`bg-white rounded-3xl p-7 ${idx % 2 === 1 ? 'lg:ml-12' : 'lg:mr-12'}`}>
-                <div className="flex justify-end gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#00b5e2]/50" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-5">{r.text}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100">
-                    <img src={r.photo} alt={r.name} className="w-full h-full object-cover object-top" />
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                      <img src={r.photo} alt={r.name} className="w-full h-full object-cover object-top" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm">{r.name}</div>
+                      <div className="text-gray-400 text-xs">{r.date}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 text-sm">{r.name}</div>
-                    <div className="text-gray-400 text-xs">{r.date}</div>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4 text-[#7dd3ec]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
                 </div>
+                <p className="text-gray-600 text-sm leading-relaxed">{r.text}</p>
               </div>
             ))}
           </div>

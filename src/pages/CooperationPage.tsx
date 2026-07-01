@@ -56,8 +56,8 @@ export default function CooperationPage() {
               <div className="p-6">
                 <h3 className="font-bold text-gray-900 mb-2 leading-snug">{d.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">{d.desc}</p>
-                <Link to="/contacts" className="text-sm font-medium text-[#00b5e2] hover:underline">
-                  Подробнее →
+                <Link to="/contacts" className="inline-block text-sm text-gray-900 border border-gray-300 rounded-full px-6 py-2 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+                  Подробнее
                 </Link>
               </div>
             </div>

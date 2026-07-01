@@ -57,14 +57,11 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr_1fr] gap-6 lg:gap-4 items-end min-h-[440px]">
               {/* Описание слева */}
               <div className="lg:pb-32">
-                <p className="text-gray-800 text-sm leading-relaxed mb-5 max-w-sm">
+                <p className="text-gray-800 text-sm leading-relaxed max-w-sm">
                   В Erensau Hospital мы применяем современные
                   методы сердечно-сосудистой хирургии,
                   чтобы восстанавливать здоровье
                   и продлевать жизнь нашим пациентам.
-                </p>
-                <p className="text-gray-800 text-sm leading-relaxed">
-                  Когда речь о сердце — нет мелочей.
                 </p>
               </div>
 
@@ -130,7 +127,7 @@ export default function AboutPage() {
               <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 mb-5">Миссия</h2>
               <p className="text-gray-500 text-sm lg:text-base leading-relaxed max-w-md">
                 Обеспечение точных решений для сложных случаев с акцентом на высокое
-                качество медицинской помощи и внимание к каждому пациенту.
+                качество медицинской помощи с вниманием к каждому пациенту
               </p>
             </div>
             <div>

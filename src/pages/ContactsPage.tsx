@@ -33,7 +33,7 @@ export default function ContactsPage() {
                 {complexPoints.map((p) => (
                   <li key={p.n} className="flex gap-3 items-center text-sm text-gray-700">
                     <span className="text-[#00b5e2] font-bold w-4">{p.n}</span>
-                    <span>— {p.label}</span>
+                    <span>- {p.label}</span>
                   </li>
                 ))}
               </ul>
