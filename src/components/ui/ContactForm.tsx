@@ -8,22 +8,22 @@ type Props = {
 // Большая карточка «Форма обратной связи» — переиспользуется на Главной, Контактах и Вакансиях.
 export default function ContactForm({
   heading = 'Форма\nобратной связи',
-  text = 'Оставьте заявку — мы свяжемся с вами в течении рабочего дня и ответим на все вопросы',
+  text = 'Оставьте заявку — мы свяжемся с вами в течение рабочего дня и ответим на все вопросы',
 }: Props) {
   const [sent, setSent] = useState(false)
 
   const inputCls =
-    'w-full bg-[#f4f4f4] rounded-xl px-5 py-4 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
+    'w-full bg-[#f1f1f3] rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
 
   return (
     <section className="bg-[#f4f4f4] py-12 lg:py-16">
       <div className="container-main">
-        <div className="bg-white rounded-[40px] shadow-sm p-8 lg:p-14">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr_auto] gap-10 lg:gap-12 items-center">
+        <div className="bg-white rounded-[32px] shadow-sm p-8 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,400px)_auto] gap-10 lg:gap-14 items-center">
 
             {/* Левая колонка: заголовок + текст */}
             <div>
-              <h2 className="text-4xl lg:text-[52px] font-bold text-gray-900 mb-8 leading-[1.05] whitespace-pre-line">
+              <h2 className="text-4xl lg:text-[42px] font-bold text-gray-900 mb-8 leading-[1.1] whitespace-pre-line">
                 {heading}
               </h2>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{text}</p>
@@ -51,7 +51,7 @@ export default function ContactForm({
 
                 {/* Правая колонка: кнопка + дисклеймер */}
                 <div className="flex flex-col items-start gap-4 lg:self-center">
-                  <button type="submit" form="contact-form" className="btn-primary text-base px-12 py-4 whitespace-nowrap">
+                  <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-base font-medium rounded-full px-11 py-3.5 whitespace-nowrap hover:bg-[#0099c4] transition-colors">
                     Отправить
                   </button>
                   <p className="text-xs text-gray-400 leading-snug">

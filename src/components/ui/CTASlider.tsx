@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
 
-const TOTAL_DOTS = 6
+const TOTAL_DOTS = 7
 
 // Универсальный CTA-слайдер «Многопрофильная клиника»: фото слева, текст справа, стрелки + точки.
 export default function CTASlider() {
@@ -18,7 +18,7 @@ export default function CTASlider() {
 
           {/* Фото слева + стрелки */}
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden aspect-[16/11] bg-[#0a1628]">
+            <div className="rounded-3xl overflow-hidden aspect-[16/9] bg-[#0a1628]">
               <img src={heroSurgeon} alt="" className="w-full h-full object-cover" />
             </div>
             <button
@@ -55,16 +55,18 @@ export default function CTASlider() {
 
           {/* Текст справа */}
           <div>
-            <LogoMark className="h-12 w-auto mb-5" style={{ ['--fill-0' as string]: '#00b5e2' }} />
-            <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 mb-5 leading-[1.05]">
-              Многопрофильная<br />клиника
-            </h2>
+            <div className="flex items-start gap-3 mb-5">
+              <LogoMark className="h-14 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+              <h2 className="text-3xl lg:text-[36px] font-bold text-gray-900 leading-[1.1]">
+                Многопрофильная<br />клиника
+              </h2>
+            </div>
             <p className="text-gray-500 text-sm lg:text-base leading-relaxed mb-8 max-w-md">
               Мы сосредоточены на мультидисциплинарном подходе, объединяя как оперативные,
               так и консервативные методы лечения. Нам доверяют случаи, которые нередко
               отличаются редкостью, тяжестью течения и клинической уникальностью.
             </p>
-            <Link to="/contacts" className="btn-primary text-sm px-10 py-4">
+            <Link to="/contacts" className="bg-[#00b5e2] text-white text-base font-medium rounded-full px-10 py-4 inline-block hover:bg-[#0099c4] transition-colors">
               Записаться
             </Link>
           </div>

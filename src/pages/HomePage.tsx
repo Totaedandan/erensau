@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import heroDoctorImg from '@/assets/images/hero-surgeon.png'
-import imgClinicBuilding from '@/assets/images/img-clinic-building.jpg'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import imgDoctorSenior2 from '@/assets/images/img-doctor-senior2.jpg'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
@@ -46,22 +45,22 @@ const services = [
 ]
 
 const teamDoctors = [
-  { name: 'Куатбеков Кайрат Нығметович',     title: 'к.м.н., ассоциированный профессор', position: 'Руководитель отделения Кардиохирургии и Кардиологии', experience: 'Стаж более 32 лет', img: doctor1 },
+  { name: 'Куатбеков Кайрат Ниеталиевич',    title: 'к.м.н., ассоциированный профессор', position: 'Руководитель отделения Кардиохирургии и Кардиологии', experience: 'Стаж более 32 лет', img: doctor1 },
   { name: 'Коспанов Нурсултан Айдарханович', title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля сосудистой хирургии',           experience: 'Стаж более 30 лет', img: doctor2 },
-  { name: 'Ешмуратов Темур Шерханович',      title: 'д.м.н., профессор',                 position: 'Руководитель профиля Торакальной хирургии и Пульмонологии', experience: 'Стаж более 31 год', img: doctor3 },
-  { name: 'Кусаинов Адилет Шингисович',      title: 'к.м.н.',                            position: 'Руководитель профиля ОАРИТ',                        experience: 'Стаж более 33 лет', img: doctor4 },
+  { name: 'Ешмуратов Темур Шерханович',      title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля Торакальной хирургии и Пульмонологии', experience: 'Стаж более 31 год', img: doctor3 },
+  { name: 'Кусаинов Адилет Шингисович',      title: 'к.м.н. (PhD), врач анестезиолог-реаниматолог высшей категории', position: 'Руководитель профиля ОАРИТ', experience: 'Стаж более 33 лет', img: doctor4 },
   { name: 'Ижанов Ерген Бахчанович',         title: 'Доктор медицинских наук, профессор', position: 'Руководитель профиля общей хирургии и онкологии',  experience: 'Стаж более 32 лет', img: imgDoctorSenior },
   { name: 'Аканов Ержан Кусманович',         title: 'к.м.н., профессор',                  position: 'Руководитель узких хирургических профилей',        experience: 'Стаж более 28 лет', img: imgDoctorSenior2 },
 ]
 
 const posts = [
-  { title: 'Визит профессора Linas Velicka из Литвы', date: '24 июля 2024', img: post2 },
+  { title: 'Визит профессора Linas Velicka', date: '24 июля 2024', img: post2 },
   { title: 'Эндоваскулярная хирургия в лечении дефектов межжелудочковой перегородки', date: '24 июля 2024', img: post1 },
-  { title: 'Открытие нового отделения реабилитации в Erensau', date: '24 июля 2024', img: imgClinicBuilding },
-  { title: 'Внедрение роботизированной хирургии Da Vinci', date: '24 июля 2024', img: imgOperatingRoom },
+  { title: 'Визит профессора Linas Velicka', date: '24 июля 2024', img: post2 },
+  { title: 'Эндоваскулярная хирургия в лечении дефектов межжелудочковой перегородки', date: '24 июля 2024', img: post1 },
 ]
 
-const servicesTabs = ['Профили', 'Клинико-диагностическое отделение', 'Check-up'] as const
+const servicesTabs = ['Профили', 'Клиника-диагностическое отделение', 'Check-up'] as const
 
 export default function HomePage() {
   const [servicesTab, setServicesTab] = useState<(typeof servicesTabs)[number]>('Профили')
@@ -69,76 +68,87 @@ export default function HomePage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — фото полный фон, текст белый ── */}
-      <section className="relative overflow-hidden min-h-[680px]">
+      <section className="relative overflow-hidden min-h-[750px]">
 
         {/* Фото хирурга — полный фон */}
         <img
           src={heroDoctorImg}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: '70% center' }}
+          style={{ objectPosition: '55% center' }}
         />
 
         {/* Градиент: тёмно-синий слева → прозрачный справа, чтобы лицо хирурга оставалось видимым */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/85 to-[#0a1628]/10" />
 
         {/* Контент */}
-        <div className="relative z-10 container-main h-full">
-          <div className="flex flex-col justify-between min-h-[680px] py-14 lg:py-20">
+        <div className="relative z-10 container-main">
+          <div className="flex flex-col justify-center min-h-[750px] py-16">
 
-            {/* Верх: заголовок + статистика + кнопки (в левой колонке) */}
-            <div className="max-w-[620px]">
+            <div className="max-w-[720px]">
               <div className="flex items-start gap-4 mb-9">
-                <LogoMark className="h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+                <LogoMark className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
                 <h1 className="text-[38px] lg:text-[56px] font-bold text-white leading-[1.05]">
                   Точные решения<br />для сложных случаев
                 </h1>
               </div>
 
-              <div className="flex flex-wrap items-end gap-x-10 gap-y-5 mb-9">
+              <div className="flex flex-wrap items-end gap-x-10 gap-y-5 mb-10">
                 {[
                   { val: '12 000+', label: 'пациентов\nв год'   },
                   { val: '60+',     label: 'ведущих\nэкспертов' },
                   { val: '10 000+', label: 'операций\nна счету' },
                 ].map((s) => (
-                  <div key={s.label}>
-                    <div className="text-[28px] lg:text-[32px] font-bold text-white leading-none">{s.val}</div>
-                    <div className="text-white/60 text-[11px] mt-1.5 whitespace-pre-line leading-snug">{s.label}</div>
+                  <div key={s.label} className="flex items-end gap-2.5">
+                    <div className="text-[32px] lg:text-[38px] font-bold text-white leading-none">{s.val}</div>
+                    <div className="text-white/60 text-[13px] whitespace-pre-line leading-tight">{s.label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center gap-3">
-                <Link to="/contacts" className="btn-primary text-sm px-7 py-3.5">
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <Link to="/contacts" className="bg-[#00b5e2] text-white text-base font-medium rounded-full px-9 py-4 hover:bg-[#0099c4] transition-colors">
                   Записаться на приём
                 </Link>
-                <Link to="/checkup" className="bg-[#0a1628] text-white text-sm font-medium rounded-xl px-7 py-3.5 hover:bg-[#16233a] transition-colors border border-white/15">
+                <Link to="/checkup" className="text-white text-base font-medium rounded-full px-9 py-4 border-2 border-white hover:bg-white/10 transition-colors">
                   Записаться на Check-up
                 </Link>
-                <Link to="/contacts" className="text-white text-sm font-medium rounded-xl px-7 py-3.5 border border-white/40 hover:bg-white/10 transition-colors">
-                  Получить второе мнение
-                </Link>
               </div>
-            </div>
-
-            {/* Низ: 4 фич-чипа в одну строку на всю ширину */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-12">
-              {features.map((f) => (
-                <div key={f.label} className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5 shadow-sm">
-                  <span className="w-9 h-9 rounded-full bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
-                    <img src={f.icon} alt="" className="w-5 h-5" />
-                  </span>
-                  <span className="text-gray-700 text-[11px] font-medium leading-snug">{f.label}</span>
-                </div>
-              ))}
+              <Link to="/contacts" className="inline-block text-white text-base font-medium rounded-full px-9 py-4 border-2 border-white hover:bg-white/10 transition-colors">
+                Получить второе мнение
+              </Link>
             </div>
 
           </div>
         </div>
+
+        {/* Плавающая кнопка чата */}
+        <button
+          aria-label="Чат"
+          className="absolute right-10 lg:right-24 bottom-24 z-20 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition-transform"
+        >
+          <svg className="w-6 h-6 text-[#00b5e2]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM8 9h8a1 1 0 010 2H8a1 1 0 010-2zm4 5H8a1 1 0 010-2h4a1 1 0 010 2z" />
+          </svg>
+        </button>
       </section>
 
+      {/* ── Фич-чипы — наполовину выходят за нижний край hero ── */}
+      <div className="container-main relative z-20 -mt-9">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((f) => (
+            <div key={f.label} className="flex items-center gap-3 bg-white rounded-full px-4 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+              <span className="w-11 h-11 rounded-full bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
+                <img src={f.icon} alt="" className="w-6 h-6" />
+              </span>
+              <span className="text-gray-800 text-[12px] font-medium leading-snug">{f.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── Team ── */}
-      <section className="bg-[#f4f4f4] py-16 lg:py-24">
+      <section className="bg-[#f4f4f4] pb-16 lg:pb-24 pt-20 lg:pt-32">
         <div className="container-main">
           {/* Заголовок по центру */}
           <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center mb-12">
@@ -146,7 +156,7 @@ export default function HomePage() {
           </h2>
 
           {/* Единая сетка 4×2: 6 врачей + голубая карточка (col-span-2) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamDoctors.map((d, i) => (
               <article
                 key={`${d.name}-${i}`}
@@ -166,9 +176,9 @@ export default function HomePage() {
 
                 {/* Текстовый блок: звание → имя → должность */}
                 <div className="px-1 flex-1">
-                  <p className="text-[#00b5e2] text-[11px] mb-2 leading-snug">{d.title}</p>
-                  <h3 className="font-bold text-gray-900 text-[15px] leading-tight mb-2">{d.name}</h3>
-                  <p className="text-gray-500 text-xs leading-snug">{d.position}</p>
+                  <p className="text-[#00b5e2] text-[13px] mb-2 leading-snug">{d.title}</p>
+                  <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2">{d.name}</h3>
+                  <p className="text-gray-600 text-[13px] leading-snug">{d.position}</p>
                 </div>
 
                 {/* Низ: пилюля «Записаться» + круглая кнопка с лупой */}
@@ -192,26 +202,26 @@ export default function HomePage() {
             ))}
 
             {/* Голубая карточка — последняя ячейка сетки, шириной 2 ячеек */}
-            <div className="bg-[#00b5e2] rounded-2xl p-8 lg:p-10 text-white flex flex-col justify-between lg:col-span-2">
-              <div>
-                <LogoMark className="h-10 w-auto mb-6" style={{ ['--fill-0' as string]: '#ffffff' }} />
-                <h3 className="text-2xl lg:text-[28px] font-bold mb-3 leading-tight">Команда Erensau Hospital</h3>
-                <p className="text-white/85 text-sm leading-relaxed mb-7 max-w-md">
-                  Современная клиника с командной моделью высочайшей подготовки, объединяющая технологии, опыт и заботу о пациенте.
-                </p>
-                {/* Мини-аватары */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="flex -space-x-2.5">
-                    {[doctor1, doctor2, doctor3, doctor4, imgDoctorSenior].map((d, i) => (
-                      <div key={i} className="w-9 h-9 rounded-full border-2 border-[#00b5e2] overflow-hidden">
-                        <img src={d} alt="" className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                  <span className="text-white text-sm font-medium">60+ специалистов</span>
-                </div>
+            <div className="bg-[#00b5e2] rounded-3xl p-7 lg:p-8 text-white flex flex-col lg:col-span-2">
+              <div className="mb-7">
+                <LogoMark className="h-10 w-auto" style={{ ['--fill-0' as string]: '#ffffff' }} />
               </div>
-              <Link to="/doctors" className="bg-white text-[#00b5e2] text-sm font-semibold py-3 px-6 rounded-full hover:bg-gray-50 transition-colors w-fit">
+
+              {/* Аватары команды */}
+              <div className="flex items-center gap-2 mb-7">
+                {[doctor1, doctor2, doctor3, doctor4, imgDoctorSenior].map((d, i) => (
+                  <div key={i} className="w-16 h-16 rounded-full overflow-hidden bg-white/20">
+                    <img src={d} alt="" className="w-full h-full object-cover object-top" />
+                  </div>
+                ))}
+              </div>
+
+              <h3 className="text-2xl lg:text-[28px] font-bold mb-3 leading-tight">Команда Erensau Hospital</h3>
+              <p className="text-white/85 text-sm leading-relaxed mb-7 max-w-md">
+                Современная клиника с командной моделью высочайшей подготовки, объединяющая технологии, опыт и заботу о пациенте.
+              </p>
+
+              <Link to="/doctors" className="bg-white text-[#00b5e2] text-sm font-semibold py-2.5 px-6 rounded-full hover:bg-gray-50 transition-colors w-fit mt-auto">
                 Смотреть всех врачей
               </Link>
             </div>
@@ -224,7 +234,7 @@ export default function HomePage() {
       <section className="bg-[#f4f4f4] py-16 lg:py-24">
         <div className="container-main">
           {/* Заголовок по центру */}
-          <h2 className="text-3xl lg:text-[44px] font-bold text-gray-900 text-center mb-9">
+          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center mb-9">
             Широкий спектр медицинских услуг
           </h2>
 
@@ -256,10 +266,10 @@ export default function HomePage() {
                   i === 4 ? 'lg:col-start-2' : ''
                 }`}
               >
-                <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-12">
+                <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-9">
                   <img src={s.icon} alt="" className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-[17px] mb-4 leading-snug">{s.title}</h3>
+                <h3 className="font-bold text-gray-900 text-[19px] mb-4 leading-snug">{s.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
               </article>
             ))}
@@ -286,20 +296,31 @@ export default function HomePage() {
           <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center mb-10">
             Виртуальный тур по клинике
           </h2>
-          <div className="relative rounded-[32px] overflow-hidden min-h-[360px] lg:min-h-[420px] flex items-center">
-            <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-[#0a1628]/70" />
-            {/* Водяной знак-логомарк слева */}
+          <div className="relative rounded-[32px] overflow-hidden min-h-[360px] lg:min-h-[400px] flex items-center">
+            {/* Тёплый коричневый интерьер: фото с фильтрами + коричневый оверлей */}
+            <img
+              src={imgOperatingRoom}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover grayscale sepia-[0.45] brightness-[0.5]"
+            />
+            <div className="absolute inset-0 bg-[#403732]/70" />
+            {/* Водяной знак-логомарк левее центра */}
             <LogoMark
-              className="absolute left-8 lg:left-16 top-1/2 -translate-y-1/2 h-40 lg:h-56 w-auto opacity-20"
+              className="absolute left-[30%] top-1/2 -translate-y-1/2 h-48 lg:h-60 w-auto opacity-[0.18]"
               style={{ ['--fill-0' as string]: '#ffffff' }}
             />
-            {/* Контент по центру */}
-            <div className="relative z-10 w-full px-8 py-12 flex flex-col items-center text-center">
-              <div className="text-white font-bold text-4xl lg:text-5xl lowercase leading-none mb-1">erensau</div>
-              <div className="text-white/70 text-lg tracking-widest uppercase mb-6">hospital</div>
-              <p className="text-white/70 text-sm mb-8">Точные решения для сложных случаев</p>
-              <button className="btn-primary text-sm px-8 py-3.5">Начать 3D-тур</button>
+            {/* Контент: словомарка сверху, ниже кнопка + слоган в строку */}
+            <div className="relative z-10 w-full px-8 py-12 flex flex-col items-center lg:translate-x-14">
+              <div className="flex flex-col items-end">
+                <div className="text-white/70 font-bold text-5xl lg:text-6xl lowercase leading-none">erensau</div>
+                <div className="text-white/50 text-xl lowercase tracking-wide mt-1">hospital</div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 mt-8">
+                <button className="btn-primary text-sm px-8 py-3.5 rounded-full">Начать 3D - тур</button>
+                <p className="text-white/60 text-sm text-center sm:text-left leading-snug">
+                  Точные решения<br />для сложных случаев
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -313,8 +334,8 @@ export default function HomePage() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {posts.map((p) => (
-              <article key={p.title} className="group cursor-pointer">
+            {posts.map((p, i) => (
+              <article key={`${p.title}-${i}`} className="group cursor-pointer">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-gray-200">
                   <img
                     src={p.img}

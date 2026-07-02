@@ -42,6 +42,6 @@
   }
 
   .container-main {
-    @apply max-w-[1440px] mx-auto px-4 lg:px-16;
+    @apply max-w-[1440px] mx-auto px-4 lg:px-16 xl:px-[130px];
   }
 }
