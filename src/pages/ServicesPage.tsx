@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroDoctorLab from '@/assets/images/hero-doctor-lab.png'
-import heroEllipseBg from '@/assets/images/hero-ellipse-bg.png'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import svcCardiac from '@/assets/icons/svc-cardiac.svg'
 import svcSurgery from '@/assets/icons/svc-surgery.svg'
@@ -25,11 +24,11 @@ const STANDARD_DETAILS = [
 
 const profiles: ServiceItem[] = [
   { icon: svcCardiac,    title: 'Анализ крови',           price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcCardiac,    title: 'Эхокардиография',         price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcCardiac,    title: 'ЭКГ суточный мониторинг', price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcCardiac,    title: 'Консультация кардиолога', price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcCardiac,    title: 'Велоэргометрия',          price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcCardiac,    title: 'Холтер-мониторинг',       price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcCardiac,    title: 'Анализ крови',         price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcCardiac,    title: 'Анализ крови', price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcCardiac,    title: 'Анализ крови', price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcCardiac,    title: 'Анализ крови',          price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcCardiac,    title: 'Анализ крови',       price: '50 000тг', details: STANDARD_DETAILS },
 ]
 
 const blood: ServiceItem[] = [
@@ -45,7 +44,7 @@ const kdo: ServiceItem[] = [
   { icon: svcThoracic,   title: 'МРТ головного мозга',         price: '50 000тг', details: STANDARD_DETAILS },
   { icon: svcThoracic,   title: 'КТ органов грудной клетки',    price: '50 000тг', details: STANDARD_DETAILS },
   { icon: svcThoracic,   title: 'УЗИ органов брюшной полости',  price: '50 000тг', details: STANDARD_DETAILS },
-  { icon: svcThoracic,   title: 'Эхокардиография',              price: '50 000тг', details: STANDARD_DETAILS },
+  { icon: svcThoracic,   title: 'Анализ крови',              price: '50 000тг', details: STANDARD_DETAILS },
   { icon: svcThoracic,   title: 'Эндоскопия ЖКТ',               price: '50 000тг', details: STANDARD_DETAILS },
   { icon: svcThoracic,   title: 'Цифровая рентгенография',      price: '50 000тг', details: STANDARD_DETAILS },
 ]
@@ -89,7 +88,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       </div>
 
       {/* Заголовок */}
-      <h3 className="font-bold text-gray-900 text-xl mb-5 leading-snug">{item.title}</h3>
+      <h3 className="font-bold text-gray-900 text-lg mb-5 leading-snug">{item.title}</h3>
 
       {/* Аккордеоны */}
       <div className="flex-1">
@@ -137,79 +136,71 @@ export default function ServicesPage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Светлый hero — фон-эллипс, фото врача справа, текст слева, визитка возле плеча, табы внизу ── */}
-      <section className="relative overflow-hidden bg-[#f4f4f4]">
-        {/* Фоновое изображение «эллипс» — мягкие круги */}
-        <img
-          src={heroEllipseBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        />
+      {/* ── Hero — карточка: заголовок слева, врач по центру, «30+» справа ── */}
+      <section className="bg-[#f4f4f4] px-3 pt-2">
+        <div
+          className="relative overflow-hidden rounded-[28px] min-h-[700px]"
+          style={{
+            backgroundImage:
+              'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',
+          }}
+        >
+          {/* Фото врача — по центру, прижато к низу карточки */}
+          <img
+            src={heroDoctorLab}
+            alt="Врач Erensau"
+            className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[620px] w-auto object-contain object-bottom"
+          />
 
-        <div className="container-main relative pt-20 lg:pt-24 pb-28 lg:pb-32 min-h-[760px]">
-
-          {/* Двухколоночный grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] gap-8 relative items-center">
-
-            {/* Левая колонка: заголовок + описание + кнопка */}
-            <div className="flex flex-col">
-              <div className="flex items-start gap-4 mb-10">
-                <LogoMark className="h-12 lg:h-16 w-auto flex-shrink-0 mt-2" style={{ ['--fill-0' as string]: '#00b5e2' }} />
-                <h1 className="text-5xl lg:text-[80px] font-bold text-gray-900 leading-[0.95] tracking-tight">
+          <div className="relative px-8 lg:px-28 pt-12 lg:pt-32 pb-10">
+            {/* Заголовок + описание слева */}
+            <div className="max-w-[420px]">
+              <div className="flex items-start gap-4 mb-8">
+                <LogoMark className="h-16 lg:h-24 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.05] tracking-tight">
                   Медицинские<br />услуги
                 </h1>
               </div>
-              <p className="text-gray-800 text-sm leading-relaxed max-w-md">
+              <p className="text-gray-800 text-[13px] leading-relaxed max-w-[340px]">
                 Erensau Hospital предоставляет широкий спектр
                 медицинских услуг по международным стандартам.
               </p>
             </div>
 
-            {/* Правая колонка: фото врача + визитка возле плеча */}
-            <div className="relative hidden lg:flex justify-center items-end min-h-[640px]">
-              <img
-                src={heroDoctorLab}
-                alt="Врач Erensau"
-                className="h-[640px] w-auto object-contain object-bottom relative z-0"
-              />
-
-              {/* Белая визитка возле плеча врача */}
-              <div className="absolute top-[42%] right-0 lg:-right-4 bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] max-w-[260px] z-10">
-                <div className="flex items-baseline gap-3 mb-5">
-                  <div className="text-5xl font-bold text-gray-900 leading-none">30+</div>
-                  <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
-                </div>
-                <p className="text-gray-700 text-xs leading-relaxed">
-                  Кардиология, онкология, хирургия
-                  и другие специализации
-                  под одной крышей.
-                </p>
+            {/* Белая карточка «30+» справа */}
+            <div className="hidden lg:block absolute right-[9%] top-[22%] bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[300px] z-10">
+              <div className="flex items-baseline gap-3 mb-4">
+                <div className="text-[44px] font-bold text-gray-900 leading-none">30+</div>
+                <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Табы внизу hero — отдельные пилюли, активная голубая */}
-        <div className="absolute left-0 right-0 bottom-6 z-20">
-          <div className="container-main flex justify-center">
-            <div className="inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
-              {tabs.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => setActiveTab(t.id)}
-                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                    activeTab === t.id
-                      ? 'bg-[#00b5e2] text-white'
-                      : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
-                  }`}
-                >
-                  {t.label}
-                </button>
-              ))}
+              <p className="text-gray-700 text-xs leading-relaxed">
+                Кардиология, онкология, хирургия
+                и другие специализации
+                под одной крышей.
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Табы — наполовину на границе hero-карточки */}
+      <div className="container-main relative z-20 -mt-7 flex justify-center">
+        <div className="inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
+          {tabs.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setActiveTab(t.id)}
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                activeTab === t.id
+                  ? 'bg-[#00b5e2] text-white'
+                  : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* ── Сетка карточек ── */}
       <section className="bg-[#f4f4f4] py-12 lg:py-16">

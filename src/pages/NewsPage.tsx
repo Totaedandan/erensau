@@ -44,35 +44,46 @@ export default function NewsPage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Тёмный hero + табы ── */}
-      <section className="relative overflow-hidden min-h-[520px]">
-        <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#0a1628]/80" />
-        <div className="relative z-10 container-main pt-20 pb-10 min-h-[520px] flex flex-col justify-center">
-          <div className="flex items-start gap-4 mb-6">
-            <LogoMark className="h-12 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
-            <h1 className="text-4xl lg:text-[64px] font-bold text-white leading-[0.95]">
-              Новости<br />и исследования
-            </h1>
-          </div>
-          <p className="text-white/60 text-sm leading-relaxed max-w-xl mb-10">
-            Erensau Hospital — не только практика, но и исследования. Следите за новостями
-            клиники, научными публикациями и участием наших врачей в международных конференциях.
-          </p>
-          <div className="inline-flex bg-white/10 backdrop-blur-sm rounded-full p-1.5 gap-1 flex-wrap self-start">
-            {heroTabs.map((tab, i) => (
-              <button
-                key={tab}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                  i === 0 ? 'bg-[#00b5e2] text-white' : 'text-white/80 hover:text-white'
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+      {/* ── Hero — светлая карточка, контент внизу ── */}
+      <section className="bg-[#f4f4f4] px-3 pt-2">
+        <div className="relative overflow-hidden rounded-[28px] min-h-[760px]">
+          <img src={post1} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 via-transparent to-transparent" />
+
+          <div className="relative z-10 px-8 lg:px-24 flex flex-col justify-end min-h-[760px] pb-20">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+              <div className="flex items-start gap-4">
+                <LogoMark className="h-14 lg:h-20 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
+                <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.05]">
+                  Новости<br />и исследования
+                </h1>
+              </div>
+              <p className="text-white/90 text-[13px] leading-relaxed max-w-sm lg:pb-1">
+                Erensau Hospital - не только практика, но и
+                исследования. Следите за новостями клиники,
+                научными публикациями и участием наших врачей
+                в международных конференциях
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Табы — наполовину на границе hero */}
+      <div className="container-main relative z-20 -mt-6 flex justify-start">
+        <div className="inline-flex bg-white rounded-full p-1.5 gap-1 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap">
+          {heroTabs.map((tab, i) => (
+            <button
+              key={tab}
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                i === 0 ? 'bg-[#00b5e2] text-white' : 'text-gray-800 hover:text-[#00b5e2]'
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* ── Главная статья + Последние публикации ── */}
       <section className="container-main py-12 lg:py-16">
@@ -91,7 +102,10 @@ export default function NewsPage() {
                 </div>
                 <h2 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 leading-snug group-hover:text-[#00b5e2] transition-colors">{featured.title}</h2>
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">{featured.excerpt}</p>
-                <span className="inline-block text-sm text-gray-900 border border-gray-300 rounded-full px-6 py-2.5 group-hover:border-[#00b5e2] group-hover:text-[#00b5e2] transition-colors">Читать подробнее</span>
+                <div className="flex items-center justify-between">
+                  <span className="inline-block text-sm text-gray-900 border border-gray-300 rounded-full px-6 py-2.5 group-hover:border-[#00b5e2] group-hover:text-[#00b5e2] transition-colors">Читать подробнее</span>
+                  <span className="text-xs text-gray-400">{featured.date}</span>
+                </div>
               </div>
             </article>
           </div>
@@ -130,14 +144,14 @@ export default function NewsPage() {
               <h3 className="text-2xl lg:text-4xl font-bold text-white leading-tight mb-7">
                 Заболевания органов дыхания в практике врача терапевта
               </h3>
-              <Link to="/contacts" className="btn-primary text-sm px-8 py-3.5 mb-7">Зарегистрироваться</Link>
-              <div className="flex flex-wrap gap-x-10 gap-y-3 text-white">
+              <div className="grid grid-cols-[auto_auto] gap-x-12 gap-y-5 items-center w-fit text-white">
+                <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 hover:bg-[#0099c4] transition-colors text-center">Зарегистрироваться</Link>
                 <div>
                   <div className="text-white/50 text-xs mb-1">Дата:</div>
                   <div className="text-lg font-bold">15.06.26</div>
                 </div>
-                <div>
-                  <div className="text-white/50 text-xs mb-1">До начала конференции</div>
+                <div className="text-center">
+                  <div className="text-white/50 text-xs mb-1">До начало конференций</div>
                   <div className="text-lg font-bold tabular-nums">00 : 00 : 00 : 00</div>
                 </div>
                 <div>
@@ -162,7 +176,7 @@ export default function NewsPage() {
         </div>
         {/* Точки-пагинация */}
         <div className="flex items-center justify-center gap-2 mt-6">
-          {[0, 1, 2, 3].map((d) => (
+          {[0, 1, 2, 3, 4, 5, 6].map((d) => (
             <span key={d} className={`w-2 h-2 rounded-full ${d === 0 ? 'bg-[#00b5e2]' : 'bg-gray-300'}`} />
           ))}
         </div>

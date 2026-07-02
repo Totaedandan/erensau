@@ -1,30 +1,25 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
+import heroSurgeon from '@/assets/images/hero-surgeon.png'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import ContactForm from '@/components/ui/ContactForm'
 import CTASlider from '@/components/ui/CTASlider'
 
-const duties = ['Работа с пациентами', 'Работа с базой данных пациентов', 'Ведение учёта приёма пациентов']
+const duties = ['Работа с пациентами', 'Работа с базой данных пациентов', 'Ведение учета приема пациентов']
 
-const HEART = 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
-const VENUS = 'M12 13a4 4 0 100-8 4 4 0 000 8zm0 0v7m-3-3h6'
+const NEURON = 'M12 12v6m0-6l-4-3m4 3l4-3m-4 9l-3 3m3-3l3 3M12 6V3m0 3L9 4m3 2l3-2M6 9L3 8m3 1l-1 3m13-4l3-1m-3 1l1 3'
+const UTERUS = 'M12 4v5m0 0c-3.5 0-6 2.2-6 5.5M12 9c3.5 0 6 2.2 6 5.5M6.2 14.5a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0zm15.6 0a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0z'
 const MONITOR = 'M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm5 14h6M7 11l2 2 2-4 2 3h2'
 const SCALPEL = 'M14 4l6 6-9 9-4 1 1-4 6-6m-9 13l3-3'
-const PULSE = 'M3 12h4l2 6 4-14 2 8h6'
-const SCAN = 'M12 3a9 9 0 100 18 9 9 0 000-18zm0 6a3 3 0 100 6 3 3 0 000-6z'
-const CROSS = 'M12 5v14M5 12h14'
 
-const vacancies = [
-  { title: 'Кардиолог',              icon: HEART },
-  { title: 'Гинеколог',              icon: VENUS },
-  { title: 'Анестезиолог',           icon: MONITOR },
-  { title: 'Хирург',                 icon: SCALPEL },
-  { title: 'Кардиохирург',           icon: HEART },
-  { title: 'Сосудистый хирург',      icon: PULSE },
-  { title: 'Врач МРТ / Рентгенолог', icon: SCAN },
-  { title: 'Операционная медсестра', icon: CROSS },
+// В макете 2 ряда одних и тех же 4 вакансий (плейсхолдер)
+const baseVacancies = [
+  { title: 'Кардиолог',    icon: NEURON },
+  { title: 'Гинеколог',    icon: UTERUS },
+  { title: 'Анестезиолог', icon: MONITOR },
+  { title: 'Хирург',       icon: SCALPEL },
 ]
+const vacancies = [...baseVacancies, ...baseVacancies]
 
 export default function VacanciesPage() {
   const [search, setSearch] = useState('')
@@ -33,14 +28,15 @@ export default function VacanciesPage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Тёмный hero ── */}
-      <section className="relative overflow-hidden min-h-[520px]">
-        <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#0a1628]/80" />
-        <div className="relative z-10 container-main flex flex-col justify-center min-h-[520px] py-16">
+      {/* ── Тёмный hero — карточка ── */}
+      <section className="bg-[#f4f4f4] px-3 pt-2">
+        <div className="relative overflow-hidden rounded-[28px] min-h-[700px]">
+        <img src={heroSurgeon} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '60% 30%' }} />
+        <div className="absolute inset-0 bg-[#0a1628]/55" />
+        <div className="relative z-10 px-8 lg:px-24 flex flex-col justify-center min-h-[700px] py-16">
           <div className="flex items-start gap-4 mb-6">
-            <LogoMark className="h-12 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
-            <h1 className="text-5xl lg:text-[64px] font-bold text-white leading-[0.95]">
+            <LogoMark className="h-16 lg:h-24 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+            <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
               Станьте частью<br />команды erensau
             </h1>
           </div>
@@ -65,32 +61,35 @@ export default function VacanciesPage() {
             </a>
           </div>
         </div>
+        </div>
       </section>
 
       {/* ── Список вакансий + поиск ── */}
       <section id="vacancies" className="container-main py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-8">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">Список вакансий</h2>
-          <div className="flex items-center bg-white border border-gray-200 rounded-full pl-5 pr-1.5 py-1.5 w-full lg:w-96">
-            <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Вакансий"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 bg-transparent border-0 px-3 py-2 text-sm outline-none placeholder:text-gray-400"
-            />
-            <button className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-7 py-2.5 hover:bg-[#0099c4] transition-colors">
+          <div className="flex items-center gap-4 w-full lg:w-96">
+            <div className="flex items-center flex-1 border-b border-gray-300 pb-2">
+              <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Вакансия"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="flex-1 bg-transparent border-0 px-3 text-sm outline-none placeholder:text-gray-400"
+              />
+            </div>
+            <button className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-8 py-2.5 hover:bg-[#0099c4] transition-colors">
               Поиск
             </button>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {filtered.map((v) => (
-            <div key={v.title} className="bg-white rounded-2xl p-6 flex flex-col">
+          {filtered.map((v, vi) => (
+            <div key={`${v.title}-${vi}`} className="bg-white rounded-2xl p-6 flex flex-col">
               <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-[#00b5e2]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={v.icon} />
