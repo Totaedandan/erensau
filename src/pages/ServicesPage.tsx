@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroDoctorLab from '@/assets/images/hero-doctor-lab.png'
 import logoMark from '@/assets/images/logo-mark.png'
-import svcCardiac from '@/assets/icons/svc-cardiac.svg'
-import svcSurgery from '@/assets/icons/svc-surgery.svg'
-import svcThoracic from '@/assets/icons/svc-thoracic.svg'
+import svcCardiac from '@/assets/icons/picto-heart.png'
+import svcSurgery from '@/assets/icons/picto-scalpel.png'
+import svcThoracic from '@/assets/icons/picto-lungs.png'
 import CTASlider from '@/components/ui/CTASlider'
 
 type Tab = 'cardio' | 'onco' | 'diagnostics' | 'lab' | 'checkup' | 'surgery'
@@ -84,7 +84,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
     <article className="bg-white rounded-2xl p-7 flex flex-col">
       {/* Голубая круглая иконка */}
       <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-6">
-        <img src={item.icon} alt="" className="w-6 h-6" />
+        <img src={item.icon} alt="" className="w-full h-full" />
       </div>
 
       {/* Заголовок */}

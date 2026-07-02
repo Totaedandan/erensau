@@ -24,10 +24,10 @@ const LinkedinIcon = () => (
 )
 
 const socials = [
-  { id: 'ig', href: '#', icon: <IgIcon /> },
-  { id: 'fb', href: '#', icon: <FbIcon /> },
-  { id: 'yt', href: '#', icon: <YtIcon /> },
-  { id: 'in', href: '#', icon: <LinkedinIcon /> },
+  { id: 'ig', href: 'https://www.instagram.com/erensau.kz/', icon: <IgIcon /> },
+  { id: 'fb', href: 'https://www.facebook.com/erensaukz/', icon: <FbIcon /> },
+  { id: 'yt', href: 'https://www.youtube.com/@erensau', icon: <YtIcon /> },
+  { id: 'in', href: 'https://www.linkedin.com/company/erensau-hospital/', icon: <LinkedinIcon /> },
 ]
 
 const corporate = [
@@ -62,6 +62,8 @@ export default function Footer() {
                 <a
                   key={s.id}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.id}
                   className="w-8 h-8 rounded-full bg-[#00b5e2] text-white flex items-center justify-center hover:bg-[#0099c4] transition-colors"
                 >

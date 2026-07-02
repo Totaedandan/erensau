@@ -37,10 +37,10 @@ const LinkedinIcon = () => (
 )
 
 const socials = [
-  { id: 'ig', href: '#', icon: <IgIcon /> },
-  { id: 'fb', href: '#', icon: <FbIcon /> },
-  { id: 'yt', href: '#', icon: <YtIcon /> },
-  { id: 'in', href: '#', icon: <LinkedinIcon /> },
+  { id: 'ig', href: 'https://www.instagram.com/erensau.kz/', icon: <IgIcon /> },
+  { id: 'fb', href: 'https://www.facebook.com/erensaukz/', icon: <FbIcon /> },
+  { id: 'yt', href: 'https://www.youtube.com/@erensau', icon: <YtIcon /> },
+  { id: 'in', href: 'https://www.linkedin.com/company/erensau-hospital/', icon: <LinkedinIcon /> },
 ]
 
 // Флаги как SVG
@@ -157,6 +157,8 @@ export default function Header() {
               <a
                 key={s.id}
                 href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={s.id}
                 className="w-7 h-7 rounded-full bg-[#00b5e2] text-white flex items-center justify-center hover:bg-[#0099c4] transition-colors"
               >
@@ -287,7 +289,7 @@ export default function Header() {
               <div className="flex items-center justify-between pt-1">
                 <div className="flex items-center gap-1.5">
                   {socials.map((s) => (
-                    <a key={s.id} href={s.href} className="w-7 h-7 rounded-full bg-[#00b5e2] text-white flex items-center justify-center">
+                    <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full bg-[#00b5e2] text-white flex items-center justify-center">
                       {s.icon}
                     </a>
                   ))}

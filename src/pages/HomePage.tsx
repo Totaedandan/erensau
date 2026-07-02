@@ -16,12 +16,12 @@ import featureStories from '@/assets/icons/feature-stories.svg'
 import featureDoctors from '@/assets/icons/feature-doctors.svg'
 import featureEquipment from '@/assets/icons/feature-equipment.svg'
 import featurePricing from '@/assets/icons/feature-pricing.svg'
-import svcCardiac from '@/assets/icons/svc-cardiac.svg'
-import svcVascular from '@/assets/icons/svc-vascular.svg'
-import svcSurgery from '@/assets/icons/svc-surgery.svg'
-import svcThoracic from '@/assets/icons/svc-thoracic.svg'
-import svcGynecology from '@/assets/icons/svc-gynecology.svg'
-import svcAnesthesia from '@/assets/icons/svc-anesthesia.svg'
+import svcCardiac from '@/assets/icons/picto-heart.png'
+import svcVascular from '@/assets/icons/picto-vessels.png'
+import svcSurgery from '@/assets/icons/picto-scalpel.png'
+import svcThoracic from '@/assets/icons/picto-lungs.png'
+import svcGynecology from '@/assets/icons/picto-uterus.png'
+import svcAnesthesia from '@/assets/icons/picto-monitor.png'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import logoMark from '@/assets/images/logo-mark.png'
 
@@ -40,7 +40,7 @@ const services = [
   { icon: svcCardiac,    title: 'Кардиохирургия / Кардиология',                            desc: 'Современная диагностика, профилактика и лечение заболеваний сердца и сердечно-сосудистой системы' },
   { icon: svcVascular,   title: 'Сосудистая хирургия / Флебология / Лимфология',          desc: 'Диагностика и лечение заболеваний вен, артерий и лимфатической системы с применением современных методов' },
   { icon: svcSurgery,    title: 'Гепатобилиарная хирургия, Общая хирургия и Онкология',    desc: 'Хирургическое лечение различных заболеваний, включая современные подходы в онкологии' },
-  { icon: svcThoracic,   title: 'Торакальная хирургия / Пульмонология',                   desc: 'Диагностика и лечение заболеваний лёгких, дыхательных путей и органов грудной клетки' },
+  { icon: svcThoracic,   title: 'Торакальная хирургия / Пульмонология',                   desc: 'Диагностика и лечение заболеваний легких, дыхательных путей и органов грудной клетки' },
   { icon: svcGynecology, title: 'Гинекология консервативная, оперативная и эстетическая', desc: 'Комплексная диагностика и лечение женского здоровья' },
   { icon: svcAnesthesia, title: 'Анестезиология, реаниматология и интенсивная терапия',   desc: 'Безопасное проведение анестезии и круглосуточное наблюдение пациентов в отделении интенсивной терапии' },
 ]
@@ -269,7 +269,7 @@ export default function HomePage() {
                 }`}
               >
                 <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-9">
-                  <img src={s.icon} alt="" className="w-6 h-6" />
+                  <img src={s.icon} alt="" className="w-full h-full" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-[19px] mb-4 leading-snug">{s.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>

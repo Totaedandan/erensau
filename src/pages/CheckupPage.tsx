@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import checkupBg from '@/assets/images/checkup-bg.png'
+import pictoHeart from '@/assets/icons/picto-heart.png'
+import pictoMonitor from '@/assets/icons/picto-monitor.png'
+import pictoUterus from '@/assets/icons/picto-uterus.png'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
 
@@ -11,31 +14,32 @@ const STANDARD_DETAILS = [
   { label: 'Условия пребывания', content: 'Комфортные палаты, индивидуальный график, медицинское сопровождение.' },
 ]
 
-// В дизайне: сердце (Кардио), монитор с ЭКГ (Базовый/Детский), матка (Женское), знак Марса (Мужское)
-const IC_HEART = 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
-const IC_MONITOR = 'M4 6h16a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zM7 11h2l1.5 2.5L13 8l1 3h3M9 19h6'
-const IC_UTERUS = 'M12 4v5m0 0c-3.5 0-6 2.2-6 5.5M12 9c3.5 0 6 2.2 6 5.5M6.2 14.5a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0zm15.6 0a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0z'
+// Пиктограммы из дизайна; для «Мужского здоровья» в наборе нет знака Марса — оставлен SVG
 const IC_MARS = 'M10 21a6 6 0 100-12 6 6 0 000 12zm4.2-10.2L21 4m0 0h-5.5M21 4v5.5'
 
-const programCards = [
-  { name: 'Кардио чек-ап',    price: '50 000тг',  icon: IC_HEART },
-  { name: 'Базовый чек-ап',   price: '85 000тг',  icon: IC_MONITOR },
-  { name: 'Женское здоровье', price: '100 000тг', icon: IC_UTERUS },
-  { name: 'Мужское здоровье', price: '50 000тг',  icon: IC_MARS },
-  { name: 'Детский чекап',    price: '85 000тг',  icon: IC_MONITOR },
+const programCards: { name: string; price: string; img?: string; path?: string }[] = [
+  { name: 'Кардио чек-ап',    price: '50 000тг',  img: pictoHeart },
+  { name: 'Базовый чек-ап',   price: '85 000тг',  img: pictoMonitor },
+  { name: 'Женское здоровье', price: '100 000тг', img: pictoUterus },
+  { name: 'Мужское здоровье', price: '50 000тг',  path: IC_MARS },
+  { name: 'Детский чекап',    price: '85 000тг',  img: pictoMonitor },
 ]
 
 const programFilters = ['Все программы', 'Женское здоровье', 'Детский чекап', 'Мужское здоровье']
 
 // Карточка программы с раскрывающимися пунктами (первый раскрыт по умолчанию)
-function ProgramCard({ name, price, icon }: { name: string; price: string; icon: string }) {
+function ProgramCard({ name, price, img, path }: { name: string; price: string; img?: string; path?: string }) {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
   return (
     <article className="bg-white rounded-2xl p-7 flex flex-col">
       <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-6">
-        <svg className="w-6 h-6 text-[#00b5e2]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-          <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
-        </svg>
+        {img ? (
+          <img src={img} alt="" className="w-full h-full" />
+        ) : (
+          <svg className="w-6 h-6 text-[#00b5e2]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+            <path strokeLinecap="round" strokeLinejoin="round" d={path} />
+          </svg>
+        )}
       </div>
       <h3 className="font-bold text-gray-900 text-xl mb-5 leading-snug">{name}</h3>
       <div className="flex-1">
@@ -171,7 +175,7 @@ export default function CheckupPage() {
       <section className="container-main py-10 lg:py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {visibleCards.map((p) => (
-            <ProgramCard key={p.name} name={p.name} price={p.price} icon={p.icon} />
+            <ProgramCard key={p.name} {...p} />
           ))}
         </div>
 

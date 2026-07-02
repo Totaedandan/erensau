@@ -2,22 +2,21 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
 import logoMark from '@/assets/images/logo-mark.png'
+import pictoNeuron from '@/assets/icons/picto-neuron.png'
+import pictoUterus from '@/assets/icons/picto-uterus.png'
+import pictoMonitor from '@/assets/icons/picto-monitor.png'
+import pictoScalpel from '@/assets/icons/picto-scalpel.png'
 import ContactForm from '@/components/ui/ContactForm'
 import CTASlider from '@/components/ui/CTASlider'
 
 const duties = ['Работа с пациентами', 'Работа с базой данных пациентов', 'Ведение учета приема пациентов']
 
-const NEURON = 'M12 12v6m0-6l-4-3m4 3l4-3m-4 9l-3 3m3-3l3 3M12 6V3m0 3L9 4m3 2l3-2M6 9L3 8m3 1l-1 3m13-4l3-1m-3 1l1 3'
-const UTERUS = 'M12 4v5m0 0c-3.5 0-6 2.2-6 5.5M12 9c3.5 0 6 2.2 6 5.5M6.2 14.5a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0zm15.6 0a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0z'
-const MONITOR = 'M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1zm5 14h6M7 11l2 2 2-4 2 3h2'
-const SCALPEL = 'M14 4l6 6-9 9-4 1 1-4 6-6m-9 13l3-3'
-
 // В макете 2 ряда одних и тех же 4 вакансий (плейсхолдер)
 const baseVacancies = [
-  { title: 'Кардиолог',    icon: NEURON },
-  { title: 'Гинеколог',    icon: UTERUS },
-  { title: 'Анестезиолог', icon: MONITOR },
-  { title: 'Хирург',       icon: SCALPEL },
+  { title: 'Кардиолог',    icon: pictoNeuron },
+  { title: 'Гинеколог',    icon: pictoUterus },
+  { title: 'Анестезиолог', icon: pictoMonitor },
+  { title: 'Хирург',       icon: pictoScalpel },
 ]
 const vacancies = [...baseVacancies, ...baseVacancies]
 
@@ -91,9 +90,7 @@ export default function VacanciesPage() {
           {filtered.map((v, vi) => (
             <div key={`${v.title}-${vi}`} className="bg-white rounded-2xl p-6 flex flex-col">
               <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-[#00b5e2]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d={v.icon} />
-                </svg>
+                <img src={v.icon} alt="" className="w-full h-full" />
               </div>
               <h3 className="font-bold text-gray-900 text-lg mb-0.5">{v.title}</h3>
               <p className="text-gray-400 text-xs mb-5">Полный рабочий день</p>
