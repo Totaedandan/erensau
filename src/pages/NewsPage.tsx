@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
@@ -40,7 +41,87 @@ const recommended = [
   { title: 'Операция потребовала слаженной работы',        date: '24 июля 2024', img: post4 },
 ]
 
+// Мини-флаг Казахстана для поля телефона в модалке
+const KzMiniFlag = () => (
+  <svg className="w-5 h-3.5 rounded-sm flex-shrink-0" viewBox="0 0 30 20" fill="none">
+    <rect width="30" height="20" fill="#00AFCA" />
+    <circle cx="11" cy="10" r="3.2" fill="#FFC107" />
+    <path d="M8 10h6M9.5 7.5l3 5M9.5 12.5l3-5" stroke="#FFC107" strokeWidth="0.6" />
+  </svg>
+)
+
+const regSelects = ['Профиль', 'Специализация', 'Город']
+
+// Модальное окно «Регистрационная форма» для конференции
+function RegistrationModal({ onClose }: { onClose: () => void }) {
+  const inputCls =
+    'w-full bg-[#f1f1f3] rounded-lg px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
+  return (
+    <div className="fixed inset-0 z-[60] overflow-y-auto">
+      {/* Осветляющий оверлей */}
+      <div className="absolute inset-0 bg-white/75" onClick={onClose} />
+      <div className="relative min-h-full flex items-center justify-center p-4">
+        <div className="relative bg-white rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.14)] w-full max-w-[465px] px-8 lg:px-10 py-9">
+          {/* Закрыть */}
+          <button
+            onClick={onClose}
+            aria-label="Закрыть"
+            className="absolute right-7 top-7 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <h3 className="text-[26px] font-bold text-gray-900 text-center mb-7">Регистрационная форма</h3>
+
+          <form className="space-y-3.5" onSubmit={(e) => { e.preventDefault(); onClose() }}>
+            <input type="text" placeholder="Ваше ФИО" className={inputCls} />
+
+            {regSelects.map((label) => (
+              <div key={label} className="relative">
+                <select className={`${inputCls} appearance-none text-gray-400 pr-10 cursor-pointer`} defaultValue="">
+                  <option value="" disabled>{label}</option>
+                  <option value="1">{label} 1</option>
+                  <option value="2">{label} 2</option>
+                </select>
+                <svg className="w-4 h-4 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            ))}
+
+            {/* Телефон с кодом страны */}
+            <div className="flex items-center gap-2.5 bg-[#f1f1f3] rounded-lg px-4 py-3">
+              <svg className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+              <KzMiniFlag />
+              <input type="tel" placeholder="+7 000 000 00 00" className="flex-1 bg-transparent border-0 outline-none text-sm placeholder:text-gray-400" />
+            </div>
+
+            <input type="email" placeholder="Электронная почта" className={inputCls} />
+
+            <label className="flex items-center gap-2.5 pt-1 cursor-pointer">
+              <input type="checkbox" className="w-4 h-4 rounded border-gray-300 accent-[#00b5e2]" />
+              <span className="text-xs text-gray-500">Даю соглашение на обработку медицинских данных</span>
+            </label>
+
+            <button
+              type="submit"
+              className="w-full bg-[#00b5e2] text-white text-base font-medium rounded-full py-4 mt-2 hover:bg-[#0099c4] transition-colors"
+            >
+              Зарегистрироваться
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function NewsPage() {
+  const [regOpen, setRegOpen] = useState(false)
   return (
     <div className="bg-[#f4f4f4]">
 
@@ -145,7 +226,7 @@ export default function NewsPage() {
                 Заболевания органов дыхания в практике врача терапевта
               </h3>
               <div className="grid grid-cols-[auto_auto] gap-x-12 gap-y-5 items-center w-fit text-white">
-                <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 hover:bg-[#0099c4] transition-colors text-center">Зарегистрироваться</Link>
+                <button onClick={() => setRegOpen(true)} className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 hover:bg-[#0099c4] transition-colors text-center">Зарегистрироваться</button>
                 <div>
                   <div className="text-white/50 text-xs mb-1">Дата:</div>
                   <div className="text-lg font-bold">15.06.26</div>
@@ -267,6 +348,9 @@ export default function NewsPage() {
 
       {/* ── CTA-слайдер ── */}
       <CTASlider />
+
+      {/* ── Модалка регистрации на конференцию ── */}
+      {regOpen && <RegistrationModal onClose={() => setRegOpen(false)} />}
 
     </div>
   )
