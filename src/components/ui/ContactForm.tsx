@@ -3,23 +3,71 @@ import { useState } from 'react'
 type Props = {
   heading?: string
   text?: string
+  /** Мобильный вариант с полями регистрации (как на Главной в мобильном макете) */
+  mobileVariant?: 'default' | 'registration'
 }
 
 // Большая карточка «Форма обратной связи» — переиспользуется на Главной, Контактах и Вакансиях.
 export default function ContactForm({
   heading = 'Форма\nобратной связи',
   text = 'Оставьте заявку — мы свяжемся с вами в течение рабочего дня и ответим на все вопросы',
+  mobileVariant = 'default',
 }: Props) {
   const [sent, setSent] = useState(false)
 
   const inputCls =
     'w-full bg-[#f1f1f3] rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
+  const inputClsMobile =
+    'w-full bg-[#f1f1f3] rounded-lg px-4 py-3.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
 
   return (
     <section className="bg-[#f4f4f4] py-12 lg:py-16">
       <div className="container-main">
-        <div className="bg-white rounded-[32px] shadow-sm p-8 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,400px)_auto] gap-10 lg:gap-14 items-center">
+        <div className="bg-white rounded-[28px] lg:rounded-[32px] shadow-sm p-7 lg:p-12">
+
+          {/* ── Мобильная версия: всё столбиком ── */}
+          <div className="lg:hidden">
+            <h2 className="text-[28px] font-bold text-gray-900 mb-4 leading-[1.15] whitespace-pre-line">{heading}</h2>
+            {mobileVariant === 'default' && (
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">{text}</p>
+            )}
+            {sent ? (
+              <div className="py-6">
+                <h3 className="font-semibold text-gray-900 mb-1">Заявка отправлена!</h3>
+                <p className="text-gray-500 text-sm">Мы свяжемся с вами в течение рабочего дня.</p>
+              </div>
+            ) : (
+              <form onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-3.5">
+                <input type="text" placeholder="Ваше ФИО" className={inputClsMobile} />
+                {mobileVariant === 'registration' ? (
+                  <>
+                    <input type="text" placeholder="Профиль" className={inputClsMobile} />
+                    <input type="text" placeholder="Специализация" className={inputClsMobile} />
+                    <input type="text" placeholder="Город" className={inputClsMobile} />
+                    <label className="flex items-center gap-2.5 pt-1 cursor-pointer">
+                      <input type="checkbox" className="w-4 h-4 rounded border-gray-300 accent-[#00b5e2]" />
+                      <span className="text-xs text-gray-500">Даю соглашение на обработку медицинских данных</span>
+                    </label>
+                  </>
+                ) : (
+                  <>
+                    <input type="email" placeholder="e-mail" className={inputClsMobile} />
+                    <input type="tel" placeholder="Номер телефона" className={inputClsMobile} />
+                    <input type="text" placeholder="Сообщение" className={inputClsMobile} />
+                  </>
+                )}
+                <button type="submit" className="w-full bg-[#00b5e2] text-white text-base font-medium rounded-full py-4 !mt-6 hover:bg-[#0099c4] transition-colors">
+                  {mobileVariant === 'registration' ? 'Зарегистрироваться' : 'Отправить'}
+                </button>
+                <p className="text-xs text-gray-400 text-center leading-snug pt-1">
+                  Мы не передаём ваши данные<br />третьим лицам
+                </p>
+              </form>
+            )}
+          </div>
+
+          {/* ── Десктопная версия: три колонки ── */}
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,400px)_auto] gap-10 lg:gap-14 items-center">
 
             {/* Левая колонка: заголовок + текст */}
             <div>

@@ -30,18 +30,18 @@ export default function AboutPage() {
             className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[660px] w-auto object-contain object-bottom"
           />
 
-          <div className="relative px-8 lg:px-28 pt-12 lg:pt-36 pb-10">
+          <div className="relative px-7 lg:px-28 pt-10 lg:pt-36 pb-0 lg:pb-10">
 
             {/* Верх: заголовок слева + статистика справа */}
             <div className="flex flex-col lg:flex-row justify-between gap-8">
-              <div className="flex items-start gap-4">
-                <img src={logoMark} alt="" className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" />
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.05] tracking-tight">
+              <div className="flex items-start gap-3.5 lg:gap-4">
+                <img src={logoMark} alt="" className="h-12 lg:h-20 w-auto flex-shrink-0 mt-1" />
+                <h1 className="text-[27px] lg:text-5xl font-bold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
                   Почему<br />выбирают нас
                 </h1>
               </div>
 
-              <div className="grid grid-cols-2 gap-x-14 gap-y-6 lg:pt-2">
+              <div className="grid grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-6 lg:pt-2">
                 {[
                   { val: '10K', label: 'операций\nна счету' },
                   { val: '12K', label: 'пациентов\nв год' },
@@ -49,7 +49,7 @@ export default function AboutPage() {
                   { val: '20',  label: 'лет\nопыта' },
                 ].map((s) => (
                   <div key={s.label} className="flex items-start gap-2.5">
-                    <div className="text-4xl font-bold text-[#00b5e2] leading-none">{s.val}</div>
+                    <div className="text-[34px] lg:text-4xl font-bold text-gray-900 lg:text-[#00b5e2] leading-none">{s.val}</div>
                     <div className="text-gray-600 text-[11px] whitespace-pre-line leading-tight mt-0.5">{s.label}</div>
                   </div>
                 ))}
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </div>
 
             {/* Левая колонка: описание → аватары → цитата */}
-            <div className="relative z-10 max-w-[320px] mt-10">
+            <div className="relative z-10 max-w-[320px] mt-8 lg:mt-10">
               <p className="text-gray-800 text-[13px] leading-relaxed">
                 В Erensau Hospital мы применяем современные
                 методы сердечно-сосудистой хирургии,
@@ -66,24 +66,46 @@ export default function AboutPage() {
               </p>
 
               {/* Аватары врачей */}
-              <div className="hidden lg:flex items-center gap-2.5 mt-28">
+              <div className="flex items-center gap-2 lg:gap-2.5 mt-10 lg:mt-28">
                 {[doctor1, doctor2, doctor3, doctor4, imgDoctorSenior2, imgDoctorPortrait].map((d, i) => (
-                  <div
-                    key={i}
-                    className={`rounded-full overflow-hidden border-2 shadow-sm ${
-                      i === 0 ? 'w-16 h-16 border-[#00b5e2]' : 'w-14 h-14 border-white'
-                    }`}
-                  >
-                    <img src={d} alt="" className="w-full h-full object-cover object-top" />
+                  <div key={i} className="relative">
+                    {i === 0 && <span className="lg:hidden absolute -top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00b5e2]" />}
+                    <div
+                      className={`rounded-full overflow-hidden border-2 shadow-sm ${
+                        i === 0 ? 'w-12 h-12 lg:w-16 lg:h-16 border-[#00b5e2]' : 'w-11 h-11 lg:w-14 lg:h-14 border-white'
+                      }`}
+                    >
+                      <img src={d} alt="" className="w-full h-full object-cover object-top" />
+                    </div>
                   </div>
                 ))}
               </div>
 
               {/* Цитата */}
-              <blockquote className="mt-12 text-gray-500 text-[13px] italic leading-relaxed">
+              <blockquote className="mt-8 lg:mt-12 text-gray-600 lg:text-gray-500 text-[13px] italic leading-relaxed">
                 «Сложные операции требуют не только решительности. Они требуют
                 опыта, команды и ответственности за каждый миллиметр»
               </blockquote>
+            </div>
+
+            {/* Мобилка: фото врача с визиткой и кнопкой «Все врачи» поверх */}
+            <div className="lg:hidden relative -mx-7 mt-6">
+              <img src={imgDoctorSenior} alt="Ниеталиев Кайрат" className="w-full h-[500px] object-cover object-top" />
+              <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[250px] bg-white rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+                <p className="text-[#00b5e2] text-xs font-medium mb-2">к.м.н., ассоциированный профессор</p>
+                <h3 className="font-bold text-gray-900 text-base leading-tight mb-2.5">
+                  Ниеталиев Кайрат<br />Ниеталиевич
+                </h3>
+                <p className="text-gray-500 text-xs leading-relaxed">
+                  Руководитель отделения<br />Кардиохирургии и Кардиологии
+                </p>
+              </div>
+              <Link
+                to="/doctors"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-gray-900 text-sm font-medium rounded-full px-16 py-3.5 shadow-md whitespace-nowrap"
+              >
+                Все врачи
+              </Link>
             </div>
 
             {/* Визитка справа от плеча врача */}
@@ -142,7 +164,7 @@ export default function AboutPage() {
                 { t: 'Доверие',         d: 'открытость, честность и прозрачность в отношениях с пациентами и партнерами.' },
                 { t: 'Партнерство',     d: 'развитие стратегических партнерств, направленных на общий рост и повышение качества медицинских решений.' },
               ].map((v, i) => (
-                <li key={v.t} className="grid grid-cols-[28px_170px_1fr] gap-3 items-start py-3.5 border-b border-gray-200 last:border-b-0">
+                <li key={v.t} className="grid grid-cols-[22px_118px_1fr] lg:grid-cols-[28px_170px_1fr] gap-3 items-start py-3.5 border-b border-gray-200 last:border-b-0">
                   <span className="text-[#00b5e2] font-bold text-[15px] leading-snug">{i + 1}</span>
                   <span className="font-bold text-gray-900 text-sm leading-snug">{v.t}</span>
                   <span className="text-gray-600 text-[13px] italic leading-relaxed">{v.d}</span>
@@ -157,7 +179,7 @@ export default function AboutPage() {
       {/* ── Видео-секция ── */}
       <section className="bg-[#f4f4f4] pb-16 lg:pb-24">
         <div className="container-main">
-          <div className="relative rounded-[28px] overflow-hidden aspect-[2/1] bg-gray-900">
+          <div className="relative rounded-[28px] overflow-hidden aspect-[5/8] lg:aspect-[2/1] bg-gray-900">
             <img
               src={heroSurgeon}
               alt="Операционная Erensau"

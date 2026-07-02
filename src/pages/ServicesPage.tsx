@@ -6,6 +6,7 @@ import svcCardiac from '@/assets/icons/picto-heart.png'
 import svcSurgery from '@/assets/icons/picto-scalpel.png'
 import svcThoracic from '@/assets/icons/picto-lungs.png'
 import CTASlider from '@/components/ui/CTASlider'
+import MobileCarousel from '@/components/ui/MobileCarousel'
 
 type Tab = 'cardio' | 'onco' | 'diagnostics' | 'lab' | 'checkup' | 'surgery'
 
@@ -132,42 +133,43 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState<Tab>('cardio')
+  const [mobileTabOpen, setMobileTabOpen] = useState(false)
 
   return (
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: заголовок слева, врач по центру, «30+» справа ── */}
-      <section className="bg-[#f4f4f4] px-3 pt-2">
+      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
         <div
-          className="relative overflow-hidden rounded-[28px] min-h-[700px]"
+          className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-[700px]"
           style={{
             backgroundImage:
               'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',
           }}
         >
-          {/* Фото врача — по центру, прижато к низу карточки */}
+          {/* Фото врача: на мобилке справа, на десктопе по центру, прижато к низу карточки */}
           <img
             src={heroDoctorLab}
             alt="Врач Erensau"
-            className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[620px] w-auto object-contain object-bottom"
+            className="absolute right-[-80px] lg:right-auto lg:left-1/2 lg:-translate-x-1/2 bottom-0 h-[540px] lg:h-[620px] w-auto object-contain object-bottom"
           />
 
-          <div className="relative px-8 lg:px-28 pt-12 lg:pt-32 pb-10">
+          <div className="relative px-6 lg:px-28 pt-10 lg:pt-32 pb-10">
             {/* Заголовок + описание слева */}
             <div className="max-w-[420px]">
-              <div className="flex items-start gap-4 mb-8">
-                <img src={logoMark} alt="" className="h-16 lg:h-24 w-auto flex-shrink-0" />
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.05] tracking-tight">
+              <div className="flex items-start gap-3.5 lg:gap-4 mb-6 lg:mb-8">
+                <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
+                <h1 className="text-[27px] lg:text-5xl font-bold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
                   Медицинские<br />услуги
                 </h1>
               </div>
-              <p className="text-gray-800 text-[13px] leading-relaxed max-w-[340px]">
+              <p className="text-gray-800 text-[13px] leading-relaxed max-w-[180px] lg:max-w-[340px]">
                 Erensau Hospital предоставляет широкий спектр
                 медицинских услуг по международным стандартам.
               </p>
             </div>
 
-            {/* Белая карточка «30+» справа */}
+            {/* Белая карточка «30+» справа (десктоп) */}
             <div className="hidden lg:block absolute right-[9%] top-[22%] bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[300px] z-10">
               <div className="flex items-baseline gap-3 mb-4">
                 <div className="text-[44px] font-bold text-gray-900 leading-none">30+</div>
@@ -180,12 +182,64 @@ export default function ServicesPage() {
               </p>
             </div>
           </div>
+
+          {/* Белая карточка «30+» внизу слева (мобилка) */}
+          <div className="lg:hidden absolute left-5 bottom-16 bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[262px] z-10">
+            <div className="flex items-baseline gap-3 mb-3">
+              <div className="text-[40px] font-bold text-[#00b5e2] leading-none">30+</div>
+              <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
+            </div>
+            <p className="text-gray-700 text-xs leading-relaxed">
+              Кардиология, онкология, хирургия
+              и другие специализации
+              под одной крышей.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Табы — наполовину на границе hero-карточки */}
       <div className="container-main relative z-20 -mt-7 flex justify-center">
-        <div className="inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
+        {/* Мобилка: голубой дропдаун */}
+        <div className="lg:hidden relative">
+          <button
+            onClick={() => setMobileTabOpen(o => !o)}
+            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-9 py-3.5 shadow-lg"
+          >
+            {tabs.find(t => t.id === activeTab)?.label}
+            <svg className={`w-4 h-4 transition-transform ${mobileTabOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {mobileTabOpen && (
+            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-white rounded-2xl shadow-lg py-1.5 min-w-[230px] z-40">
+              {tabs.map((t) =>
+                t.id === 'surgery' ? (
+                  <Link
+                    key={t.id}
+                    to="/checkup"
+                    className="block w-[calc(100%-2.5rem)] mx-5 text-left py-2.5 text-sm text-gray-800 border-b border-gray-200 last:border-b-0"
+                  >
+                    {t.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={t.id}
+                    onClick={() => { setActiveTab(t.id); setMobileTabOpen(false) }}
+                    className={`block w-[calc(100%-2.5rem)] mx-5 text-left py-2.5 text-sm border-b border-gray-200 last:border-b-0 ${
+                      activeTab === t.id ? 'text-[#00b5e2]' : 'text-gray-800'
+                    }`}
+                  >
+                    {t.label}
+                  </button>
+                )
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Десктоп: ряд табов */}
+        <div className="hidden lg:inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
           {tabs.map((t) =>
             t.id === 'surgery' ? (
               /* «Check-up программы» ведёт на отдельную страницу */
@@ -213,9 +267,25 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* ── Сетка карточек ── */}
+      {/* ── Карточки: карусель на мобилке, сетка на десктопе ── */}
       <section className="bg-[#f4f4f4] py-12 lg:py-16">
-        <div className="container-main">
+        <div className="lg:hidden">
+          <MobileCarousel arrowsTop="40%">
+            {dataMap[activeTab].map((s, i) => (
+              <ServiceCard key={`${s.title}-m${i}`} item={s} />
+            ))}
+          </MobileCarousel>
+          <div className="text-center mt-9">
+            <a
+              href="#"
+              className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5"
+            >
+              Скачать полный прейскурант
+            </a>
+          </div>
+        </div>
+
+        <div className="container-main hidden lg:block">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {dataMap[activeTab].map((s, i) => (
               <ServiceCard key={`${s.title}-${i}`} item={s} />

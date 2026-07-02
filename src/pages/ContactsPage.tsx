@@ -21,7 +21,7 @@ export default function ContactsPage() {
       {/* ── Навигация по комплексу — карта на всю карточку, текст поверх ── */}
       <section className="bg-white py-14 lg:py-20">
         <div className="container-main">
-          <div className="relative rounded-3xl overflow-hidden min-h-[400px] bg-[#fafafa] shadow-sm">
+          <div className="relative rounded-3xl overflow-hidden h-[620px] lg:h-auto lg:min-h-[400px] bg-[#fafafa] shadow-sm">
 
             {/* Карта-иллюстрация на всю карточку */}
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1180 400" preserveAspectRatio="xMidYMid slice">
@@ -48,14 +48,14 @@ export default function ContactsPage() {
               </g>
             </svg>
 
-            {/* Текст поверх слева */}
-            <div className="relative z-10 p-8 lg:p-12 max-w-xs">
-              <h2 className="text-2xl lg:text-[32px] font-bold text-gray-900 mb-7 leading-tight">
+            {/* Текст: на мобилке по центру сверху, на десктопе слева */}
+            <div className="relative z-10 p-8 lg:p-12 max-w-none lg:max-w-xs text-center lg:text-left">
+              <h2 className="text-[28px] lg:text-[32px] font-bold text-gray-900 mb-6 lg:mb-7 leading-tight">
                 Навигация<br />по комплексу
               </h2>
               <ul className="space-y-2.5 mb-9">
                 {complexPoints.map((p) => (
-                  <li key={p.n} className="text-sm text-gray-800">
+                  <li key={p.n} className="text-base lg:text-sm text-gray-800">
                     {p.n} - {p.label}
                   </li>
                 ))}
@@ -64,11 +64,21 @@ export default function ContactsPage() {
                 href="https://2gis.kz/almaty"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white border border-gray-300 rounded-full px-8 py-3 text-sm text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+                className="hidden lg:inline-block bg-white border border-gray-300 rounded-full px-8 py-3 text-sm text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
               >
                 Проложить маршрут
               </a>
             </div>
+
+            {/* Кнопка на мобилке — по центру внизу поверх карты */}
+            <a
+              href="https://2gis.kz/almaty"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lg:hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bg-white border border-gray-800 rounded-full px-10 py-3.5 text-sm font-medium text-gray-900 whitespace-nowrap"
+            >
+              Проложить маршрут
+            </a>
 
           </div>
         </div>

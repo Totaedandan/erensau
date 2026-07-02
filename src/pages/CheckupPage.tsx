@@ -6,6 +6,7 @@ import pictoMonitor from '@/assets/icons/picto-monitor.png'
 import pictoUterus from '@/assets/icons/picto-uterus.png'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
+import MobileCarousel from '@/components/ui/MobileCarousel'
 
 // Стандартные раскрывающиеся пункты карточки (как на «Услугах»)
 const STANDARD_DETAILS = [
@@ -94,31 +95,33 @@ export default function CheckupPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: «Checkup» слева, «программы» справа, описание и кнопка слева ── */}
-      <section className="bg-[#f4f4f4] px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[28px] h-[600px] lg:h-[660px]">
+      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-[660px]">
           {/* Фон с томографом */}
           <img
             src={checkupBg}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
+          {/* Лёгкое затемнение на мобилке для читаемости */}
+          <div className="absolute inset-0 bg-black/10 lg:hidden" />
 
-          {/* Водяной знак-логомарк справа */}
+          {/* Водяной знак-логомарк справа (десктоп) */}
           <LogoMark
-            className="absolute right-[8%] top-1/2 -translate-y-1/2 h-56 w-auto opacity-40"
+            className="hidden lg:block absolute right-[8%] top-1/2 -translate-y-1/2 h-56 w-auto opacity-40"
             style={{ ['--fill-0' as string]: '#ffffff' }}
           />
 
-          {/* Крупный текст: «Checkup» слева выше, «программы» справа ниже */}
-          <h1 className="absolute left-[8%] top-[38%] text-[64px] lg:text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
+          {/* Десктоп: крупный текст «Checkup» слева выше, «программы» справа ниже */}
+          <h1 className="hidden lg:block absolute left-[8%] top-[38%] text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
             Checkup
           </h1>
-          <h1 className="absolute right-[6%] top-[52%] text-[64px] lg:text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute right-[6%] top-[52%] text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
             программы
           </h1>
 
-          {/* Описание + кнопка слева внизу */}
-          <div className="absolute left-[7%] top-[57%] max-w-[240px]">
+          {/* Десктоп: описание + кнопка слева внизу */}
+          <div className="hidden lg:block absolute left-[7%] top-[57%] max-w-[240px]">
             <p className="text-gray-700 text-[13px] leading-relaxed mb-7">
               Комплексная диагностика по международным
               стандартам, с заключением врача
@@ -131,11 +134,56 @@ export default function CheckupPage() {
               Подобрать программу
             </Link>
           </div>
+
+          {/* Мобилка: заголовок, описание и кнопка одним блоком слева */}
+          <div className="lg:hidden absolute left-6 right-6 top-[30%]">
+            <h1 className="text-[32px] font-bold text-white leading-[1.15] mb-4">
+              Checkup<br />программы
+            </h1>
+            <p className="text-white/95 text-[13px] leading-relaxed max-w-[210px] mb-7">
+              Комплексная диагностика по международным стандартам,
+              с заключением врача и персональными рекомендациями
+            </p>
+            <Link
+              to="/contacts"
+              className="block w-full bg-white text-gray-900 text-sm font-medium rounded-full px-9 py-4 text-center shadow-md"
+            >
+              Подобрать программу
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Табы — наполовину на границе hero; «Check-up программы» с рамкой и дропдауном */}
-      <div className="container-main relative z-30 -mt-7 flex justify-center">
+      <div className="lg:hidden container-main relative z-30 -mt-6 flex justify-center">
+        <div className="relative">
+          <button
+            onClick={() => setFilterOpen(o => !o)}
+            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 shadow-lg"
+          >
+            Профили
+            <svg className={`w-4 h-4 transition-transform ${filterOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {filterOpen && (
+            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-white rounded-2xl shadow-lg py-1.5 min-w-[220px] z-40">
+              {programFilters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => { setFilter(f); setFilterOpen(false) }}
+                  className={`block w-[calc(100%-2.5rem)] mx-5 text-left py-2.5 text-sm border-b border-gray-200 last:border-b-0 ${
+                    filter === f ? 'text-[#00b5e2]' : 'text-gray-800'
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="hidden lg:flex container-main relative z-30 -mt-7 justify-center">
         <div className="inline-flex bg-white rounded-full p-1.5 gap-1 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
           {serviceTabs.map((tab, ti) => (
             <div key={tab} className="relative">
@@ -171,22 +219,37 @@ export default function CheckupPage() {
         </div>
       </div>
 
-      {/* ── Программы — сетка карточек ── */}
-      <section className="container-main py-10 lg:py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {visibleCards.map((p) => (
-            <ProgramCard key={p.name} {...p} />
-          ))}
+      {/* ── Программы: карусель на мобилке, сетка на десктопе ── */}
+      <section className="py-10 lg:py-14">
+        <div className="lg:hidden">
+          <MobileCarousel arrowsTop="40%">
+            {visibleCards.map((p) => (
+              <ProgramCard key={`${p.name}-m`} {...p} />
+            ))}
+          </MobileCarousel>
+          <div className="text-center mt-9">
+            <a href="#" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5">
+              Скачать полный прейскурант
+            </a>
+          </div>
         </div>
 
-        {/* Кнопка «Скачать полный прейскурант» */}
-        <div className="text-center mt-12">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
-          >
-            Скачать полный прейскурант
-          </a>
+        <div className="container-main hidden lg:block">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {visibleCards.map((p) => (
+              <ProgramCard key={p.name} {...p} />
+            ))}
+          </div>
+
+          {/* Кнопка «Скачать полный прейскурант» */}
+          <div className="text-center mt-12">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+            >
+              Скачать полный прейскурант
+            </a>
+          </div>
         </div>
       </section>
 

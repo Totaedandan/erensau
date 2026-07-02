@@ -6,6 +6,7 @@ import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
 import doctor1 from '@/assets/images/doctor1.jpg'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
+import MobileCarousel from '@/components/ui/MobileCarousel'
 
 const infoBlocks = [
   { img: doctor1, title: 'Какие документы взять', desc: 'Возьмите удостоверение личности и результаты предыдущих исследований — если они есть.' },
@@ -33,23 +34,25 @@ const faqs = [
 
 export default function PatientsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
+  const [mobileTab, setMobileTab] = useState(infoTabs[0])
+  const [mobileTabOpen, setMobileTabOpen] = useState(false)
 
   return (
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка со светлой палатой ── */}
-      <section className="bg-[#f4f4f4] px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[28px] min-h-[780px]">
+      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-[780px]">
         <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[#0a1628]/15" />
-        <div className="relative z-10 px-8 lg:px-28 flex flex-col justify-center min-h-[780px] py-16">
-          <div className="flex items-start gap-4 mb-8">
-            <LogoMark className="h-12 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
-            <h1 className="text-5xl lg:text-[72px] font-bold text-white leading-none">
+        <div className="relative z-10 px-6 lg:px-28 flex flex-col justify-start lg:justify-center min-h-[620px] lg:min-h-[780px] py-10 lg:py-16">
+          <div className="flex items-start gap-3 lg:gap-4 mb-6 lg:mb-8">
+            <LogoMark className="h-11 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
+            <h1 className="text-[27px] lg:text-[72px] font-bold text-white leading-[1.2] lg:leading-none">
               Руководство<br />для пациентов
             </h1>
           </div>
-          <div className="bg-white rounded-3xl p-6 max-w-sm shadow-xl">
+          <div className="bg-white rounded-3xl p-6 max-w-[265px] lg:max-w-sm shadow-xl ml-5 lg:ml-0">
             <div className="flex items-baseline gap-3 mb-3">
               <span className="text-4xl font-bold text-[#00b5e2] leading-none">4</span>
               <span className="text-gray-900 font-semibold text-sm leading-tight">шага и вы<br />готовы к визиту</span>
@@ -66,11 +69,39 @@ export default function PatientsPage() {
       {/* ── Инфо-блоки с фото ── */}
       <section className="bg-[#f4f4f4] py-14 lg:py-20">
         <div className="container-main">
-          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-2xl mx-auto leading-tight">
+          <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Все что нужно знать перед визитом и во время лечения
           </h2>
-          {/* Таб-бар */}
-          <div className="flex justify-center mb-10">
+          {/* Таб-бар: на мобилке — голубой дропдаун */}
+          <div className="lg:hidden relative flex justify-center mb-9 z-30">
+            <div className="relative">
+              <button
+                onClick={() => setMobileTabOpen(o => !o)}
+                className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-8 py-3"
+              >
+                {mobileTab}
+                <svg className={`w-4 h-4 transition-transform ${mobileTabOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {mobileTabOpen && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-white rounded-2xl shadow-lg py-1.5 min-w-[230px] z-40">
+                  {infoTabs.map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => { setMobileTab(tab); setMobileTabOpen(false) }}
+                      className={`block w-[calc(100%-2.5rem)] mx-5 text-left py-2.5 text-sm border-b border-gray-200 last:border-b-0 ${
+                        mobileTab === tab ? 'text-[#00b5e2]' : 'text-gray-800'
+                      }`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="hidden lg:flex justify-center mb-10">
             <div className="inline-flex gap-2 flex-wrap justify-center">
               {infoTabs.map((tab, i) => (
                 <button
@@ -84,6 +115,26 @@ export default function PatientsPage() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Мобильная карусель инфо-блоков */}
+        <div className="lg:hidden">
+          <MobileCarousel arrowsTop="35%">
+            {infoBlocks.map((block) => (
+              <div key={`${block.title}-m`}>
+                <div className="bg-white rounded-3xl p-2">
+                  <div className="h-52 overflow-hidden rounded-[20px]">
+                    <img src={block.img} alt={block.title} className="w-full h-full object-cover object-top" />
+                  </div>
+                </div>
+                <h3 className="font-bold text-gray-900 text-lg mt-5 mb-2 px-1">{block.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed px-1">{block.desc}</p>
+              </div>
+            ))}
+          </MobileCarousel>
+        </div>
+
+        <div className="container-main hidden lg:block">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {infoBlocks.map((block) => (
               <div key={block.title} className="bg-white rounded-2xl overflow-hidden">
@@ -101,13 +152,26 @@ export default function PatientsPage() {
       </section>
 
       {/* ── Отзывы: карточки слева, заголовок справа ── */}
-      <section className="bg-white py-14 lg:py-20">
+      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] py-14 lg:py-20">
         <div className="container-main">
+
+        {/* Мобильный заголовок над карточками */}
+        <div className="lg:hidden text-center mb-8">
+          <h2 className="text-[26px] font-bold text-gray-900 mb-4 leading-tight">
+            Нам доверяют<br />и говорят об этом
+          </h2>
+          <p className="text-gray-600 text-[13px] leading-relaxed">
+            Лучшая оценка нашей работы — слова людей, которым мы помогли.
+            Читайте отзывы наших пациентов или поделитесь своим опытом после
+            визита в Erensau Hospital
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Карточки — лесенкой */}
           <div className="space-y-5">
             {reviews.map((r, idx) => (
-              <div key={r.name} className={`bg-white rounded-3xl p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'lg:ml-10 lg:mr-6'}`}>
+              <div key={r.name} className={`bg-white rounded-3xl p-6 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'mx-3 lg:mx-0 lg:ml-10 lg:mr-6'}`}>
                 <div className="flex items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
@@ -131,8 +195,8 @@ export default function PatientsPage() {
             ))}
           </div>
 
-          {/* Заголовок + CTA */}
-          <div className="lg:sticky lg:top-28">
+          {/* Заголовок + CTA (десктоп) */}
+          <div className="hidden lg:block lg:sticky lg:top-28">
             <h2 className="text-2xl lg:text-[40px] font-bold text-gray-900 mb-5 leading-tight">
               Нам доверяют<br />и говорят об этом
             </h2>
@@ -153,6 +217,24 @@ export default function PatientsPage() {
             </div>
           </div>
         </div>
+
+        {/* Мобилка: врач из отзыва + кнопка */}
+        <div className="lg:hidden mt-8">
+          <div className="flex items-start gap-4">
+            <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
+              <img src={imgDoctorSenior} alt="" className="w-full h-full object-cover object-top" />
+            </div>
+            <div className="pt-1">
+              <p className="text-gray-400 text-xs mb-1">Врач упомянутый в отзыве</p>
+              <div className="font-bold text-gray-900 text-base">Ижанов Ерген Бахчанович</div>
+              <div className="text-[#00b5e2] text-xs leading-snug mt-0.5">Руководитель профиля общей хирургии и онкологии</div>
+            </div>
+          </div>
+          <div className="text-center mt-9">
+            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-4">Оставьте отзыв</Link>
+          </div>
+        </div>
+
         </div>
       </section>
 

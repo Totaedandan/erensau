@@ -14,11 +14,19 @@ export default function CTASlider() {
   return (
     <section className="bg-[#f4f4f4] py-16 lg:py-24">
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+          {/* Мобильный заголовок — над фото (в десктопе заголовок в правой колонке) */}
+          <div className="flex items-start gap-3 lg:hidden">
+            <img src={logoMark} alt="" className="h-12 w-auto flex-shrink-0" />
+            <h2 className="text-[26px] font-bold text-gray-900 leading-[1.15]">
+              Многопрофильная<br />клиника
+            </h2>
+          </div>
 
           {/* Фото слева + стрелки */}
           <div className="relative">
-            <div className="rounded-3xl overflow-hidden aspect-[16/9] bg-[#0a1628]">
+            <div className="rounded-3xl overflow-hidden aspect-[9/8] lg:aspect-[16/9] bg-[#0a1628]">
               <img src={heroSurgeon} alt="" className="w-full h-full object-cover" />
             </div>
             <button
@@ -53,20 +61,20 @@ export default function CTASlider() {
             </div>
           </div>
 
-          {/* Текст справа */}
+          {/* Текст справа (на мобилке — абзац после точек, без кнопки) */}
           <div>
-            <div className="flex items-start gap-3 mb-5">
+            <div className="hidden lg:flex items-start gap-3 mb-5">
               <img src={logoMark} alt="" className="h-14 w-auto flex-shrink-0" />
               <h2 className="text-3xl lg:text-[36px] font-bold text-gray-900 leading-[1.1]">
                 Многопрофильная<br />клиника
               </h2>
             </div>
-            <p className="text-gray-500 text-sm lg:text-base leading-relaxed mb-8 max-w-md">
+            <p className="text-gray-800 lg:text-gray-500 text-sm lg:text-base leading-relaxed lg:mb-8 max-w-md">
               Мы сосредоточены на мультидисциплинарном подходе, объединяя как оперативные,
               так и консервативные методы лечения. Нам доверяют случаи, которые нередко
               отличаются редкостью, тяжестью течения и клинической уникальностью.
             </p>
-            <Link to="/contacts" className="bg-[#00b5e2] text-white text-base font-medium rounded-full px-10 py-4 inline-block hover:bg-[#0099c4] transition-colors">
+            <Link to="/contacts" className="hidden lg:inline-block bg-[#00b5e2] text-white text-base font-medium rounded-full px-10 py-4 hover:bg-[#0099c4] transition-colors">
               Записаться
             </Link>
           </div>

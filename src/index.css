@@ -45,3 +45,14 @@
     @apply max-w-[1440px] mx-auto px-4 lg:px-16 xl:px-[130px];
   }
 }
+
+@layer utilities {
+  /* Скрыть нативный скроллбар у мобильных каруселей */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}

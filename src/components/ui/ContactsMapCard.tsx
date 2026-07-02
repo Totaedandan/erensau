@@ -43,10 +43,92 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
     <section className="bg-[#f4f4f4]">
       {showHeading && (
         <div className="container-main pt-12 lg:pt-16">
-          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900">Контакты</h2>
+          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center lg:text-left">Контакты</h2>
         </div>
       )}
-      <div className="relative h-[700px] lg:h-[740px] overflow-hidden">
+
+      {/* ── Мобильная версия: карточка сверху, карта ниже ── */}
+      <div className="lg:hidden">
+        <div className="container-main pt-6">
+          <div className="bg-white rounded-3xl p-6 shadow-sm">
+            <div className="grid grid-cols-2 gap-x-6">
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Адрес:</h3>
+                <Entry icons={<Dot><PinIcon /></Dot>}>
+                  г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1
+                </Entry>
+                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Доп.информация:</h3>
+                <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
+                  erensau.kz
+                </Entry>
+                <Entry icons={<Dot><YtIcon /></Dot>}>erensau</Entry>
+                <Entry icons={<Dot><MailIcon /></Dot>}>
+                  <a href="mailto:info@erensau.kz">info@erensau.kz</a>
+                </Entry>
+              </div>
+              <div>
+                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Колл-центр:</h3>
+                <Entry icons={<Dot><PhoneIcon /></Dot>}>
+                  <a href="tel:+77273394040">+7 727 339 40 40</a>
+                </Entry>
+                <Entry icons={<><Dot><WaIcon /></Dot><Dot><TgIcon /></Dot></>}>
+                  <a href="tel:+77713999444">+7 771 399 94 44</a>
+                </Entry>
+                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Администрация:</h3>
+                <Entry icons={<Dot><PhoneIcon /></Dot>}>
+                  <a href="tel:+77273394282">+7 727 339 42 82</a>
+                </Entry>
+                <Entry icons={<><Dot><WaIcon /></Dot><Dot><TgIcon /></Dot></>}>
+                  <a href="tel:+77717044848">+7 771 704 48 48</a>
+                </Entry>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Карта с фото клиники, графиком работы и кнопкой */}
+        <div className="relative mt-6 overflow-hidden">
+          <img src={mapBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="relative px-4 pt-16 pb-10">
+            <div className="mx-auto w-64 h-44 rounded-2xl overflow-hidden shadow-2xl border-[5px] border-white">
+              <img src={imgClinicBuilding} alt="Erensau Hospital" className="w-full h-full object-cover" />
+            </div>
+
+            <div className="mt-40">
+              <h3 className="text-gray-900 font-bold text-base mb-3">График работы</h3>
+              <table className="w-full text-sm mb-6">
+                <thead>
+                  <tr className="text-[#00b5e2] text-[13px]">
+                    <th className="text-left font-medium pb-2">День недели</th>
+                    <th className="text-left font-medium pb-2">Клиники</th>
+                    <th className="text-left font-medium pb-2">Колл-центр</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {schedule.map((row) => (
+                    <tr key={row.day} className="text-gray-700">
+                      <td className="py-0.5">{row.day}</td>
+                      <td className="py-0.5">{row.clinic}</td>
+                      <td className="py-0.5">{row.call}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <a
+                href="https://2gis.kz/almaty"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center bg-white rounded-full px-10 py-4 text-sm font-medium text-gray-900 shadow-md"
+              >
+                Простроить навигацию
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Десктопная версия: карточка поверх карты ── */}
+      <div className="hidden lg:block relative h-[700px] lg:h-[740px] overflow-hidden">
         {/* Карта-фон */}
         <img src={mapBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
 

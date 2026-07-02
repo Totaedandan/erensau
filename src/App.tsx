@@ -11,6 +11,7 @@ import CooperationPage from '@/pages/CooperationPage'
 import ContactsPage from '@/pages/ContactsPage'
 import NewsPage from '@/pages/NewsPage'
 import VacanciesPage from '@/pages/VacanciesPage'
+import UnderConstructionPage from '@/pages/UnderConstructionPage'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/vacancies" element={<VacanciesPage />} />
+        <Route path="*" element={<UnderConstructionPage />} />
       </Route>
     </Routes>
   )

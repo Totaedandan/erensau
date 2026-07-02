@@ -45,10 +45,97 @@ const navigation = [
   { label: 'Вакансии',          path: '/vacancies' },
 ]
 
+// Порядок для мобильной сетки 3×2 (по строкам, как в мобильном макете)
+const navigationMobile = [
+  { label: 'О клинике',      path: '/about' },
+  { label: 'Мед. услуги',    path: '/services' },
+  { label: 'Контакты',       path: '/contacts' },
+  { label: 'Команда врачей', path: '/doctors' },
+  { label: 'Для пациентов',  path: '/patients' },
+  { label: 'Вакансии',       path: '/vacancies' },
+]
+const corporateMobile = [
+  { label: 'Сотрудничество', path: '/cooperation' },
+  { label: 'Лицензии',       path: '/about' },
+  { label: 'Карьера',        path: '/vacancies' },
+]
+
 export default function Footer() {
   return (
     <footer className="bg-[#f4f4f4] relative overflow-hidden">
-      <div className="container-main pt-16 lg:pt-20 pb-8 lg:pb-10 relative z-10">
+      {/* ── Мобильная версия (по мобильному макету) ── */}
+      <div className="lg:hidden container-main pt-14 pb-8 relative z-10">
+        {/* Лого + соцсети в одну строку */}
+        <div className="flex items-start justify-between mb-10">
+          <Link to="/" className="flex flex-col leading-none">
+            <span className="text-gray-900 font-bold text-4xl tracking-tight lowercase">erensau</span>
+            <span className="text-[#00b5e2] text-lg font-medium tracking-wider lowercase mt-1">hospital</span>
+          </Link>
+          <div className="flex gap-2 pt-2">
+            {socials.map((s) => (
+              <a
+                key={s.id}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.id}
+                className="w-9 h-9 rounded-full bg-[#00b5e2] text-white flex items-center justify-center"
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Колл-центр / Администрация — 2 колонки */}
+        <div className="grid grid-cols-2 gap-x-6 mb-10 text-sm text-gray-900">
+          <div>
+            <h3 className="font-bold text-base mb-4">Колл-центр:</h3>
+            <div className="font-bold mb-1">Телефон:</div>
+            <a href="tel:+77273394040" className="block mb-4">+7 727 339 40 40</a>
+            <div className="font-bold mb-1">WhatsApp/Telegram:</div>
+            <a href="tel:+77273394040" className="block">+7 727 339 40 40</a>
+          </div>
+          <div>
+            <h3 className="font-bold text-base mb-4">Администрация:</h3>
+            <div className="font-bold mb-1">Телефон:</div>
+            <a href="tel:+77273394040" className="block mb-4">+7 727 339 40 40</a>
+            <div className="font-bold mb-1">WhatsApp/Telegram:</div>
+            <a href="tel:+77273394282" className="block">+7 727 339 42 82</a>
+          </div>
+        </div>
+
+        {/* Навигация — ссылки в 3 колонки */}
+        <h3 className="font-bold text-base text-gray-900 mb-4">Навигация:</h3>
+        <div className="grid grid-cols-3 gap-x-4 gap-y-3.5 mb-10">
+          {navigationMobile.map((l) => (
+            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-sm underline underline-offset-4">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Корпоративные — в строку */}
+        <h3 className="font-bold text-base text-gray-900 mb-4">Корпоративные:</h3>
+        <div className="grid grid-cols-3 gap-x-4 gap-y-3.5 mb-10">
+          {corporateMobile.map((l) => (
+            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-sm underline underline-offset-4">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <a href="mailto:info@erensau.kz" className="block text-sm text-gray-900 mb-2">info@erensau.kz</a>
+        <p className="text-sm text-gray-900 mb-8">г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1</p>
+
+        <div className="pt-5 border-t border-gray-300 space-y-2">
+          <a href="#" className="block text-gray-900 text-sm underline underline-offset-4 w-fit">Политика конфиденциальности</a>
+          <p className="text-gray-900 text-sm">©{new Date().getFullYear()} Все права защищены.</p>
+        </div>
+      </div>
+
+      {/* ── Десктопная версия ── */}
+      <div className="hidden lg:block container-main pt-16 lg:pt-20 pb-8 lg:pb-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
           {/* Brand + соцсети */}
