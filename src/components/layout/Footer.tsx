@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import footerOrnament from '@/assets/images/footer-ornament.png'
 
 // ── Иконки соцсетей (как в Header) ──
 const IgIcon = () => (
@@ -146,22 +147,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Декоративный орнамент-паттерн снизу (мотив колец из логотипа) */}
-      <div className="relative w-full overflow-hidden pointer-events-none select-none h-24 lg:h-36">
-        <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <pattern id="erensau-arcs" width="220" height="110" patternUnits="userSpaceOnUse">
-              <g fill="none" stroke="#e9e9e9">
-                {/* большая «радуга» снизу */}
-                <path d="M8 110 A78 78 0 0 1 164 110" strokeWidth="32" />
-                {/* малая перевёрнутая дуга сверху справа */}
-                <path d="M150 0 A42 42 0 0 0 220 0" strokeWidth="22" />
-              </g>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#erensau-arcs)" />
-        </svg>
-      </div>
+      {/* Декоративный орнамент снизу — экспорт из Figma */}
+      <img src={footerOrnament} alt="" aria-hidden="true" className="w-full h-auto pointer-events-none select-none" />
     </footer>
   )
 }

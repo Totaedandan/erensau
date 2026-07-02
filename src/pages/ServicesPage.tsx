@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroDoctorLab from '@/assets/images/hero-doctor-lab.png'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 import svcCardiac from '@/assets/icons/svc-cardiac.svg'
 import svcSurgery from '@/assets/icons/svc-surgery.svg'
 import svcThoracic from '@/assets/icons/svc-thoracic.svg'
@@ -156,7 +156,7 @@ export default function ServicesPage() {
             {/* Заголовок + описание слева */}
             <div className="max-w-[420px]">
               <div className="flex items-start gap-4 mb-8">
-                <LogoMark className="h-16 lg:h-24 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+                <img src={logoMark} alt="" className="h-16 lg:h-24 w-auto flex-shrink-0" />
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.05] tracking-tight">
                   Медицинские<br />услуги
                 </h1>
@@ -186,19 +186,30 @@ export default function ServicesPage() {
       {/* Табы — наполовину на границе hero-карточки */}
       <div className="container-main relative z-20 -mt-7 flex justify-center">
         <div className="inline-flex gap-2 bg-white rounded-full p-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
-          {tabs.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setActiveTab(t.id)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                activeTab === t.id
-                  ? 'bg-[#00b5e2] text-white'
-                  : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
+          {tabs.map((t) =>
+            t.id === 'surgery' ? (
+              /* «Check-up программы» ведёт на отдельную страницу */
+              <Link
+                key={t.id}
+                to="/checkup"
+                className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap bg-[#f4f4f4] text-gray-800 hover:bg-gray-100"
+              >
+                {t.label}
+              </Link>
+            ) : (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(t.id)}
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                  activeTab === t.id
+                    ? 'bg-[#00b5e2] text-white'
+                    : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
+                }`}
+              >
+                {t.label}
+              </button>
+            )
+          )}
         </div>
       </div>
 

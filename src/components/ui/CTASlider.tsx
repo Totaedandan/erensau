@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
 
 const TOTAL_DOTS = 7
@@ -56,7 +56,7 @@ export default function CTASlider() {
           {/* Текст справа */}
           <div>
             <div className="flex items-start gap-3 mb-5">
-              <LogoMark className="h-14 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+              <img src={logoMark} alt="" className="h-14 w-auto flex-shrink-0" />
               <h2 className="text-3xl lg:text-[36px] font-bold text-gray-900 leading-[1.1]">
                 Многопрофильная<br />клиника
               </h2>

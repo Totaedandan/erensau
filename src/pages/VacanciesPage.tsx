@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 import ContactForm from '@/components/ui/ContactForm'
 import CTASlider from '@/components/ui/CTASlider'
 
@@ -35,7 +35,7 @@ export default function VacanciesPage() {
         <div className="absolute inset-0 bg-[#0a1628]/55" />
         <div className="relative z-10 px-8 lg:px-24 flex flex-col justify-center min-h-[700px] py-16">
           <div className="flex items-start gap-4 mb-6">
-            <LogoMark className="h-16 lg:h-24 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+            <img src={logoMark} alt="" className="h-16 lg:h-24 w-auto flex-shrink-0" />
             <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1]">
               Станьте частью<br />команды erensau
             </h1>

@@ -23,6 +23,7 @@ import svcThoracic from '@/assets/icons/svc-thoracic.svg'
 import svcGynecology from '@/assets/icons/svc-gynecology.svg'
 import svcAnesthesia from '@/assets/icons/svc-anesthesia.svg'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 
 import CTASlider from '@/components/ui/CTASlider'
 import ContactForm from '@/components/ui/ContactForm'
@@ -87,7 +88,7 @@ export default function HomePage() {
 
             <div className="max-w-[720px]">
               <div className="flex items-start gap-4 mb-9">
-                <LogoMark className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+                <img src={logoMark} alt="" className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" />
                 <h1 className="text-[38px] lg:text-[56px] font-bold text-white leading-[1.05]">
                   Точные решения<br />для сложных случаев
                 </h1>
@@ -189,14 +190,15 @@ export default function HomePage() {
                   >
                     Записаться
                   </Link>
-                  <button
+                  <Link
+                    to="/doctors/kuatbekov"
                     aria-label="Подробнее"
                     className="ml-auto w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-900 hover:bg-gray-50 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 17a6 6 0 100-12 6 6 0 000 12z" />
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               </article>
             ))}

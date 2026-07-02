@@ -11,16 +11,17 @@ const STANDARD_DETAILS = [
   { label: 'Условия пребывания', content: 'Комфортные палаты, индивидуальный график, медицинское сопровождение.' },
 ]
 
-// В дизайне иконки повторяются попарно: сердце (Кардио/Мужское), монитор с ЭКГ (Базовый/Детский), матка (Женское)
+// В дизайне: сердце (Кардио), монитор с ЭКГ (Базовый/Детский), матка (Женское), знак Марса (Мужское)
 const IC_HEART = 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
 const IC_MONITOR = 'M4 6h16a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zM7 11h2l1.5 2.5L13 8l1 3h3M9 19h6'
 const IC_UTERUS = 'M12 4v5m0 0c-3.5 0-6 2.2-6 5.5M12 9c3.5 0 6 2.2 6 5.5M6.2 14.5a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0zm15.6 0a1.9 1.9 0 11-3.8 0 1.9 1.9 0 013.8 0z'
+const IC_MARS = 'M10 21a6 6 0 100-12 6 6 0 000 12zm4.2-10.2L21 4m0 0h-5.5M21 4v5.5'
 
 const programCards = [
   { name: 'Кардио чек-ап',    price: '50 000тг',  icon: IC_HEART },
   { name: 'Базовый чек-ап',   price: '85 000тг',  icon: IC_MONITOR },
   { name: 'Женское здоровье', price: '100 000тг', icon: IC_UTERUS },
-  { name: 'Мужское здоровье', price: '50 000тг',  icon: IC_HEART },
+  { name: 'Мужское здоровье', price: '50 000тг',  icon: IC_MARS },
   { name: 'Детский чекап',    price: '85 000тг',  icon: IC_MONITOR },
 ]
 
@@ -152,7 +153,7 @@ export default function CheckupPage() {
                     <button
                       key={f}
                       onClick={() => { setFilter(f); setFilterOpen(false) }}
-                      className={`block w-full text-left px-5 py-2 text-sm transition-colors hover:bg-gray-50 ${
+                      className={`block w-[calc(100%-2rem)] mx-4 text-left py-2.5 text-sm transition-colors border-b border-gray-200 last:border-b-0 hover:text-[#00b5e2] ${
                         filter === f ? 'text-[#00b5e2]' : 'text-gray-800'
                       }`}
                     >

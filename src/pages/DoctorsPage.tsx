@@ -5,7 +5,7 @@ import doctor2 from '@/assets/images/doctor2.jpg'
 import doctor3 from '@/assets/images/doctor3.jpg'
 import doctor4 from '@/assets/images/doctor4.jpg'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 
 const EXPERIENCE_OPTIONS = ['Любой стаж', 'До 5 лет', '5-10 лет', '10-20 лет', 'Более 20 лет']
@@ -81,7 +81,7 @@ export default function DoctorsPage() {
           <div className="relative z-10 px-8 lg:px-28 pt-16 lg:pt-24 pb-24">
             {/* Логомарк + заголовок */}
             <div className="flex items-start gap-4 mb-6">
-              <LogoMark className="h-20 lg:h-28 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+              <img src={logoMark} alt="" className="h-20 lg:h-28 w-auto flex-shrink-0" />
               <h1 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight">
                 Командная<br />модель
               </h1>
@@ -166,14 +166,15 @@ export default function DoctorsPage() {
                 <Link to="/contacts" className="bg-white rounded-full px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors">
                   Записаться
                 </Link>
-                <button
+                <Link
+                  to="/doctors/kuatbekov"
                   aria-label="Подробнее"
                   className="ml-auto w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-900 hover:bg-gray-50 transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 17a6 6 0 100-12 6 6 0 000 12z" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </article>
           ))}

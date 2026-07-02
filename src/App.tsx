@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout'
 import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
 import DoctorsPage from '@/pages/DoctorsPage'
+import DoctorCardPage from '@/pages/DoctorCardPage'
 import ServicesPage from '@/pages/ServicesPage'
 import CheckupPage from '@/pages/CheckupPage'
 import PatientsPage from '@/pages/PatientsPage'
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/doctors" element={<DoctorsPage />} />
+        <Route path="/doctors/kuatbekov" element={<DoctorCardPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/checkup" element={<CheckupPage />} />
         <Route path="/patients" element={<PatientsPage />} />

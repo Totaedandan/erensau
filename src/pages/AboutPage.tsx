@@ -7,7 +7,7 @@ import doctor1 from '@/assets/images/doctor1.jpg'
 import doctor2 from '@/assets/images/doctor2.jpg'
 import doctor3 from '@/assets/images/doctor3.jpg'
 import doctor4 from '@/assets/images/doctor4.jpg'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
+import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 
 export default function AboutPage() {
@@ -35,7 +35,7 @@ export default function AboutPage() {
             {/* Верх: заголовок слева + статистика справа */}
             <div className="flex flex-col lg:flex-row justify-between gap-8">
               <div className="flex items-start gap-4">
-                <LogoMark className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#00b5e2' }} />
+                <img src={logoMark} alt="" className="h-16 lg:h-20 w-auto flex-shrink-0 mt-1" />
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.05] tracking-tight">
                   Почему<br />выбирают нас
                 </h1>
