@@ -116,8 +116,8 @@ export default function HomePage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка со скруглениями и небольшими полями по бокам (и на мобилке, и на десктопе) ── */}
-      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-3">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:min-h-[690px]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:min-h-[705px]">
 
           {/* Фото хирурга — полный фон */}
           <img
@@ -132,7 +132,7 @@ export default function HomePage() {
 
           {/* Контент */}
           <div className="relative z-10 mx-auto max-w-[1416px] px-[30px] lg:px-[52px] xl:px-[108px]">
-            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-[690px] py-[52px] lg:pt-[52px] lg:pb-0">
+            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-[705px] py-[52px] lg:pt-[52px] lg:pb-0">
 
               <div className="max-w-[720px]">
                 <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-9">
@@ -187,13 +187,13 @@ export default function HomePage() {
 
       {/* ── Фич-чипы: на мобилке столбиком под hero, на десктопе выходят за его край ── */}
       <div className="container-main relative z-20 mt-2.5 lg:-mt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-3.5 lg:gap-4">
+        <div className="grid grid-cols-1 gap-3.5 lg:flex lg:flex-row lg:justify-between lg:gap-4">
           {features.map((f) => (
-            <div key={f.label} className="flex items-center gap-3.5 lg:gap-3 bg-white rounded-full px-3 lg:px-4 py-2.5 lg:py-3 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
-              <span className="w-12 h-12 lg:w-11 lg:h-11 rounded-full lg:bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
-                <img src={f.icon} alt="" className="w-full h-full lg:w-6 lg:h-6" />
+            <div key={f.label} className="flex items-center gap-3.5 lg:gap-4 bg-white rounded-full px-3 lg:px-[18px] py-2.5 lg:py-[18px] shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+              <span className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center flex-shrink-0">
+                <img src={f.icon} alt="" className="w-full h-full" />
               </span>
-              <span className="text-gray-800 text-[13px] lg:text-[14px] font-medium lg:font-semibold leading-snug lg:leading-none lg:tracking-[-0.02em] max-w-[190px] lg:max-w-none">{f.label}</span>
+              <span className="text-gray-800 text-[13px] lg:text-[14px] font-medium lg:font-semibold leading-snug lg:leading-[1.2] lg:tracking-[-0.02em] max-w-[190px] lg:max-w-[150px]">{f.label}</span>
             </div>
           ))}
         </div>
