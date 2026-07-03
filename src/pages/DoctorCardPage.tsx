@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import doctor1 from '@/assets/images/doctor1.jpg'
+import docKuatbekov from '@/assets/images/doc-kuatbekov.png'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
@@ -134,7 +134,7 @@ function VideoTile({ big = false }: { big?: boolean }) {
 const reviews = [
   { name: 'Natalya Bragina', text: 'Это счастье, попасть в руки прекрасного доктора. Жарас Асхатович Долаев - грамотный специалист, доброжелательный', date: '18 мая 2026', photo: imgDoctorPortrait },
   { name: 'Antonina Frolova', text: 'Я была на приеме у Ержан Кусманович, это врач от Бога. Пусть Бог благословит его и всю его семью.', date: '6 мая 2026', photo: imgDoctorSenior },
-  { name: 'Lora Mukhamedova', text: 'Хочу выразить огромную благодарность торакальному хирургу Ешмуратову Т.Ш.и моему лечащему врачу Таменову И. Ж', date: '18 мая 2026', photo: doctor1 },
+  { name: 'Lora Mukhamedova', text: 'Хочу выразить огромную благодарность торакальному хирургу Ешмуратову Т.Ш.и моему лечащему врачу Таменову И. Ж', date: '18 мая 2026', photo: docKuatbekov },
 ]
 
 const lectures = [
@@ -165,7 +165,7 @@ export default function DoctorCardPage() {
         >
           {/* Фото врача — по центру, прижато к низу карточки */}
           <img
-            src={doctor1}
+            src={docKuatbekov}
             alt="Куатбеков Кайрат Ниеталиевич"
             className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[600px] w-auto object-contain object-bottom"
           />
@@ -213,7 +213,7 @@ export default function DoctorCardPage() {
 
             {/* Мобилка: фото врача до краёв карточки */}
             <div className="lg:hidden -mx-6 mt-4">
-              <img src={doctor1} alt="Куатбеков Кайрат Ниеталиевич" className="w-full h-[245px] object-cover object-top" />
+              <img src={docKuatbekov} alt="Куатбеков Кайрат Ниеталиевич" className="w-full h-[245px] object-cover object-top" />
             </div>
 
             {/* Правая карточка «Персональная информация» (десктоп) */}

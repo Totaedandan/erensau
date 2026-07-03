@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import heroDoctorImg from '@/assets/images/hero-home.png'
-import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
-import imgDoctorSenior2 from '@/assets/images/img-doctor-senior2.jpg'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
-import doctor1 from '@/assets/images/doctor1.jpg'
-import doctor2 from '@/assets/images/doctor2.jpg'
-import doctor3 from '@/assets/images/doctor3.jpg'
-import doctor4 from '@/assets/images/doctor4.jpg'
+import docKuatbekov from '@/assets/images/doc-kuatbekov.png'
+import docKospanov from '@/assets/images/doc-kospanov.png'
+import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
+import docKusainov from '@/assets/images/doc-kusainov.png'
+import docIzhanov from '@/assets/images/doc-izhanov.png'
+import docAkanov from '@/assets/images/doc-akanov.png'
+import cardBlur from '@/assets/images/card-blur.png'
 import post1 from '@/assets/images/post1.jpg'
 import post2 from '@/assets/images/post2.jpg'
 
@@ -47,12 +48,12 @@ const services = [
 ]
 
 const teamDoctors = [
-  { name: 'Куатбеков Кайрат Ниеталиевич',    title: 'к.м.н., ассоциированный профессор', position: 'Руководитель отделения Кардиохирургии и Кардиологии', experience: 'Стаж более 32 лет', img: doctor1 },
-  { name: 'Коспанов Нурсултан Айдарханович', title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля сосудистой хирургии',           experience: 'Стаж более 30 лет', img: doctor2 },
-  { name: 'Ешмуратов Темур Шерханович',      title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля Торакальной хирургии и Пульмонологии', experience: 'Стаж более 31 год', img: doctor3 },
-  { name: 'Кусаинов Адилет Шингисович',      title: 'к.м.н. (PhD), врач анестезиолог-реаниматолог высшей категории', position: 'Руководитель профиля ОАРИТ', experience: 'Стаж более 33 лет', img: doctor4 },
-  { name: 'Ижанов Ерген Бахчанович',         title: 'Доктор медицинских наук, профессор', position: 'Руководитель профиля общей хирургии и онкологии',  experience: 'Стаж более 32 лет', img: imgDoctorSenior },
-  { name: 'Аканов Ержан Кусманович',         title: 'к.м.н., профессор',                  position: 'Руководитель узких хирургических профилей',        experience: 'Стаж более 28 лет', img: imgDoctorSenior2 },
+  { name: 'Куатбеков Кайрат Ниеталиевич',    title: 'к.м.н., ассоциированный профессор', position: 'Руководитель отделения Кардиохирургии и Кардиологии', experience: 'Стаж более 32 лет', img: docKuatbekov },
+  { name: 'Коспанов Нурсултан Айдарханович', title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля сосудистой хирургии',           experience: 'Стаж более 30 лет', img: docKospanov },
+  { name: 'Ешмуратов Темур Шерханович',      title: 'к.м.н., ассоциированный профессор', position: 'Руководитель профиля Торакальной хирургии и Пульмонологии', experience: 'Стаж более 31 год', img: docEshmuratov },
+  { name: 'Кусаинов Адилет Шингисович',      title: 'к.м.н. (PhD), врач анестезиолог-реаниматолог высшей категории', position: 'Руководитель профиля ОАРИТ', experience: 'Стаж более 33 лет', img: docKusainov },
+  { name: 'Ижанов Ерген Бахчанович',         title: 'Доктор медицинских наук, профессор', position: 'Руководитель профиля общей хирургии и онкологии',  experience: 'Стаж более 32 лет', img: docIzhanov },
+  { name: 'Аканов Ержан Кусманович',         title: 'к.м.н., профессор',                  position: 'Руководитель узких хирургических профилей',        experience: 'Стаж более 28 лет', img: docAkanov },
 ]
 
 const posts = [
@@ -70,7 +71,7 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
     <article className="bg-white lg:bg-[#ececec] rounded-3xl p-0 lg:p-4 flex flex-col overflow-hidden h-full">
       {/* Фото со «стажем» — пилюлей сверху */}
       <div className="relative rounded-none lg:rounded-2xl overflow-hidden aspect-[13/12] lg:aspect-[4/5] mb-0 lg:mb-5">
-        <span className="absolute top-4 left-4 lg:top-3 lg:left-3 bg-white rounded-full px-3.5 py-1.5 text-[11px] font-medium text-gray-900 shadow-sm z-10">
+        <span className="absolute top-4 left-4 bg-white rounded-full px-4 py-2 text-[13px] lg:text-[15px] font-semibold text-gray-900 shadow-sm z-10">
           {d.experience}
         </span>
         <img
@@ -78,6 +79,8 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
           alt={d.name}
           className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
         />
+        {/* Плавное затухание низа фото в фон карточки */}
+        <img src={cardBlur} alt="" aria-hidden className="hidden lg:block absolute inset-x-0 bottom-0 w-full h-[40%] pointer-events-none select-none" />
       </div>
 
       {/* Текстовый блок: звание → имя → должность */}
@@ -231,14 +234,12 @@ export default function HomePage() {
 
             {/* Голубая карточка — последняя ячейка сетки, шириной 2 ячеек */}
             <div className="bg-[#00b5e2] rounded-3xl p-7 lg:p-8 text-white flex flex-col lg:col-span-2">
-              <div className="mb-7">
-                <LogoMark className="h-10 w-auto" style={{ ['--fill-0' as string]: '#ffffff' }} />
-              </div>
+              <LogoMark className="h-9 lg:h-[68px] w-auto" style={{ ['--fill-0' as string]: '#ffffff' }} />
 
-              {/* Аватары команды */}
-              <div className="flex items-center gap-2 mb-7">
-                {[doctor1, doctor2, doctor3, doctor4, imgDoctorSenior].map((d, i) => (
-                  <div key={i} className="w-16 h-16 rounded-full overflow-hidden bg-white/20">
+              {/* Аватары команды — белые кружки, ниже под логотипом */}
+              <div className="flex items-center gap-1.5 mt-9 lg:mt-[68px] mb-6 lg:mb-8">
+                {[docKuatbekov, docKospanov, docEshmuratov, docKusainov, docIzhanov].map((d, i) => (
+                  <div key={i} className="w-16 h-16 lg:w-[76px] lg:h-[76px] rounded-full overflow-hidden bg-white flex-shrink-0">
                     <img src={d} alt="" className="w-full h-full object-cover object-top" />
                   </div>
                 ))}
@@ -249,7 +250,7 @@ export default function HomePage() {
                 Современная клиника с командной моделью высочайшей подготовки, объединяющая технологии, опыт и заботу о пациенте.
               </p>
 
-              <Link to="/doctors" className="bg-white text-[#00b5e2] text-sm font-semibold py-2.5 px-6 rounded-full hover:bg-gray-50 transition-colors w-fit mt-auto">
+              <Link to="/doctors" className="bg-white text-gray-900 text-sm font-semibold py-3 px-7 rounded-full hover:bg-gray-50 transition-colors w-fit mt-auto">
                 Смотреть всех врачей
               </Link>
             </div>
