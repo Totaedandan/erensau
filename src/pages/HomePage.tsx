@@ -115,9 +115,9 @@ export default function HomePage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Hero — на мобилке карточка со скруглениями, на десктопе фото на всю ширину ── */}
-      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-0 lg:pt-0">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-none min-h-[642px] lg:min-h-[750px]">
+      {/* ── Hero — карточка со скруглениями и небольшими полями по бокам (и на мобилке, и на десктопе) ── */}
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-3">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:min-h-[690px]">
 
           {/* Фото хирурга — полный фон */}
           <img
@@ -131,8 +131,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a1628]/55 to-[#0a1628]/85 lg:bg-gradient-to-r lg:from-[#0a1628] lg:via-[#0a1628]/70 lg:to-transparent" />
 
           {/* Контент */}
-          <div className="relative z-10 container-main px-[30px] lg:px-16 xl:px-[120px]">
-            <div className="flex flex-col justify-start lg:justify-center min-h-[642px] lg:min-h-[750px] py-[52px] lg:py-16">
+          <div className="relative z-10 mx-auto max-w-[1416px] px-[30px] lg:px-[52px] xl:px-[108px]">
+            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-[690px] py-[52px] lg:pt-[52px] lg:pb-0">
 
               <div className="max-w-[720px]">
                 <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-9">
@@ -193,7 +193,7 @@ export default function HomePage() {
               <span className="w-12 h-12 lg:w-11 lg:h-11 rounded-full lg:bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
                 <img src={f.icon} alt="" className="w-full h-full lg:w-6 lg:h-6" />
               </span>
-              <span className="text-gray-800 text-[13px] lg:text-[12px] font-medium leading-snug max-w-[190px] lg:max-w-none">{f.label}</span>
+              <span className="text-gray-800 text-[13px] lg:text-[14px] font-medium lg:font-semibold leading-snug lg:leading-none lg:tracking-[-0.02em] max-w-[190px] lg:max-w-none">{f.label}</span>
             </div>
           ))}
         </div>
