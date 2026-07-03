@@ -121,7 +121,7 @@ export default function HomePage() {
 
       {/* ── Hero — карточка со скруглениями и небольшими полями по бокам (и на мобилке, и на десктопе) ── */}
       <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:min-h-[705px]">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:aspect-[1414/707]">
 
           {/* Фото хирурга — полный фон */}
           <img
@@ -136,7 +136,7 @@ export default function HomePage() {
 
           {/* Контент */}
           <div className="relative z-10 mx-auto max-w-[1416px] px-[30px] lg:px-[52px] xl:px-[108px]">
-            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-[705px] py-[52px] lg:pt-[52px] lg:pb-0">
+            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-full py-[52px] lg:pt-[52px] lg:pb-0">
 
               <div className="max-w-[720px]">
                 <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-9">
