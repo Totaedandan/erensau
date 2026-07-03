@@ -19,7 +19,7 @@ export default function ContactsPage() {
       <ContactForm />
 
       {/* ── Навигация по комплексу — карта на всю карточку, текст поверх ── */}
-      <section className="bg-white py-14 lg:py-20">
+      <section className="bg-white py-14 lg:py-24">
         <div className="container-main">
           <div className="relative rounded-3xl overflow-hidden h-[620px] lg:h-auto lg:min-h-[400px] bg-[#fafafa] shadow-sm">
 

@@ -220,7 +220,7 @@ export default function CheckupPage() {
       </div>
 
       {/* ── Программы: карусель на мобилке, сетка на десктопе ── */}
-      <section className="py-10 lg:py-14">
+      <section className="py-10 lg:py-16">
         <div className="lg:hidden">
           <MobileCarousel arrowsTop="40%">
             {visibleCards.map((p) => (
@@ -254,7 +254,7 @@ export default function CheckupPage() {
       </section>
 
       {/* ── FAQ — 2 колонки ── */}
-      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
+      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">

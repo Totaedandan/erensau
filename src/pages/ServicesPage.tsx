@@ -268,7 +268,7 @@ export default function ServicesPage() {
       </div>
 
       {/* ── Карточки: карусель на мобилке, сетка на десктопе ── */}
-      <section className="bg-[#f4f4f4] py-12 lg:py-16">
+      <section className="bg-[#f4f4f4] py-12 lg:py-20">
         <div className="lg:hidden">
           <MobileCarousel arrowsTop="40%">
             {dataMap[activeTab].map((s, i) => (

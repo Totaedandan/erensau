@@ -67,7 +67,7 @@ export default function PatientsPage() {
       </section>
 
       {/* ── Инфо-блоки с фото ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-20">
+      <section className="bg-[#f4f4f4] py-14 lg:py-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Все что нужно знать перед визитом и во время лечения
@@ -152,7 +152,7 @@ export default function PatientsPage() {
       </section>
 
       {/* ── Отзывы: карточки слева, заголовок справа ── */}
-      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
+      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
 
         {/* Мобильный заголовок над карточками */}
@@ -239,7 +239,7 @@ export default function PatientsPage() {
       </section>
 
       {/* ── FAQ — 2 колонки ── */}
-      <section className="bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
+      <section className="bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">

@@ -229,7 +229,7 @@ export default function NewsPage() {
       </section>
 
       {/* ── Главная статья + Последние публикации (десктоп) ── */}
-      <section className="container-main py-12 lg:py-16 hidden lg:block">
+      <section className="container-main py-12 lg:py-20 hidden lg:block">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
           {/* Featured */}
@@ -274,7 +274,7 @@ export default function NewsPage() {
       </section>
 
       {/* ── Сохраните дату ближайшей конференции ── */}
-      <section className="container-main pb-12 lg:pb-16">
+      <section className="container-main pb-12 lg:pb-24">
         <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 text-center mb-8 lg:mb-10 leading-tight max-w-[280px] lg:max-w-none mx-auto">
           Сохраните дату<br />ближайшей конференции
         </h2>
@@ -407,7 +407,7 @@ export default function NewsPage() {
       </section>
 
       {/* ── Лекции с этой конференции (десктоп) ── */}
-      <section className="container-main pb-12 lg:pb-16 hidden lg:block">
+      <section className="container-main pb-12 lg:pb-24 hidden lg:block">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Карточка лектора */}
           <div className="lg:col-span-2">
@@ -453,7 +453,7 @@ export default function NewsPage() {
       </section>
 
       {/* ── Рекомендуемые ── */}
-      <section className="pb-12 lg:pb-16">
+      <section className="pb-12 lg:pb-24">
 
         {/* Мобилка: заголовок по центру + карусель */}
         <div className="lg:hidden">

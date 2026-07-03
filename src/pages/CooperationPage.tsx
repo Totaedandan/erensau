@@ -46,7 +46,7 @@ export default function CooperationPage() {
       </section>
 
       {/* ── Основные направления B2B ── */}
-      <section className="py-14 lg:py-20">
+      <section className="py-14 lg:py-24">
         <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-9 lg:mb-10 max-w-[260px] lg:max-w-none mx-auto">Основные направления B2B</h2>
 
         {/* Мобильная карусель B2B */}
@@ -94,7 +94,7 @@ export default function CooperationPage() {
       </section>
 
       {/* ── Логотипы партнёров ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-20 overflow-hidden">
+      <section className="bg-[#f4f4f4] py-14 lg:py-24 overflow-hidden">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 text-center mb-10 lg:mb-12 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Вместе с партнерами мы расширяем возможности диагностики и лечения

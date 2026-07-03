@@ -82,7 +82,7 @@ export default function Header() {
     <header className="bg-white sticky top-0 z-50">
 
       {/* ── Row 1: utility bar ── */}
-      <div className="container-main flex items-center justify-between h-16">
+      <div className="container-main flex items-center justify-between h-16 lg:h-[100px]">
 
         {/* Logo erensau / hospital */}
         <Link to="/" className="flex flex-col leading-none flex-shrink-0">
@@ -90,8 +90,8 @@ export default function Header() {
           <span className="text-[#00b5e2] text-[11px] lg:text-xs font-medium tracking-wider lowercase mt-0.5">hospital</span>
         </Link>
 
-        {/* Desktop utility row */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+        {/* Desktop utility row — блоки растянуты до правого края с равными промежутками */}
+        <div className="hidden lg:flex flex-1 items-center justify-between pl-[50px] xl:pl-[87px]">
 
           {/* Записаться — текст с подчёркиванием */}
           <Link
@@ -226,8 +226,8 @@ export default function Header() {
       </div>
 
       {/* ── Row 2: navigation in white pill — выходит за нижний край header, перекрывая Hero ── */}
-      <div className="hidden lg:block container-main relative z-10 -mb-10 pb-0">
-        <nav className="bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-gray-100 px-6 py-3.5 flex items-center justify-between">
+      <div className="hidden lg:block container-main relative z-10 -mb-[14px] pb-0">
+        <nav className="bg-white rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.08)] h-[62px] px-16 xl:px-[110px] flex items-center justify-between">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
