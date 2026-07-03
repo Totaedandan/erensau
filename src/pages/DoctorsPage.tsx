@@ -38,7 +38,7 @@ function DoctorGridCard({ doc }: { doc: (typeof baseDoctors)[number] }) {
         <img
           src={doc.photo}
           alt={doc.name}
-          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+          className="absolute inset-x-0 bottom-0 top-16 lg:top-[70px] object-cover object-top hover:scale-105 transition-transform duration-300"
         />
       </div>
 
