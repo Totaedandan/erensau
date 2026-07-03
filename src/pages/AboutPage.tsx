@@ -1,16 +1,27 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
-import imgDoctorSenior2 from '@/assets/images/img-doctor-senior2.jpg'
-import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
+import docKuatbekov from '@/assets/images/doc-kuatbekov.png'
+import docKospanov from '@/assets/images/doc-kospanov.png'
+import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
+import docKusainov from '@/assets/images/doc-kusainov.png'
+import docIzhanov from '@/assets/images/doc-izhanov.png'
+import docAkanov from '@/assets/images/doc-akanov.png'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
-import doctor1 from '@/assets/images/doctor1.jpg'
-import doctor2 from '@/assets/images/doctor2.jpg'
-import doctor3 from '@/assets/images/doctor3.jpg'
-import doctor4 from '@/assets/images/doctor4.jpg'
 import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 
+const teamDoctors = [
+  { photo: docKuatbekov,  title: 'к.м.н., ассоциированный профессор',      name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
+  { photo: docKospanov,   title: 'к.м.н., ассоциированный профессор',      name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
+  { photo: docEshmuratov, title: 'к.м.н., ассоциированный профессор',      name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
+  { photo: docKusainov,   title: 'к.м.н. (PhD)',                           name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
+  { photo: docIzhanov,    title: 'Доктор медицинских наук, профессор',     name: ['Ижанов Ерген', 'Бахчанович'],        position: ['Руководитель профиля общей', 'хирургии и онкологии'] },
+  { photo: docAkanov,     title: 'к.м.н., профессор',                      name: ['Аканов Ержан', 'Кусманович'],        position: ['Руководитель узких', 'хирургических профилей'] },
+]
+
 export default function AboutPage() {
+  const [selected, setSelected] = useState(0)
+  const doc = teamDoctors[selected]
   return (
     <div className="bg-[#f4f4f4]">
 
@@ -23,109 +34,154 @@ export default function AboutPage() {
               'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',
           }}
         >
-          {/* Фото врача — по центру, прижато к низу карточки */}
+          {/* Фото выбранного врача — по центру, прижато к низу карточки */}
           <img
-            src={imgDoctorSenior}
-            alt="Ниеталиев Кайрат"
-            className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[660px] w-auto object-contain object-bottom"
+            src={doc.photo}
+            alt={doc.name.join(' ')}
+            className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[700px] w-auto object-contain object-bottom"
           />
 
-          <div className="relative px-7 lg:px-28 pt-10 lg:pt-36 pb-0 lg:pb-10">
-
-            {/* Верх: заголовок слева + статистика справа */}
-            <div className="flex flex-col lg:flex-row justify-between gap-8">
-              <div className="flex items-start gap-3.5 lg:gap-4">
-                <img src={logoMark} alt="" className="h-12 lg:h-20 w-auto flex-shrink-0 mt-1" />
-                <h1 className="text-[27px] lg:text-5xl font-bold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
+          {/* ── Десктоп: заголовок + статистика + левая колонка ── */}
+          <div className="hidden lg:block relative z-10 px-28 pt-[116px]">
+            <div className="flex justify-between gap-8">
+              <div className="flex items-center gap-5">
+                <img src={logoMark} alt="" className="h-[119px] w-auto flex-shrink-0" />
+                <h1 className="text-5xl font-bold text-gray-900 leading-[1.08] tracking-tight">
                   Почему<br />выбирают нас
                 </h1>
               </div>
 
-              <div className="grid grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-4 lg:gap-y-6 lg:pt-2">
+              <div className="grid grid-cols-2 gap-x-16 gap-y-7 pt-1">
                 {[
                   { val: '10K', label: 'операций\nна счету' },
                   { val: '12K', label: 'пациентов\nв год' },
                   { val: '60+', label: 'ведущих\nэкспертов' },
                   { val: '20',  label: 'лет\nопыта' },
                 ].map((s) => (
-                  <div key={s.label} className="flex items-start gap-2.5">
-                    <div className="text-[34px] lg:text-4xl font-bold text-gray-900 lg:text-[#00b5e2] leading-none">{s.val}</div>
-                    <div className="text-gray-600 text-[11px] whitespace-pre-line leading-tight mt-0.5">{s.label}</div>
+                  <div key={s.label} className="flex items-start gap-3">
+                    <div className="text-[42px] font-bold text-[#00b5e2] leading-none">{s.val}</div>
+                    <div className="text-gray-700 text-[13px] whitespace-pre-line leading-tight mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Левая колонка: описание → аватары → цитата */}
-            <div className="relative z-10 max-w-[320px] mt-5 lg:mt-10">
-              <p className="text-gray-800 text-[13px] leading-relaxed">
+            <div className="max-w-[330px]">
+              <p className="text-gray-800 text-[13px] leading-relaxed mt-6">
                 В Erensau Hospital мы применяем современные
                 методы сердечно-сосудистой хирургии,
                 чтобы восстанавливать здоровье
                 и продлевать жизнь нашим пациентам.
               </p>
 
-              {/* Аватары врачей */}
-              <div className="flex items-center gap-2 lg:gap-2.5 mt-8 lg:mt-28">
-                {[doctor1, doctor2, doctor3, doctor4, imgDoctorSenior2, imgDoctorPortrait].map((d, i) => (
-                  <div key={i} className="relative">
-                    {i === 0 && <span className="lg:hidden absolute -top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00b5e2]" />}
-                    <div
-                      className={`rounded-full overflow-hidden border-2 shadow-sm ${
-                        i === 0 ? 'w-12 h-12 lg:w-16 lg:h-16 border-[#00b5e2]' : 'w-11 h-11 lg:w-14 lg:h-14 border-white'
+              {/* Аватары врачей — выбор меняет фото и визитку */}
+              <div className="flex items-center gap-2 mt-[92px]">
+                {teamDoctors.map((d, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelected(i)}
+                    aria-label={d.name.join(' ')}
+                    className="relative flex-shrink-0 rounded-full transition-transform hover:scale-105"
+                  >
+                    {i === selected && (
+                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-[7px] h-[7px] rounded-full bg-[#00b5e2]" />
+                    )}
+                    <span
+                      className={`block rounded-full overflow-hidden bg-white ${
+                        i === selected
+                          ? 'w-[54px] h-[54px] ring-[3px] ring-[#00b5e2] ring-offset-2 ring-offset-[#edefef]'
+                          : 'w-[50px] h-[50px] ring-2 ring-white'
                       }`}
                     >
-                      <img src={d} alt="" className="w-full h-full object-cover object-top" />
-                    </div>
-                  </div>
+                      <img src={d.photo} alt="" className="w-full h-full object-cover object-top" />
+                    </span>
+                  </button>
                 ))}
               </div>
 
-              {/* Цитата */}
-              <blockquote className="mt-4 lg:mt-12 text-gray-600 lg:text-gray-500 text-[13px] italic leading-relaxed">
+              <blockquote className="mt-11 text-gray-700 text-[13px] italic leading-relaxed">
                 «Сложные операции требуют не только решительности. Они требуют
                 опыта, команды и ответственности за каждый миллиметр»
               </blockquote>
             </div>
+          </div>
 
-            {/* Мобилка: фото врача с визиткой и кнопкой «Все врачи» поверх */}
-            <div className="lg:hidden relative -mx-7 mt-4">
-              <img src={imgDoctorSenior} alt="Ниеталиев Кайрат" className="w-full h-[485px] object-cover object-top" />
-              <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[250px] bg-white rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
-                <p className="text-[#00b5e2] text-xs font-medium mb-2">к.м.н., ассоциированный профессор</p>
+          {/* Десктоп: визитка выбранного врача — поверх правого плеча */}
+          <div className="hidden lg:block absolute z-10 left-[calc(50%+215px)] top-[335px] w-[292px] bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+            <p className="text-[#00b5e2] text-xs font-semibold mb-3">{doc.title}</p>
+            <h3 className="font-bold text-gray-900 text-xl leading-tight mb-4">
+              {doc.name.map((l, i) => (
+                <span key={i}>{l}{i < doc.name.length - 1 && <br />}</span>
+              ))}
+            </h3>
+            <p className="text-gray-700 text-[13px] leading-relaxed">
+              {doc.position.map((l, i) => (
+                <span key={i}>{l}{i < doc.position.length - 1 && <br />}</span>
+              ))}
+            </p>
+          </div>
+
+          {/* Десктоп: кнопка «Все врачи» */}
+          <Link
+            to="/doctors"
+            className="hidden lg:block absolute z-10 left-[calc(50%+220px)] top-[600px] bg-white text-gray-900 text-sm font-semibold rounded-full px-12 py-4 shadow-md hover:text-[#00b5e2] transition-colors"
+          >
+            Все врачи
+          </Link>
+
+          {/* ── Мобилка ── */}
+          <div className="lg:hidden relative px-7 pt-10 pb-6">
+            <div className="flex items-center gap-3.5 mb-6">
+              <img src={logoMark} alt="" className="h-[74px] w-auto flex-shrink-0" />
+              <h1 className="text-[27px] font-bold text-gray-900 leading-[1.12] tracking-tight">
+                Почему<br />выбирают нас
+              </h1>
+            </div>
+            <div className="grid grid-cols-2 gap-x-10 gap-y-4 mb-6">
+              {[
+                { val: '10K', label: 'операций\nна счету' },
+                { val: '12K', label: 'пациентов\nв год' },
+                { val: '60+', label: 'ведущих\nэкспертов' },
+                { val: '20',  label: 'лет\nопыта' },
+              ].map((s) => (
+                <div key={s.label} className="flex items-start gap-2.5">
+                  <div className="text-[34px] font-bold text-gray-900 leading-none">{s.val}</div>
+                  <div className="text-gray-700 text-[11px] whitespace-pre-line leading-tight mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-gray-800 text-[13px] leading-relaxed mb-6">
+              В Erensau Hospital мы применяем современные методы сердечно-сосудистой хирургии, чтобы восстанавливать здоровье и продлевать жизнь нашим пациентам.
+            </p>
+            <div className="flex items-center gap-2 mb-6">
+              {teamDoctors.map((d, i) => (
+                <button key={i} onClick={() => setSelected(i)} aria-label={d.name.join(' ')} className="relative flex-shrink-0">
+                  {i === selected && <span className="absolute -top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00b5e2]" />}
+                  <span className={`block rounded-full overflow-hidden bg-white ${i === selected ? 'w-12 h-12 ring-[3px] ring-[#00b5e2] ring-offset-2 ring-offset-[#edefef]' : 'w-11 h-11 ring-2 ring-white'}`}>
+                    <img src={d.photo} alt="" className="w-full h-full object-cover object-top" />
+                  </span>
+                </button>
+              ))}
+            </div>
+            <blockquote className="text-gray-700 text-[13px] italic leading-relaxed">
+              «Сложные операции требуют не только решительности. Они требуют опыта, команды и ответственности за каждый миллиметр»
+            </blockquote>
+
+            <div className="relative -mx-7 mt-4">
+              <img src={doc.photo} alt={doc.name.join(' ')} className="w-full h-[440px] object-contain object-bottom" />
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[250px] bg-white rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
+                <p className="text-[#00b5e2] text-xs font-semibold mb-2">{doc.title}</p>
                 <h3 className="font-bold text-gray-900 text-base leading-tight mb-2.5">
-                  Ниеталиев Кайрат<br />Ниеталиевич
+                  {doc.name.map((l, i) => (<span key={i}>{l}{i < doc.name.length - 1 && <br />}</span>))}
                 </h3>
-                <p className="text-gray-500 text-xs leading-relaxed">
-                  Руководитель отделения<br />Кардиохирургии и Кардиологии
+                <p className="text-gray-700 text-xs leading-relaxed">
+                  {doc.position.map((l, i) => (<span key={i}>{l}{i < doc.position.length - 1 && <br />}</span>))}
                 </p>
               </div>
-              <Link
-                to="/doctors"
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-gray-900 text-sm font-medium rounded-full px-16 py-3.5 shadow-md whitespace-nowrap"
-              >
+              <Link to="/doctors" className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-gray-900 text-sm font-semibold rounded-full px-16 py-3.5 shadow-md whitespace-nowrap">
                 Все врачи
               </Link>
             </div>
-
-            {/* Визитка справа от плеча врача */}
-            <div className="hidden lg:block absolute right-[15%] top-[54%] bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[270px] z-10">
-              <p className="text-[#00b5e2] text-xs font-medium mb-2.5">к.м.н., ассоциированный профессор</p>
-              <h3 className="font-bold text-gray-900 text-lg leading-tight mb-3.5">
-                Ниеталиев Кайрат<br />Ниеталиевич
-              </h3>
-              <p className="text-gray-500 text-xs leading-relaxed">
-                Руководитель отделения<br />Кардиохирургии и Кардиологии
-              </p>
-            </div>
-
-            {/* Кнопка «Все врачи» */}
-            <Link
-              to="/doctors"
-              className="hidden lg:block absolute right-[21%] bottom-24 bg-white text-gray-900 text-sm font-medium rounded-full px-12 py-3.5 shadow-md hover:text-[#00b5e2] transition-colors z-10"
-            >
-              Все врачи
-            </Link>
           </div>
         </div>
       </section>
