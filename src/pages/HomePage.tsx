@@ -120,7 +120,7 @@ export default function HomePage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка со скруглениями и небольшими полями по бокам (и на мобилке, и на десктопе) ── */}
-      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 max-w-[1440px] mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:aspect-[1414/707]">
 
           {/* Фото хирурга — полный фон */}
