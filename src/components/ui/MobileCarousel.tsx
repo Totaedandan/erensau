@@ -13,7 +13,8 @@ type Props = {
 }
 
 // Мобильная карусель со scroll-snap: стрелки по краям + полоса прогресса (как в мобильном макете)
-export default function MobileCarousel({ children, itemClassName = 'w-[82%]', arrowsTop = '50%', progress = true, className = '' }: Props) {
+// Геометрия из макета (375px): карточка 295px, отступ контейнера 40px, зазор 15px
+export default function MobileCarousel({ children, itemClassName = 'w-full', arrowsTop = '50%', progress = true, className = '' }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const [p, setP] = useState(0)
 
@@ -33,7 +34,7 @@ export default function MobileCarousel({ children, itemClassName = 'w-[82%]', ar
             const max = el.scrollWidth - el.clientWidth
             setP(max > 0 ? el.scrollLeft / max : 0)
           }}
-          className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-none px-8"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none px-10"
         >
           {children.map((c, i) => (
             <div key={i} className={`snap-center flex-shrink-0 ${itemClassName}`}>
@@ -65,7 +66,7 @@ export default function MobileCarousel({ children, itemClassName = 'w-[82%]', ar
       </div>
 
       {progress && (
-        <div className="relative h-[3px] bg-gray-200 rounded-full mx-10 mt-6 overflow-hidden">
+        <div className="relative h-[3px] bg-gray-200 rounded-full mx-10 mt-4 overflow-hidden">
           <div
             className="absolute top-0 h-full w-1/4 rounded-full bg-[#00b5e2] transition-[left] duration-150"
             style={{ left: `${p * 75}%` }}

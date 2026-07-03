@@ -112,7 +112,7 @@ export default function DoctorsPage() {
 
       {/* ── Тёмный hero — карточка с фото операционной + «60+ экспертов» ── */}
       <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[640px] lg:min-h-[720px]">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[618px] lg:min-h-[720px]">
           <img
             src={heroSurgeon}
             alt=""
@@ -134,7 +134,7 @@ export default function DoctorsPage() {
 
             {/* Карточка «60+ экспертов» — белая */}
             <div className="bg-white rounded-3xl p-6 w-full lg:w-[355px] lg:max-w-full shadow-xl">
-              <div className="text-[24px] lg:text-[26px] font-bold text-gray-900 mb-3">
+              <div className="text-[24px] lg:text-[28px] font-bold text-gray-900 mb-3">
                 <span className="text-[#00b5e2]">60+</span> экспертов
               </div>
               <p className="text-gray-600 lg:text-gray-500 text-[13px] leading-relaxed">
@@ -201,7 +201,7 @@ export default function DoctorsPage() {
       </section>
 
       {/* ── Врачи: карусель на мобилке, сетка на десктопе ── */}
-      <section className="py-12 lg:py-16">
+      <section className="pt-7 pb-8 lg:py-16">
         <div className="lg:hidden">
           <MobileCarousel arrowsTop="35%">
             {filtered.map((doc, i) => (

@@ -69,7 +69,7 @@ export default function PatientsPage() {
       {/* ── Инфо-блоки с фото ── */}
       <section className="bg-[#f4f4f4] py-14 lg:py-20">
         <div className="container-main">
-          <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Все что нужно знать перед визитом и во время лечения
           </h2>
           {/* Таб-бар: на мобилке — голубой дропдаун */}
@@ -119,16 +119,16 @@ export default function PatientsPage() {
 
         {/* Мобильная карусель инфо-блоков */}
         <div className="lg:hidden">
-          <MobileCarousel arrowsTop="35%">
+          <MobileCarousel arrowsTop="35%" progress={false}>
             {infoBlocks.map((block) => (
               <div key={`${block.title}-m`}>
                 <div className="bg-white rounded-3xl p-2">
-                  <div className="h-52 overflow-hidden rounded-[20px]">
+                  <div className="h-56 overflow-hidden rounded-[20px]">
                     <img src={block.img} alt={block.title} className="w-full h-full object-cover object-top" />
                   </div>
                 </div>
                 <h3 className="font-bold text-gray-900 text-lg mt-5 mb-2 px-1">{block.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed px-1">{block.desc}</p>
+                <p className="text-gray-600 text-[13px] leading-relaxed px-1">{block.desc}</p>
               </div>
             ))}
           </MobileCarousel>
@@ -152,15 +152,15 @@ export default function PatientsPage() {
       </section>
 
       {/* ── Отзывы: карточки слева, заголовок справа ── */}
-      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] py-14 lg:py-20">
+      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
         <div className="container-main">
 
         {/* Мобильный заголовок над карточками */}
-        <div className="lg:hidden text-center mb-8">
-          <h2 className="text-[26px] font-bold text-gray-900 mb-4 leading-tight">
+        <div className="lg:hidden text-center mb-6">
+          <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-tight">
             Нам доверяют<br />и говорят об этом
           </h2>
-          <p className="text-gray-600 text-[13px] leading-relaxed">
+          <p className="text-gray-600 text-xs leading-relaxed max-w-[320px] mx-auto">
             Лучшая оценка нашей работы — слова людей, которым мы помогли.
             Читайте отзывы наших пациентов или поделитесь своим опытом после
             визита в Erensau Hospital
@@ -169,28 +169,28 @@ export default function PatientsPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Карточки — лесенкой */}
-          <div className="space-y-5">
+          <div className="space-y-4 lg:space-y-5">
             {reviews.map((r, idx) => (
-              <div key={r.name} className={`bg-white rounded-3xl p-6 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'mx-3 lg:mx-0 lg:ml-10 lg:mr-6'}`}>
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+              <div key={r.name} className={`bg-white rounded-3xl p-4 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'mx-3 lg:mx-0 lg:ml-10 lg:mr-6'}`}>
+                <div className="flex items-center justify-between gap-3 mb-2.5 lg:mb-4">
+                  <div className="flex items-center gap-2.5 lg:gap-3">
+                    <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                       <img src={r.photo} alt={r.name} className="w-full h-full object-cover object-top" />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900 text-sm">{r.name}</div>
-                      <div className="text-gray-400 text-xs">{r.date}</div>
+                      <div className="font-semibold text-gray-900 text-[13px] lg:text-sm">{r.name}</div>
+                      <div className="text-gray-400 text-[11px] lg:text-xs">{r.date}</div>
                     </div>
                   </div>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 text-[#7dd3ec]" fill="currentColor" viewBox="0 0 20 20">
+                      <svg key={i} className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-[#7dd3ec]" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     ))}
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">{r.text}</p>
+                <p className="text-gray-600 text-xs lg:text-sm leading-relaxed">{r.text}</p>
               </div>
             ))}
           </div>
@@ -219,7 +219,7 @@ export default function PatientsPage() {
         </div>
 
         {/* Мобилка: врач из отзыва + кнопка */}
-        <div className="lg:hidden mt-8">
+        <div className="lg:hidden mt-6">
           <div className="flex items-start gap-4">
             <div className="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
               <img src={imgDoctorSenior} alt="" className="w-full h-full object-cover object-top" />
@@ -239,18 +239,18 @@ export default function PatientsPage() {
       </section>
 
       {/* ── FAQ — 2 колонки ── */}
-      <section className="bg-white py-14 lg:py-20">
+      <section className="bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
         <div className="container-main">
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Ответы на популярные вопросы</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
                 <button
-                  className="w-full flex justify-between items-center px-6 py-4 text-left"
+                  className="w-full flex justify-between items-center px-5 lg:px-6 py-3 lg:py-4 text-left"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-gray-900 text-sm pr-4">{faq.q}</span>
-                  <span className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
+                  <span className="font-medium text-gray-900 text-xs lg:text-sm pr-3 lg:pr-4 whitespace-nowrap lg:whitespace-normal overflow-hidden text-ellipsis">{faq.q}</span>
+                  <span className={`w-6 h-6 lg:w-7 lg:h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       {openFaq === i
                         ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
@@ -259,7 +259,7 @@ export default function PatientsPage() {
                   </span>
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
+                  <div className="px-5 lg:px-6 pb-4 lg:pb-5 text-gray-500 text-[13px] lg:text-sm leading-relaxed">{faq.a}</div>
                 )}
               </div>
             ))}

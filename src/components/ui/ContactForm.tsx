@@ -18,18 +18,18 @@ export default function ContactForm({
   const inputCls =
     'w-full bg-[#f1f1f3] rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
   const inputClsMobile =
-    'w-full bg-[#f1f1f3] rounded-lg px-4 py-3.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
+    'w-full bg-[#f1f1f3] rounded-lg px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
 
   return (
-    <section className="bg-[#f4f4f4] py-12 lg:py-16">
+    <section className="bg-[#f4f4f4] py-9 lg:py-16">
       <div className="container-main">
         <div className="bg-white rounded-[28px] lg:rounded-[32px] shadow-sm p-7 lg:p-12">
 
           {/* ── Мобильная версия: всё столбиком ── */}
           <div className="lg:hidden">
-            <h2 className="text-[28px] font-bold text-gray-900 mb-4 leading-[1.15] whitespace-pre-line">{heading}</h2>
+            <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-[1.2] whitespace-pre-line">{heading}</h2>
             {mobileVariant === 'default' && (
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">{text}</p>
+              <p className="text-gray-400 text-[13px] leading-relaxed mb-5">{text}</p>
             )}
             {sent ? (
               <div className="py-6">
@@ -37,7 +37,7 @@ export default function ContactForm({
                 <p className="text-gray-500 text-sm">Мы свяжемся с вами в течение рабочего дня.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-3.5">
+              <form onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-2.5">
                 <input type="text" placeholder="Ваше ФИО" className={inputClsMobile} />
                 {mobileVariant === 'registration' ? (
                   <>

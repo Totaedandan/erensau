@@ -12,14 +12,14 @@ export default function CTASlider() {
   const next = () => setActive((i) => (i + 1) % TOTAL_DOTS)
 
   return (
-    <section className="bg-[#f4f4f4] py-16 lg:py-24">
+    <section className="bg-[#f4f4f4] pt-10 pb-10 lg:py-24">
       <div className="container-main">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-16 items-center">
 
           {/* Мобильный заголовок — над фото (в десктопе заголовок в правой колонке) */}
           <div className="flex items-start gap-3 lg:hidden">
             <img src={logoMark} alt="" className="h-12 w-auto flex-shrink-0" />
-            <h2 className="text-[26px] font-bold text-gray-900 leading-[1.15]">
+            <h2 className="text-[28px] font-bold text-gray-900 leading-[1.15]">
               Многопрофильная<br />клиника
             </h2>
           </div>
@@ -49,7 +49,7 @@ export default function CTASlider() {
             </button>
 
             {/* Точки-пагинация */}
-            <div className="flex items-center justify-center gap-2 mt-5">
+            <div className="flex items-center justify-center gap-2 mt-2.5 lg:mt-5">
               {Array.from({ length: TOTAL_DOTS }).map((_, i) => (
                 <button
                   key={i}
@@ -69,7 +69,7 @@ export default function CTASlider() {
                 Многопрофильная<br />клиника
               </h2>
             </div>
-            <p className="text-gray-800 lg:text-gray-500 text-sm lg:text-base leading-relaxed lg:mb-8 max-w-md">
+            <p className="text-gray-800 lg:text-gray-500 text-[13px] lg:text-base leading-relaxed lg:mb-8 max-w-md">
               Мы сосредоточены на мультидисциплинарном подходе, объединяя как оперативные,
               так и консервативные методы лечения. Нам доверяют случаи, которые нередко
               отличаются редкостью, тяжестью течения и клинической уникальностью.

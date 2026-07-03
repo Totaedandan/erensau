@@ -254,18 +254,18 @@ export default function CheckupPage() {
       </section>
 
       {/* ── FAQ — 2 колонки ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-20">
+      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
         <div className="container-main">
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-8 text-center">Ответы на популярные вопросы</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden">
                 <button
-                  className="w-full flex justify-between items-center px-6 py-4 text-left"
+                  className="w-full flex justify-between items-center px-5 lg:px-6 py-3 lg:py-4 text-left"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-gray-900 text-sm pr-4">{faq.q}</span>
-                  <span className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
+                  <span className="font-medium text-gray-900 text-xs lg:text-sm pr-3 lg:pr-4 whitespace-nowrap lg:whitespace-normal overflow-hidden text-ellipsis">{faq.q}</span>
+                  <span className={`w-6 h-6 lg:w-7 lg:h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       {openFaq === i
                         ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
@@ -274,7 +274,7 @@ export default function CheckupPage() {
                   </span>
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
+                  <div className="px-5 lg:px-6 pb-4 lg:pb-5 text-gray-500 text-[13px] lg:text-sm leading-relaxed">{faq.a}</div>
                 )}
               </div>
             ))}

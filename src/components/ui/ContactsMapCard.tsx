@@ -30,9 +30,9 @@ const YtIcon = () => <svg className={ic} fill="currentColor" viewBox="0 0 24 24"
 // Запись: иконки СВЕРХУ, значение ПОД ними (как в дизайне)
 function Entry({ icons, children }: { icons: ReactNode; children: ReactNode }) {
   return (
-    <div className="mb-3 last:mb-0">
-      <div className="flex gap-1 mb-1.5">{icons}</div>
-      <div className="text-sm text-gray-700 leading-relaxed">{children}</div>
+    <div className="mb-2.5 lg:mb-3 last:mb-0">
+      <div className="flex gap-1 mb-1 lg:mb-1.5">{icons}</div>
+      <div className="text-xs lg:text-sm text-gray-700 leading-relaxed">{children}</div>
     </div>
   )
 }
@@ -42,22 +42,22 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
   return (
     <section className="bg-[#f4f4f4]">
       {showHeading && (
-        <div className="container-main pt-12 lg:pt-16">
-          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center lg:text-left">Контакты</h2>
+        <div className="container-main pt-16 lg:pt-16">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center lg:text-left">Контакты</h2>
         </div>
       )}
 
       {/* ── Мобильная версия: карточка сверху, карта ниже ── */}
       <div className="lg:hidden">
-        <div className="container-main pt-6">
-          <div className="bg-white rounded-3xl p-6 shadow-sm">
+        <div className="container-main pt-7">
+          <div className="bg-white rounded-3xl p-5 shadow-sm">
             <div className="grid grid-cols-2 gap-x-6">
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Адрес:</h3>
+                <h3 className="text-gray-900 font-bold text-sm mb-2">Адрес:</h3>
                 <Entry icons={<Dot><PinIcon /></Dot>}>
                   г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1
                 </Entry>
-                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Доп.информация:</h3>
+                <h3 className="text-gray-900 font-bold text-sm mt-4 mb-2">Доп.информация:</h3>
                 <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
                   erensau.kz
                 </Entry>
@@ -67,14 +67,14 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                 </Entry>
               </div>
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Колл-центр:</h3>
+                <h3 className="text-gray-900 font-bold text-sm mb-2">Колл-центр:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394040">+7 727 339 40 40</a>
                 </Entry>
                 <Entry icons={<><Dot><WaIcon /></Dot><Dot><TgIcon /></Dot></>}>
                   <a href="tel:+77713999444">+7 771 399 94 44</a>
                 </Entry>
-                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Администрация:</h3>
+                <h3 className="text-gray-900 font-bold text-sm mt-4 mb-2">Администрация:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394282">+7 727 339 42 82</a>
                 </Entry>
@@ -87,14 +87,14 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
         </div>
 
         {/* Карта с фото клиники, графиком работы и кнопкой */}
-        <div className="relative mt-6 overflow-hidden">
+        <div className="relative mt-7 overflow-hidden">
           <img src={mapBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="relative px-4 pt-16 pb-10">
-            <div className="mx-auto w-64 h-44 rounded-2xl overflow-hidden shadow-2xl border-[5px] border-white">
+          <div className="relative px-4 pt-11 pb-11">
+            <div className="mx-auto w-[218px] h-[125px] rounded-xl overflow-hidden shadow-2xl border-4 border-white">
               <img src={imgClinicBuilding} alt="Erensau Hospital" className="w-full h-full object-cover" />
             </div>
 
-            <div className="mt-40">
+            <div className="mt-36">
               <h3 className="text-gray-900 font-bold text-base mb-3">График работы</h3>
               <table className="w-full text-sm mb-6">
                 <thead>

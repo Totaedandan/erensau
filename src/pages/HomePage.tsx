@@ -69,7 +69,7 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
   return (
     <article className="bg-white lg:bg-[#ececec] rounded-3xl p-0 lg:p-4 flex flex-col overflow-hidden h-full">
       {/* Фото со «стажем» — пилюлей сверху */}
-      <div className="relative rounded-none lg:rounded-2xl overflow-hidden aspect-[4/5] mb-0 lg:mb-5">
+      <div className="relative rounded-none lg:rounded-2xl overflow-hidden aspect-[13/12] lg:aspect-[4/5] mb-0 lg:mb-5">
         <span className="absolute top-4 left-4 lg:top-3 lg:left-3 bg-white rounded-full px-3.5 py-1.5 text-[11px] font-medium text-gray-900 shadow-sm z-10">
           {d.experience}
         </span>
@@ -82,8 +82,8 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
 
       {/* Текстовый блок: звание → имя → должность */}
       <div className="px-5 pt-4 lg:px-1 lg:pt-0 flex-1">
-        <p className="text-[#00b5e2] text-[13px] mb-2 leading-snug">{d.title}</p>
-        <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2">{d.name}</h3>
+        <p className="text-[#00b5e2] text-[13px] mb-1.5 lg:mb-2 leading-snug">{d.title}</p>
+        <h3 className="font-bold text-gray-900 text-[22px] lg:text-lg leading-tight mb-1.5 lg:mb-2">{d.name}</h3>
         <p className="text-gray-600 text-[13px] leading-snug">{d.position}</p>
       </div>
 
@@ -117,7 +117,7 @@ export default function HomePage() {
 
       {/* ── Hero — на мобилке карточка со скруглениями, на десктопе фото на всю ширину ── */}
       <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-0 lg:pt-0">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-none min-h-[620px] lg:min-h-[750px]">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-none min-h-[642px] lg:min-h-[750px]">
 
           {/* Фото хирурга — полный фон */}
           <img
@@ -131,25 +131,26 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a1628]/55 to-[#0a1628]/85 lg:bg-gradient-to-r lg:from-[#0a1628] lg:via-[#0a1628]/85 lg:to-[#0a1628]/10" />
 
           {/* Контент */}
-          <div className="relative z-10 container-main">
-            <div className="flex flex-col justify-start lg:justify-center min-h-[620px] lg:min-h-[750px] py-10 lg:py-16">
+          <div className="relative z-10 container-main px-[30px] lg:px-16 xl:px-[130px]">
+            <div className="flex flex-col justify-start lg:justify-center min-h-[642px] lg:min-h-[750px] py-[52px] lg:py-16">
 
               <div className="max-w-[720px]">
-                <div className="flex items-start gap-3.5 lg:gap-4 mb-9">
-                  <img src={logoMark} alt="" className="h-12 lg:h-20 w-auto flex-shrink-0 mt-1" />
-                  <h1 className="text-[26px] lg:text-[56px] font-bold text-white leading-[1.15] lg:leading-[1.05]">
-                    Точные решения<br />для сложных случаев
+                <div className="flex items-start gap-3.5 lg:gap-4 mb-8 lg:mb-9">
+                  <img src={logoMark} alt="" className="h-[68px] lg:h-20 w-auto flex-shrink-0" />
+                  <h1 className="text-[27px] lg:text-[56px] font-bold text-white leading-[1.2] lg:leading-[1.05]">
+                    <span className="lg:hidden">Точные решения<br />для сложных<br />случаев</span>
+                    <span className="hidden lg:inline">Точные решения<br />для сложных случаев</span>
                   </h1>
                 </div>
 
-                <div className="flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-end gap-y-4 lg:gap-y-5 gap-x-10 mb-10">
+                <div className="flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-end gap-y-2.5 lg:gap-y-5 gap-x-10 mb-10">
                   {[
                     { val: '12 000+', label: 'пациентов\nв год',   order: 'order-1' },
                     { val: '60+',     label: 'ведущих\nэкспертов', order: 'order-3' },
                     { val: '10 000+', label: 'операций\nна счету', order: 'order-2' },
                   ].map((s) => (
                     <div key={s.label} className={`flex items-end gap-2.5 ${s.order} lg:order-none`}>
-                      <div className="text-[30px] lg:text-[38px] font-bold text-white leading-none">{s.val}</div>
+                      <div className="text-[34px] lg:text-[38px] font-bold text-white leading-none">{s.val}</div>
                       <div className="text-white/60 text-[13px] whitespace-pre-line leading-tight">{s.label}</div>
                     </div>
                   ))}
@@ -184,37 +185,37 @@ export default function HomePage() {
       </section>
 
       {/* ── Фич-чипы: на мобилке столбиком под hero, на десктопе выходят за его край ── */}
-      <div className="container-main relative z-20 mt-4 lg:mt-0 lg:-mt-9">
+      <div className="container-main relative z-20 mt-2.5 lg:mt-0 lg:-mt-9">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-3.5 lg:gap-4">
           {features.map((f) => (
             <div key={f.label} className="flex items-center gap-3.5 lg:gap-3 bg-white rounded-full px-3 lg:px-4 py-2.5 lg:py-3 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
               <span className="w-12 h-12 lg:w-11 lg:h-11 rounded-full lg:bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
                 <img src={f.icon} alt="" className="w-full h-full lg:w-6 lg:h-6" />
               </span>
-              <span className="text-gray-800 text-[13px] lg:text-[12px] font-medium leading-snug">{f.label}</span>
+              <span className="text-gray-800 text-[13px] lg:text-[12px] font-medium leading-snug max-w-[190px] lg:max-w-none">{f.label}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── Team ── */}
-      <section className="bg-[#f4f4f4] pb-16 lg:pb-24 pt-14 lg:pt-32">
+      <section className="bg-[#f4f4f4] pb-0 lg:pb-24 pt-28 lg:pt-32">
         <div className="container-main">
           {/* Заголовок по центру */}
-          <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-10 lg:mb-12 max-w-[300px] lg:max-w-none mx-auto">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-5 lg:mb-12 max-w-[320px] lg:max-w-none mx-auto leading-[1.3]">
             Командная модель высокой подготовки
           </h2>
         </div>
 
         {/* Мобильная карусель врачей */}
         <div className="lg:hidden">
-          <MobileCarousel arrowsTop="30%">
+          <MobileCarousel arrowsTop="28%">
             {teamDoctors.map((d, i) => (
               <TeamCard key={`${d.name}-m${i}`} d={d} />
             ))}
           </MobileCarousel>
-          <div className="text-center mt-9">
-            <Link to="/doctors" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5">
+          <div className="text-center mt-12">
+            <Link to="/doctors" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-4">
               Смотреть всех врачей
             </Link>
           </div>
@@ -257,10 +258,10 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-24">
+      <section className="bg-[#f4f4f4] pt-14 lg:pt-24 pb-0 lg:pb-24">
         <div className="container-main">
           {/* Заголовок по центру */}
-          <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 lg:mb-9 max-w-[300px] lg:max-w-none mx-auto">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-7 lg:mb-9 max-w-[320px] lg:max-w-none mx-auto leading-[1.3]">
             Широкий спектр медицинских услуг
           </h2>
 
@@ -314,21 +315,21 @@ export default function HomePage() {
 
         {/* Мобильная карусель услуг */}
         <div className="lg:hidden">
-          <MobileCarousel arrowsTop="45%">
+          <MobileCarousel arrowsTop="42%">
             {services.map((s) => (
-              <article key={`${s.title}-m`} className="bg-white rounded-3xl p-7 flex flex-col h-full">
-                <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-7">
+              <article key={`${s.title}-m`} className="bg-white rounded-3xl p-7 flex flex-col h-full min-h-[370px]">
+                <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-8">
                   <img src={s.icon} alt="" className="w-full h-full" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-4 leading-snug">{s.title}</h3>
+                <h3 className="font-bold text-gray-900 text-[19px] mb-3.5 leading-snug">{s.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
               </article>
             ))}
           </MobileCarousel>
-          <div className="text-center mt-9">
+          <div className="text-center mt-14">
             <Link
               to="/services"
-              className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5"
+              className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-4"
             >
               Смотреть все услуги
             </Link>
@@ -370,9 +371,9 @@ export default function HomePage() {
       <ContactsMapCard />
 
       {/* ── Виртуальный тур по клинике ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-24">
+      <section className="bg-[#f4f4f4] pt-20 lg:pt-24 pb-16 lg:pb-24">
         <div className="container-main">
-          <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 lg:mb-10 max-w-[260px] lg:max-w-none mx-auto">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-5 lg:mb-10 max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">
             Виртуальный тур по клинике
           </h2>
           <div className="relative rounded-[24px] lg:rounded-[32px] overflow-hidden h-[470px] lg:h-auto lg:min-h-[400px] lg:flex lg:items-center">
@@ -421,23 +422,23 @@ export default function HomePage() {
       </section>
 
       {/* ── Последние публикации — сетка из 4 карточек ── */}
-      <section className="bg-[#f4f4f4] pb-16 lg:pb-24">
+      <section className="bg-[#f4f4f4] pt-0 pb-11 lg:pb-24">
         <div className="container-main">
-          <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-7 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto leading-[1.3]">
             Последние публикации
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5">
             {posts.map((p, i) => (
-              <article key={`${p.title}-${i}`} className="group cursor-pointer bg-white lg:bg-transparent rounded-3xl lg:rounded-none overflow-hidden lg:overflow-visible">
-                <div className="aspect-[9/8] lg:aspect-[4/3] rounded-none lg:rounded-2xl overflow-hidden mb-0 lg:mb-4 bg-gray-200">
+              <article key={`${p.title}-${i}`} className={`group cursor-pointer bg-white lg:bg-transparent rounded-3xl lg:rounded-none overflow-hidden lg:overflow-visible ${i === 3 ? 'hidden lg:block' : ''}`}>
+                <div className="aspect-[8/5] lg:aspect-[4/3] rounded-none lg:rounded-2xl overflow-hidden mb-0 lg:mb-4 bg-gray-200">
                   <img
                     src={p.img}
                     alt={p.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 text-base leading-snug line-clamp-2 mb-2 lg:mb-3 text-center lg:text-left px-5 lg:px-0 pt-4 lg:pt-0 group-hover:text-[#00b5e2] transition-colors">
+                <h3 className="font-bold text-gray-900 text-base leading-snug line-clamp-2 mb-1.5 lg:mb-3 text-center lg:text-left px-5 lg:px-0 pt-4 lg:pt-0 group-hover:text-[#00b5e2] transition-colors">
                   {p.title}
                 </h3>
                 <p className="text-gray-400 text-xs text-center lg:text-left px-5 lg:px-0 pb-5 lg:pb-0">{p.date}</p>
@@ -445,10 +446,10 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10 lg:mt-12">
             <Link
               to="/news"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+              className="inline-flex items-center gap-2 bg-white border border-gray-300 lg:border-gray-200 text-gray-900 text-sm font-medium rounded-full px-9 lg:px-8 py-4 lg:py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
             >
               Смотреть все новости
             </Link>

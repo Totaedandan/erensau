@@ -65,29 +65,29 @@ const internships = [
 // ── Карточка «Персональная информация» — общая для мобилки и десктопа ──
 function PersonalInfoCard({ className = '' }: { className?: string }) {
   return (
-    <div className={`bg-white rounded-[28px] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${className}`}>
-      <h3 className="text-[22px] font-bold text-gray-900 mb-5 whitespace-nowrap">Персональная информация</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-4">
+    <div className={`bg-white rounded-[28px] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${className}`}>
+      <h3 className="text-[20px] lg:text-[22px] font-bold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Персональная информация</h3>
+      <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed mb-3.5 lg:mb-4">
         Ему присвоена высшая квалификационная категория по специальности
         "взрослая и детская кардиохирургия".
       </p>
-      <p className="text-gray-500 text-sm leading-relaxed mb-6">
+      <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed mb-5 lg:mb-6">
         Доктор, стоявший у истоков детской кардиохирургии в Казахстане,
         провёл первую открытую операцию на сердце в Кызылординской области.
       </p>
-      <div className="border-t border-gray-200 pt-6 mb-2">
-        <h3 className="text-[22px] font-bold text-gray-900 mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-6">
+      <div className="border-t border-gray-200 pt-5 lg:pt-6 mb-2">
+        <h3 className="text-[20px] lg:text-[22px] font-bold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-3 lg:gap-y-4 mb-5 lg:mb-6">
           {internships.map((s) => (
             <div key={s.label} className="flex items-center gap-3">
               {s.flag}
-              <span className="text-gray-900 text-sm font-medium">{s.label}</span>
+              <span className="text-gray-900 text-[13px] lg:text-sm font-medium">{s.label}</span>
             </div>
           ))}
         </div>
       </div>
-      <div className="border-t border-gray-200 pt-5">
-        <p className="text-gray-500 text-sm leading-relaxed">
+      <div className="border-t border-gray-200 pt-4 lg:pt-5">
+        <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed">
           Автор 113 научных работ, 8 патентов и 3 методических рекомендаций.
           Наставник многих кардиохирургов страны.
         </p>
@@ -101,7 +101,7 @@ function VideoTile({ big = false }: { big?: boolean }) {
   return (
     <div
       className={`relative rounded-2xl overflow-hidden flex-shrink-0 shadow-sm ${
-        big ? 'w-[300px] lg:w-[368px] h-[560px] lg:h-[660px]' : 'w-[150px] h-[330px] md:w-[205px] md:h-[360px]'
+        big ? 'w-[300px] lg:w-[368px] h-[535px] lg:h-[660px]' : 'w-[150px] h-[330px] md:w-[205px] md:h-[360px]'
       }`}
       style={{ background: 'linear-gradient(160deg, #e9dfd7 0%, #f2d9de 45%, #dfe9e3 100%)' }}
     >
@@ -212,8 +212,8 @@ export default function DoctorCardPage() {
             </div>
 
             {/* Мобилка: фото врача до краёв карточки */}
-            <div className="lg:hidden -mx-6 mt-5">
-              <img src={doctor1} alt="Куатбеков Кайрат Ниеталиевич" className="w-full h-[420px] object-cover object-top" />
+            <div className="lg:hidden -mx-6 mt-4">
+              <img src={doctor1} alt="Куатбеков Кайрат Ниеталиевич" className="w-full h-[245px] object-cover object-top" />
             </div>
 
             {/* Правая карточка «Персональная информация» (десктоп) */}
@@ -223,19 +223,19 @@ export default function DoctorCardPage() {
       </section>
 
       {/* Мобилка: кнопка записи + персональная информация под hero */}
-      <div className="lg:hidden container-main mt-6">
+      <div className="lg:hidden container-main mt-5">
         <Link
           to="/contacts"
           className="block w-full bg-[#00b5e2] text-white text-[15px] font-medium rounded-full py-4 text-center shadow-[0_10px_30px_rgba(0,181,226,0.35)]"
         >
           Записаться на прием
         </Link>
-        <PersonalInfoCard className="mt-8" />
+        <PersonalInfoCard className="mt-7" />
       </div>
 
       {/* ── Видео отзывы про врача ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-24">
-        <h2 className="text-[26px] lg:text-[40px] font-bold text-gray-900 text-center mb-9 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto">
+      <section className="bg-[#f4f4f4] pt-12 pb-10 lg:py-24">
+        <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-4 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto">
           Видео отзывы про врача
         </h2>
         <div className="relative overflow-hidden">
@@ -267,7 +267,7 @@ export default function DoctorCardPage() {
           </button>
         </div>
         {/* Точки-пагинация */}
-        <div className="flex items-center justify-center gap-2 mt-12">
+        <div className="flex items-center justify-center gap-2 mt-9 lg:mt-12">
           {Array.from({ length: VIDEO_DOTS }).map((_, i) => (
             <button
               key={i}
@@ -280,15 +280,15 @@ export default function DoctorCardPage() {
       </section>
 
       {/* ── Отзывы: карточки слева, заголовок справа ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-20">
+      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-20">
         <div className="container-main">
 
           {/* Мобильный заголовок над карточками */}
-          <div className="lg:hidden text-center mb-8">
-            <h2 className="text-[26px] font-bold text-gray-900 mb-4 leading-tight">
+          <div className="lg:hidden text-center mb-6">
+            <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-tight">
               Нам доверяют<br />и говорят об этом
             </h2>
-            <p className="text-gray-600 text-[13px] leading-relaxed">
+            <p className="text-gray-600 text-xs leading-relaxed max-w-[320px] mx-auto">
               Лучшая оценка нашей работы — слова людей, которым мы помогли.
               Читайте отзывы наших пациентов или поделитесь своим опытом после
               визита в Erensau Hospital
@@ -297,28 +297,28 @@ export default function DoctorCardPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Карточки — лесенкой */}
-            <div className="space-y-5">
+            <div className="space-y-3 lg:space-y-5">
               {reviews.map((r, idx) => (
-                <div key={r.name} className={`bg-white rounded-3xl p-6 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'mx-3 lg:mx-0 lg:ml-10 lg:mr-6'}`}>
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                <div key={r.name} className={`bg-white rounded-3xl p-4 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.06)] ${idx % 2 === 1 ? '' : 'mx-3 lg:mx-0 lg:ml-10 lg:mr-6'}`}>
+                  <div className="flex items-center justify-between gap-3 mb-2.5 lg:mb-4">
+                    <div className="flex items-center gap-2.5 lg:gap-3">
+                      <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                         <img src={r.photo} alt={r.name} className="w-full h-full object-cover object-top" />
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900 text-sm">{r.name}</div>
-                        <div className="text-gray-400 text-xs">{r.date}</div>
+                        <div className="font-semibold text-gray-900 text-[13px] lg:text-sm">{r.name}</div>
+                        <div className="text-gray-400 text-[11px] lg:text-xs">{r.date}</div>
                       </div>
                     </div>
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-4 h-4 text-[#7dd3ec]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg key={i} className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-[#7dd3ec]" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
                     </div>
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed">{r.text}</p>
+                  <p className="text-gray-600 text-xs lg:text-sm leading-relaxed">{r.text}</p>
                 </div>
               ))}
             </div>
@@ -337,29 +337,29 @@ export default function DoctorCardPage() {
           </div>
 
           {/* Мобилка: кнопка после карточек */}
-          <div className="lg:hidden text-center mt-9">
+          <div className="lg:hidden text-center mt-7">
             <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-4">Оставьте отзыв</Link>
           </div>
         </div>
       </section>
 
       {/* ── Лекции от Куатбекова К.Н. ── */}
-      <section className="bg-[#f4f4f4] py-14 lg:py-20">
+      <section className="bg-[#f4f4f4] pt-10 pb-10 lg:py-20">
 
         {/* Мобилка: заголовок по центру + карусель */}
         <div className="lg:hidden">
-          <h2 className="text-[26px] font-bold text-gray-900 text-center mb-8 leading-tight max-w-[240px] mx-auto">
+          <h2 className="text-[28px] font-bold text-gray-900 text-center mb-7 leading-tight max-w-[260px] mx-auto">
             Лекции от Куатбекова К.Н.
           </h2>
           <MobileCarousel arrowsTop="32%">
             {lectures.map((l, i) => (
               <article key={`${l.title}-m${i}`} className="bg-white rounded-3xl overflow-hidden h-full">
-                <div className="h-44 overflow-hidden">
+                <div className="h-40 overflow-hidden">
                   <img src={l.img} alt={l.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-2.5">{l.title}</h3>
-                  <p className="text-gray-600 text-[13px] leading-relaxed mb-5">{l.desc}</p>
+                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-2">{l.title}</h3>
+                  <p className="text-gray-600 text-[13px] leading-relaxed mb-4">{l.desc}</p>
                   <Link
                     to="/news"
                     className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-10 py-2.5"

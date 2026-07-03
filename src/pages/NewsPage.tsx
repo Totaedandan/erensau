@@ -76,7 +76,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
             </svg>
           </button>
 
-          <h3 className="text-[26px] font-bold text-gray-900 text-center mb-7">Регистрационная форма</h3>
+          <h3 className="text-[28px] font-bold text-gray-900 text-center mb-7">Регистрационная форма</h3>
 
           <form className="space-y-3.5" onSubmit={(e) => { e.preventDefault(); onClose() }}>
             <input type="text" placeholder="Ваше ФИО" className={inputCls} />
@@ -201,7 +201,7 @@ export default function NewsPage() {
 
       {/* ── Мобилка: «Последние публикации» — карусель крупных карточек ── */}
       <section className="lg:hidden py-12">
-        <h2 className="text-[26px] font-bold text-gray-900 text-center mb-8 leading-tight">
+        <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight">
           Последние<br />публикации
         </h2>
         <MobileCarousel arrowsTop="30%" progress={false}>
@@ -275,7 +275,7 @@ export default function NewsPage() {
 
       {/* ── Сохраните дату ближайшей конференции ── */}
       <section className="container-main pb-12 lg:pb-16">
-        <h2 className="text-[26px] lg:text-[36px] font-bold text-gray-900 text-center mb-8 lg:mb-10 leading-tight max-w-[280px] lg:max-w-none mx-auto">
+        <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 text-center mb-8 lg:mb-10 leading-tight max-w-[280px] lg:max-w-none mx-auto">
           Сохраните дату<br />ближайшей конференции
         </h2>
         <div className="relative rounded-[24px] lg:rounded-[32px] overflow-hidden min-h-[380px] lg:flex lg:items-center">
@@ -285,7 +285,7 @@ export default function NewsPage() {
           {/* Мобильная раскладка: всё столбиком, фото проглядывает в середине */}
           <div className="lg:hidden relative z-10 p-6 pb-8">
             <p className="text-[#00b5e2] text-[11px] font-semibold uppercase tracking-[0.25em] mb-3">Конференция</p>
-            <h3 className="text-[26px] font-bold text-white leading-tight mb-4 max-w-[300px]">
+            <h3 className="text-[28px] font-bold text-white leading-tight mb-4 max-w-[300px]">
               Заболевания органов дыхания в практике врача терапевта
             </h3>
             {/* Просвет с фото хирурга */}
@@ -360,7 +360,7 @@ export default function NewsPage() {
 
       {/* ── Мобилка: «Лекции с этой конференции» — карусель карточек лектора ── */}
       <section className="lg:hidden pb-12">
-        <h2 className="text-[26px] font-bold text-gray-900 text-center mb-8 leading-tight">
+        <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight">
           Лекции с этой<br />конференции
         </h2>
         <MobileCarousel arrowsTop="42%" progress={false}>
@@ -457,7 +457,7 @@ export default function NewsPage() {
 
         {/* Мобилка: заголовок по центру + карусель */}
         <div className="lg:hidden">
-          <h2 className="text-[26px] font-bold text-gray-900 text-center mb-8 leading-tight max-w-[280px] mx-auto">
+          <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight max-w-[280px] mx-auto">
             Рекомендуемое: другие статьи и публикации
           </h2>
           <MobileCarousel arrowsTop="35%">

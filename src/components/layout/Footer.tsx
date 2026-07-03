@@ -64,12 +64,12 @@ export default function Footer() {
   return (
     <footer className="bg-[#f4f4f4] relative overflow-hidden">
       {/* ── Мобильная версия (по мобильному макету) ── */}
-      <div className="lg:hidden container-main pt-14 pb-8 relative z-10">
+      <div className="lg:hidden container-main pt-8 pb-4 relative z-10">
         {/* Лого + соцсети в одну строку */}
-        <div className="flex items-start justify-between mb-10">
+        <div className="flex items-start justify-between mb-7">
           <Link to="/" className="flex flex-col leading-none">
-            <span className="text-gray-900 font-bold text-4xl tracking-tight lowercase">erensau</span>
-            <span className="text-[#00b5e2] text-lg font-medium tracking-wider lowercase mt-1">hospital</span>
+            <span className="text-gray-900 font-bold text-[34px] tracking-tight lowercase">erensau</span>
+            <span className="text-[#00b5e2] text-base font-medium tracking-wider lowercase mt-0.5">hospital</span>
           </Link>
           <div className="flex gap-2 pt-2">
             {socials.map((s) => (
@@ -88,49 +88,49 @@ export default function Footer() {
         </div>
 
         {/* Колл-центр / Администрация — 2 колонки */}
-        <div className="grid grid-cols-2 gap-x-6 mb-10 text-sm text-gray-900">
+        <div className="grid grid-cols-2 gap-x-6 mb-5 text-sm text-gray-900">
           <div>
-            <h3 className="font-bold text-base mb-4">Колл-центр:</h3>
-            <div className="font-bold mb-1">Телефон:</div>
-            <a href="tel:+77273394040" className="block mb-4">+7 727 339 40 40</a>
-            <div className="font-bold mb-1">WhatsApp/Telegram:</div>
+            <h3 className="font-bold text-[15px] mb-2.5">Колл-центр:</h3>
+            <div className="font-bold mb-0.5">Телефон:</div>
+            <a href="tel:+77273394040" className="block mb-2.5">+7 727 339 40 40</a>
+            <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
             <a href="tel:+77273394040" className="block">+7 727 339 40 40</a>
           </div>
           <div>
-            <h3 className="font-bold text-base mb-4">Администрация:</h3>
-            <div className="font-bold mb-1">Телефон:</div>
-            <a href="tel:+77273394040" className="block mb-4">+7 727 339 40 40</a>
-            <div className="font-bold mb-1">WhatsApp/Telegram:</div>
+            <h3 className="font-bold text-[15px] mb-2.5">Администрация:</h3>
+            <div className="font-bold mb-0.5">Телефон:</div>
+            <a href="tel:+77273394040" className="block mb-2.5">+7 727 339 40 40</a>
+            <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
             <a href="tel:+77273394282" className="block">+7 727 339 42 82</a>
           </div>
         </div>
 
         {/* Навигация — ссылки в 3 колонки */}
-        <h3 className="font-bold text-base text-gray-900 mb-4">Навигация:</h3>
-        <div className="grid grid-cols-3 gap-x-4 gap-y-3.5 mb-10">
+        <h3 className="font-bold text-[15px] text-gray-900 mb-2.5">Навигация:</h3>
+        <div className="grid grid-cols-[auto_auto_auto] justify-between gap-y-1.5 mb-5">
           {navigationMobile.map((l) => (
-            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-sm underline underline-offset-4">
+            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-[13px] underline underline-offset-4 whitespace-nowrap">
               {l.label}
             </Link>
           ))}
         </div>
 
         {/* Корпоративные — в строку */}
-        <h3 className="font-bold text-base text-gray-900 mb-4">Корпоративные:</h3>
-        <div className="grid grid-cols-3 gap-x-4 gap-y-3.5 mb-10">
+        <h3 className="font-bold text-[15px] text-gray-900 mb-2.5">Корпоративные:</h3>
+        <div className="grid grid-cols-[auto_auto_auto] justify-between gap-y-1.5 mb-5">
           {corporateMobile.map((l) => (
-            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-sm underline underline-offset-4">
+            <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-[13px] underline underline-offset-4 whitespace-nowrap">
               {l.label}
             </Link>
           ))}
         </div>
 
-        <a href="mailto:info@erensau.kz" className="block text-sm text-gray-900 mb-2">info@erensau.kz</a>
-        <p className="text-sm text-gray-900 mb-8">г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1</p>
+        <a href="mailto:info@erensau.kz" className="block text-[13px] text-gray-900 mb-1">info@erensau.kz</a>
+        <p className="text-[13px] text-gray-900 mb-4">г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1</p>
 
-        <div className="pt-5 border-t border-gray-300 space-y-2">
-          <a href="#" className="block text-gray-900 text-sm underline underline-offset-4 w-fit">Политика конфиденциальности</a>
-          <p className="text-gray-900 text-sm">©{new Date().getFullYear()} Все права защищены.</p>
+        <div className="pt-4 border-t border-gray-300 space-y-1.5">
+          <a href="#" className="block text-gray-900 text-[13px] underline underline-offset-4 w-fit">Политика конфиденциальности</a>
+          <p className="text-gray-900 text-[13px]">©{new Date().getFullYear()} Все права защищены.</p>
         </div>
       </div>
 
@@ -236,8 +236,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Декоративный орнамент снизу — экспорт из Figma */}
-      <img src={footerOrnament} alt="" aria-hidden="true" className="w-full h-auto pointer-events-none select-none" />
+      {/* Декоративный орнамент снизу — экспорт из Figma (на мобилке крупнее, с обрезкой по центру) */}
+      <img src={footerOrnament} alt="" aria-hidden="true" className="w-full h-14 lg:h-auto object-cover lg:object-fill pointer-events-none select-none" />
     </footer>
   )
 }
