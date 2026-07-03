@@ -190,18 +190,18 @@ export default function AboutPage() {
       <section className="bg-[#f4f4f4] py-12 lg:py-24">
         <div className="container-main grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-20">
 
-          {/* Левая колонка: Миссия + Видение */}
-          <div className="space-y-9 lg:space-y-12">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-5">Миссия</h2>
-              <p className="text-gray-500 text-[13px] leading-relaxed max-w-md">
+          {/* Левая колонка: Миссия + Видение (с разделителями) */}
+          <div className="space-y-9 lg:space-y-11">
+            <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
+              <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-5">Миссия</h2>
+              <p className="text-[#656565] text-[13px] leading-relaxed">
                 Обеспечение точных решений для сложных случаев с акцентом на высокое
                 качество медицинской помощи с вниманием к каждому пациенту
               </p>
             </div>
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-5">Видение</h2>
-              <p className="text-gray-500 text-[13px] leading-relaxed max-w-md">
+            <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
+              <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-5">Видение</h2>
+              <p className="text-[#656565] text-[13px] leading-relaxed">
                 Стать национальным лидером в решении сложных медицинских случаев,
                 формируя в Казахстане центр притяжения лучших врачей, передовых
                 медицинских технологий для пациентов из Казахстана и зарубежных стран.
@@ -211,19 +211,21 @@ export default function AboutPage() {
 
           {/* Правая колонка: Ценности — таблица с разделителями */}
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Ценности</h2>
+            <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-6">Ценности</h2>
             <ul>
               {[
-                { t: 'Профессионализм', d: 'предоставление медицинских услуг на самом высоком уровне.' },
-                { t: 'Сопереживание',   d: 'забота о здоровье и благополучии каждого пациента.' },
-                { t: 'Инновации',       d: 'постоянное внедрение современных технологий и методов лечения.' },
-                { t: 'Доверие',         d: 'открытость, честность и прозрачность в отношениях с пациентами и партнерами.' },
-                { t: 'Партнерство',     d: 'развитие стратегических партнерств, направленных на общий рост и повышение качества медицинских решений.' },
+                { t: 'Профессионализм', d: ['предоставление медицинских', 'услуг на самом высоком уровне.'] },
+                { t: 'Сопереживание',   d: ['забота о здоровье', 'и благополучии каждого пациента.'] },
+                { t: 'Инновации',       d: ['постоянное внедрение современных', 'технологий и методов лечения.'] },
+                { t: 'Доверие',         d: ['открытость, честность и прозрачность', 'в отношениях с пациентами и партнерами'] },
+                { t: 'Партнерство',     d: ['развитие стратегических партнерств,', 'направленных на общий рост и повышение', 'качества медицинских решений.'] },
               ].map((v, i) => (
-                <li key={v.t} className="grid grid-cols-[20px_126px_1fr] lg:grid-cols-[28px_170px_1fr] gap-3 items-start py-3 lg:py-3.5 border-b border-gray-200 last:border-b-0">
-                  <span className="text-[#00b5e2] font-bold text-[15px] leading-snug">{i + 1}</span>
-                  <span className="font-bold text-gray-900 text-[13px] lg:text-sm leading-snug">{v.t}</span>
-                  <span className="text-gray-600 text-[13px] italic leading-relaxed">{v.d}</span>
+                <li key={v.t} className="grid grid-cols-[20px_126px_1fr] lg:grid-cols-[32px_185px_1fr] gap-3 items-start py-3 lg:py-4 border-b border-neutral-200 last:border-b-0">
+                  <span className="text-[#00b5e2] font-bold text-base lg:text-lg leading-snug">{i + 1}</span>
+                  <span className="font-bold text-neutral-900 text-[13px] lg:text-sm leading-snug">{v.t}</span>
+                  <span className="text-[#565656] text-[13px] italic leading-relaxed">
+                    {v.d.map((l, j) => (<span key={j}>{l}{j < v.d.length - 1 && <br />}</span>))}
+                  </span>
                 </li>
               ))}
             </ul>
