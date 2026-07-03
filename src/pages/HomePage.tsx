@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import heroDoctorImg from '@/assets/images/hero-surgeon.png'
+import heroDoctorImg from '@/assets/images/hero-home.png'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import imgDoctorSenior2 from '@/assets/images/img-doctor-senior2.jpg'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
@@ -124,19 +124,19 @@ export default function HomePage() {
             src={heroDoctorImg}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '55% center' }}
+            style={{ objectPosition: '50% center' }}
           />
 
           {/* Градиент: тёмно-синий слева → прозрачный справа, чтобы лицо хирурга оставалось видимым */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a1628]/55 to-[#0a1628]/85 lg:bg-gradient-to-r lg:from-[#0a1628] lg:via-[#0a1628]/85 lg:to-[#0a1628]/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a1628]/55 to-[#0a1628]/85 lg:bg-gradient-to-r lg:from-[#0a1628] lg:via-[#0a1628]/70 lg:to-transparent" />
 
           {/* Контент */}
-          <div className="relative z-10 container-main px-[30px] lg:px-16 xl:px-[130px]">
+          <div className="relative z-10 container-main px-[30px] lg:px-16 xl:px-[120px]">
             <div className="flex flex-col justify-start lg:justify-center min-h-[642px] lg:min-h-[750px] py-[52px] lg:py-16">
 
               <div className="max-w-[720px]">
-                <div className="flex items-start gap-3.5 lg:gap-4 mb-8 lg:mb-9">
-                  <img src={logoMark} alt="" className="h-[68px] lg:h-20 w-auto flex-shrink-0" />
+                <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-9">
+                  <img src={logoMark} alt="" className="h-[68px] lg:h-[119px] w-auto flex-shrink-0" />
                   <h1 className="text-[27px] lg:text-[56px] font-bold text-white leading-[1.2] lg:leading-[1.05]">
                     <span className="lg:hidden">Точные решения<br />для сложных<br />случаев</span>
                     <span className="hidden lg:inline">Точные решения<br />для сложных случаев</span>
@@ -151,20 +151,21 @@ export default function HomePage() {
                   ].map((s) => (
                     <div key={s.label} className={`flex items-end gap-2.5 ${s.order} lg:order-none`}>
                       <div className="text-[34px] lg:text-[38px] font-bold text-white leading-none">{s.val}</div>
-                      <div className="text-white/60 text-[13px] whitespace-pre-line leading-tight">{s.label}</div>
+                      <div className="text-white text-[13px] font-normal whitespace-pre-line leading-tight">{s.label}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex flex-col lg:flex-row lg:flex-wrap items-stretch lg:items-center gap-3.5 lg:gap-3 mb-3.5 lg:mb-3">
-                  <Link to="/contacts" className="bg-[#00b5e2] text-white text-[15px] lg:text-base font-medium rounded-full px-9 py-4 text-center hover:bg-[#0099c4] transition-colors">
+                {/* Кнопки: приём + Check-up в ряд, второе мнение под ними (приём и второе мнение одинаковой ширины) */}
+                <div className="flex flex-col lg:flex-row lg:flex-wrap items-stretch lg:items-center gap-3.5 lg:gap-4 mb-3.5 lg:mb-4">
+                  <Link to="/contacts" className="bg-[#00b5e2] text-white text-[15px] lg:text-base font-semibold rounded-full py-4 lg:py-0 w-full lg:w-[272px] lg:h-[62px] flex items-center justify-center hover:bg-[#0099c4] transition-colors">
                     Записаться на приём
                   </Link>
-                  <Link to="/checkup" className="text-white text-[15px] lg:text-base font-medium rounded-full px-9 py-4 border lg:border-2 border-white/80 lg:border-white text-center hover:bg-white/10 transition-colors">
+                  <Link to="/checkup" className="text-white text-[15px] lg:text-base font-semibold rounded-full py-4 lg:py-0 w-full lg:w-[272px] lg:h-[62px] flex items-center justify-center border lg:border-2 border-white/80 lg:border-white hover:bg-white/10 transition-colors">
                     Записаться на Check-up
                   </Link>
                 </div>
-                <Link to="/contacts" className="block lg:inline-block text-white text-[15px] lg:text-base font-medium rounded-full px-9 py-4 border lg:border-2 border-white/80 lg:border-white text-center hover:bg-white/10 transition-colors">
+                <Link to="/contacts" className="text-white text-[15px] lg:text-base font-semibold rounded-full py-4 lg:py-0 w-full lg:w-[272px] lg:h-[62px] flex lg:inline-flex items-center justify-center border lg:border-2 border-white/80 lg:border-white hover:bg-white/10 transition-colors">
                   Получить второе мнение
                 </Link>
               </div>
@@ -185,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Фич-чипы: на мобилке столбиком под hero, на десктопе выходят за его край ── */}
-      <div className="container-main relative z-20 mt-2.5 lg:mt-0 lg:-mt-9">
+      <div className="container-main relative z-20 mt-2.5 lg:-mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-3.5 lg:gap-4">
           {features.map((f) => (
             <div key={f.label} className="flex items-center gap-3.5 lg:gap-3 bg-white rounded-full px-3 lg:px-4 py-2.5 lg:py-3 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
