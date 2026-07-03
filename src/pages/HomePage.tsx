@@ -10,6 +10,7 @@ import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
 import docAkanov from '@/assets/images/doc-akanov.png'
 import cardBlur from '@/assets/images/card-blur.png'
+import logomarkWhite from '@/assets/icons/logomark-white.png'
 import post1 from '@/assets/images/post1.jpg'
 import post2 from '@/assets/images/post2.jpg'
 
@@ -234,12 +235,16 @@ export default function HomePage() {
 
             {/* Голубая карточка — последняя ячейка сетки, шириной 2 ячеек */}
             <div className="bg-[#00b5e2] rounded-3xl p-7 lg:p-8 text-white flex flex-col lg:col-span-2">
-              <LogoMark className="h-9 lg:h-[68px] w-auto" style={{ ['--fill-0' as string]: '#ffffff' }} />
+              <img src={logomarkWhite} alt="" className="h-12 lg:h-[71px] w-auto self-start" />
 
-              {/* Аватары команды — белые кружки, ниже под логотипом */}
-              <div className="flex items-center gap-1.5 mt-9 lg:mt-[68px] mb-6 lg:mb-8">
+              {/* Аватары команды — белые кружки внахлёст, обрезаны «луной» справа */}
+              <div className="flex items-center mt-9 lg:mt-[68px] mb-6 lg:mb-8">
                 {[docKuatbekov, docKospanov, docEshmuratov, docKusainov, docIzhanov].map((d, i) => (
-                  <div key={i} className="w-16 h-16 lg:w-[76px] lg:h-[76px] rounded-full overflow-hidden bg-white flex-shrink-0">
+                  <div
+                    key={i}
+                    style={{ zIndex: i + 1 }}
+                    className="relative w-16 h-16 lg:w-[76px] lg:h-[76px] rounded-full overflow-hidden bg-white ring-[3px] ring-[#00b5e2] flex-shrink-0 -ml-4 first:ml-0"
+                  >
                     <img src={d} alt="" className="w-full h-full object-cover object-top" />
                   </div>
                 ))}
