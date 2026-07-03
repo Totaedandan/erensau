@@ -80,7 +80,7 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
           className="absolute inset-x-0 bottom-0 top-16 lg:top-[70px] object-cover object-top hover:scale-105 transition-transform duration-300"
         />
         {/* Плавное затухание низа фото в фон карточки */}
-        <img src={cardBlur} alt="" aria-hidden className="hidden lg:block absolute inset-x-0 bottom-0 w-full h-[40%] pointer-events-none select-none" />
+        <img src={cardBlur} alt="" aria-hidden className="hidden lg:block absolute inset-x-0 bottom-0 w-full h-[20%] pointer-events-none select-none" />
       </div>
 
       {/* Текстовый блок: звание → имя → должность */}

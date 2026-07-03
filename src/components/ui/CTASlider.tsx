@@ -63,13 +63,13 @@ export default function CTASlider() {
 
           {/* Текст справа (на мобилке — абзац после точек, без кнопки) */}
           <div>
-            <div className="hidden lg:flex items-start gap-3 mb-5">
-              <img src={logoMark} alt="" className="h-14 w-auto flex-shrink-0" />
+            <div className="hidden lg:flex items-center gap-4 mb-5">
+              <img src={logoMark} alt="" className="h-[78px] w-auto flex-shrink-0" />
               <h2 className="text-3xl lg:text-[36px] font-bold text-gray-900 leading-[1.1]">
                 Многопрофильная<br />клиника
               </h2>
             </div>
-            <p className="text-gray-800 lg:text-gray-500 text-[13px] lg:text-base leading-relaxed lg:mb-8 max-w-md">
+            <p className="text-gray-800 text-[13px] lg:text-base leading-relaxed lg:mb-8 max-w-md">
               Мы сосредоточены на мультидисциплинарном подходе, объединяя как оперативные,
               так и консервативные методы лечения. Нам доверяют случаи, которые нередко
               отличаются редкостью, тяжестью течения и клинической уникальностью.
