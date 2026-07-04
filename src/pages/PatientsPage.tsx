@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
+import patientsBg from '@/assets/images/patients-hero-bg.png'
+import patientsGlow from '@/assets/images/patients-glow.png'
 import doctor1 from '@/assets/images/doctor1.jpg'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
@@ -40,29 +42,58 @@ export default function PatientsPage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Hero — карточка со светлой палатой ── */}
+      {/* ── Hero — палата пациента (Для пациентов) ── */}
       <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-[780px]">
-        <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#0a1628]/15" />
-        <div className="relative z-10 px-6 lg:px-28 flex flex-col justify-start lg:justify-center min-h-[620px] lg:min-h-[780px] py-10 lg:py-16">
-          <div className="flex items-start gap-3 lg:gap-4 mb-6 lg:mb-8">
-            <LogoMark className="h-11 lg:h-14 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
-            <h1 className="text-[27px] lg:text-[72px] font-bold text-white leading-[1.2] lg:leading-none">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1398/733]">
+          {/* 1 — Фон: палата */}
+          <img src={patientsBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+
+          {/* 2 — Градиент-скрим снизу (Rectangle 40688, #042531 ~10%) */}
+          <div className="absolute inset-x-0 bottom-0 h-[54%] bg-gradient-to-t from-[#042531]/10 to-transparent pointer-events-none" />
+
+          {/* 3 — Свет от фонаря (Vector 1904) */}
+          <img src={patientsGlow} alt="" aria-hidden className="hidden lg:block absolute left-[5%] top-[1%] w-[32%] pointer-events-none select-none" />
+
+          {/* Затемнение для читаемости на мобилке */}
+          <div className="absolute inset-0 bg-[#0a1628]/15 lg:hidden" />
+
+          {/* ── Десктоп: заголовок и карточка по замерам макета ── */}
+          <div className="hidden lg:flex absolute left-[7.5%] top-[33%] items-start gap-5">
+            <LogoMark className="h-[112px] w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
+            <h1 className="text-[50px] font-bold text-white leading-[1.3]">
               Руководство<br />для пациентов
             </h1>
           </div>
-          <div className="bg-white rounded-3xl p-6 max-w-[265px] lg:max-w-sm shadow-xl ml-5 lg:ml-0">
-            <div className="flex items-baseline gap-3 mb-3">
-              <span className="text-4xl font-bold text-[#00b5e2] leading-none">4</span>
+          <div className="hidden lg:block absolute left-[7.5%] top-[54%] bg-white rounded-3xl p-11 w-[305px] shadow-xl">
+            <div className="flex items-baseline gap-3 mb-1">
+              <span className="text-[38px] font-bold text-[#00b5e2] leading-none">4</span>
               <span className="text-gray-900 font-semibold text-sm leading-tight">шага и вы<br />готовы к визиту</span>
             </div>
-            <p className="text-gray-500 text-xs leading-relaxed">
+            <p className="text-gray-500 text-[13px] leading-relaxed">
               Подготовьтесь к визиту заранее. Здесь вы найдёте ответы на самые
-              частые вопросы о записи, анализах и правах пациентов.
+              частые вопросы о записи, анализах и правах пациента.
             </p>
           </div>
-        </div>
+
+          {/* ── Мобилка: заголовок + карточка одним блоком ── */}
+          <div className="lg:hidden relative z-10 px-6 flex flex-col justify-start min-h-[620px] py-10">
+            <div className="flex items-start gap-3 mb-6">
+              <LogoMark className="h-11 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
+              <h1 className="text-[27px] font-bold text-white leading-[1.2]">
+                Руководство<br />для пациентов
+              </h1>
+            </div>
+            <div className="bg-white rounded-3xl p-6 max-w-[265px] shadow-xl ml-5">
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="text-4xl font-bold text-[#00b5e2] leading-none">4</span>
+                <span className="text-gray-900 font-semibold text-sm leading-tight">шага и вы<br />готовы к визиту</span>
+              </div>
+              <p className="text-gray-500 text-xs leading-relaxed">
+                Подготовьтесь к визиту заранее. Здесь вы найдёте ответы на самые
+                частые вопросы о записи, анализах и правах пациента.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
