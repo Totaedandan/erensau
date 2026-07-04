@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import docKuatbekov from '@/assets/images/doc-kuatbekov.png'
+import docNietalievHd from '@/assets/images/doc-nietaliev-hd.png'
 import docKospanov from '@/assets/images/doc-kospanov.png'
 import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
 import docKusainov from '@/assets/images/doc-kusainov.png'
@@ -11,7 +11,7 @@ import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 
 const teamDoctors = [
-  { photo: docKuatbekov,  title: 'к.м.н., ассоциированный профессор',      name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
+  { photo: docNietalievHd, title: 'к.м.н., ассоциированный профессор',     name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
   { photo: docKospanov,   title: 'к.м.н., ассоциированный профессор',      name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
   { photo: docEshmuratov, title: 'к.м.н., ассоциированный профессор',      name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
   { photo: docKusainov,   title: 'к.м.н. (PhD)',                           name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
@@ -38,7 +38,7 @@ export default function AboutPage() {
           <img
             src={doc.photo}
             alt={doc.name.join(' ')}
-            className="hidden lg:block absolute left-1/2 -translate-x-1/2 bottom-0 h-[700px] w-auto object-contain object-bottom"
+            className="hidden lg:block absolute left-[calc(50%+40px)] -translate-x-1/2 bottom-[26px] h-[700px] w-auto object-contain object-bottom"
           />
 
           {/* ── Десктоп: заголовок + статистика + левая колонка ── */}
