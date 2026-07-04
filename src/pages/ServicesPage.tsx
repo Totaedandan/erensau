@@ -139,9 +139,9 @@ export default function ServicesPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: заголовок слева, врач по центру, «30+» справа ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div
-          className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-[700px]"
+          className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1414/707]"
           style={{
             backgroundImage:
               'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',

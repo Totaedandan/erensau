@@ -97,8 +97,8 @@ export default function CheckupPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: «Checkup» слева, «программы» справа, описание и кнопка слева ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-[660px]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-auto lg:aspect-[1414/707]">
           {/* 1 — Фон с томографом (image 116) */}
           <img
             src={checkupBg}

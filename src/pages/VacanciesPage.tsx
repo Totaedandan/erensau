@@ -56,11 +56,11 @@ export default function VacanciesPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Тёмный hero — карточка ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[720px] lg:min-h-[700px]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[720px] lg:min-h-0 lg:aspect-[1414/707]">
         <img src={heroSurgeon} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '60% 30%' }} />
         <div className="absolute inset-0 bg-[#0a1628]/55" />
-        <div className="relative z-10 px-5 lg:px-24 flex flex-col justify-start lg:justify-center min-h-[720px] lg:min-h-[700px] pt-10 pb-6 lg:py-16">
+        <div className="relative z-10 px-5 lg:px-24 flex flex-col justify-start lg:justify-center min-h-[720px] lg:min-h-full pt-10 pb-6 lg:py-16">
           <div className="flex items-start gap-3.5 lg:gap-4 mb-5 lg:mb-6">
             <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
             <h1 className="text-[25px] lg:text-5xl font-bold text-white leading-[1.2] lg:leading-[1.1]">

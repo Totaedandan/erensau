@@ -26,9 +26,9 @@ export default function AboutPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка «Почему выбирают нас» ── */}
-      <section className="bg-[#f4f4f4] px-3 pt-2">
+      <section className="bg-[#f4f4f4] px-3 pt-2 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div
-          className="relative overflow-hidden rounded-[28px] min-h-[800px]"
+          className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[800px] lg:min-h-0 lg:aspect-[1414/707]"
           style={{
             backgroundImage:
               'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',

@@ -43,8 +43,8 @@ export default function PatientsPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — палата пациента (Для пациентов) ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1398/733]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1414/707]">
           {/* 1 — Фон: палата */}
           <img src={patientsBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
 

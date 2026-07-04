@@ -21,8 +21,8 @@ export default function CooperationPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: фасад клиники, без оверлея ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-[780px]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1414/707]">
           <img src={imgClinicBuilding} alt="" className="absolute inset-0 w-full h-full object-cover object-[60%_0%] lg:object-[60%_20%]" />
           <div className="relative z-10 px-6 lg:px-24 pt-10 lg:pt-24">
             <div className="flex items-start gap-3 lg:block mb-6 lg:mb-16">

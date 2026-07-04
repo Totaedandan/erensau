@@ -131,12 +131,12 @@ export default function NewsPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — светлая карточка, контент внизу ── */}
-      <section className="bg-[#f4f4f4] px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[640px] lg:min-h-[760px]">
+      <section className="bg-[#f4f4f4] px-3 pt-2 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[640px] lg:min-h-0 lg:aspect-[1414/707]">
           <img src={post1} alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/60 via-transparent to-transparent" />
 
-          <div className="relative z-10 px-6 lg:px-24 flex flex-col justify-end min-h-[640px] lg:min-h-[760px] pb-16 lg:pb-20">
+          <div className="relative z-10 px-6 lg:px-24 flex flex-col justify-end min-h-[640px] lg:min-h-full pb-16 lg:pb-20">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-8">
               <div className="flex items-start gap-3 lg:gap-4">
                 <LogoMark className="h-11 lg:h-20 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
