@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import checkupBg from '@/assets/images/checkup-bg.png'
+import checkupFg from '@/assets/images/checkup-fg.png'
+import checkupGradient from '@/assets/images/checkup-gradient.png'
+import checkupVector from '@/assets/images/checkup-vector.png'
 import pictoHeart from '@/assets/icons/picto-heart.png'
 import pictoMonitor from '@/assets/icons/picto-monitor.png'
 import pictoUterus from '@/assets/icons/picto-uterus.png'
-import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
 
@@ -97,7 +99,7 @@ export default function CheckupPage() {
       {/* ── Hero — карточка: «Checkup» слева, «программы» справа, описание и кнопка слева ── */}
       <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-[660px]">
-          {/* Фон с томографом */}
+          {/* 1 — Фон с томографом (image 116) */}
           <img
             src={checkupBg}
             alt=""
@@ -106,23 +108,41 @@ export default function CheckupPage() {
           {/* Лёгкое затемнение на мобилке для читаемости */}
           <div className="absolute inset-0 bg-black/10 lg:hidden" />
 
-          {/* Водяной знак-логомарк справа (десктоп) */}
-          <LogoMark
-            className="hidden lg:block absolute right-[8%] top-1/2 -translate-y-1/2 h-56 w-auto opacity-40"
-            style={{ ['--fill-0' as string]: '#ffffff' }}
+          {/* 2 — Градиент-скрим снизу (Rectangle 40855), десктоп */}
+          <img
+            src={checkupGradient}
+            alt=""
+            aria-hidden
+            className="hidden lg:block absolute inset-x-0 bottom-0 w-full pointer-events-none select-none"
           />
 
-          {/* Десктоп: крупный текст «Checkup» слева выше, «программы» справа ниже */}
-          <h1 className="hidden lg:block absolute left-[8%] top-[38%] text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
+          {/* 3 — Vector-водяной знак справа рядом с «программы» (десктоп) */}
+          <img
+            src={checkupVector}
+            alt=""
+            aria-hidden
+            className="hidden lg:block absolute right-[5%] top-0 h-full w-auto pointer-events-none select-none"
+          />
+
+          {/* 4 — Крупный текст «Checkup» слева, «программы» справа ниже (десктоп) */}
+          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[112px] font-bold text-white leading-none tracking-tight pointer-events-none">
             Checkup
           </h1>
-          <h1 className="hidden lg:block absolute right-[6%] top-[52%] text-[110px] font-bold text-white/90 leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[112px] font-bold text-white leading-none tracking-tight pointer-events-none">
             программы
           </h1>
 
-          {/* Десктоп: описание + кнопка слева внизу */}
-          <div className="hidden lg:block absolute left-[7%] top-[57%] max-w-[240px]">
-            <p className="text-gray-700 text-[13px] leading-relaxed mb-7">
+          {/* 5 — Передний план (image 117, bg removed) — ПОВЕРХ текста: колонна томографа перекрывает конец «Checkup» и начало «программы» */}
+          <img
+            src={checkupFg}
+            alt=""
+            aria-hidden
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          />
+
+          {/* 6 — Описание + кнопка слева внизу (десктоп) — поверх всех слоёв */}
+          <div className="hidden lg:block absolute left-[9%] top-[51%] max-w-[320px] z-10">
+            <p className="text-gray-700 text-[14px] leading-[1.85] mb-8">
               Комплексная диагностика по международным
               стандартам, с заключением врача
               и персональными рекомендациями
