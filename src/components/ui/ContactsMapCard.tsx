@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react'
 import mapBg from '@/assets/icons/map-bg.svg'
 import imgClinicBuilding from '@/assets/images/img-clinic-building.jpg'
+import contactsMap from '@/assets/images/contacts-map.png'
+import contactsFlag from '@/assets/images/contacts-flag.png'
+import contactsLocator from '@/assets/images/contacts-locator.png'
 
 const schedule = [
   { day: 'будние дни', clinic: '7:30 – 15:45', call: '7:30 – 20:00' },
@@ -128,14 +131,28 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
       </div>
 
       {/* ── Десктопная версия: карточка поверх карты ── */}
-      <div className="hidden lg:block relative h-[700px] lg:h-[740px] overflow-hidden">
-        {/* Карта-фон */}
-        <img src={mapBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="hidden lg:block relative h-[740px] overflow-hidden bg-[#f4f4f4]">
+        {/* Карта-фон (реальная карта Алматы, Rectangle 40704) */}
+        <img src={contactsMap} alt="" className="absolute inset-0 w-full h-full object-cover" />
 
-        {/* Фото клиники на карте */}
-        <div className="hidden lg:block absolute left-[52%] top-[28%] w-72 h-52 rounded-2xl overflow-hidden shadow-2xl border-[6px] border-white">
-          <img src={imgClinicBuilding} alt="Erensau Hospital" className="w-full h-full object-cover" />
-        </div>
+        {/* Круги-локатор (Group 1721909067) */}
+        <img
+          src={contactsLocator}
+          alt=""
+          aria-hidden
+          className="absolute left-[65.5%] top-[59%] -translate-x-1/2 -translate-y-1/2 w-[380px] pointer-events-none select-none"
+        />
+
+        {/* Флажок с фото госпиталя (Group 1721909068) */}
+        <img
+          src={contactsFlag}
+          alt="Erensau Hospital"
+          className="absolute left-[55.5%] top-[26%] w-[300px] drop-shadow-[0_12px_30px_rgba(0,0,0,0.15)]"
+        />
+
+        {/* Фейд карты сверху и снизу в фон #f4f4f4 (Rectangle 40730 / 40731) */}
+        <div className="absolute top-0 inset-x-0 h-[120px] bg-gradient-to-b from-[#f4f4f4] to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-[170px] bg-gradient-to-t from-[#f4f4f4] to-transparent pointer-events-none" />
 
         {/* Карточка контактов поверх карты */}
         <div className="absolute inset-0 container-main py-8 lg:py-10 pointer-events-none">
