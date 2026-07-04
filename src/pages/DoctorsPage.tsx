@@ -7,6 +7,7 @@ import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
 import docAkanov from '@/assets/images/doc-akanov.png'
 import doctorsHeroBg from '@/assets/images/doctors-hero-bg.png'
+import cardBlur from '@/assets/images/card-blur.png'
 import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
@@ -38,8 +39,10 @@ function DoctorGridCard({ doc }: { doc: (typeof baseDoctors)[number] }) {
         <img
           src={doc.photo}
           alt={doc.name}
-          className="absolute inset-x-0 bottom-0 top-16 lg:top-[70px] object-cover object-top hover:scale-105 transition-transform duration-300"
+          className="absolute inset-x-0 bottom-0 top-16 lg:top-[70px] object-cover object-top scale-[1.17] origin-top hover:scale-[1.22] transition-transform duration-300"
         />
+        {/* Плавное затухание низа фото в фон карточки */}
+        <img src={cardBlur} alt="" aria-hidden className="absolute inset-x-0 bottom-0 w-full h-[20%] pointer-events-none select-none" />
       </div>
 
       {/* Текст: звание → имя → должность */}
