@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import imgClinicBuilding from '@/assets/images/img-clinic-building.jpg'
+import coopBg from '@/assets/images/coop-hero-bg.png'
+import coopTintLeft from '@/assets/images/coop-tint-left.png'
+import coopTintBottom from '@/assets/images/coop-tint-bottom.png'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
@@ -23,15 +26,23 @@ export default function CooperationPage() {
       {/* ── Hero — карточка: фасад клиники, без оверлея ── */}
       <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1414/707]">
-          <img src={imgClinicBuilding} alt="" className="absolute inset-0 w-full h-full object-cover object-[60%_0%] lg:object-[60%_20%]" />
-          <div className="relative z-10 px-6 lg:px-24 pt-10 lg:pt-24">
-            <div className="flex items-start gap-3 lg:block mb-6 lg:mb-16">
+          {/* 1 — Фон: здание клиники (image 142) */}
+          <img src={coopBg} alt="" className="absolute inset-0 w-full h-full object-cover object-[50%_20%]" />
+          {/* 2 — Голубой градиент слева (Rectangle 40914: #89C5F8 → прозрачный) */}
+          <img src={coopTintLeft} alt="" aria-hidden className="absolute left-0 top-0 h-full w-[43.2%] object-fill pointer-events-none select-none" />
+          {/* 3 — Светлый градиент снизу (Rectangle 40913: прозрачный → #E3F0F9) */}
+          <img src={coopTintBottom} alt="" aria-hidden className="absolute left-0 bottom-0 w-full h-[68%] object-fill pointer-events-none select-none" />
+          {/* 4 — Общий синий тон (Rectangle 40915: #016595 @20%) */}
+          <div className="absolute inset-0 bg-[#016595]/20 pointer-events-none" />
+
+          <div className="relative z-10 px-6 lg:px-28 pt-10 lg:pt-[146px]">
+            <div className="flex items-start gap-3 lg:block mb-6 lg:mb-10">
               <img src={logoMark} alt="" className="lg:hidden h-16 w-auto flex-shrink-0" />
-              <h1 className="text-[25px] lg:text-[44px] font-bold text-white leading-[1.25] lg:leading-tight max-w-md drop-shadow-sm">
+              <h1 className="text-[25px] lg:text-[52px] font-bold text-white leading-[1.25] lg:leading-[1.15] max-w-md drop-shadow-sm">
                 Ваш надежный<br />медицинский<br />партнер
               </h1>
             </div>
-            <div className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-7 max-w-none lg:max-w-[340px] shadow-2xl">
+            <div className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-7 max-w-none lg:max-w-[355px] shadow-2xl">
               <p className="text-gray-600 text-[13px] leading-relaxed">
                 <span className="text-[#00b5e2] font-semibold">Мы открыты</span> для партнерств, которые
                 повышают качество медицинской помощи.
