@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom'
-import imgClinicBuilding from '@/assets/images/img-clinic-building.jpg'
 import coopBg from '@/assets/images/coop-hero-bg.png'
 import coopTintLeft from '@/assets/images/coop-tint-left.png'
 import coopTintBottom from '@/assets/images/coop-tint-bottom.png'
-import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
-import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
-import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
-import imgDoctorSenior2 from '@/assets/images/img-doctor-senior2.jpg'
+import b2bEducation from '@/assets/images/b2b-education.png'
+import b2bInsurance from '@/assets/images/b2b-insurance.png'
+import b2bCorporate from '@/assets/images/b2b-corporate.png'
+import b2bClinics from '@/assets/images/b2b-clinics.png'
+import b2bInnovation from '@/assets/images/b2b-innovation.png'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
 import logoMark from '@/assets/images/logo-mark.png'
 
 const directions = [
-  { img: imgOperatingRoom,  title: 'Образование и наука',          desc: 'Совместные исследования, клинические испытания и образовательные программы' },
-  { img: imgDoctorSenior2,  title: 'Страховые партнерства',         desc: 'Работаем с ведущими страховыми компаниями Казахстана для удобства пациента' },
-  { img: imgClinicBuilding, title: 'Корпоративное медобслуживание', desc: 'Комплексные чек-апы и плановые медосмотры для сотрудников компаний' },
-  { img: imgDoctorSenior,   title: 'Медицинские клиники',           desc: 'Партнерства с местными и зарубежными клиниками для обмена опытом' },
-  { img: imgDoctorPortrait, title: 'Партнеры и инновации',          desc: 'Сотрудничество с фармкомпаниями и IT-партнерами для передовых решений' },
+  { img: b2bEducation,  title: 'Образование и наука',          desc: 'Совместные исследования, клинические испытания и образовательные программы' },
+  { img: b2bInsurance,  title: 'Страховые партнерства',         desc: 'Работаем с ведущими страховыми компаниями Казахстана для удобства пациента' },
+  { img: b2bCorporate,  title: 'Корпоративное медобслуживание', desc: 'Комплексные чек-апы и плановые медосмотры для сотрудников компаний' },
+  { img: b2bClinics,    title: 'Медицинские клиники',           desc: 'Партнерства с местными и зарубежными клиниками для обмена опытом' },
+  { img: b2bInnovation, title: 'Партнеры и инновации',          desc: 'Сотрудничество с фармкомпаниями и IT-партнерами для передовых решений' },
 ]
 
 export default function CooperationPage() {
@@ -81,9 +81,9 @@ export default function CooperationPage() {
         </div>
 
         <div className="container-main hidden lg:block">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="flex flex-wrap justify-center gap-5">
             {directions.map((d) => (
-              <div key={d.title} className="bg-white rounded-3xl p-4 group hover:shadow-md transition-shadow">
+              <div key={d.title} className="w-[calc((100%-2.5rem)/3)] bg-white rounded-3xl p-4 group hover:shadow-md transition-shadow">
                 <div className="h-48 overflow-hidden rounded-2xl">
                   <img
                     src={d.img}
