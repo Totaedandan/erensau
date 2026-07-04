@@ -6,7 +6,7 @@ import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
 import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
 import docAkanov from '@/assets/images/doc-akanov.png'
-import heroSurgeon from '@/assets/images/hero-surgeon.png'
+import doctorsHeroBg from '@/assets/images/doctors-hero-bg.png'
 import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
@@ -114,34 +114,34 @@ export default function DoctorsPage() {
   return (
     <div className="bg-[#f4f4f4]">
 
-      {/* ── Тёмный hero — карточка с фото операционной + «60+ экспертов» ── */}
-      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[618px] lg:min-h-[720px]">
+      {/* ── Тёмный hero — фото операционной + «60+ экспертов» ── */}
+      <section className="bg-[#f4f4f4] px-2.5 lg:px-3 pt-2 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[618px] lg:aspect-[1398/750]">
           <img
-            src={heroSurgeon}
+            src={doctorsHeroBg}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover object-[50%_30%] lg:object-[60%_30%]"
+            className="absolute inset-0 w-full h-full object-cover object-[50%_22%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/80 via-[#0a1628]/40 to-[#0a1628]/50 lg:bg-gradient-to-r lg:from-[#0a1628]/80 lg:via-[#0a1628]/45 lg:to-[#0a1628]/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/40 to-black/60 lg:bg-gradient-to-r lg:from-black lg:from-[15%] lg:via-black/55 lg:via-[55%] lg:to-transparent" />
 
-          <div className="relative z-10 px-5 lg:px-28 pt-10 lg:pt-24 pb-20 lg:pb-24">
+          <div className="relative z-10 px-5 lg:px-[96px] pt-10 lg:pt-[128px] pb-20 lg:pb-24">
             {/* Логомарк + заголовок */}
-            <div className="flex items-start gap-3.5 lg:gap-4 mb-4 lg:mb-6">
-              <img src={logoMark} alt="" className="h-12 lg:h-28 w-auto flex-shrink-0" />
+            <div className="flex items-start gap-3.5 lg:gap-5 mb-4 lg:mb-5">
+              <img src={logoMark} alt="" className="h-12 lg:h-[109px] w-auto flex-shrink-0" />
               <h1 className="text-[27px] lg:text-5xl font-bold text-white leading-[1.15] lg:leading-[1.1] tracking-tight">
                 Командная<br />модель
               </h1>
             </div>
-            <p className="text-white/90 lg:text-white/80 text-sm lg:text-[15px] max-w-[240px] lg:max-w-[300px] leading-snug mb-52 lg:mb-14">
+            <p className="text-white/90 lg:text-white/85 text-sm lg:text-[15px] max-w-[240px] lg:max-w-[245px] leading-snug lg:leading-relaxed mb-52 lg:mb-[68px]">
               высокой подготовки, объединяющая технологии, опыт и заботу
             </p>
 
             {/* Карточка «60+ экспертов» — белая */}
-            <div className="bg-white rounded-3xl p-6 w-full lg:w-[355px] lg:max-w-full shadow-xl">
+            <div className="bg-white rounded-3xl p-6 lg:p-7 w-full lg:w-[358px] lg:max-w-full shadow-xl">
               <div className="text-[24px] lg:text-[28px] font-bold text-gray-900 mb-3">
                 <span className="text-[#00b5e2]">60+</span> экспертов
               </div>
-              <p className="text-gray-600 lg:text-gray-500 text-[13px] leading-relaxed">
+              <p className="text-gray-700 text-[13px] leading-relaxed">
                 Ассоциированные профессоры, доктора медицинских наук, кандидаты
                 медицинских наук, врачи высшей и первой категории с многолетним
                 международным опытом.
