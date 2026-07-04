@@ -120,7 +120,7 @@ export default function HomePage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка со скруглениями и небольшими полями по бокам (и на мобилке, и на десктопе) ── */}
-      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 max-w-[1440px] mx-auto">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[642px] lg:aspect-[1414/707]">
 
           {/* Фото хирурга — полный фон */}
@@ -136,10 +136,10 @@ export default function HomePage() {
 
           {/* Контент */}
           <div className="relative z-10 mx-auto max-w-[1416px] px-[30px] lg:px-[52px] xl:px-[108px]">
-            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-full py-[52px] lg:pt-[52px] lg:pb-0">
+            <div className="flex flex-col justify-start min-h-[642px] lg:min-h-full py-[52px] lg:pt-[148px] lg:pb-0">
 
               <div className="max-w-[720px]">
-                <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-9">
+                <div className="flex items-start gap-3.5 lg:gap-[30px] mb-8 lg:mb-12">
                   <img src={logoMark} alt="" className="h-[68px] lg:h-[119px] w-auto flex-shrink-0" />
                   <h1 className="text-[27px] lg:text-[56px] font-bold text-white leading-[1.2] lg:leading-[1.05]">
                     <span className="lg:hidden">Точные решения<br />для сложных<br />случаев</span>
@@ -147,7 +147,7 @@ export default function HomePage() {
                   </h1>
                 </div>
 
-                <div className="flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-end gap-y-2.5 lg:gap-y-5 gap-x-10 mb-10">
+                <div className="flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-end gap-y-2.5 lg:gap-y-5 gap-x-10 mb-10 lg:mb-12">
                   {[
                     { val: '12 000+', label: 'пациентов\nв год',   order: 'order-1' },
                     { val: '60+',     label: 'ведущих\nэкспертов', order: 'order-3' },
