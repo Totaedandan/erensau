@@ -94,14 +94,14 @@ export default function Footer() {
             <div className="font-bold mb-0.5">Телефон:</div>
             <a href="tel:+77273394040" className="block mb-2.5">+7 727 339 40 40</a>
             <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
-            <a href="tel:+77273394040" className="block">+7 727 339 40 40</a>
+            <a href="tel:+77713999444" className="block">+7 771 399 94 44</a>
           </div>
           <div>
             <h3 className="font-bold text-[15px] mb-2.5">Администрация:</h3>
             <div className="font-bold mb-0.5">Телефон:</div>
-            <a href="tel:+77273394040" className="block mb-2.5">+7 727 339 40 40</a>
+            <a href="tel:+77273394282" className="block mb-2.5">+7 727 339 42 82</a>
             <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
-            <a href="tel:+77273394282" className="block">+7 727 339 42 82</a>
+            <a href="tel:+77717044848" className="block">+7 771 704 48 48</a>
           </div>
         </div>
 
