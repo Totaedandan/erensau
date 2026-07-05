@@ -7,6 +7,8 @@ import imgClinicBuilding from '@/assets/images/img-clinic-building.jpg'
 import post1 from '@/assets/images/post1.jpg'
 import post2 from '@/assets/images/post2.jpg'
 import post4 from '@/assets/images/post4.jpg'
+import newsHeroBg from '@/assets/images/news/news-hero-bg.jpg'
+import confBg from '@/assets/images/news/conf-bg.jpg'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import doctor1 from '@/assets/images/doctor1.jpg'
 import pictoHeart from '@/assets/icons/picto-heart.png'
@@ -76,7 +78,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
             </svg>
           </button>
 
-          <h3 className="text-[28px] font-bold text-gray-900 text-center mb-7">Регистрационная форма</h3>
+          <h3 className="text-[28px] font-semibold text-gray-900 text-center mb-7">Регистрационная форма</h3>
 
           <form className="space-y-3.5" onSubmit={(e) => { e.preventDefault(); onClose() }}>
             <input type="text" placeholder="Ваше ФИО" className={inputCls} />
@@ -112,7 +114,7 @@ function RegistrationModal({ onClose }: { onClose: () => void }) {
 
             <button
               type="submit"
-              className="w-full bg-[#00b5e2] text-white text-base font-medium rounded-full py-4 mt-2 hover:bg-[#0099c4] transition-colors"
+              className="w-full bg-[#00b5e2] text-white text-base font-semibold rounded-full py-4 mt-2 hover:bg-[#0099c4] transition-colors"
             >
               Зарегистрироваться
             </button>
@@ -133,19 +135,19 @@ export default function NewsPage() {
       {/* ── Hero — светлая карточка, контент внизу ── */}
       <section className="bg-[#f4f4f4] px-3 pt-2 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[640px] lg:min-h-0 lg:aspect-[1414/707]">
-          <img src={post1} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/60 via-transparent to-transparent" />
+          <img src={newsHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#042531] from-[30%] via-[#042531]/70 via-[62%] to-[#042531]/10" />
 
           <div className="relative z-10 px-6 lg:px-24 flex flex-col justify-end min-h-[640px] lg:min-h-full pb-16 lg:pb-20">
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-8">
               <div className="flex items-start gap-3 lg:gap-4">
-                <LogoMark className="h-11 lg:h-20 w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
-                <h1 className="text-[27px] lg:text-5xl font-bold text-white leading-[1.2] lg:leading-[1.05]">
+                <LogoMark className="h-11 lg:h-[100px] w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
+                <h1 className="text-[27px] lg:text-[56px] font-semibold text-white leading-[1.15] lg:leading-[1.2] tracking-[-0.04em] lg:tracking-[-0.06em]">
                   Новости<br />и исследования
                 </h1>
               </div>
-              <p className="text-white/90 text-[13px] leading-relaxed max-w-[300px] lg:max-w-sm lg:pb-1">
-                Erensau Hospital - не только практика, но и
+              <p className="text-white text-[13px] lg:text-[18px] font-medium leading-relaxed lg:leading-[1.35] max-w-[300px] lg:max-w-[455px] lg:pb-2">
+                Erensau Hospital — не только практика, но и
                 исследования. Следите за новостями клиники,
                 научными публикациями и участием наших врачей
                 в международных конференциях
@@ -160,7 +162,7 @@ export default function NewsPage() {
         <div className="relative">
           <button
             onClick={() => setMobileTabOpen(o => !o)}
-            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-8 py-3.5 shadow-lg"
+            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 py-3.5 shadow-lg"
           >
             {mobileTab}
             <svg className={`w-4 h-4 transition-transform ${mobileTabOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -184,13 +186,13 @@ export default function NewsPage() {
           )}
         </div>
       </div>
-      <div className="hidden lg:flex container-main relative z-20 -mt-6 justify-start">
-        <div className="inline-flex bg-white rounded-full p-1.5 gap-1 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap">
+      <div className="hidden lg:flex container-main relative z-20 -mt-8 justify-center">
+        <div className="inline-flex bg-white rounded-full p-2 gap-3 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
           {heroTabs.map((tab, i) => (
             <button
               key={tab}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-                i === 0 ? 'bg-[#00b5e2] text-white' : 'text-gray-800 hover:text-[#00b5e2]'
+              className={`px-8 py-3 rounded-full text-sm transition-colors whitespace-nowrap ${
+                i === 0 ? 'bg-[#00b5e2] text-white font-semibold' : 'bg-[#d3d3d3] text-black hover:bg-[#c7c7c7]'
               }`}
             >
               {tab}
@@ -201,7 +203,7 @@ export default function NewsPage() {
 
       {/* ── Мобилка: «Последние публикации» — карусель крупных карточек ── */}
       <section className="lg:hidden py-12">
-        <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight">
+        <h2 className="text-[28px] font-semibold text-gray-900 text-center mb-8 leading-tight">
           Последние<br />публикации
         </h2>
         <MobileCarousel arrowsTop="30%" progress={false}>
@@ -211,10 +213,10 @@ export default function NewsPage() {
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover object-top" />
               </div>
               <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug">{p.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-snug">{p.title}</h3>
                 <p className="text-gray-600 text-[13px] leading-relaxed mb-5">{featured.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
+                  <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
                   <span className="text-xs text-gray-500">{featured.date}</span>
                 </div>
               </div>
@@ -243,7 +245,7 @@ export default function NewsPage() {
                   <span className="text-[10px] font-semibold text-[#00b5e2] bg-[#00b5e2]/10 px-3 py-1 rounded-full uppercase tracking-wide">{featured.category}</span>
                   <span className="text-xs text-gray-400">{featured.date}</span>
                 </div>
-                <h2 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 leading-snug group-hover:text-[#00b5e2] transition-colors">{featured.title}</h2>
+                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 mb-4 leading-snug group-hover:text-[#00b5e2] transition-colors">{featured.title}</h2>
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">{featured.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="inline-block text-sm text-gray-900 border border-gray-300 rounded-full px-6 py-2.5 group-hover:border-[#00b5e2] group-hover:text-[#00b5e2] transition-colors">Читать подробнее</span>
@@ -255,7 +257,7 @@ export default function NewsPage() {
 
           {/* Последние публикации */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Последние публикации</h2>
+            <h2 className="text-2xl lg:text-[36px] font-semibold text-gray-900 leading-[1.2] tracking-[-0.02em] mb-6">Последние публикации</h2>
             <div className="space-y-4">
               {latestPosts.map((p) => (
                 <div key={p.title} className="flex gap-4 group cursor-pointer">
@@ -263,7 +265,7 @@ export default function NewsPage() {
                     <img src={p.img} alt={p.title} className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-[#00b5e2] transition-colors line-clamp-2">{p.title}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-[#00b5e2] transition-colors line-clamp-2">{p.title}</h3>
                     <p className="text-gray-400 text-xs mt-1">{p.date}</p>
                   </div>
                 </div>
@@ -275,17 +277,17 @@ export default function NewsPage() {
 
       {/* ── Сохраните дату ближайшей конференции ── */}
       <section className="container-main pb-12 lg:pb-24">
-        <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 text-center mb-8 lg:mb-10 leading-tight max-w-[280px] lg:max-w-none mx-auto">
+        <h2 className="text-[28px] lg:text-[47px] font-semibold text-gray-900 text-center mb-8 lg:mb-10 leading-tight tracking-[-0.02em] max-w-[280px] lg:max-w-none mx-auto">
           Сохраните дату<br />ближайшей конференции
         </h2>
-        <div className="relative rounded-[24px] lg:rounded-[32px] overflow-hidden min-h-[380px] lg:flex lg:items-center">
-          <img src={imgOperatingRoom} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="relative rounded-[24px] lg:rounded-[15px] overflow-hidden min-h-[380px] lg:flex lg:items-center">
+          <img src={confBg} alt="" className="absolute inset-0 w-full h-full object-cover object-right" />
           <div className="absolute inset-0 bg-[#0a1628]/80" />
 
           {/* Мобильная раскладка: всё столбиком, фото проглядывает в середине */}
           <div className="lg:hidden relative z-10 p-6 pb-8">
             <p className="text-[#00b5e2] text-[11px] font-semibold uppercase tracking-[0.25em] mb-3">Конференция</p>
-            <h3 className="text-[28px] font-bold text-white leading-tight mb-4 max-w-[300px]">
+            <h3 className="text-[28px] font-semibold text-white leading-tight mb-4 max-w-[300px]">
               Заболевания органов дыхания в практике врача терапевта
             </h3>
             {/* Просвет с фото хирурга */}
@@ -305,7 +307,7 @@ export default function NewsPage() {
                 <div className="text-2xl font-bold">12:00</div>
               </div>
             </div>
-            <button onClick={() => setRegOpen(true)} className="w-full bg-[#00b5e2] text-white text-sm font-medium rounded-full py-4 mb-6">
+            <button onClick={() => setRegOpen(true)} className="w-full bg-[#00b5e2] text-white text-sm font-semibold rounded-full py-4 mb-6">
               Отправить
             </button>
             <div className="text-center text-white">
@@ -317,11 +319,11 @@ export default function NewsPage() {
           <div className="hidden lg:grid relative z-10 grid-cols-1 lg:grid-cols-2 gap-8 w-full p-8 lg:p-12 items-center">
             <div>
               <p className="text-[#00b5e2] text-[10px] font-semibold uppercase tracking-widest mb-4">Конференция</p>
-              <h3 className="text-2xl lg:text-4xl font-bold text-white leading-tight mb-7">
+              <h3 className="text-2xl lg:text-[42px] font-semibold text-white leading-[1.1] tracking-[-0.03em] mb-7 max-w-[480px]">
                 Заболевания органов дыхания в практике врача терапевта
               </h3>
               <div className="grid grid-cols-[auto_auto] gap-x-12 gap-y-5 items-center w-fit text-white">
-                <button onClick={() => setRegOpen(true)} className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 hover:bg-[#0099c4] transition-colors text-center">Зарегистрироваться</button>
+                <button onClick={() => setRegOpen(true)} className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-10 py-3.5 hover:bg-[#0099c4] transition-colors text-center">Зарегистрироваться</button>
                 <div>
                   <div className="text-white/50 text-xs mb-1">Дата:</div>
                   <div className="text-lg font-bold">15.06.26</div>
@@ -360,7 +362,7 @@ export default function NewsPage() {
 
       {/* ── Мобилка: «Лекции с этой конференции» — карусель карточек лектора ── */}
       <section className="lg:hidden pb-12">
-        <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight">
+        <h2 className="text-[28px] font-semibold text-gray-900 text-center mb-8 leading-tight">
           Лекции с этой<br />конференции
         </h2>
         <MobileCarousel arrowsTop="42%" progress={false}>
@@ -371,7 +373,7 @@ export default function NewsPage() {
               </div>
               <div className="p-5">
                 <p className="text-[#00b5e2] text-xs font-medium mb-2">к.м.н., ассоциированный профессор</p>
-                <h3 className="text-[22px] font-bold text-gray-900 leading-tight mb-3">
+                <h3 className="text-[22px] font-semibold text-gray-900 leading-tight mb-3">
                   Куатбеков Кайрат<br />Ниеталиевич
                 </h3>
                 <div className="inline-flex items-center gap-3 bg-[#f4f4f4] rounded-full pl-1.5 pr-5 py-1.5 mb-5">
@@ -392,7 +394,7 @@ export default function NewsPage() {
                   подходы к ведению пациентов с заболеваниями сердца и сосудов.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
+                  <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
                   <span className="text-xs text-gray-500">25 окт 2025</span>
                 </div>
               </div>
@@ -416,8 +418,8 @@ export default function NewsPage() {
                 <img src={imgDoctorSenior} alt="" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-8 lg:p-10">
-                <div className="inline-flex items-center gap-2 bg-[#00b5e2]/10 text-[#00b5e2] text-xs font-medium px-3 py-1 rounded-full mb-4">Кардиохирургия</div>
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 leading-snug group-hover:text-[#00b5e2] transition-colors">
+                <div className="inline-flex items-center gap-2 bg-[#00b5e2]/10 text-[#00b5e2] text-xs font-semibold px-3 py-1 rounded-full mb-4">Кардиохирургия</div>
+                <h3 className="text-xl lg:text-2xl font-semibold text-gray-900 mb-3 leading-snug group-hover:text-[#00b5e2] transition-colors">
                   Инновационные технологии в кардиохирургии: от диагностики до успешного лечения
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-5">
@@ -434,7 +436,7 @@ export default function NewsPage() {
 
           {/* Список лекций */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Лекции с этой конференции</h2>
+            <h2 className="text-2xl lg:text-[36px] font-semibold text-gray-900 leading-[1.2] tracking-[-0.02em] mb-6">Лекции с этой конференции</h2>
             <div className="space-y-4">
               {lectures.map((l) => (
                 <div key={l.title} className="flex gap-4 group cursor-pointer">
@@ -442,7 +444,7 @@ export default function NewsPage() {
                     <img src={l.img} alt={l.title} className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-gray-900 leading-snug group-hover:text-[#00b5e2] transition-colors line-clamp-2">{l.title}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-[#00b5e2] transition-colors line-clamp-2">{l.title}</h3>
                     <p className="text-gray-400 text-xs mt-1">{l.author}</p>
                   </div>
                 </div>
@@ -457,7 +459,7 @@ export default function NewsPage() {
 
         {/* Мобилка: заголовок по центру + карусель */}
         <div className="lg:hidden">
-          <h2 className="text-[28px] font-bold text-gray-900 text-center mb-8 leading-tight max-w-[280px] mx-auto">
+          <h2 className="text-[28px] font-semibold text-gray-900 text-center mb-8 leading-tight max-w-[280px] mx-auto">
             Рекомендуемое: другие статьи и публикации
           </h2>
           <MobileCarousel arrowsTop="35%">
@@ -467,12 +469,12 @@ export default function NewsPage() {
                   <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-3">{item.title}</h3>
+                  <h3 className="font-semibold text-gray-900 text-lg leading-snug mb-3">{item.title}</h3>
                   <p className="text-gray-600 text-[13px] leading-relaxed mb-5">
                     Сложнейший диагноз, риск полной остановки сердца — и всё же команда Erensau Hospital справилась...
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
+                    <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-8 py-2.5">Подробнее</span>
                     <span className="text-xs text-gray-500">{item.date}</span>
                   </div>
                 </div>
@@ -480,7 +482,7 @@ export default function NewsPage() {
             ))}
           </MobileCarousel>
           <div className="text-center mt-9">
-            <Link to="/news" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5">
+            <Link to="/news" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 py-3.5">
               Все публикации
             </Link>
           </div>
@@ -489,7 +491,7 @@ export default function NewsPage() {
         {/* Десктоп */}
         <div className="container-main hidden lg:block">
           <div className="flex items-center gap-6 mb-6">
-            <h2 className="text-xl lg:text-2xl font-bold text-gray-900 whitespace-nowrap">Рекомендуемое: другие статьи и публикации</h2>
+            <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 whitespace-nowrap">Рекомендуемое: другие статьи и публикации</h2>
             <div className="flex-1 hidden lg:block h-px bg-gray-200" />
             <div className="flex items-center gap-2">
               <button aria-label="Назад" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
@@ -517,7 +519,7 @@ export default function NewsPage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link to="/news" className="inline-block bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+            <Link to="/news" className="inline-block bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
               Все публикации
             </Link>
           </div>
