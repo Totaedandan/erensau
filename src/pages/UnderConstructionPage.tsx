@@ -36,7 +36,7 @@ export default function UnderConstructionPage() {
 
             <Link
               to="/"
-              className="mt-8 lg:mt-10 w-full lg:w-auto lg:self-start bg-[#00b5e2] text-white text-sm lg:text-base font-medium text-center rounded-full px-12 lg:px-14 py-4 lg:py-[18px] shadow-lg hover:bg-[#0099c4] transition-colors"
+              className="mt-8 lg:mt-10 w-full lg:w-auto lg:self-start bg-[#00b5e2] text-white text-sm lg:text-base font-semibold text-center rounded-full px-12 lg:px-14 py-4 lg:py-[18px] shadow-lg hover:bg-[#0099c4] transition-colors"
             >
               Вернуться на главную
             </Link>

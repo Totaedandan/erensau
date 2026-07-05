@@ -46,7 +46,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
     <section className="bg-[#f4f4f4]">
       {showHeading && (
         <div className="container-main pt-16 lg:pt-16">
-          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center lg:text-left">Контакты</h2>
+          <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center lg:text-left">Контакты</h2>
         </div>
       )}
 
@@ -56,11 +56,11 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
           <div className="bg-white rounded-3xl p-5 shadow-sm">
             <div className="grid grid-cols-2 gap-x-6">
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2">Адрес:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mb-2">Адрес:</h3>
                 <Entry icons={<Dot><PinIcon /></Dot>}>
                   г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1
                 </Entry>
-                <h3 className="text-gray-900 font-bold text-sm mt-4 mb-2">Доп.информация:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mt-4 mb-2">Доп.информация:</h3>
                 <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
                   erensau.kz
                 </Entry>
@@ -70,14 +70,14 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                 </Entry>
               </div>
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2">Колл-центр:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mb-2">Колл-центр:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394040">+7 727 339 40 40</a>
                 </Entry>
                 <Entry icons={<><Dot><WaIcon /></Dot><Dot><TgIcon /></Dot></>}>
                   <a href="tel:+77713999444">+7 771 399 94 44</a>
                 </Entry>
-                <h3 className="text-gray-900 font-bold text-sm mt-4 mb-2">Администрация:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mt-4 mb-2">Администрация:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394282">+7 727 339 42 82</a>
                 </Entry>
@@ -98,7 +98,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
             </div>
 
             <div className="mt-36">
-              <h3 className="text-gray-900 font-bold text-base mb-3">График работы</h3>
+              <h3 className="text-gray-900 font-semibold text-base mb-3">График работы</h3>
               <table className="w-full text-sm mb-6">
                 <thead>
                   <tr className="text-[#00b5e2] text-[13px]">
@@ -121,7 +121,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                 href="https://2gis.kz/almaty"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center bg-white rounded-full px-10 py-4 text-sm font-medium text-gray-900 shadow-md"
+                className="block w-full text-center bg-white rounded-full px-10 py-4 text-sm font-semibold text-gray-900 shadow-md"
               >
                 Простроить навигацию
               </a>
@@ -161,12 +161,12 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
             <div className="grid grid-cols-2 gap-x-8 mb-5">
               {/* Левая колонка */}
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Адрес:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mb-2.5">Адрес:</h3>
                 <Entry icons={<Dot><PinIcon /></Dot>}>
                   г. Алматы ул. Нурлана<br />Каппарова, дом 4, кор. 1
                 </Entry>
 
-                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Доп.информация:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mt-5 mb-2.5">Доп.информация:</h3>
                 <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
                   erensau.kz
                 </Entry>
@@ -178,7 +178,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
 
               {/* Правая колонка */}
               <div>
-                <h3 className="text-gray-900 font-bold text-sm mb-2.5">Колл-центр:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mb-2.5">Колл-центр:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394040" className="hover:text-[#00b5e2] transition-colors">+7 727 339 40 40</a>
                 </Entry>
@@ -186,7 +186,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                   <a href="tel:+77713999444" className="hover:text-[#00b5e2] transition-colors">+7 771 399 94 44</a>
                 </Entry>
 
-                <h3 className="text-gray-900 font-bold text-sm mt-5 mb-2.5">Администрация:</h3>
+                <h3 className="text-gray-900 font-semibold text-sm mt-5 mb-2.5">Администрация:</h3>
                 <Entry icons={<Dot><PhoneIcon /></Dot>}>
                   <a href="tel:+77273394282" className="hover:text-[#00b5e2] transition-colors">+7 727 339 42 82</a>
                 </Entry>
@@ -198,7 +198,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
 
             {/* График работы */}
             <div className="border-t border-gray-100 pt-4 mb-5">
-              <h3 className="text-gray-900 font-bold text-sm mb-3">График работы</h3>
+              <h3 className="text-gray-900 font-semibold text-sm mb-3">График работы</h3>
               <table className="w-full text-sm">
                 <thead>
                   <tr className="text-[#00b5e2] text-[13px]">

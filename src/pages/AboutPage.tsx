@@ -46,7 +46,7 @@ export default function AboutPage() {
             <div className="flex justify-between gap-8">
               <div className="flex items-center gap-5">
                 <img src={logoMark} alt="" className="h-[119px] w-auto flex-shrink-0" />
-                <h1 className="text-5xl font-bold text-gray-900 leading-[1.08] tracking-tight">
+                <h1 className="text-5xl font-semibold text-gray-900 leading-[1.08] tracking-tight">
                   Почему<br />выбирают нас
                 </h1>
               </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           {/* Десктоп: визитка выбранного врача — поверх правого плеча */}
           <div className="hidden lg:block absolute z-10 left-[calc(50%+215px)] top-[335px] w-[292px] bg-white rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
             <p className="text-[#00b5e2] text-xs font-semibold mb-3">{doc.title}</p>
-            <h3 className="font-bold text-gray-900 text-xl leading-tight mb-4">
+            <h3 className="font-semibold text-gray-900 text-xl leading-tight mb-4">
               {doc.name.map((l, i) => (
                 <span key={i}>{l}{i < doc.name.length - 1 && <br />}</span>
               ))}
@@ -133,7 +133,7 @@ export default function AboutPage() {
           <div className="lg:hidden relative px-7 pt-10 pb-6">
             <div className="flex items-center gap-3.5 mb-6">
               <img src={logoMark} alt="" className="h-[74px] w-auto flex-shrink-0" />
-              <h1 className="text-[27px] font-bold text-gray-900 leading-[1.12] tracking-tight">
+              <h1 className="text-[27px] font-semibold text-gray-900 leading-[1.12] tracking-tight">
                 Почему<br />выбирают нас
               </h1>
             </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
               <img src={doc.photo} alt={doc.name.join(' ')} className="w-full h-[440px] object-contain object-bottom" />
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[250px] bg-white rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
                 <p className="text-[#00b5e2] text-xs font-semibold mb-2">{doc.title}</p>
-                <h3 className="font-bold text-gray-900 text-base leading-tight mb-2.5">
+                <h3 className="font-semibold text-gray-900 text-base leading-tight mb-2.5">
                   {doc.name.map((l, i) => (<span key={i}>{l}{i < doc.name.length - 1 && <br />}</span>))}
                 </h3>
                 <p className="text-gray-700 text-xs leading-relaxed">
@@ -193,14 +193,14 @@ export default function AboutPage() {
           {/* Левая колонка: Миссия + Видение (с разделителями) */}
           <div className="space-y-9 lg:space-y-11">
             <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
-              <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-5">Миссия</h2>
+              <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Миссия</h2>
               <p className="text-[#656565] text-[13px] leading-relaxed">
                 Обеспечение точных решений для сложных случаев с акцентом на высокое
                 качество медицинской помощи с вниманием к каждому пациенту
               </p>
             </div>
             <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
-              <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-5">Видение</h2>
+              <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Видение</h2>
               <p className="text-[#656565] text-[13px] leading-relaxed">
                 Стать национальным лидером в решении сложных медицинских случаев,
                 формируя в Казахстане центр притяжения лучших врачей, передовых
@@ -211,7 +211,7 @@ export default function AboutPage() {
 
           {/* Правая колонка: Ценности — таблица с разделителями */}
           <div>
-            <h2 className="text-3xl lg:text-[42px] font-bold text-neutral-900 mb-6">Ценности</h2>
+            <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-6">Ценности</h2>
             <ul>
               {[
                 { t: 'Профессионализм', d: ['предоставление медицинских', 'услуг на самом высоком уровне.'] },

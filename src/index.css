@@ -22,15 +22,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-[#00b5e2] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0099c4] transition-colors duration-200 inline-block;
+    @apply bg-[#00b5e2] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#0099c4] transition-colors duration-200 inline-block;
   }
 
   .btn-outline {
-    @apply border-2 border-[#00b5e2] text-[#00b5e2] px-6 py-3 rounded-xl font-medium hover:bg-[#00b5e2] hover:text-white transition-colors duration-200 inline-block;
+    @apply border-2 border-[#00b5e2] text-[#00b5e2] px-6 py-3 rounded-xl font-semibold hover:bg-[#00b5e2] hover:text-white transition-colors duration-200 inline-block;
   }
 
   .btn-white {
-    @apply bg-white text-[#00b5e2] px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors duration-200 inline-block;
+    @apply bg-white text-[#00b5e2] px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors duration-200 inline-block;
   }
 
   .card {

@@ -89,7 +89,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       </div>
 
       {/* Заголовок */}
-      <h3 className="font-bold text-gray-900 text-lg mb-5 leading-snug">{item.title}</h3>
+      <h3 className="font-semibold text-gray-900 text-lg mb-5 leading-snug">{item.title}</h3>
 
       {/* Аккордеоны */}
       <div className="flex-1">
@@ -159,7 +159,7 @@ export default function ServicesPage() {
             <div className="max-w-[420px]">
               <div className="flex items-start gap-3.5 lg:gap-7 mb-6 lg:mb-8">
                 <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
-                <h1 className="text-[27px] lg:text-5xl font-bold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
+                <h1 className="text-[27px] lg:text-5xl font-semibold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
                   Медицинские<br />услуги
                 </h1>
               </div>
@@ -204,7 +204,7 @@ export default function ServicesPage() {
         <div className="lg:hidden relative">
           <button
             onClick={() => setMobileTabOpen(o => !o)}
-            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-9 py-3.5 shadow-lg"
+            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-9 py-3.5 shadow-lg"
           >
             {tabs.find(t => t.id === activeTab)?.label}
             <svg className={`w-4 h-4 transition-transform ${mobileTabOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -246,7 +246,7 @@ export default function ServicesPage() {
               <Link
                 key={t.id}
                 to="/checkup"
-                className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap bg-[#f4f4f4] text-gray-800 hover:bg-gray-100"
+                className="px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap bg-[#f4f4f4] text-gray-800 hover:bg-gray-100"
               >
                 {t.label}
               </Link>
@@ -254,7 +254,7 @@ export default function ServicesPage() {
               <button
                 key={t.id}
                 onClick={() => setActiveTab(t.id)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
                   activeTab === t.id
                     ? 'bg-[#00b5e2] text-white'
                     : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
@@ -278,7 +278,7 @@ export default function ServicesPage() {
           <div className="text-center mt-9">
             <a
               href="#"
-              className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5"
+              className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 py-3.5"
             >
               Скачать полный прейскурант
             </a>
@@ -296,7 +296,7 @@ export default function ServicesPage() {
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
             >
               Скачать полный прейскурант
             </a>

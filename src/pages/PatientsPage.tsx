@@ -60,7 +60,7 @@ export default function PatientsPage() {
           {/* ── Десктоп: заголовок и карточка по замерам макета ── */}
           <div className="hidden lg:flex absolute left-[7.5%] top-[33%] items-start gap-5">
             <LogoMark className="h-[112px] w-auto flex-shrink-0" style={{ ['--fill-0' as string]: '#ffffff' }} />
-            <h1 className="text-[50px] font-bold text-white leading-[1.3]">
+            <h1 className="text-[50px] font-semibold text-white leading-[1.3]">
               Руководство<br />для пациентов
             </h1>
           </div>
@@ -79,7 +79,7 @@ export default function PatientsPage() {
           <div className="lg:hidden relative z-10 px-6 flex flex-col justify-start min-h-[620px] py-10">
             <div className="flex items-start gap-3 mb-6">
               <LogoMark className="h-11 w-auto flex-shrink-0 mt-1" style={{ ['--fill-0' as string]: '#ffffff' }} />
-              <h1 className="text-[27px] font-bold text-white leading-[1.2]">
+              <h1 className="text-[27px] font-semibold text-white leading-[1.2]">
                 Руководство<br />для пациентов
               </h1>
             </div>
@@ -100,7 +100,7 @@ export default function PatientsPage() {
       {/* ── Инфо-блоки с фото ── */}
       <section className="bg-[#f4f4f4] py-14 lg:py-24">
         <div className="container-main">
-          <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
+          <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center mb-8 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Все что нужно знать перед визитом и во время лечения
           </h2>
           {/* Таб-бар: на мобилке — голубой дропдаун */}
@@ -108,7 +108,7 @@ export default function PatientsPage() {
             <div className="relative">
               <button
                 onClick={() => setMobileTabOpen(o => !o)}
-                className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-8 py-3"
+                className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 py-3"
               >
                 {mobileTab}
                 <svg className={`w-4 h-4 transition-transform ${mobileTabOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -137,7 +137,7 @@ export default function PatientsPage() {
               {infoTabs.map((tab, i) => (
                 <button
                   key={tab}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
                     i === 0 ? 'bg-[#00b5e2] text-white' : 'bg-white text-gray-800 shadow-sm hover:text-[#00b5e2]'
                   }`}
                 >
@@ -158,7 +158,7 @@ export default function PatientsPage() {
                     <img src={block.img} alt={block.title} className="w-full h-full object-cover object-top" />
                   </div>
                 </div>
-                <h3 className="font-bold text-gray-900 text-lg mt-5 mb-2 px-1">{block.title}</h3>
+                <h3 className="font-semibold text-gray-900 text-lg mt-5 mb-2 px-1">{block.title}</h3>
                 <p className="text-gray-600 text-[13px] leading-relaxed px-1">{block.desc}</p>
               </div>
             ))}
@@ -188,7 +188,7 @@ export default function PatientsPage() {
 
         {/* Мобильный заголовок над карточками */}
         <div className="lg:hidden text-center mb-6">
-          <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-tight">
+          <h2 className="text-[28px] font-semibold text-gray-900 mb-3 leading-tight">
             Нам доверяют<br />и говорят об этом
           </h2>
           <p className="text-gray-600 text-xs leading-relaxed max-w-[320px] mx-auto">
@@ -228,14 +228,14 @@ export default function PatientsPage() {
 
           {/* Заголовок + CTA (десктоп) */}
           <div className="hidden lg:block lg:sticky lg:top-28">
-            <h2 className="text-2xl lg:text-[40px] font-bold text-gray-900 mb-5 leading-tight">
+            <h2 className="text-2xl lg:text-[40px] font-semibold text-gray-900 mb-5 leading-tight">
               Нам доверяют<br />и говорят об этом
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
               Лучшая оценка нашей работы — слова людей, которым мы помогли. Читайте
               отзывы наших пациентов и поделитесь своим опытом после визита в Erensau Hospital.
             </p>
-            <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-3.5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</Link>
+            <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-3.5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</Link>
             <div className="flex items-start gap-3 mt-10 max-w-sm">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                 <img src={imgDoctorSenior} alt="" className="w-full h-full object-cover object-top" />
@@ -262,7 +262,7 @@ export default function PatientsPage() {
             </div>
           </div>
           <div className="text-center mt-9">
-            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-4">Оставьте отзыв</Link>
+            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-4">Оставьте отзыв</Link>
           </div>
         </div>
 
@@ -272,7 +272,7 @@ export default function PatientsPage() {
       {/* ── FAQ — 2 колонки ── */}
       <section className="bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
-          <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
+          <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)]">

@@ -19,7 +19,7 @@ export default function CTASlider() {
           {/* Мобильный заголовок — над фото (в десктопе заголовок в правой колонке) */}
           <div className="flex items-start gap-3 lg:hidden">
             <img src={logoMark} alt="" className="h-12 w-auto flex-shrink-0" />
-            <h2 className="text-[28px] font-bold text-gray-900 leading-[1.15]">
+            <h2 className="text-[28px] font-semibold text-gray-900 leading-[1.15]">
               Многопрофильная<br />клиника
             </h2>
           </div>
@@ -65,7 +65,7 @@ export default function CTASlider() {
           <div>
             <div className="hidden lg:flex items-center gap-4 mb-5">
               <img src={logoMark} alt="" className="h-[78px] w-auto flex-shrink-0" />
-              <h2 className="text-3xl lg:text-[36px] font-bold text-gray-900 leading-[1.1]">
+              <h2 className="text-3xl lg:text-[36px] font-semibold text-gray-900 leading-[1.1]">
                 Многопрофильная<br />клиника
               </h2>
             </div>
@@ -74,7 +74,7 @@ export default function CTASlider() {
               так и консервативные методы лечения. Нам доверяют случаи, которые нередко
               отличаются редкостью, тяжестью течения и клинической уникальностью.
             </p>
-            <Link to="/contacts" className="hidden lg:inline-block bg-[#00b5e2] text-white text-base font-medium rounded-full px-10 py-4 hover:bg-[#0099c4] transition-colors">
+            <Link to="/contacts" className="hidden lg:inline-block bg-[#00b5e2] text-white text-base font-semibold rounded-full px-10 py-4 hover:bg-[#0099c4] transition-colors">
               Записаться
             </Link>
           </div>

@@ -66,7 +66,7 @@ const internships = [
 function PersonalInfoCard({ className = '' }: { className?: string }) {
   return (
     <div className={`bg-white rounded-[28px] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${className}`}>
-      <h3 className="text-[20px] lg:text-[22px] font-bold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Персональная информация</h3>
+      <h3 className="text-[20px] lg:text-[22px] font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Персональная информация</h3>
       <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed mb-3.5 lg:mb-4">
         Ему присвоена высшая квалификационная категория по специальности
         "взрослая и детская кардиохирургия".
@@ -76,7 +76,7 @@ function PersonalInfoCard({ className = '' }: { className?: string }) {
         провёл первую открытую операцию на сердце в Кызылординской области.
       </p>
       <div className="border-t border-gray-200 pt-5 lg:pt-6 mb-2">
-        <h3 className="text-[20px] lg:text-[22px] font-bold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
+        <h3 className="text-[20px] lg:text-[22px] font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
         <div className="grid grid-cols-2 gap-x-6 gap-y-3 lg:gap-y-4 mb-5 lg:mb-6">
           {internships.map((s) => (
             <div key={s.label} className="flex items-center gap-3">
@@ -176,7 +176,7 @@ export default function DoctorCardPage() {
               <p className="text-[#00b5e2] text-sm lg:text-lg font-semibold mb-4 text-center lg:text-left">к.м.н., ассоциированный профессор</p>
               <div className="flex items-start gap-3 lg:gap-4 mb-6 lg:mb-9">
                 <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
-                <h1 className="text-[25px] lg:text-[48px] font-bold text-gray-900 leading-[1.2] lg:leading-[1.15] tracking-tight">
+                <h1 className="text-[25px] lg:text-[48px] font-semibold text-gray-900 leading-[1.2] lg:leading-[1.15] tracking-tight">
                   Куатбеков Кайрат<br />Ниеталиевич
                 </h1>
               </div>
@@ -192,7 +192,7 @@ export default function DoctorCardPage() {
               </div>
 
               {/* Рейтинг */}
-              <h2 className="text-[24px] lg:text-2xl font-bold text-gray-900 mb-3">Рейтинг врача</h2>
+              <h2 className="text-[24px] lg:text-2xl font-semibold text-gray-900 mb-3">Рейтинг врача</h2>
               <div className="flex items-center gap-1.5 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-7 h-7 text-[#00b5e2]" fill="currentColor" viewBox="0 0 20 20">
@@ -205,7 +205,7 @@ export default function DoctorCardPage() {
 
               <Link
                 to="/contacts"
-                className="hidden lg:inline-block bg-[#00b5e2] text-white text-[15px] font-medium rounded-full px-10 py-4 shadow-[0_10px_30px_rgba(0,181,226,0.35)] hover:bg-[#0099c4] transition-colors"
+                className="hidden lg:inline-block bg-[#00b5e2] text-white text-[15px] font-semibold rounded-full px-10 py-4 shadow-[0_10px_30px_rgba(0,181,226,0.35)] hover:bg-[#0099c4] transition-colors"
               >
                 Записаться на прием
               </Link>
@@ -226,7 +226,7 @@ export default function DoctorCardPage() {
       <div className="lg:hidden container-main mt-5">
         <Link
           to="/contacts"
-          className="block w-full bg-[#00b5e2] text-white text-[15px] font-medium rounded-full py-4 text-center shadow-[0_10px_30px_rgba(0,181,226,0.35)]"
+          className="block w-full bg-[#00b5e2] text-white text-[15px] font-semibold rounded-full py-4 text-center shadow-[0_10px_30px_rgba(0,181,226,0.35)]"
         >
           Записаться на прием
         </Link>
@@ -235,7 +235,7 @@ export default function DoctorCardPage() {
 
       {/* ── Видео отзывы про врача ── */}
       <section className="bg-[#f4f4f4] pt-12 pb-10 lg:py-24">
-        <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-4 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto">
+        <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center mb-4 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto">
           Видео отзывы про врача
         </h2>
         <div className="relative overflow-hidden">
@@ -285,7 +285,7 @@ export default function DoctorCardPage() {
 
           {/* Мобильный заголовок над карточками */}
           <div className="lg:hidden text-center mb-6">
-            <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-tight">
+            <h2 className="text-[28px] font-semibold text-gray-900 mb-3 leading-tight">
               Нам доверяют<br />и говорят об этом
             </h2>
             <p className="text-gray-600 text-xs leading-relaxed max-w-[320px] mx-auto">
@@ -325,20 +325,20 @@ export default function DoctorCardPage() {
 
             {/* Заголовок + CTA (десктоп) */}
             <div className="hidden lg:block lg:sticky lg:top-28">
-              <h2 className="text-2xl lg:text-[40px] font-bold text-gray-900 mb-5 leading-tight">
+              <h2 className="text-2xl lg:text-[40px] font-semibold text-gray-900 mb-5 leading-tight">
                 Нам доверяют<br />и говорят об этом
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
                 Лучшая оценка нашей работы — слова людей, которым мы помогли. Читайте
                 отзывы наших пациентов или поделитесь своим опытом после визита в Erensau Hospital
               </p>
-              <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-3.5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</Link>
+              <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-3.5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</Link>
             </div>
           </div>
 
           {/* Мобилка: кнопка после карточек */}
           <div className="lg:hidden text-center mt-7">
-            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-medium rounded-full px-16 py-4">Оставьте отзыв</Link>
+            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-4">Оставьте отзыв</Link>
           </div>
         </div>
       </section>
@@ -348,7 +348,7 @@ export default function DoctorCardPage() {
 
         {/* Мобилка: заголовок по центру + карусель */}
         <div className="lg:hidden">
-          <h2 className="text-[28px] font-bold text-gray-900 text-center mb-7 leading-tight max-w-[260px] mx-auto">
+          <h2 className="text-[28px] font-semibold text-gray-900 text-center mb-7 leading-tight max-w-[260px] mx-auto">
             Лекции от Куатбекова К.Н.
           </h2>
           <MobileCarousel arrowsTop="32%">
@@ -358,11 +358,11 @@ export default function DoctorCardPage() {
                   <img src={l.img} alt={l.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-2">{l.title}</h3>
+                  <h3 className="font-semibold text-gray-900 text-lg leading-snug mb-2">{l.title}</h3>
                   <p className="text-gray-600 text-[13px] leading-relaxed mb-4">{l.desc}</p>
                   <Link
                     to="/news"
-                    className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-10 py-2.5"
+                    className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-10 py-2.5"
                   >
                     Подробнее
                   </Link>
@@ -374,7 +374,7 @@ export default function DoctorCardPage() {
 
         <div className="container-main hidden lg:block">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-10">
-            <h2 className="text-3xl lg:text-[40px] font-bold text-gray-900 whitespace-nowrap">
+            <h2 className="text-3xl lg:text-[40px] font-semibold text-gray-900 whitespace-nowrap">
               Лекции от Куатбекова К.Н.
             </h2>
             {/* Полоса прогресса карусели */}
@@ -408,11 +408,11 @@ export default function DoctorCardPage() {
                   <img src={l.img} alt={l.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-bold text-gray-900 text-lg leading-snug mb-3">{l.title}</h3>
+                  <h3 className="font-semibold text-gray-900 text-lg leading-snug mb-3">{l.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">{l.desc}</p>
                   <Link
                     to="/news"
-                    className="inline-block self-start text-sm font-medium text-gray-900 border border-gray-800 rounded-full px-10 py-3 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+                    className="inline-block self-start text-sm font-semibold text-gray-900 border border-gray-800 rounded-full px-10 py-3 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
                   >
                     Подробнее
                   </Link>

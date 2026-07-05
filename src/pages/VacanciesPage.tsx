@@ -28,7 +28,7 @@ function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
       <div className="w-14 h-14 lg:w-12 lg:h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-5">
         <img src={v.icon} alt="" className="w-full h-full" />
       </div>
-      <h3 className="font-bold text-gray-900 text-lg mb-0.5">{v.title}</h3>
+      <h3 className="font-semibold text-gray-900 text-lg mb-0.5">{v.title}</h3>
       <p className="text-gray-400 text-base lg:text-xs mb-4 lg:mb-5">Полный рабочий день</p>
       <p className="text-gray-900 text-sm font-medium mb-2">Обязанности:</p>
       <ul className="space-y-1.5 mb-6 flex-1">
@@ -40,7 +40,7 @@ function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
       </ul>
       <Link
         to="/contacts"
-        className="block text-center text-sm font-medium py-3 lg:py-2.5 rounded-full border border-gray-300 text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+        className="block text-center text-sm font-semibold py-3 lg:py-2.5 rounded-full border border-gray-300 text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
       >
         Подать заявку
       </Link>
@@ -63,7 +63,7 @@ export default function VacanciesPage() {
         <div className="relative z-10 px-5 lg:px-24 flex flex-col justify-start lg:justify-center min-h-[720px] lg:min-h-full pt-10 pb-6 lg:py-16">
           <div className="flex items-start gap-3.5 lg:gap-4 mb-5 lg:mb-6">
             <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
-            <h1 className="text-[25px] lg:text-5xl font-bold text-white leading-[1.2] lg:leading-[1.1]">
+            <h1 className="text-[25px] lg:text-5xl font-semibold text-white leading-[1.2] lg:leading-[1.1]">
               Станьте частью<br />команды erensau
             </h1>
           </div>
@@ -71,10 +71,10 @@ export default function VacanciesPage() {
             Мы ищем врачей, медсестёр и административных специалистов, готовых работать на высшем уровне
           </p>
           <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3.5 lg:gap-3 mt-auto lg:mt-0">
-            <a href="#vacancies" className="bg-[#00b5e2] text-white text-sm font-medium rounded-full px-8 py-4 lg:py-3.5 text-center hover:bg-[#0099c4] transition-colors">Присоединиться</a>
+            <a href="#vacancies" className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 py-4 lg:py-3.5 text-center hover:bg-[#0099c4] transition-colors">Присоединиться</a>
             <a
               href="mailto:info@erensau.kz"
-              className="inline-flex items-center gap-3 bg-white rounded-full pl-2.5 lg:pl-2 pr-6 py-2.5 lg:py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-3 bg-white rounded-full pl-2.5 lg:pl-2 pr-6 py-2.5 lg:py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
             >
               <span className="w-10 h-10 lg:w-8 lg:h-8 rounded-full bg-[#00b5e2] flex items-center justify-center text-white flex-shrink-0">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -94,7 +94,7 @@ export default function VacanciesPage() {
       {/* ── Список вакансий + поиск ── */}
       <section id="vacancies" className="py-12 lg:py-16">
         <div className="container-main flex flex-col items-center lg:flex-row lg:items-center justify-between gap-6 lg:gap-5 mb-9 lg:mb-8">
-          <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 text-center">Список вакансий</h2>
+          <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 text-center">Список вакансий</h2>
           <div className="flex flex-col items-center lg:flex-row lg:items-center gap-5 lg:gap-4 w-full lg:w-96">
             <div className="flex items-center w-full max-w-[300px] lg:max-w-none lg:flex-1 border-b border-gray-300 pb-2">
               <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -108,7 +108,7 @@ export default function VacanciesPage() {
                 className="flex-1 bg-transparent border-0 px-3 text-sm outline-none placeholder:text-gray-400"
               />
             </div>
-            <button className="bg-[#00b5e2] text-white text-base lg:text-sm font-medium rounded-full px-10 lg:px-8 py-3 lg:py-2.5 hover:bg-[#0099c4] transition-colors">
+            <button className="bg-[#00b5e2] text-white text-base lg:text-sm font-semibold rounded-full px-10 lg:px-8 py-3 lg:py-2.5 hover:bg-[#0099c4] transition-colors">
               Поиск
             </button>
           </div>
@@ -132,7 +132,7 @@ export default function VacanciesPage() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="#vacancies" className="inline-block bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+          <a href="#vacancies" className="inline-block bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
             Смотреть все вакансии
           </a>
         </div>

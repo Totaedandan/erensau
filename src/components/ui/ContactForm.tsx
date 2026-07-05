@@ -27,7 +27,7 @@ export default function ContactForm({
 
           {/* ── Мобильная версия: всё столбиком ── */}
           <div className="lg:hidden">
-            <h2 className="text-[28px] font-bold text-gray-900 mb-3 leading-[1.2] whitespace-pre-line">{heading}</h2>
+            <h2 className="text-[28px] font-semibold text-gray-900 mb-3 leading-[1.2] whitespace-pre-line">{heading}</h2>
             {mobileVariant === 'default' && (
               <p className="text-gray-400 text-[13px] leading-relaxed mb-5">{text}</p>
             )}
@@ -56,7 +56,7 @@ export default function ContactForm({
                     <input type="text" placeholder="Сообщение" className={inputClsMobile} />
                   </>
                 )}
-                <button type="submit" className="w-full bg-[#00b5e2] text-white text-base font-medium rounded-full py-4 !mt-6 hover:bg-[#0099c4] transition-colors">
+                <button type="submit" className="w-full bg-[#00b5e2] text-white text-base font-semibold rounded-full py-4 !mt-6 hover:bg-[#0099c4] transition-colors">
                   {mobileVariant === 'registration' ? 'Зарегистрироваться' : 'Отправить'}
                 </button>
                 <p className="text-xs text-gray-400 text-center leading-snug pt-1">
@@ -71,7 +71,7 @@ export default function ContactForm({
 
             {/* Левая колонка: заголовок + текст */}
             <div>
-              <h2 className="text-4xl lg:text-[42px] font-bold text-gray-900 mb-8 leading-[1.1] whitespace-pre-line">
+              <h2 className="text-4xl lg:text-[42px] font-semibold text-gray-900 mb-8 leading-[1.1] whitespace-pre-line">
                 {heading}
               </h2>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{text}</p>
@@ -99,7 +99,7 @@ export default function ContactForm({
 
                 {/* Правая колонка: кнопка + дисклеймер */}
                 <div className="flex flex-col items-start gap-4 lg:self-center">
-                  <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-base font-medium rounded-full px-11 py-3.5 whitespace-nowrap hover:bg-[#0099c4] transition-colors">
+                  <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-base font-semibold rounded-full px-11 py-3.5 whitespace-nowrap hover:bg-[#0099c4] transition-colors">
                     Отправить
                   </button>
                   <p className="text-xs text-gray-400 leading-snug">

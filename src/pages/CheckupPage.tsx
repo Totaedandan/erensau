@@ -44,7 +44,7 @@ function ProgramCard({ name, price, img, path }: { name: string; price: string; 
           </svg>
         )}
       </div>
-      <h3 className="font-bold text-gray-900 text-xl mb-5 leading-snug">{name}</h3>
+      <h3 className="font-semibold text-gray-900 text-xl mb-5 leading-snug">{name}</h3>
       <div className="flex-1">
         {STANDARD_DETAILS.map((d, i) => {
           const isOpen = openIdx === i
@@ -125,10 +125,10 @@ export default function CheckupPage() {
           />
 
           {/* 4 — Крупный текст «Checkup» слева, «программы» справа ниже (десктоп) */}
-          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[112px] font-bold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[112px] font-semibold text-white leading-none tracking-tight pointer-events-none">
             Checkup
           </h1>
-          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[112px] font-bold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[112px] font-semibold text-white leading-none tracking-tight pointer-events-none">
             программы
           </h1>
 
@@ -149,7 +149,7 @@ export default function CheckupPage() {
             </p>
             <Link
               to="/contacts"
-              className="inline-block bg-white text-gray-900 text-sm font-medium rounded-full px-9 py-3.5 shadow-md hover:text-[#00b5e2] transition-colors"
+              className="inline-block bg-white text-gray-900 text-sm font-semibold rounded-full px-9 py-3.5 shadow-md hover:text-[#00b5e2] transition-colors"
             >
               Подобрать программу
             </Link>
@@ -157,7 +157,7 @@ export default function CheckupPage() {
 
           {/* Мобилка: заголовок, описание и кнопка одним блоком слева */}
           <div className="lg:hidden absolute left-6 right-6 top-[30%]">
-            <h1 className="text-[32px] font-bold text-white leading-[1.15] mb-4">
+            <h1 className="text-[32px] font-semibold text-white leading-[1.15] mb-4">
               Checkup<br />программы
             </h1>
             <p className="text-white/95 text-[13px] leading-relaxed max-w-[210px] mb-7">
@@ -166,7 +166,7 @@ export default function CheckupPage() {
             </p>
             <Link
               to="/contacts"
-              className="block w-full bg-white text-gray-900 text-sm font-medium rounded-full px-9 py-4 text-center shadow-md"
+              className="block w-full bg-white text-gray-900 text-sm font-semibold rounded-full px-9 py-4 text-center shadow-md"
             >
               Подобрать программу
             </Link>
@@ -179,7 +179,7 @@ export default function CheckupPage() {
         <div className="relative">
           <button
             onClick={() => setFilterOpen(o => !o)}
-            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-medium rounded-full px-10 py-3.5 shadow-lg"
+            className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-10 py-3.5 shadow-lg"
           >
             Профили
             <svg className={`w-4 h-4 transition-transform ${filterOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -209,7 +209,7 @@ export default function CheckupPage() {
             <div key={tab} className="relative">
               <button
                 onClick={() => tab === 'Check-up программы' && setFilterOpen(o => !o)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
                   ti === 0
                     ? 'bg-[#00b5e2] text-white'
                     : tab === 'Check-up программы'
@@ -248,7 +248,7 @@ export default function CheckupPage() {
             ))}
           </MobileCarousel>
           <div className="text-center mt-9">
-            <a href="#" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 py-3.5">
+            <a href="#" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 py-3.5">
               Скачать полный прейскурант
             </a>
           </div>
@@ -265,7 +265,7 @@ export default function CheckupPage() {
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-medium rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
             >
               Скачать полный прейскурант
             </a>
@@ -276,7 +276,7 @@ export default function CheckupPage() {
       {/* ── FAQ — 2 колонки ── */}
       <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
-          <h2 className="text-[28px] lg:text-3xl font-bold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
+          <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden">

@@ -48,13 +48,13 @@ function DoctorGridCard({ doc }: { doc: (typeof baseDoctors)[number] }) {
       {/* Текст: звание → имя → должность */}
       <div className="px-1 flex-1">
         <p className="text-[#00b5e2] text-[13px] mb-2 leading-snug">{doc.title}</p>
-        <h3 className="font-bold text-gray-900 text-lg leading-tight mb-2">{doc.name}</h3>
+        <h3 className="font-semibold text-gray-900 text-lg leading-tight mb-2">{doc.name}</h3>
         <p className="text-gray-600 text-[13px] leading-snug">{doc.position}</p>
       </div>
 
       {/* Низ: «Записаться» + кнопка с лупой */}
       <div className="flex items-center gap-2 mt-5 px-1">
-        <Link to="/contacts" className="bg-white rounded-full px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors">
+        <Link to="/contacts" className="bg-white rounded-full px-5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
           Записаться
         </Link>
         <Link
@@ -131,7 +131,7 @@ export default function DoctorsPage() {
             {/* Логомарк + заголовок */}
             <div className="flex items-start gap-3.5 lg:gap-5 mb-4 lg:mb-5">
               <img src={logoMark} alt="" className="h-12 lg:h-[109px] w-auto flex-shrink-0" />
-              <h1 className="text-[27px] lg:text-5xl font-bold text-white leading-[1.15] lg:leading-[1.1] tracking-tight">
+              <h1 className="text-[27px] lg:text-5xl font-semibold text-white leading-[1.15] lg:leading-[1.1] tracking-tight">
                 Командная<br />модель
               </h1>
             </div>

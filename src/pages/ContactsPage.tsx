@@ -33,7 +33,7 @@ export default function ContactsPage() {
 
             {/* Текст: на мобилке по центру сверху, на десктопе слева */}
             <div className="relative z-10 p-8 lg:pt-[88px] lg:pl-[92px] lg:pr-6 lg:pb-10 max-w-none lg:max-w-[440px] text-center lg:text-left">
-              <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 mb-6 lg:mb-9 leading-[1.12]">
+              <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 mb-6 lg:mb-9 leading-[1.12]">
                 Навигация<br />по комплексу
               </h2>
               <ul className="space-y-2.5 lg:space-y-3 mb-9 lg:mb-11">
@@ -58,7 +58,7 @@ export default function ContactsPage() {
               href="https://2gis.kz/almaty"
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bg-white border border-gray-800 rounded-full px-10 py-3.5 text-sm font-medium text-gray-900 whitespace-nowrap"
+              className="lg:hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bg-white border border-gray-800 rounded-full px-10 py-3.5 text-sm font-semibold text-gray-900 whitespace-nowrap"
             >
               Проложить маршрут
             </a>

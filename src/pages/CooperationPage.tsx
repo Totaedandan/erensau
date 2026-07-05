@@ -38,7 +38,7 @@ export default function CooperationPage() {
           <div className="relative z-10 px-6 lg:px-28 pt-10 lg:pt-[146px]">
             <div className="flex items-start gap-3 lg:block mb-6 lg:mb-10">
               <img src={logoMark} alt="" className="lg:hidden h-16 w-auto flex-shrink-0" />
-              <h1 className="text-[25px] lg:text-[52px] font-bold text-white leading-[1.25] lg:leading-[1.15] max-w-md drop-shadow-sm">
+              <h1 className="text-[25px] lg:text-[52px] font-semibold text-white leading-[1.25] lg:leading-[1.15] max-w-md drop-shadow-sm">
                 Ваш надежный<br />медицинский<br />партнер
               </h1>
             </div>
@@ -58,7 +58,7 @@ export default function CooperationPage() {
 
       {/* ── Основные направления B2B ── */}
       <section className="py-14 lg:py-24">
-        <h2 className="text-[28px] lg:text-[40px] font-bold text-gray-900 text-center mb-9 lg:mb-10 max-w-[260px] lg:max-w-none mx-auto">Основные направления B2B</h2>
+        <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center mb-9 lg:mb-10 max-w-[260px] lg:max-w-none mx-auto">Основные направления B2B</h2>
 
         {/* Мобильная карусель B2B */}
         <div className="lg:hidden">
@@ -69,9 +69,9 @@ export default function CooperationPage() {
                   <img src={d.img} alt={d.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-gray-900 mb-2.5 leading-snug">{d.title}</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2.5 leading-snug">{d.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-5">{d.desc}</p>
-                  <Link to="/contacts" className="inline-block text-sm font-medium text-gray-900 border border-gray-300 rounded-full px-10 py-2.5">
+                  <Link to="/contacts" className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-10 py-2.5">
                     Подробнее
                   </Link>
                 </div>
@@ -92,7 +92,7 @@ export default function CooperationPage() {
                   />
                 </div>
                 <div className="p-4 pt-5">
-                  <h3 className="font-bold text-gray-900 mb-2 leading-snug">{d.title}</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2 leading-snug">{d.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{d.desc}</p>
                   <Link to="/contacts" className="inline-block text-sm text-gray-900 border border-gray-300 rounded-full px-6 py-2 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
                     Подробнее
@@ -107,7 +107,7 @@ export default function CooperationPage() {
       {/* ── Логотипы партнёров ── */}
       <section className="bg-[#f4f4f4] py-14 lg:py-24 overflow-hidden">
         <div className="container-main">
-          <h2 className="text-[28px] lg:text-[36px] font-bold text-gray-900 text-center mb-10 lg:mb-12 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
+          <h2 className="text-[28px] lg:text-[36px] font-semibold text-gray-900 text-center mb-10 lg:mb-12 max-w-[320px] lg:max-w-2xl mx-auto leading-tight">
             Вместе с партнерами мы расширяем возможности диагностики и лечения
           </h2>
         </div>
@@ -139,7 +139,7 @@ export default function CooperationPage() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link to="/contacts" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-medium rounded-full px-10 lg:px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+            <Link to="/contacts" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 lg:px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
               Стать партнером
             </Link>
           </div>

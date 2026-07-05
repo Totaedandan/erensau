@@ -90,14 +90,14 @@ export default function Footer() {
         {/* Колл-центр / Администрация — 2 колонки */}
         <div className="grid grid-cols-2 gap-x-6 mb-5 text-sm text-gray-900">
           <div>
-            <h3 className="font-bold text-[15px] mb-2.5">Колл-центр:</h3>
+            <h3 className="font-semibold text-[15px] mb-2.5">Колл-центр:</h3>
             <div className="font-bold mb-0.5">Телефон:</div>
             <a href="tel:+77273394040" className="block mb-2.5">+7 727 339 40 40</a>
             <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
             <a href="tel:+77713999444" className="block">+7 771 399 94 44</a>
           </div>
           <div>
-            <h3 className="font-bold text-[15px] mb-2.5">Администрация:</h3>
+            <h3 className="font-semibold text-[15px] mb-2.5">Администрация:</h3>
             <div className="font-bold mb-0.5">Телефон:</div>
             <a href="tel:+77273394282" className="block mb-2.5">+7 727 339 42 82</a>
             <div className="font-bold mb-0.5">WhatsApp/Telegram:</div>
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         {/* Навигация — ссылки в 3 колонки */}
-        <h3 className="font-bold text-[15px] text-gray-900 mb-2.5">Навигация:</h3>
+        <h3 className="font-semibold text-[15px] text-gray-900 mb-2.5">Навигация:</h3>
         <div className="grid grid-cols-[auto_auto_auto] justify-between gap-y-1.5 mb-5">
           {navigationMobile.map((l) => (
             <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-[13px] underline underline-offset-4 whitespace-nowrap">
@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         {/* Корпоративные — в строку */}
-        <h3 className="font-bold text-[15px] text-gray-900 mb-2.5">Корпоративные:</h3>
+        <h3 className="font-semibold text-[15px] text-gray-900 mb-2.5">Корпоративные:</h3>
         <div className="grid grid-cols-[auto_auto_auto] justify-between gap-y-1.5 mb-5">
           {corporateMobile.map((l) => (
             <Link key={l.path + l.label} to={l.path} className="text-gray-900 text-[13px] underline underline-offset-4 whitespace-nowrap">
@@ -162,7 +162,7 @@ export default function Footer() {
 
           {/* Корпоративные */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-900 font-bold text-base mb-5">Корпоративные:</h3>
+            <h3 className="text-gray-900 font-semibold text-base mb-5">Корпоративные:</h3>
             <ul className="space-y-3">
               {corporate.map((l) => (
                 <li key={l.path}>
@@ -176,7 +176,7 @@ export default function Footer() {
 
           {/* Навигация */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-900 font-bold text-base mb-5">Навигация:</h3>
+            <h3 className="text-gray-900 font-semibold text-base mb-5">Навигация:</h3>
             <ul className="space-y-3">
               {navigation.map((l) => (
                 <li key={l.path}>
@@ -190,7 +190,7 @@ export default function Footer() {
 
           {/* Колл-центр */}
           <div className="lg:col-span-3">
-            <h3 className="text-gray-900 font-bold text-base mb-5">Колл-центр:</h3>
+            <h3 className="text-gray-900 font-semibold text-base mb-5">Колл-центр:</h3>
             <ul className="space-y-4 text-sm text-gray-900">
               <li>
                 <div className="font-bold mb-1">Телефон:</div>
@@ -211,7 +211,7 @@ export default function Footer() {
 
           {/* Администрация */}
           <div className="lg:col-span-2">
-            <h3 className="text-gray-900 font-bold text-base mb-5">Администрация:</h3>
+            <h3 className="text-gray-900 font-semibold text-base mb-5">Администрация:</h3>
             <ul className="space-y-4 text-sm text-gray-900">
               <li>
                 <div className="font-bold mb-1">Телефон:</div>
