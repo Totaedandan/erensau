@@ -63,6 +63,17 @@ const recommended = [
   { title: 'Операция потребовала слаженной работы',      excerpt: 'Мультидисциплинарная команда кардиохирургов, сосудистых хирургов и анестезиологов…',                date: '24 июля 2024', img: rec4 },
 ]
 
+// Заголовок лекции: перенос строки после двоеточия («тема: подзаголовок»).
+// Работает для любых лекций, в т.ч. подгружаемых динамически, — без хардкода <br>.
+function LectureTitle({ title, className }: { title: string; className?: string }) {
+  const i = title.indexOf(':')
+  return (
+    <h3 className={className}>
+      {i === -1 ? title : <>{title.slice(0, i + 1)}<br />{title.slice(i + 1).trimStart()}</>}
+    </h3>
+  )
+}
+
 // Эмблема Erensau (точный SVG из Figma, 29×112) — красится через currentColor
 function NewsMark({ className }: { className?: string }) {
   return (
@@ -471,7 +482,7 @@ export default function NewsPage() {
               </div>
             </div>
             <div className="px-[28px] pt-[26px] pb-[30px]">
-              <h3 className="text-[24px] font-semibold text-gray-900 leading-[1.15] tracking-[-0.02em] mb-3">{lecture.title}</h3>
+              <LectureTitle title={lecture.title} className="text-[24px] font-semibold text-gray-900 leading-[1.25] tracking-[-0.02em] mb-3" />
               <p className="text-black text-[14px] leading-[1.35] mb-6 line-clamp-2">{lecture.excerpt}</p>
               <div className="flex items-center justify-between">
                 <span className="inline-block text-[12px] font-semibold text-black border border-black rounded-[42px] px-6 py-[13px] hover:bg-black hover:text-white transition-colors">Посмотреть лекцию</span>
