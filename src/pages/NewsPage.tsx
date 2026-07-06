@@ -8,10 +8,10 @@ import latest2 from '@/assets/images/news/latest-2.jpg'
 import latest3 from '@/assets/images/news/latest-3.jpg'
 import latest4 from '@/assets/images/news/latest-4.jpg'
 import lecturerImg from '@/assets/images/news/lecturer.png'
-import lectAv1 from '@/assets/images/news/lect-av-1.jpg'
-import lectAv2 from '@/assets/images/news/lect-av-2.jpg'
-import lectAv3 from '@/assets/images/news/lect-av-3.jpg'
-import lectAv4 from '@/assets/images/news/lect-av-4.jpg'
+import lectAv1 from '@/assets/images/news/lect-av-1.png'
+import lectAv2 from '@/assets/images/news/lect-av-2.png'
+import lectAv3 from '@/assets/images/news/lect-av-3.png'
+import lectAv4 from '@/assets/images/news/lect-av-4.png'
 import rec1 from '@/assets/images/news/rec-1.jpg'
 import rec2 from '@/assets/images/news/rec-2.jpg'
 import rec3 from '@/assets/images/news/rec-3.jpg'
@@ -463,9 +463,9 @@ export default function NewsPage() {
 
       {/* ── Лекции с этой конференции (десктоп) ── */}
       <section className="container-main pb-12 lg:pb-24 hidden lg:block">
-        <div className="flex gap-[52px]">
+        <div className="flex gap-9 items-start">
           {/* Карточка лектора слева */}
-          <article className="bg-white rounded-[28px] shadow-card w-[730px] flex-shrink-0 overflow-hidden">
+          <article className="bg-white rounded-[28px] shadow-card flex-1 min-w-0 max-w-[730px] overflow-hidden">
             <div className="p-[15px] pb-0">
               <div className="relative bg-[#ebebeb] rounded-[24px] overflow-hidden h-[340px] flex">
                 <div className="relative w-[46%] h-full flex items-end justify-center">
@@ -492,17 +492,19 @@ export default function NewsPage() {
           </article>
 
           {/* Список лекций справа */}
-          <div className="flex-1 min-w-0">
+          <div className="w-[448px] shrink-0">
             <h2 className="text-[36px] font-semibold text-gray-900 leading-[1.15] tracking-[-0.02em] mb-6">Лекции с этой<br />конференции</h2>
             <div className="relative">
-              <div className="absolute left-0 top-0 bottom-0 w-[124px] bg-white rounded-[24px] shadow-card" />
+              <div className="absolute left-0 top-0 bottom-0 w-[129px] bg-white rounded-[24px] shadow-card" />
               <div className="relative flex flex-col gap-[14px] py-3.5">
                 {lectures.map((l) => (
-                  <div key={l.title} className="flex gap-5 items-center group cursor-pointer">
-                    <div className="w-[100px] h-[100px] ml-3 rounded-[19px] overflow-hidden flex-shrink-0">
-                      <img src={l.img} alt={l.author} className="w-full h-full object-cover object-top" />
+                  <div key={l.title} className="flex items-center group cursor-pointer">
+                    {/* Аватар — вырезка врача на сером фоне с затуханием снизу */}
+                    <div className="relative w-[105px] h-[100px] ml-3 rounded-[16px] overflow-hidden flex-shrink-0 bg-[#e7e7e7]">
+                      <img src={l.img} alt={l.author} className="absolute inset-0 w-full h-full object-cover object-top select-none" />
+                      <div className="absolute inset-x-0 bottom-0 h-[36%] bg-gradient-to-b from-transparent to-[#e7e7e7]" />
                     </div>
-                    <div className="flex-1 min-w-0 pr-2">
+                    <div className="flex-1 min-w-0 pl-[20px]">
                       <h3 className="text-[20px] font-semibold text-gray-900 leading-[1.2] tracking-[-0.02em] group-hover:text-[#00b5e2] transition-colors line-clamp-2">{l.title}</h3>
                       <p className="text-black/50 text-[16px] mt-1.5">{l.author}</p>
                     </div>
