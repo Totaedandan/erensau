@@ -198,7 +198,7 @@ export default function Footer() {
               </li>
               <li>
                 <div className="font-bold mb-1">WhatsApp/Telegram:</div>
-                <a href="tel:+77273394040" className="hover:text-[#00b5e2] transition-colors">+7 727 339 40 40</a>
+                <a href="tel:+77713999444" className="hover:text-[#00b5e2] transition-colors">+7 771 399 94 44</a>
               </li>
               <li>
                 <a href="mailto:info@erensau.kz" className="hover:text-[#00b5e2] transition-colors">info@erensau.kz</a>
@@ -215,11 +215,11 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-900">
               <li>
                 <div className="font-bold mb-1">Телефон:</div>
-                <a href="tel:+77273394040" className="hover:text-[#00b5e2] transition-colors">+7 727 339 40 40</a>
+                <a href="tel:+77273394282" className="hover:text-[#00b5e2] transition-colors">+7 727 339 42 82</a>
               </li>
               <li>
                 <div className="font-bold mb-1">WhatsApp/Telegram:</div>
-                <a href="tel:+77273394282" className="hover:text-[#00b5e2] transition-colors">+7 727 339 42 82</a>
+                <a href="tel:+77717044848" className="hover:text-[#00b5e2] transition-colors">+7 771 704 48 48</a>
               </li>
             </ul>
           </div>
