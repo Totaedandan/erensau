@@ -260,7 +260,7 @@ export default function CheckupPage() {
             ))}
           </MobileCarousel>
           <div className="text-center mt-9">
-            <a href="#" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 py-3.5">
+            <a href="#" className="inline-block bg-transparent border-2 border-[#b7b7b7] text-black text-sm font-semibold tracking-[-0.28px] rounded-full px-9 py-[19px]">
               Скачать полный прейскурант
             </a>
           </div>
@@ -277,7 +277,7 @@ export default function CheckupPage() {
           <div className="text-center mt-12">
             <a
               href="#"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+              className="inline-flex items-center gap-2 bg-transparent border-2 border-[#b7b7b7] text-black text-sm font-semibold tracking-[-0.28px] rounded-full px-9 py-[19px] hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
             >
               Скачать полный прейскурант
             </a>
