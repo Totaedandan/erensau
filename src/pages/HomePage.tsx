@@ -67,7 +67,7 @@ const posts = [
 const servicesTabs = ['Профили', 'Клиника-диагностическое отделение', 'Check-up'] as const
 
 // Карточка врача: на мобилке фото от края до края (белая карточка), на десктопе серая с рамкой
-function TeamCard({ d }: { d: (typeof )[number] }) {
+function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
   return (
     <article className="bg-white lg:bg-[#ececec] rounded-3xl p-0 lg:p-4 flex flex-col overflow-hidden h-full">
       {/* Фото со «стажем» — пилюлей сверху */}
