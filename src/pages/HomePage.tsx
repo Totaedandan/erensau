@@ -377,7 +377,8 @@ export default function HomePage() {
       {/* ── Contacts — карта + карточка контактов ── */}
       <ContactsMapCard />
 
-      {/* ── Виртуальный тур по клинике ── */}
+      {/* ── Виртуальный тур по клинике — временно скрыт, 3D-тур ещё не готов ── */}
+      {false && (
       <section className="bg-[#f4f4f4] pt-20 lg:pt-24 pb-16 lg:pb-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center mb-5 lg:mb-10 max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">
@@ -427,6 +428,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Последние публикации — сетка из 4 карточек ── */}
       <section className="bg-[#f4f4f4] pt-0 pb-11 lg:pb-24">
