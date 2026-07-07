@@ -106,8 +106,8 @@ export default function CheckupPage() {
     <div className="bg-[#f4f4f4]">
 
       {/* ── Hero — карточка: «Checkup» слева, «программы» справа, описание и кнопка слева ── */}
-      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
-        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-auto lg:aspect-[1414/707]">
+      <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-[22.5px] lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
+        <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] h-[630px] lg:h-auto lg:aspect-[1396/707]">
           {/* 1 — Фон с томографом (image 116) */}
           <img
             src={checkupBg}
@@ -134,10 +134,10 @@ export default function CheckupPage() {
           />
 
           {/* 4 — Крупный текст «Checkup» слева, «программы» справа ниже (десктоп) */}
-          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[112px] font-semibold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-tight pointer-events-none">
             Checkup
           </h1>
-          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[112px] font-semibold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-tight pointer-events-none">
             программы
           </h1>
 
@@ -151,7 +151,7 @@ export default function CheckupPage() {
 
           {/* 6 — Описание + кнопка слева внизу (десктоп) — поверх всех слоёв */}
           <div className="hidden lg:block absolute left-[9%] top-[51%] max-w-[320px] z-10">
-            <p className="text-gray-700 text-[14px] leading-[1.85] mb-8">
+            <p className="text-white text-[14px] leading-[1.85] mb-8">
               Комплексная диагностика по международным
               стандартам, с заключением врача
               и персональными рекомендациями
