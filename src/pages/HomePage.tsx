@@ -191,7 +191,7 @@ export default function HomePage() {
 
       {/* ── Фич-чипы: на мобилке столбиком под hero, на десктопе выходят за его край ── */}
       <div className="container-main relative z-20 mt-2.5 lg:-mt-10">
-        <div className="grid grid-cols-1 gap-3.5 lg:flex lg:flex-row lg:justify-between lg:gap-4">
+        <div className="grid grid-cols-1 gap-3.5 lg:flex lg:flex-row lg:gap-[13px]">
           {features.map((f) => (
             <div key={f.label} className="flex items-center gap-3.5 lg:gap-4 bg-white rounded-full px-3 lg:px-[18px] py-2.5 lg:py-[18px] shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
               <span className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center flex-shrink-0">
@@ -431,7 +431,7 @@ export default function HomePage() {
       )}
 
       {/* ── Последние публикации — сетка из 4 карточек ── */}
-      <section className="bg-[#f4f4f4] pt-0 pb-11 lg:pb-24">
+      <section className="bg-[#f4f4f4] pt-20 lg:pt-24 pb-11 lg:pb-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-[40px] font-semibold text-gray-900 text-center mb-7 lg:mb-12 max-w-[240px] lg:max-w-none mx-auto leading-[1.3]">
             Последние публикации
