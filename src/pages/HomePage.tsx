@@ -67,7 +67,7 @@ const posts = [
 const servicesTabs = ['Профили', 'Клиника-диагностическое отделение', 'Check-up'] as const
 
 // Карточка врача: на мобилке фото от края до края (белая карточка), на десктопе серая с рамкой
-function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
+function TeamCard({ d }: { d: (typeof )[number] }) {
   return (
     <article className="bg-white lg:bg-[#ececec] rounded-3xl p-0 lg:p-4 flex flex-col overflow-hidden h-full">
       {/* Фото со «стажем» — пилюлей сверху */}
@@ -86,8 +86,8 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
 
       {/* Текстовый блок: звание → имя → должность */}
       <div className="px-5 pt-4 lg:px-1 lg:pt-0 flex-1">
-        <p className="text-[#00b5e2] text-[13px] mb-1.5 lg:mb-2 leading-snug">{d.title}</p>
-        <h3 className="font-semibold text-gray-900 text-[22px] lg:text-lg leading-tight mb-1.5 lg:mb-2">{d.name}</h3>
+        <p className="text-[#00b5e2] text-[12px] mb-1.5 lg:mb-2 leading-snug">{d.title}</p>
+        <h3 className="font-bold text-gray-900 text-[22px] lg:text-lg leading-tight mb-1.5 lg:mb-2">{d.name}</h3>
         <p className="text-gray-600 text-[13px] leading-snug">{d.position}</p>
       </div>
 
