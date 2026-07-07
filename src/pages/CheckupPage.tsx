@@ -34,8 +34,8 @@ const programFilters = ['Все программы', 'Женское здоро�
 function ProgramCard({ name, price, img, path }: { name: string; price: string; img?: string; path?: string }) {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
   return (
-    <article className="bg-white rounded-2xl p-7 flex flex-col">
-      <div className="w-12 h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-6">
+    <article className="bg-white rounded-[28px] shadow-[-2px_16px_25px_0px_rgba(0,0,0,0.04)] p-7 flex flex-col">
+      <div className="w-[63px] h-[63px] rounded-full bg-[#cdeefb] flex items-center justify-center mb-8">
         {img ? (
           <img src={img} alt="" className="w-full h-full" />
         ) : (
@@ -44,7 +44,7 @@ function ProgramCard({ name, price, img, path }: { name: string; price: string; 
           </svg>
         )}
       </div>
-      <h3 className="font-semibold text-gray-900 text-xl mb-5 leading-snug">{name}</h3>
+      <h3 className="font-semibold text-black text-[20px] leading-[1.35] tracking-[-0.4px] mb-4">{name}</h3>
       <div className="flex-1">
         {STANDARD_DETAILS.map((d, i) => {
           const isOpen = openIdx === i
@@ -52,21 +52,21 @@ function ProgramCard({ name, price, img, path }: { name: string; price: string; 
             <div key={d.label} className="border-b border-gray-100 last:border-b-0">
               <button
                 onClick={() => setOpenIdx(isOpen ? null : i)}
-                className="w-full flex items-center justify-between gap-3 py-3 text-left text-sm text-gray-900 hover:text-[#00b5e2] transition-colors"
+                className="w-full flex items-center gap-2 py-3 text-left text-sm text-black leading-[1.53] tracking-[-0.28px] hover:text-[#00b5e2] transition-colors"
               >
-                <span className="font-medium">{d.label}</span>
+                <span>{d.label}</span>
                 <svg className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {isOpen && <p className="text-gray-500 text-xs leading-relaxed pb-3">{d.content}</p>}
+              {isOpen && <p className="text-black/50 text-sm leading-[1.53] tracking-[-0.28px] pb-3">{d.content}</p>}
             </div>
           )
         })}
       </div>
       <div className="flex items-center justify-between mt-6">
-        <Link to="/contacts" className="text-gray-900 text-sm font-medium underline underline-offset-4 hover:text-[#00b5e2] transition-colors">Записаться</Link>
-        <span className="text-gray-900 text-sm">{price}</span>
+        <Link to="/contacts" className="text-black text-sm font-semibold tracking-[-0.28px] underline underline-offset-4 hover:text-[#00b5e2] transition-colors">Записаться</Link>
+        <span className="text-black text-sm font-medium tracking-[-0.14px]">{price}</span>
       </div>
     </article>
   )
