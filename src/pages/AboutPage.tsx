@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import docNietalievHd from '@/assets/images/doc-nietaliev-hd.png'
 import docKospanov from '@/assets/images/doc-kospanov.png'
+import docKospanovHd from '@/assets/images/doc-kospanov-hd.png'
 import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
 import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
@@ -10,13 +11,26 @@ import heroSurgeon from '@/assets/images/hero-surgeon.png'
 import logoMark from '@/assets/images/logo-mark.png'
 import CTASlider from '@/components/ui/CTASlider'
 
-const teamDoctors = [
-  { photo: docNietalievHd, title: 'к.м.н., ассоциированный профессор',     name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
-  { photo: docKospanov,   title: 'к.м.н., ассоциированный профессор',      name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
-  { photo: docEshmuratov, title: 'к.м.н., ассоциированный профессор',      name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
-  { photo: docKusainov,   title: 'к.м.н. (PhD)',                           name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
-  { photo: docIzhanov,    title: 'Доктор медицинских наук, профессор',     name: ['Ижанов Ерген', 'Бахчанович'],        position: ['Руководитель профиля общей', 'хирургии и онкологии'] },
-  { photo: docAkanov,     title: 'к.м.н., профессор',                      name: ['Аканов Ержан', 'Кусманович'],        position: ['Руководитель узких', 'хирургических профилей'] },
+// hero — позиция фото в hero-карточке (из Figma 2672:10604 и 2785:197):
+// top/h/w в px при ширине карточки 1440, x — сдвиг центра фото от середины.
+// Торсовые фото (290×408) увеличены до бюст-масштаба (h 1064 ≈ ширина 756, как у HD-кропов),
+// top подобран по прозрачным полям PNG — макушки у всех почти на одном уровне.
+// heroPhoto — крупный кроп для hero (пока есть только у Ниеталиева и Коспанова).
+type TeamDoctor = {
+  photo: string
+  heroPhoto: string
+  hero: { top: number; h?: number; w?: number; x: number }
+  title: string
+  name: string[]
+  position: string[]
+}
+const teamDoctors: TeamDoctor[] = [
+  { photo: docNietalievHd, heroPhoto: docNietalievHd, hero: { top: 78, h: 673,  x: 16 },  title: 'к.м.н., ассоциированный профессор', name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
+  { photo: docKospanov,   heroPhoto: docKospanovHd,   hero: { top: 26, w: 756,  x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
+  { photo: docEshmuratov, heroPhoto: docEshmuratov,   hero: { top: 49, h: 1064, x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
+  { photo: docKusainov,   heroPhoto: docKusainov,     hero: { top: 69, h: 1064, x: -40 }, title: 'к.м.н. (PhD)',                      name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
+  { photo: docIzhanov,    heroPhoto: docIzhanov,      hero: { top: 77, h: 1064, x: -40 }, title: 'Доктор медицинских наук, профессор', name: ['Ижанов Ерген', 'Бахчанович'],        position: ['Руководитель профиля общей', 'хирургии и онкологии'] },
+  { photo: docAkanov,     heroPhoto: docAkanov,       hero: { top: 61, h: 1064, x: -40 }, title: 'к.м.н., профессор',                 name: ['Аканов Ержан', 'Кусманович'],        position: ['Руководитель узких', 'хирургических профилей'] },
 ]
 
 export default function AboutPage() {
@@ -28,17 +42,28 @@ export default function AboutPage() {
       {/* ── Hero — карточка «Почему выбирают нас» ── */}
       <section className="bg-[#f4f4f4] px-3 pt-2 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div
-          className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[800px] lg:min-h-0 lg:aspect-[1414/707]"
+          className="relative overflow-hidden rounded-[24px] lg:rounded-[15px] border border-[#c2c2c2] bg-[#eaeaea] min-h-[800px] lg:min-h-0 lg:aspect-[1414/707]"
           style={{
+            // Концентрические кольца фона (Figma 2672:10598–10602): центр за спиной врача, радиусы 337/524/676/858/1035
             backgroundImage:
-              'radial-gradient(ellipse 75% 65% at 50% 30%, #ffffff 0%, #f6f6f6 60%, #efefef 100%)',
+              'radial-gradient(circle at 48.4% 98.2%, #efefef 0px, #f5f5f5 337px, #ebebeb 430px, #f3f3f3 524px, #eaeaea 600px, #f1f1f1 676px, #eaeaea 767px, #f0f0f0 858px, #eaeaea 947px, #eeeeee 1035px, #eaeaea 1120px)',
           }}
         >
-          {/* Фото выбранного врача — по центру, прижато к низу карточки */}
+          {/* Прямоугольник снизу (Figma 2672:10603): тёмная дымка #042531 → прозрачный, 10% */}
+          <div className="absolute inset-x-0 -bottom-[41px] h-[370px] bg-gradient-to-t from-[#042531] to-transparent opacity-10 pointer-events-none" />
+
+          {/* Фото выбранного врача — позиция и масштаб свои у каждого (головы на одном уровне), низ уходит за карточку.
+              Значения hero заданы в px макета 1414×707 и переведены в проценты, чтобы фото масштабировалось вместе с карточкой */}
           <img
-            src={doc.photo}
+            src={doc.heroPhoto}
             alt={doc.name.join(' ')}
-            className="hidden lg:block absolute left-[calc(50%+40px)] -translate-x-1/2 bottom-[26px] h-[700px] w-auto object-contain object-bottom"
+            className="hidden lg:block absolute -translate-x-1/2 max-w-none"
+            style={{
+              top: `${((doc.hero.top / 707) * 100).toFixed(2)}%`,
+              height: doc.hero.h ? `${((doc.hero.h / 707) * 100).toFixed(2)}%` : undefined,
+              width: doc.hero.w ? `${((doc.hero.w / 1414) * 100).toFixed(2)}%` : undefined,
+              left: `calc(50% + ${((doc.hero.x / 1414) * 100).toFixed(2)}%)`,
+            }}
           />
 
           {/* ── Десктоп: заголовок + статистика + левая колонка ── */}
@@ -74,8 +99,8 @@ export default function AboutPage() {
                 и продлевать жизнь нашим пациентам.
               </p>
 
-              {/* Аватары врачей — выбор меняет фото и визитку */}
-              <div className="flex items-center gap-2 mt-[92px]">
+              {/* Аватары врачей — выбор меняет фото и визитку; все 56px, gap 12 (Figma 2672:10628) */}
+              <div className="flex items-center gap-3 mt-[92px]">
                 {teamDoctors.map((d, i) => (
                   <button
                     key={i}
@@ -84,13 +109,11 @@ export default function AboutPage() {
                     className="relative flex-shrink-0 rounded-full transition-transform hover:scale-105"
                   >
                     {i === selected && (
-                      <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-[7px] h-[7px] rounded-full bg-[#00b5e2]" />
+                      <span className="absolute -top-[17px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00b5e2]" />
                     )}
                     <span
-                      className={`block rounded-full overflow-hidden bg-white ${
-                        i === selected
-                          ? 'w-[54px] h-[54px] ring-[3px] ring-[#00b5e2] ring-offset-2 ring-offset-[#edefef]'
-                          : 'w-[50px] h-[50px] ring-2 ring-white'
+                      className={`block rounded-full overflow-hidden w-[56px] h-[56px] ${
+                        i === selected ? 'bg-[#00b5e2]' : 'bg-white'
                       }`}
                     >
                       <img src={d.photo} alt="" className="w-full h-full object-cover object-top" />
@@ -157,7 +180,7 @@ export default function AboutPage() {
               {teamDoctors.map((d, i) => (
                 <button key={i} onClick={() => setSelected(i)} aria-label={d.name.join(' ')} className="relative flex-shrink-0">
                   {i === selected && <span className="absolute -top-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#00b5e2]" />}
-                  <span className={`block rounded-full overflow-hidden bg-white ${i === selected ? 'w-12 h-12 ring-[3px] ring-[#00b5e2] ring-offset-2 ring-offset-[#edefef]' : 'w-11 h-11 ring-2 ring-white'}`}>
+                  <span className={`block rounded-full overflow-hidden ${i === selected ? 'w-12 h-12 bg-[#00b5e2]' : 'w-11 h-11 bg-white ring-2 ring-white'}`}>
                     <img src={d.photo} alt="" className="w-full h-full object-cover object-top" />
                   </span>
                 </button>
@@ -168,7 +191,7 @@ export default function AboutPage() {
             </blockquote>
 
             <div className="relative -mx-7 mt-4">
-              <img src={doc.photo} alt={doc.name.join(' ')} className="w-full h-[440px] object-contain object-bottom" />
+              <img src={doc.heroPhoto} alt={doc.name.join(' ')} className="w-full h-[440px] object-contain object-bottom" />
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[250px] bg-white rounded-2xl p-5 shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
                 <p className="text-[#00b5e2] text-xs font-semibold mb-2">{doc.title}</p>
                 <h3 className="font-semibold text-gray-900 text-base leading-tight mb-2.5">
