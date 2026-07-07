@@ -458,7 +458,7 @@ export default function HomePage() {
           <div className="text-center mt-10 lg:mt-12">
             <Link
               to="/news"
-              className="inline-flex items-center gap-2 bg-white border border-gray-300 lg:border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-9 lg:px-8 py-4 lg:py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+              className="inline-flex items-center gap-2 bg-transparent border-2 border-[#b7b7b7] text-black text-sm font-semibold tracking-[-0.28px] rounded-full px-9 py-[19px] hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
             >
               Смотреть все новости
             </Link>
