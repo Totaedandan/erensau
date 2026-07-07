@@ -16,7 +16,7 @@ export default function ContactForm({
   const [sent, setSent] = useState(false)
 
   const inputCls =
-    'w-full bg-[#f1f1f3] rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
+    'w-full bg-[#f2f2f2] rounded-[10px] px-4 py-2.5 text-sm tracking-[-0.28px] outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-black/30 transition'
   const inputClsMobile =
     'w-full bg-[#f1f1f3] rounded-lg px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#00b5e2]/40 placeholder:text-gray-400 transition'
 
@@ -71,10 +71,10 @@ export default function ContactForm({
 
             {/* Левая колонка: заголовок + текст */}
             <div>
-              <h2 className="text-4xl lg:text-[42px] font-semibold text-gray-900 mb-8 leading-[1.1] whitespace-pre-line">
+              <h2 className="text-[47px] font-semibold text-black mb-8 leading-[1.19] tracking-[-1.9px] whitespace-pre-line">
                 {heading}
               </h2>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">{text}</p>
+              <p className="text-black/30 text-sm leading-[1.35] tracking-[-0.28px] max-w-[233px]">{text}</p>
             </div>
 
             {sent ? (
@@ -90,7 +90,7 @@ export default function ContactForm({
             ) : (
               <>
                 {/* Средняя колонка: поля в одну колонку */}
-                <form id="contact-form" onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-4 w-full">
+                <form id="contact-form" onSubmit={(e) => { e.preventDefault(); setSent(true) }} className="space-y-3 w-full">
                   <input type="text" placeholder="Ваше ФИО" className={inputCls} />
                   <input type="email" placeholder="e-mail" className={inputCls} />
                   <input type="tel" placeholder="Номер телефона" className={inputCls} />
@@ -98,12 +98,12 @@ export default function ContactForm({
                 </form>
 
                 {/* Правая колонка: кнопка + дисклеймер */}
-                <div className="flex flex-col items-start gap-4 lg:self-center">
-                  <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-base font-semibold rounded-full px-11 py-3.5 whitespace-nowrap hover:bg-[#0099c4] transition-colors">
+                <div className="flex flex-col items-center gap-4 lg:self-center">
+                  <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-sm font-semibold tracking-[-0.28px] rounded-full px-[78px] py-[18px] whitespace-nowrap hover:bg-[#0099c4] transition-colors">
                     Отправить
                   </button>
-                  <p className="text-xs text-gray-400 leading-snug">
-                    Мы не передаём ваши<br />данные третьим лицам
+                  <p className="text-xs text-black/30 leading-[1.44] tracking-[-0.24px] text-center max-w-[185px]">
+                    Мы не передаём ваши данные<br />третьим лицам
                   </p>
                 </div>
               </>
