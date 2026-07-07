@@ -71,24 +71,24 @@ function DoctorGridCard({ doc }: { doc: (typeof baseDoctors)[number] }) {
   )
 }
 
-// Простой дропдаун для фильтров
-function Dropdown({ placeholder, options }: { placeholder: string; options: string[] }) {
+// Простой дропдаун для фильтров — серая пилюля по макету
+function Dropdown({ placeholder, options, width }: { placeholder: string; options: string[]; width: string }) {
   const [open, setOpen] = useState(false)
   const [value, setValue] = useState<string | null>(null)
   return (
-    <div className="relative min-w-[200px]">
+    <div className={`relative ${width}`}>
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="w-full bg-white border border-gray-100 rounded-xl px-5 py-3.5 text-sm text-gray-700 flex items-center justify-between hover:border-[#00b5e2] transition-colors"
+        className="w-full h-[51px] bg-[#ececec] rounded-full pl-5 pr-[18px] text-[16px] tracking-[-0.32px] text-black flex items-center justify-between hover:bg-[#e3e3e3] transition-colors"
       >
-        <span className={value ? 'text-gray-900' : 'text-gray-700'}>{value ?? placeholder}</span>
-        <svg className={`w-4 h-4 text-gray-400 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        <span className="truncate">{value ?? placeholder}</span>
+        <svg className={`w-[9px] h-[5px] flex-shrink-0 ml-2 transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 9 5" fill="none">
+          <path d="M0.7 0.7L4.5 4L8.3 0.7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
         </svg>
       </button>
       {open && (
-        <div className="absolute left-0 right-0 top-full mt-2 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden z-30">
+        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-lg overflow-hidden z-30">
           {options.map((o) => (
             <button
               key={o}
@@ -154,8 +154,9 @@ export default function DoctorsPage() {
         </div>
       </section>
 
-      {/* Поисковый бар — выходит вверх над секцией фильтров, перекрывая низ hero */}
-      <section className="bg-[#f4f4f4] relative">
+      {/* Поисковый бар — наполовину перекрывает низ hero (Figma 2672:10873).
+          Секция без фона: серый bg закрашивал бы низ hero из-за схлопывания -mt */}
+      <section className="relative">
         <div className="container-main relative">
 
           {/* Мобилка: пилюля поиска с иконкой фильтров */}
@@ -177,11 +178,11 @@ export default function DoctorsPage() {
             </button>
           </div>
 
-          {/* Десктоп: поиск + три дропдауна */}
-          <div className="hidden lg:flex -mt-16 lg:-mt-24 relative z-20 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] p-3 flex-col lg:flex-row items-stretch gap-3">
-            {/* ФИО врача — поле + кнопка «Поиск» */}
-            <div className="flex items-center flex-1 min-w-[300px] bg-white border border-gray-100 rounded-xl pl-4 pr-1.5 py-1">
-              <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          {/* Десктоп: белая пилюля 1200×63 — наполовину перекрывает низ hero */}
+          <div className="hidden lg:flex items-center -mt-8 relative z-20 bg-white rounded-[28px] shadow-[-2px_16px_25px_0px_rgba(0,0,0,0.04)] h-[63px] px-2 max-w-[1200px] mx-auto">
+            {/* ФИО врача — серая пилюля с лупой, кнопка «Поиск» на правом торце */}
+            <div className="flex items-center w-[463px] h-[51px] bg-[#ececec] rounded-full pl-[17px]">
+              <svg className="w-[25px] h-[25px] text-black opacity-20 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -189,26 +190,26 @@ export default function DoctorsPage() {
                 placeholder="ФИО врача"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 bg-transparent border-0 px-3 py-2.5 text-sm outline-none placeholder:text-gray-400"
+                className="flex-1 min-w-0 bg-transparent border-0 px-[13px] text-[16px] tracking-[-0.32px] text-black outline-none placeholder:text-black/30"
               />
-              <button className="bg-[#00b5e2] text-white text-sm font-medium rounded-xl px-7 py-2.5 hover:bg-[#0099c4] transition-colors">
+              <button className="h-full flex-shrink-0 bg-[#00b5e2] text-white text-[18px] font-semibold tracking-[-0.36px] rounded-full px-9 hover:bg-[#0099c4] transition-colors">
                 Поиск
               </button>
             </div>
 
-            {/* Дропдаун: Стаж */}
-            <Dropdown placeholder="Стаж" options={EXPERIENCE_OPTIONS} />
-            {/* Дропдаун: Должность */}
-            <Dropdown placeholder="Анестезиолог" options={POSITIONS} />
-            {/* Дропдаун: Специальность */}
-            <Dropdown placeholder="Кардиохирургия" options={SPECIALTIES} />
+            {/* Дропдауны: Стаж / Должность / Специальность */}
+            <div className="ml-auto flex items-center gap-2">
+              <Dropdown placeholder="Стаж" options={EXPERIENCE_OPTIONS} width="w-[153px]" />
+              <Dropdown placeholder="Анестезиолог" options={POSITIONS} width="w-[226px]" />
+              <Dropdown placeholder="Кардиохирургия" options={SPECIALTIES} width="w-[256px]" />
+            </div>
           </div>
         </div>
 
       </section>
 
       {/* ── Врачи: карусель на мобилке, сетка на десктопе ── */}
-      <section className="pt-7 pb-8 lg:py-16">
+      <section className="pt-7 pb-8 lg:pt-[58px] lg:pb-16">
         <div className="lg:hidden">
           <MobileCarousel arrowsTop="35%">
             {filtered.map((doc, i) => (
