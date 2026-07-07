@@ -52,17 +52,16 @@ export default function AboutPage() {
           {/* Прямоугольник снизу (Figma 2672:10603): тёмная дымка #042531 → прозрачный, 10% */}
           <div className="absolute inset-x-0 -bottom-[41px] h-[370px] bg-gradient-to-t from-[#042531] to-transparent opacity-10 pointer-events-none" />
 
-          {/* Фото выбранного врача — позиция и масштаб свои у каждого (головы на одном уровне), низ уходит за карточку.
-              Значения hero заданы в px макета 1414×707 и переведены в проценты, чтобы фото масштабировалось вместе с карточкой */}
+          {/* Фото выбранного врача — позиция и масштаб свои у каждого (головы на одном уровне), низ уходит за карточку */}
           <img
             src={doc.heroPhoto}
             alt={doc.name.join(' ')}
             className="hidden lg:block absolute -translate-x-1/2 max-w-none"
             style={{
-              top: `${((doc.hero.top / 707) * 100).toFixed(2)}%`,
-              height: doc.hero.h ? `${((doc.hero.h / 707) * 100).toFixed(2)}%` : undefined,
-              width: doc.hero.w ? `${((doc.hero.w / 1414) * 100).toFixed(2)}%` : undefined,
-              left: `calc(50% + ${((doc.hero.x / 1414) * 100).toFixed(2)}%)`,
+              top: doc.hero.top,
+              height: doc.hero.h,
+              width: doc.hero.w,
+              left: `calc(50% + ${doc.hero.x}px)`,
             }}
           />
 
