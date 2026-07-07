@@ -134,10 +134,10 @@ export default function CheckupPage() {
           />
 
           {/* 4 — Крупный текст «Checkup» слева, «программы» справа ниже (десктоп) */}
-          <h1 className="hidden lg:block absolute left-[9.7%] top-[29%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute left-[8.77%] top-[31.8%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-[-0.06em] pointer-events-none">
             Checkup
           </h1>
-          <h1 className="hidden lg:block absolute right-[10%] top-[47%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-tight pointer-events-none">
+          <h1 className="hidden lg:block absolute right-[9.35%] top-[46.7%] text-[clamp(48px,8vw,112px)] font-semibold text-white leading-none tracking-[-0.06em] pointer-events-none">
             программы
           </h1>
 
