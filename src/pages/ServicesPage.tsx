@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import heroWoman from '@/assets/images/svc-hero-woman.png'
 import logoMark from '@/assets/images/logo-mark.png'
 import svcCardiac from '@/assets/icons/picto-heart.png'
@@ -132,7 +132,10 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 }
 
 export default function ServicesPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('cardio')
+  const [searchParams] = useSearchParams()
+  const requestedTab = searchParams.get('tab') as Tab | null
+  const initialTab = requestedTab && tabs.some(t => t.id === requestedTab) ? requestedTab : 'cardio'
+  const [activeTab, setActiveTab] = useState<Tab>(initialTab)
   const [mobileTabOpen, setMobileTabOpen] = useState(false)
 
   return (

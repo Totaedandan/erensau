@@ -75,6 +75,15 @@ function ProgramCard({ name, price, img, path }: { name: string; price: string; 
 // Табы услуг для нижней панели Hero (как на странице «Медицинские услуги»)
 const serviceTabs = ['Профили', 'Консультации специалистов', 'Диагностика', 'Лаборатория', 'Эндоскопия', 'Check-up программы'] as const
 
+// Соответствие пилюль их вкладке на странице «Медицинские услуги»
+const SERVICE_TAB_IDS: Record<string, string> = {
+  'Профили':                  'cardio',
+  'Консультации специалистов': 'onco',
+  'Диагностика':               'diagnostics',
+  'Лаборатория':               'lab',
+  'Эндоскопия':                'checkup',
+}
+
 const faqs = [
   { q: 'Нужно ли готовиться к обследованию заранее?', a: 'Да. Рекомендуется приходить натощак (8–12 часов без еды), исключить алкоголь за сутки и по возможности отменить плановые препараты. Подробные инструкции вы получите при записи.' },
   { q: 'Нужно ли готовиться к обследованию заранее?', a: 'Исключите алкоголь за сутки и по возможности отмените плановые препараты. Подробные инструкции вы получите после записи.' },
@@ -86,7 +95,7 @@ const faqs = [
 
 export default function CheckupPage() {
   const [filter, setFilter] = useState('Все программы')
-  const [filterOpen, setFilterOpen] = useState(false)
+  const [filterOpen, setFilterOpen] = useState(true)
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
   const visibleCards = filter === 'Все программы'
@@ -181,7 +190,7 @@ export default function CheckupPage() {
             onClick={() => setFilterOpen(o => !o)}
             className="flex items-center gap-2 bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-10 py-3.5 shadow-lg"
           >
-            Профили
+            Check-up программы
             <svg className={`w-4 h-4 transition-transform ${filterOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -205,20 +214,23 @@ export default function CheckupPage() {
       </div>
       <div className="hidden lg:flex container-main relative z-30 -mt-7 justify-center">
         <div className="inline-flex bg-white rounded-full p-1.5 gap-1 shadow-[0_8px_24px_rgba(0,0,0,0.08)] flex-wrap justify-center">
-          {serviceTabs.map((tab, ti) => (
+          {serviceTabs.map((tab) => (
             <div key={tab} className="relative">
-              <button
-                onClick={() => tab === 'Check-up программы' && setFilterOpen(o => !o)}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap ${
-                  ti === 0
-                    ? 'bg-[#00b5e2] text-white'
-                    : tab === 'Check-up программы'
-                      ? 'bg-white text-gray-900 border border-[#00b5e2]'
-                      : 'bg-[#f4f4f4] text-gray-800 hover:bg-gray-100'
-                }`}
-              >
-                {tab}
-              </button>
+              {tab === 'Check-up программы' ? (
+                <button
+                  onClick={() => setFilterOpen(o => !o)}
+                  className="px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap bg-[#00b5e2] text-white"
+                >
+                  {tab}
+                </button>
+              ) : (
+                <Link
+                  to={`/services?tab=${SERVICE_TAB_IDS[tab]}`}
+                  className="px-6 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap bg-[#f4f4f4] text-gray-800 hover:bg-gray-100 inline-block"
+                >
+                  {tab}
+                </Link>
+              )}
               {tab === 'Check-up программы' && filterOpen && (
                 <div className="absolute left-0 top-full mt-2 bg-white rounded-2xl shadow-lg overflow-hidden z-40 min-w-[190px] py-1.5">
                   {programFilters.map((f) => (
