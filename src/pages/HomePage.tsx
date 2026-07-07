@@ -33,7 +33,7 @@ import ContactsMapCard from '@/components/ui/ContactsMapCard'
 import MobileCarousel from '@/components/ui/MobileCarousel'
 
 const features = [
-  { icon: featureDoctors, label: 'Опытные врачи с PhD\nи международной практикой' },
+  { icon: featureDoctors, label: 'Опытные врачи с PhD и\nмеждународной практикой' },
   { icon: featureStories, label: 'Реальные истории\nпациентов' },
   { icon: featurePricing, label: 'Прозрачные цены и\nгибкие условия' },
   { icon: featureEquipment, label: 'Современное\nоборудование' },
@@ -191,7 +191,7 @@ export default function HomePage() {
 
       {/* ── Фич-чипы: на мобилке столбиком под hero, на десктопе выходят за его край ── */}
       <div className="container-main relative z-20 mt-2.5 lg:-mt-10">
-        <div className="grid grid-cols-1 gap-3.5 lg:flex lg:flex-row lg:gap-[13px]">
+        <div className="grid grid-cols-1 gap-3.5 lg:grid-cols-4 lg:gap-[13px]">
           {features.map((f) => (
             <div key={f.label} className="flex items-center gap-3.5 lg:gap-4 bg-white rounded-full px-3 lg:px-[18px] py-2.5 lg:py-[18px] shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
               <span className="w-12 h-12 lg:w-10 lg:h-10 flex items-center justify-center flex-shrink-0">
