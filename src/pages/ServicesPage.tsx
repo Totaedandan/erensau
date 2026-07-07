@@ -171,7 +171,7 @@ export default function ServicesPage() {
 
             {/* Белая карточка «30+» справа (десктоп) */}
             <div className="hidden lg:block absolute right-[7.5%] top-[130px] bg-white rounded-2xl p-7 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[300px] z-10">
-              <div className="flex items-baseline gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="text-[44px] font-bold text-[#00b5e2] leading-none">30+</div>
                 <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
               </div>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
 
           {/* Белая карточка «30+» внизу слева (мобилка) */}
           <div className="lg:hidden absolute left-5 bottom-16 bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[262px] z-10">
-            <div className="flex items-baseline gap-3 mb-3">
+            <div className="flex items-center gap-3 mb-3">
               <div className="text-[40px] font-bold text-[#00b5e2] leading-none">30+</div>
               <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
             </div>
