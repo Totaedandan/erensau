@@ -5,6 +5,8 @@ type Props = {
   text?: string
   /** Мобильный вариант с полями регистрации (как на Главной в мобильном макете) */
   mobileVariant?: 'default' | 'registration'
+  /** Уменьшенный заголовок для длинных формулировок (напр. на Вакансиях), чтобы корректно переносился по строкам */
+  compact?: boolean
 }
 
 // Большая карточка «Форма обратной связи» — переиспользуется на Главной, Контактах и Вакансиях.
@@ -12,6 +14,7 @@ export default function ContactForm({
   heading = 'Форма\nобратной связи',
   text = 'Оставьте заявку — мы свяжемся с вами в течение рабочего дня и ответим на все вопросы',
   mobileVariant = 'default',
+  compact = false,
 }: Props) {
   const [sent, setSent] = useState(false)
 
@@ -71,7 +74,7 @@ export default function ContactForm({
 
             {/* Левая колонка: заголовок + текст */}
             <div>
-              <h2 className="text-[47px] font-semibold text-black mb-8 leading-[1.19] tracking-[-1.9px] whitespace-pre-line">
+              <h2 className={`font-semibold text-black mb-8 leading-[1.19] tracking-[-1.9px] whitespace-pre-line ${compact ? 'text-[32px]' : 'text-[47px]'}`}>
                 {heading}
               </h2>
               <p className="text-black/30 text-sm leading-[1.35] tracking-[-0.28px] max-w-[233px]">{text}</p>

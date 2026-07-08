@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useModal } from '@/contexts/ModalContext'
-import heroSurgeon from '@/assets/images/hero-surgeon.png'
+import vacanciesHeroBg from '@/assets/images/vacancies-hero-bg.jpg'
 import logoMark from '@/assets/images/logo-mark.png'
 import pictoNeuron from '@/assets/icons/picto-neuron.png'
 import pictoUterus from '@/assets/icons/picto-uterus.png'
@@ -31,10 +31,10 @@ function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
       </div>
       <h3 className="font-semibold text-gray-900 text-xl lg:text-lg mb-0.5">{v.title}</h3>
       <p className="text-[#b7b7b7] text-[10px] lg:text-xs mb-4 lg:mb-5">Полный рабочий день</p>
-      <p className="text-gray-900 text-sm font-medium mb-2">Обязанности:</p>
+      <p className="text-gray-900 text-sm font-light mb-2">Обязанности:</p>
       <ul className="space-y-1.5 mb-6 flex-1">
         {duties.map((d) => (
-          <li key={d} className="text-black lg:text-gray-500 font-light text-[11px] lg:text-xs leading-snug flex gap-2">
+          <li key={d} className="text-gray-900 font-light text-sm leading-snug flex gap-2">
             <span className="text-black lg:text-[#00b5e2]">•</span>{d}
           </li>
         ))}
@@ -59,7 +59,7 @@ export default function VacanciesPage() {
       {/* ── Тёмный hero — карточка ── */}
       <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[720px] lg:min-h-0 lg:aspect-[1414/707]">
-        <img src={heroSurgeon} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '60% 30%' }} />
+        <img src={vacanciesHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center 35%' }} />
         <div className="absolute inset-0 bg-[#0a1628]/55" />
         <div className="relative z-10 px-5 lg:px-24 flex flex-col justify-start lg:justify-center min-h-[720px] lg:min-h-full pt-10 pb-6 lg:py-16">
           <div className="flex items-start gap-3.5 lg:gap-4 mb-5 lg:mb-6">
@@ -68,23 +68,23 @@ export default function VacanciesPage() {
               Станьте частью<br />команды erensau
             </h1>
           </div>
-          <p className="text-white/70 lg:text-white/60 text-xs lg:text-sm max-w-[280px] lg:max-w-xl mb-8">
+          <p className="text-white font-medium text-xs lg:text-sm max-w-[280px] lg:max-w-xl mb-8">
             Мы ищем врачей, медсестёр и административных специалистов, готовых работать на высшем уровне
           </p>
           <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3.5 lg:gap-3 mt-auto lg:mt-0">
-            <a href="#vacancies" className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 py-4 lg:py-3.5 text-center hover:bg-[#0099c4] transition-colors">Присоединиться</a>
+            <a href="#vacancies" className="inline-flex items-center justify-center bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 lg:px-10 py-4 lg:py-5 text-center hover:bg-[#0099c4] transition-colors">Присоединиться</a>
             <a
               href="mailto:info@erensau.kz"
-              className="inline-flex items-center gap-3 bg-white rounded-full pl-2.5 lg:pl-2 pr-6 py-2.5 lg:py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-3 bg-white rounded-full pl-2.5 pr-6 py-2.5 lg:py-3 hover:bg-gray-50 transition-colors"
             >
-              <span className="w-10 h-10 lg:w-8 lg:h-8 rounded-full bg-[#00b5e2] flex items-center justify-center text-white flex-shrink-0">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#00b5e2] flex items-center justify-center text-white flex-shrink-0">
+                <svg className="w-4 h-4 lg:w-[18px] lg:h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </span>
               <span className="text-left leading-tight text-[11px] lg:text-sm">
-                <span className="block text-[11px] lg:text-[10px] text-gray-500 lg:text-gray-400">Для отклика на вакансию</span>
-                <span className="underline underline-offset-2 lg:no-underline">info@erensau.kz</span>
+                <span className="block font-semibold text-[11px] lg:text-sm text-gray-900">Для отклика на вакансию</span>
+                <span className="font-normal underline underline-offset-2 text-gray-900">info@erensau.kz</span>
               </span>
             </a>
           </div>
@@ -152,14 +152,14 @@ export default function VacanciesPage() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="#vacancies" className="inline-block bg-white border border-black text-black text-xs lg:text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+          <a href="#vacancies" className="inline-block bg-transparent border-2 border-[#b7b7b7] text-black text-xs lg:text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
             Смотреть все вакансии
           </a>
         </div>
       </section>
 
       {/* ── Форма «Мы ищем специалистов» ── */}
-      <ContactForm heading={'Мы ищем специалистов,\nкоторые разделяют ценности erensau'} />
+      <ContactForm heading={'Мы ищем специалистов,\nкоторые разделяют ценности erensau'} compact />
 
       {/* ── CTA-слайдер ── */}
       <CTASlider />
