@@ -10,6 +10,7 @@ import PatientsPage from '@/pages/PatientsPage'
 import CooperationPage from '@/pages/CooperationPage'
 import ContactsPage from '@/pages/ContactsPage'
 import NewsPage from '@/pages/NewsPage'
+import NewsArticlePage from '@/pages/NewsArticlePage'
 import VacanciesPage from '@/pages/VacanciesPage'
 import UnderConstructionPage from '@/pages/UnderConstructionPage'
 
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/cooperation" element={<CooperationPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/kak-rabotaet-erensau" element={<NewsArticlePage />} />
         <Route path="/vacancies" element={<VacanciesPage />} />
         <Route path="*" element={<UnderConstructionPage />} />
       </Route>

@@ -275,7 +275,11 @@ export default function NewsPage() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-snug">{p.title}</h3>
                 <p className="text-gray-600 text-[13px] leading-relaxed mb-5 line-clamp-3">{featured.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</span>
+                  {i === 0 ? (
+                    <Link to="/news/kak-rabotaet-erensau" className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</Link>
+                  ) : (
+                    <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</span>
+                  )}
                   <span className="text-xs text-gray-500">{featured.date}</span>
                 </div>
               </div>
@@ -288,7 +292,7 @@ export default function NewsPage() {
       <section className="container-main pt-14 pb-12 lg:pt-[70px] lg:pb-16 hidden lg:block">
         <div className="flex gap-[52px]">
           {/* Featured слева */}
-          <article className="bg-white rounded-[28px] shadow-card w-[730px] flex-shrink-0 overflow-hidden group cursor-pointer">
+          <Link to="/news/kak-rabotaet-erensau" className="bg-white rounded-[28px] shadow-card w-[730px] flex-shrink-0 overflow-hidden group cursor-pointer block">
             <div className="p-[15px] pb-0">
               <div className="rounded-[24px] overflow-hidden aspect-[699/359]">
                 <img src={featured.img} alt={featured.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -305,7 +309,7 @@ export default function NewsPage() {
                 <span className="text-[14px] text-black/60">{featured.date}</span>
               </div>
             </div>
-          </article>
+          </Link>
 
           {/* Последние публикации справа: заголовок вровень с фото + список из 4 */}
           <div className="flex-1 min-w-0">
