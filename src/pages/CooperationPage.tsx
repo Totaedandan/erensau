@@ -147,7 +147,7 @@ export default function CooperationPage() {
 
         <div className="container-main">
           <div className="text-center">
-            <Link to="/contacts" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 lg:px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+            <Link to="/contacts" className="inline-block bg-transparent border border-gray-900 text-gray-900 text-sm font-semibold rounded-full px-10 lg:px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
               Стать партнером
             </Link>
           </div>
