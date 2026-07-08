@@ -9,7 +9,6 @@ import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
 import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
 import docAkanov from '@/assets/images/doc-akanov.png'
-import cardBlur from '@/assets/images/card-blur.png'
 import logomarkWhite from '@/assets/icons/logomark-white.png'
 import post1 from '@/assets/images/post1.jpg'
 import post2 from '@/assets/images/post2.jpg'
@@ -80,8 +79,8 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
           alt={d.name}
           className="absolute inset-x-0 bottom-0 top-16 lg:top-[70px] object-cover object-top hover:scale-105 transition-transform duration-300"
         />
-        {/* Плавное затухание низа фото в фон карточки */}
-        <img src={cardBlur} alt="" aria-hidden className="hidden lg:block absolute inset-x-0 bottom-0 w-full h-[20%] pointer-events-none select-none" />
+        {/* Плавное затухание низа фото в фон карточки — начинается на уровне шеи/плеч, сплошной цвет с 36% высоты оверлея (по Figma 2672:10216) */}
+        <div className="hidden lg:block absolute inset-x-0 bottom-0 h-[30%] pointer-events-none select-none bg-gradient-to-b from-[#ececec]/0 to-[#ececec] to-[36%]" />
       </div>
 
       {/* Текстовый блок: звание → имя → должность */}
@@ -245,7 +244,12 @@ export default function HomePage() {
                     style={{ zIndex: i + 1 }}
                     className="relative w-16 h-16 lg:w-[76px] lg:h-[76px] rounded-full overflow-hidden bg-white ring-[3px] ring-[#00b5e2] flex-shrink-0 -ml-4 first:ml-0"
                   >
-                    <img src={d} alt="" className="w-full h-full object-cover object-top" />
+                    {/* Зум на лицо до шеи, без плеч/корпуса — как в Figma (2672:10046) */}
+                    <img
+                      src={d}
+                      alt=""
+                      className="absolute top-0 left-1/2 -translate-x-1/2 max-w-none object-cover w-[108px] h-[152px] lg:w-[129px] lg:h-[181px]"
+                    />
                   </div>
                 ))}
               </div>
