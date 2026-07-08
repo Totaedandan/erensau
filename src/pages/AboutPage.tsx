@@ -26,7 +26,7 @@ type TeamDoctor = {
 }
 const teamDoctors: TeamDoctor[] = [
   { photo: docNietalievHd, heroPhoto: docNietalievHd, hero: { top: 78, h: 673,  x: 16 },  title: 'к.м.н., ассоциированный профессор', name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
-  { photo: docKospanov,   heroPhoto: docKospanovHd,   hero: { top: 26, w: 756,  x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
+  { photo: docKospanov,   heroPhoto: docKospanovHd,   hero: { top: 78, h: 520,   x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
   { photo: docEshmuratov, heroPhoto: docEshmuratov,   hero: { top: 49, h: 1064, x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
   { photo: docKusainov,   heroPhoto: docKusainov,     hero: { top: 69, h: 1064, x: -40 }, title: 'к.м.н. (PhD)',                      name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
   { photo: docIzhanov,    heroPhoto: docIzhanov,      hero: { top: 77, h: 1064, x: -40 }, title: 'Доктор медицинских наук, профессор', name: ['Ижанов Ерген', 'Бахчанович'],        position: ['Руководитель профиля общей', 'хирургии и онкологии'] },
