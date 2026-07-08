@@ -469,21 +469,21 @@ export default function NewsPage() {
             <div className="p-[15px] pb-0">
               <div className="relative bg-[#ebebeb] rounded-[24px] overflow-hidden h-[340px] flex">
                 <div className="relative w-[46%] h-full flex items-end justify-center">
-                  <img src={lecture.img} alt={lecture.name.join(' ')} className="h-full w-auto max-w-none object-contain object-bottom select-none" />
+                  <img src={lecture.img} alt={lecture.name.join(' ')} className="w-full h-full object-cover object-top select-none" />
                 </div>
                 <div className="flex-1 relative p-7 flex flex-col justify-center">
                   <p className="text-[#00b5e2] text-[14px] font-semibold mb-2">{lecture.degree}</p>
                   <h4 className="text-black text-[28px] font-bold leading-[1.15] tracking-[-0.03em] mb-5">{lecture.name[0]}<br />{lecture.name[1]}</h4>
                   <div className="inline-flex items-center gap-3 bg-white rounded-[32px] shadow-[0_8px_20px_rgba(0,0,0,0.08)] pl-2 pr-5 py-2 w-fit">
                     <span className="w-[46px] h-[46px] rounded-full bg-[#cdeefb] flex items-center justify-center flex-shrink-0"><img src={pictoHeart} alt="" className="w-full h-full" /></span>
-                    <span className="text-black text-[14px] font-light leading-[1.3] max-w-[200px]">{lecture.position}</span>
+                    <span className="text-black text-[14px] font-light leading-[1.3] max-w-[280px]">{lecture.position}</span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="px-[28px] pt-[26px] pb-[30px]">
               <LectureTitle title={lecture.title} className="text-[24px] font-semibold text-gray-900 leading-[1.25] tracking-[-0.02em] mb-3" />
-              <p className="text-black text-[14px] leading-[1.35] mb-6 line-clamp-2">{lecture.excerpt}</p>
+              <p className="text-black text-[14px] leading-[1.35] mb-6">{lecture.excerpt}</p>
               <div className="flex items-center justify-between">
                 <span className="inline-block text-[12px] font-semibold text-black border border-black rounded-[42px] px-6 py-[13px] hover:bg-black hover:text-white transition-colors">Посмотреть лекцию</span>
                 <span className="text-[14px] text-black/60">{lecture.date}</span>
