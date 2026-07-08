@@ -67,7 +67,7 @@ export default function ContactForm({
           </div>
 
           {/* ── Десктопная версия: три колонки ── */}
-          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,400px)_auto] gap-10 lg:gap-14 items-center">
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,400px)_auto] gap-10 lg:gap-14 items-start">
 
             {/* Левая колонка: заголовок + текст */}
             <div>
@@ -78,7 +78,7 @@ export default function ContactForm({
             </div>
 
             {sent ? (
-              <div className="lg:col-span-2 flex flex-col items-start justify-center py-6">
+              <div className="lg:col-span-2 flex flex-col items-start justify-center self-center py-6">
                 <div className="w-14 h-14 bg-[#00b5e2]/10 rounded-full flex items-center justify-center mb-4">
                   <svg className="w-7 h-7 text-[#00b5e2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -98,7 +98,7 @@ export default function ContactForm({
                 </form>
 
                 {/* Правая колонка: кнопка + дисклеймер */}
-                <div className="flex flex-col items-center gap-4 lg:self-center">
+                <div className="flex flex-col items-center gap-4 lg:self-end">
                   <button type="submit" form="contact-form" className="bg-[#00b5e2] text-white text-sm font-semibold tracking-[-0.28px] rounded-full px-[78px] py-[18px] whitespace-nowrap hover:bg-[#0099c4] transition-colors">
                     Отправить
                   </button>
