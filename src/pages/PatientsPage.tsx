@@ -14,13 +14,13 @@ import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
 
-// zoom — масштаб/сдвиг фото внутри карточки, посчитано из Figma (2672:11693/11687/11699/11706):
+// zoom — масштаб/сдвиг фото внутри карточки, перепроверено по экспорту Figma (2672:11690/11684/11696/11703):
 // x/y — центр фото в % от контейнера, w — ширина фото в % от контейнера (высота — по пропорции).
 const infoBlocks = [
-  { img: imgInfoDocuments, title: 'Какие документы взять', desc: 'Возьмите удостоверение личности и результаты предыдущих исследований — если они есть.', zoom: { x: 81.16, y: 31.67, w: 176 } },
-  { img: imgInfoBloodtest, title: 'Подготовка к анализам', desc: 'Большинство анализов сдаётся натощак. Исключите алкоголь накануне и уточните перечень текущих препаратов.', zoom: { x: 27.05, y: -2.18, w: 290, rotate: 2.94 } },
-  { img: imgInfoConsultation, title: 'Как записаться?', desc: 'Позвоните, напишите в WhatsApp или заполните форму на сайте. Администратор подберёт удобное время.', zoom: { x: 33.41, y: 15.61, w: 239 } },
-  { img: imgInfoFirstvisit, title: 'Что ожидать при первом визите', desc: 'Врач выслушает жалобы и при необходимости назначит обследование. Консультация занимает от 20 до 40 минут.', zoom: { x: 55.8, y: 11.54, w: 212 } },
+  { img: imgInfoDocuments, title: 'Какие документы взять', desc: 'Возьмите удостоверение личности и результаты предыдущих исследований — если они есть.', zoom: { x: 78.78, y: 32.16, w: 169.78 } },
+  { img: imgInfoBloodtest, title: 'Подготовка к анализам', desc: 'Большинство анализов сдаётся натощак. Исключите алкоголь накануне и уточните перечень текущих препаратов.', zoom: { x: 24.14, y: -1.48, w: 287.36 } },
+  { img: imgInfoConsultation, title: 'Как записаться?', desc: 'Позвоните, напишите в WhatsApp или заполните форму на сайте. Администратор подберёт удобное время.', zoom: { x: 33.1, y: 15.71, w: 236.41 } },
+  { img: imgInfoFirstvisit, title: 'Что ожидать при первом визите', desc: 'Врач выслушает жалобы и при необходимости назначит обследование. Консультация занимает от 20 до 40 минут.', zoom: { x: 55.39, y: 11.86, w: 207.47 } },
 ]
 
 const infoTabs = ['До визита к врачу', 'Перед госпитализацией', 'После операции', 'Выписка']
@@ -169,7 +169,7 @@ export default function PatientsPage() {
                         left: `${block.zoom.x}%`,
                         top: `${block.zoom.y}%`,
                         width: `${block.zoom.w}%`,
-                        transform: `translate(-50%, -50%)${block.zoom.rotate ? ` rotate(${block.zoom.rotate}deg)` : ''}`,
+                        transform: 'translate(-50%, -50%)',
                       }}
                     />
                   </div>
@@ -194,7 +194,7 @@ export default function PatientsPage() {
                       left: `${block.zoom.x}%`,
                       top: `${block.zoom.y}%`,
                       width: `${block.zoom.w}%`,
-                      transform: `translate(-50%, -50%)${block.zoom.rotate ? ` rotate(${block.zoom.rotate}deg)` : ''}`,
+                      transform: 'translate(-50%, -50%)',
                     }}
                   />
                 </div>
