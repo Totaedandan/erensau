@@ -6,15 +6,21 @@ import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
 import patientsBg from '@/assets/images/patients-hero-bg.png'
 import patientsGlow from '@/assets/images/patients-glow.png'
 import doctor1 from '@/assets/images/doctor1.jpg'
+import imgInfoDocuments from '@/assets/images/patients-info-documents.jpg'
+import imgInfoBloodtest from '@/assets/images/patients-info-bloodtest.jpg'
+import imgInfoConsultation from '@/assets/images/patients-info-consultation.jpg'
+import imgInfoFirstvisit from '@/assets/images/patients-info-firstvisit.jpg'
 import LogoMark from '@/assets/icons/logo-group.svg?react'
 import CTASlider from '@/components/ui/CTASlider'
 import MobileCarousel from '@/components/ui/MobileCarousel'
 
+// zoom — масштаб/сдвиг фото внутри карточки, посчитано из Figma (2672:11693/11687/11699/11706):
+// x/y — центр фото в % от контейнера, w — ширина фото в % от контейнера (высота — по пропорции).
 const infoBlocks = [
-  { img: doctor1, title: 'Какие документы взять', desc: 'Возьмите удостоверение личности и результаты предыдущих исследований — если они есть.' },
-  { img: imgDoctorPortrait, title: 'Подготовка к анализам', desc: 'Большинство анализов сдаётся натощак. Исключите алкоголь накануне и уточните перечень текущих препаратов.' },
-  { img: imgDoctorSenior, title: 'Как записаться?', desc: 'Позвоните, напишите в WhatsApp или заполните форму на сайте. Администратор подберёт удобное время.' },
-  { img: imgOperatingRoom, title: 'Что ожидать при первом визите', desc: 'Врач выслушает жалобы и при необходимости назначит обследование. Консультация занимает от 20 до 40 минут.' },
+  { img: imgInfoDocuments, title: 'Какие документы взять', desc: 'Возьмите удостоверение личности и результаты предыдущих исследований — если они есть.', zoom: { x: 81.16, y: 31.67, w: 176 } },
+  { img: imgInfoBloodtest, title: 'Подготовка к анализам', desc: 'Большинство анализов сдаётся натощак. Исключите алкоголь накануне и уточните перечень текущих препаратов.', zoom: { x: 27.05, y: -2.18, w: 290, rotate: 2.94 } },
+  { img: imgInfoConsultation, title: 'Как записаться?', desc: 'Позвоните, напишите в WhatsApp или заполните форму на сайте. Администратор подберёт удобное время.', zoom: { x: 33.41, y: 15.61, w: 239 } },
+  { img: imgInfoFirstvisit, title: 'Что ожидать при первом визите', desc: 'Врач выслушает жалобы и при необходимости назначит обследование. Консультация занимает от 20 до 40 минут.', zoom: { x: 55.8, y: 11.54, w: 212 } },
 ]
 
 const infoTabs = ['До визита к врачу', 'Перед госпитализацией', 'После операции', 'Выписка']
@@ -65,7 +71,7 @@ export default function PatientsPage() {
             </h1>
           </div>
           <div className="hidden lg:block absolute left-[7.5%] top-[54%] bg-white rounded-3xl p-11 w-[305px] shadow-xl">
-            <div className="flex items-baseline gap-3 mb-1">
+            <div className="flex items-start gap-3 mb-1">
               <span className="text-[38px] font-bold text-[#00b5e2] leading-none">4</span>
               <span className="text-gray-900 font-semibold text-sm leading-tight">шага и вы<br />готовы к визиту</span>
             </div>
@@ -84,7 +90,7 @@ export default function PatientsPage() {
               </h1>
             </div>
             <div className="bg-white rounded-3xl p-6 max-w-[265px] shadow-xl ml-5">
-              <div className="flex items-baseline gap-3 mb-3">
+              <div className="flex items-start gap-3 mb-3">
                 <span className="text-4xl font-bold text-[#00b5e2] leading-none">4</span>
                 <span className="text-gray-900 font-semibold text-sm leading-tight">шага и вы<br />готовы к визиту</span>
               </div>
@@ -154,8 +160,18 @@ export default function PatientsPage() {
             {infoBlocks.map((block) => (
               <div key={`${block.title}-m`}>
                 <div className="bg-white rounded-3xl p-2">
-                  <div className="h-56 overflow-hidden rounded-[20px]">
-                    <img src={block.img} alt={block.title} className="w-full h-full object-cover object-top" />
+                  <div className="relative h-56 overflow-hidden rounded-[20px] bg-[#ececec]">
+                    <img
+                      src={block.img}
+                      alt={block.title}
+                      className="absolute max-w-none"
+                      style={{
+                        left: `${block.zoom.x}%`,
+                        top: `${block.zoom.y}%`,
+                        width: `${block.zoom.w}%`,
+                        transform: `translate(-50%, -50%)${block.zoom.rotate ? ` rotate(${block.zoom.rotate}deg)` : ''}`,
+                      }}
+                    />
                   </div>
                 </div>
                 <h3 className="font-semibold text-gray-900 text-lg mt-5 mb-2 px-1">{block.title}</h3>
@@ -168,13 +184,23 @@ export default function PatientsPage() {
         <div className="container-main hidden lg:block">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {infoBlocks.map((block) => (
-              <div key={block.title} className="bg-white rounded-2xl overflow-hidden">
-                <div className="h-36 overflow-hidden">
-                  <img src={block.img} alt={block.title} className="w-full h-full object-cover object-top" />
+              <div key={block.title} className="bg-white rounded-[28px] shadow-[-2px_16px_25px_rgba(0,0,0,0.04)] p-2">
+                <div className="relative h-[221px] rounded-[20px] overflow-hidden bg-[#ececec]">
+                  <img
+                    src={block.img}
+                    alt={block.title}
+                    className="absolute max-w-none"
+                    style={{
+                      left: `${block.zoom.x}%`,
+                      top: `${block.zoom.y}%`,
+                      width: `${block.zoom.w}%`,
+                      transform: `translate(-50%, -50%)${block.zoom.rotate ? ` rotate(${block.zoom.rotate}deg)` : ''}`,
+                    }}
+                  />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 text-sm mb-1.5">{block.title}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{block.desc}</p>
+                <div className="px-3 pt-8 pb-3">
+                  <h3 className="font-semibold text-black text-[20px] tracking-[-0.4px] leading-[1.35] mb-4">{block.title}</h3>
+                  <p className="text-black font-light text-sm leading-[1.35]">{block.desc}</p>
                 </div>
               </div>
             ))}
@@ -183,7 +209,7 @@ export default function PatientsPage() {
       </section>
 
       {/* ── Отзывы: карточки слева, заголовок справа ── */}
-      <section className="bg-white lg:bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
+      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
 
         {/* Мобильный заголовок над карточками */}
@@ -270,7 +296,7 @@ export default function PatientsPage() {
       </section>
 
       {/* ── FAQ — 2 колонки ── */}
-      <section className="bg-white max-lg:bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
+      <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
           <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
