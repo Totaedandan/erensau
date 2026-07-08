@@ -28,6 +28,7 @@ const GlobeIcon = () => <svg className={ic} fill="none" stroke="currentColor" st
 const MailIcon = () => <svg className={ic} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M3 8l8 5 8-5M5 5h14a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z" /></svg>
 const IgIcon = () => <svg className={ic} fill="currentColor" viewBox="0 0 24 24"><path d="M12 7.6a4.4 4.4 0 100 8.8 4.4 4.4 0 000-8.8zm0 7.3a2.9 2.9 0 110-5.8 2.9 2.9 0 010 5.8zM16.5 4h-9A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4zm-4.9 3a1 1 0 110 2 1 1 0 010-2z" /></svg>
 const FbIcon = () => <svg className={ic} fill="currentColor" viewBox="0 0 24 24"><path d="M13.4 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.2-1.5 1.6-1.5h1.7V3.3c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.4H7.6V13h2.7v8h3.1z" /></svg>
+const TikTokIcon = () => <svg className={ic} fill="currentColor" viewBox="0 0 24 24"><path d="M16.7 3h-3.1v11.6a2.6 2.6 0 11-2.6-2.6c.2 0 .5 0 .7.1V9c-.2 0-.5 0-.7 0a5.7 5.7 0 105.7 5.7V9.2a7.7 7.7 0 004.3 1.3V7.4a4.6 4.6 0 01-4.3-4.4z" /></svg>
 const YtIcon = () => <svg className={ic} fill="currentColor" viewBox="0 0 24 24"><path d="M21.6 7.2c-.2-.9-.9-1.5-1.7-1.7C18.2 5 12 5 12 5s-6.2 0-7.9.5c-.9.2-1.5.9-1.7 1.7C2 8.9 2 12 2 12s0 3.1.4 4.8c.2.9.9 1.5 1.7 1.7C5.8 19 12 19 12 19s6.2 0 7.9-.5c.9-.2 1.5-.9 1.7-1.7.4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15V9l5.2 3L10 15z" /></svg>
 
 // Запись: иконки СВЕРХУ, значение ПОД ними (как в дизайне)
@@ -61,7 +62,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                   г. Алматы ул. Нурлана Каппарова, дом 4, кор. 1
                 </Entry>
                 <h3 className="text-gray-900 font-semibold text-sm mt-4 mb-2">Доп.информация:</h3>
-                <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
+                <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TikTokIcon /></Dot></>}>
                   erensau.kz
                 </Entry>
                 <Entry icons={<Dot><YtIcon /></Dot>}>erensau</Entry>
@@ -167,7 +168,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
                 </Entry>
 
                 <h3 className="text-gray-900 font-semibold text-sm mt-5 mb-2.5">Доп.информация:</h3>
-                <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TgIcon /></Dot></>}>
+                <Entry icons={<><Dot><GlobeIcon /></Dot><Dot><IgIcon /></Dot><Dot><FbIcon /></Dot><Dot><TikTokIcon /></Dot></>}>
                   erensau.kz
                 </Entry>
                 <Entry icons={<Dot><YtIcon /></Dot>}>erensau</Entry>
@@ -224,7 +225,7 @@ export default function ContactsMapCard({ showHeading = true }: { showHeading?: 
               href="https://2gis.kz/almaty"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-[#f1f1f1] rounded-full px-10 py-3.5 text-sm text-gray-900 hover:bg-[#e8e8e8] transition-colors"
+              className="block w-full text-center bg-[#f1f1f1] rounded-full px-10 py-3.5 text-sm font-semibold text-gray-900 hover:bg-[#e8e8e8] transition-colors"
             >
               Простроить навигацию
             </a>

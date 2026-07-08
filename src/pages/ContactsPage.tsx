@@ -20,7 +20,7 @@ export default function ContactsPage() {
       <ContactForm />
 
       {/* ── Навигация по комплексу — карта на всю карточку, текст поверх ── */}
-      <section className="bg-white py-14 lg:py-24">
+      <section className="bg-[#f4f4f4] py-14 lg:py-24">
         <div className="container-main">
           <div className="relative rounded-3xl overflow-hidden h-[560px] lg:h-auto lg:aspect-[1302/611] bg-white shadow-sm">
 
@@ -47,7 +47,7 @@ export default function ContactsPage() {
                 href="https://2gis.kz/almaty"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden lg:inline-block bg-white border border-gray-300 rounded-full px-8 py-3 text-sm text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+                className="hidden lg:inline-block bg-white border border-gray-800 rounded-full px-8 py-3 text-sm font-semibold text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
               >
                 Проложить маршрут
               </a>
