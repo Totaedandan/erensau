@@ -121,16 +121,32 @@ export default function CooperationPage() {
           ))}
         </div>
 
-        <div className="container-main">
-          <div className="hidden lg:grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4">
-            {Array.from({ length: 14 }).map((_, i) => (
-              <div key={i} className="bg-white rounded-2xl h-20 flex flex-col items-center justify-center">
-                <span className="text-gray-400 font-bold text-base lowercase leading-none">erensau</span>
-                <span className="text-gray-300 text-[8px] tracking-[0.2em] uppercase mt-0.5">hospital</span>
-              </div>
-            ))}
+        {/* Десктоп: бесконечная лента — верхний ряд налево, нижний направо (по Figma) */}
+        <div className="hidden lg:flex flex-col gap-9 mb-10">
+          <div className="overflow-hidden">
+            <div className="flex gap-11 w-max animate-marquee-left hover:[animation-play-state:paused]">
+              {Array.from({ length: 14 }).map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl w-[190px] h-24 flex-shrink-0 flex flex-col items-center justify-center">
+                  <span className="text-gray-400 font-bold text-base lowercase leading-none">erensau</span>
+                  <span className="text-gray-300 text-[8px] tracking-[0.2em] uppercase mt-0.5">hospital</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="text-center mt-10">
+          <div className="overflow-hidden">
+            <div className="flex gap-11 w-max animate-marquee-right hover:[animation-play-state:paused]">
+              {Array.from({ length: 14 }).map((_, i) => (
+                <div key={i} className="bg-white rounded-2xl w-[190px] h-24 flex-shrink-0 flex flex-col items-center justify-center">
+                  <span className="text-gray-400 font-bold text-base lowercase leading-none">erensau</span>
+                  <span className="text-gray-300 text-[8px] tracking-[0.2em] uppercase mt-0.5">hospital</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="container-main">
+          <div className="text-center">
             <Link to="/contacts" className="inline-block bg-white border border-gray-300 text-gray-900 text-sm font-semibold rounded-full px-10 lg:px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
               Стать партнером
             </Link>
