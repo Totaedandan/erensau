@@ -33,7 +33,7 @@ const socials = [
 const corporate = [
   { label: 'Сотрудничество', path: '/cooperation' },
   { label: 'Карьера',        path: '/vacancies' },
-  { label: 'Лицензии',       path: '/about' },
+  { label: 'Лицензии',       path: '/licenses' },
 ]
 
 const navigation = [
@@ -56,7 +56,7 @@ const navigationMobile = [
 ]
 const corporateMobile = [
   { label: 'Сотрудничество', path: '/cooperation' },
-  { label: 'Лицензии',       path: '/about' },
+  { label: 'Лицензии',       path: '/licenses' },
   { label: 'Карьера',        path: '/vacancies' },
 ]
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useModal } from '@/contexts/ModalContext'
 import heroSurgeon from '@/assets/images/hero-surgeon.png'
 import logoMark from '@/assets/images/logo-mark.png'
 import pictoNeuron from '@/assets/icons/picto-neuron.png'
@@ -23,6 +23,7 @@ const vacancies = [...baseVacancies, ...baseVacancies]
 
 // Карточка вакансии — общая для мобильной карусели и десктопной сетки
 function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
+  const { openModal } = useModal()
   return (
     <div className="bg-white rounded-3xl lg:rounded-2xl p-6 flex flex-col h-full">
       <div className="w-14 h-14 lg:w-12 lg:h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-5">
@@ -38,12 +39,12 @@ function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
           </li>
         ))}
       </ul>
-      <Link
-        to="/contacts"
+      <button
+        onClick={() => openModal('vacancy-apply', { position: v.title })}
         className="block text-center text-sm font-semibold py-3 lg:py-2.5 rounded-full border border-gray-300 text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
       >
         Подать заявку
-      </Link>
+      </button>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useModal } from '@/contexts/ModalContext'
 import imgDoctorSenior from '@/assets/images/img-doctor-senior.jpg'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
 import imgDoctorPortrait from '@/assets/images/img-doctor-portrait.jpg'
@@ -44,6 +44,7 @@ export default function PatientsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
   const [mobileTab, setMobileTab] = useState(infoTabs[0])
   const [mobileTabOpen, setMobileTabOpen] = useState(false)
+  const { openModal } = useModal()
 
   return (
     <div className="bg-[#f4f4f4]">
@@ -261,7 +262,7 @@ export default function PatientsPage() {
               Лучшая оценка нашей работы — слова людей, которым мы помогли. Читайте
               отзывы наших пациентов и поделитесь своим опытом после визита в Erensau Hospital.
             </p>
-            <Link to="/contacts" className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-28 py-5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</Link>
+            <button onClick={() => openModal('review')} className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-28 py-5 inline-block hover:bg-[#0099c4] transition-colors">Оставьте отзыв</button>
             <div className="flex items-start gap-3 mt-14 max-w-sm">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                 <img src={docIzhanov} alt="" className="w-full h-full object-cover" />
@@ -288,7 +289,7 @@ export default function PatientsPage() {
             </div>
           </div>
           <div className="text-center mt-9">
-            <Link to="/contacts" className="inline-block bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-4">Оставьте отзыв</Link>
+            <button onClick={() => openModal('review')} className="inline-block bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-16 py-4">Оставьте отзыв</button>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useModal } from '@/contexts/ModalContext'
 
 import heroDoctorImg from '@/assets/images/hero-home.png'
 import imgOperatingRoom from '@/assets/images/img-operating-room.jpg'
@@ -115,6 +116,7 @@ function TeamCard({ d }: { d: (typeof teamDoctors)[number] }) {
 export default function HomePage() {
   const [servicesTab, setServicesTab] = useState<(typeof servicesTabs)[number]>('Профили')
   const [mobileTabOpen, setMobileTabOpen] = useState(false)
+  const { openModal } = useModal()
   return (
     <div className="bg-[#f4f4f4]">
 
@@ -168,9 +170,9 @@ export default function HomePage() {
                     Записаться на Check-up
                   </Link>
                 </div>
-                <Link to="/contacts" className="text-white text-[15px] lg:text-base font-semibold rounded-full py-4 lg:py-0 w-full lg:w-[272px] lg:h-[62px] flex lg:inline-flex items-center justify-center border lg:border-2 border-white/80 lg:border-white hover:bg-white/10 transition-colors">
+                <button onClick={() => openModal('second-opinion')} className="text-white text-[15px] lg:text-base font-semibold rounded-full py-4 lg:py-0 w-full lg:w-[272px] lg:h-[62px] flex lg:inline-flex items-center justify-center border lg:border-2 border-white/80 lg:border-white hover:bg-white/10 transition-colors">
                   Получить второе мнение
-                </Link>
+                </button>
               </div>
 
             </div>

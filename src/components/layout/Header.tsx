@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ComponentType } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useModal } from '@/contexts/ModalContext'
 
 const navItems = [
   { label: 'О клинике', path: '/about' },
@@ -79,6 +80,7 @@ export default function Header() {
   const [langOpen, setLangOpen] = useState(false)
   const [chatOpen, setChatOpen] = useState(false)
   const CurrentFlag = langFlags[lang]
+  const { openModal } = useModal()
 
   return (
     <header className="bg-white sticky top-0 z-50">
@@ -201,7 +203,7 @@ export default function Header() {
           </div>
 
           {/* Войти */}
-          <button className="flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-[#00b5e2] transition-colors">
+          <button onClick={() => openModal('login')} className="flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-[#00b5e2] transition-colors">
             <svg className="w-6 h-6 text-[#00b5e2]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
@@ -290,7 +292,7 @@ export default function Header() {
                     </a>
                   ))}
                 </div>
-                <button className="text-xs font-medium text-gray-700 flex items-center gap-1.5">
+                <button onClick={() => { setMobileOpen(false); openModal('login') }} className="text-xs font-medium text-gray-700 flex items-center gap-1.5">
                   <span className="w-6 h-6 rounded-full bg-[#00b5e2] flex items-center justify-center text-white">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" /></svg>
                   </span>
