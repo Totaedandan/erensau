@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 import coopBg from '@/assets/images/coop-hero-bg.png'
-import coopTintLeft from '@/assets/images/coop-tint-left.png'
-import coopTintBottom from '@/assets/images/coop-tint-bottom.png'
 import b2bEducation from '@/assets/images/b2b-education.png'
 import b2bInsurance from '@/assets/images/b2b-insurance.png'
 import b2bCorporate from '@/assets/images/b2b-corporate.png'
@@ -26,14 +24,8 @@ export default function CooperationPage() {
       {/* ── Hero — карточка: фасад клиники, без оверлея ── */}
       <section className="bg-[#f4f4f4] px-2.5 pt-2 lg:px-3 lg:pt-0 lg:max-w-[1440px] lg:mx-auto">
         <div className="relative overflow-hidden rounded-[24px] lg:rounded-[28px] min-h-[620px] lg:min-h-0 lg:aspect-[1414/707]">
-          {/* 1 — Фон: здание клиники (image 142) */}
+          {/* Фон: здание клиники, без тонирования — как в дизайне */}
           <img src={coopBg} alt="" className="absolute inset-0 w-full h-full object-cover object-[50%_20%]" />
-          {/* 2 — Голубой градиент слева (Rectangle 40914: #89C5F8 → прозрачный) */}
-          <img src={coopTintLeft} alt="" aria-hidden className="absolute left-0 top-0 h-full w-[43.2%] object-fill pointer-events-none select-none" />
-          {/* 3 — Светлый градиент снизу (Rectangle 40913: прозрачный → #E3F0F9) */}
-          <img src={coopTintBottom} alt="" aria-hidden className="absolute left-0 bottom-0 w-full h-[68%] object-fill pointer-events-none select-none" />
-          {/* 4 — Общий синий тон (Rectangle 40915: #016595 @20%) */}
-          <div className="absolute inset-0 bg-[#016595]/20 pointer-events-none" />
 
           <div className="relative z-10 px-6 lg:px-28 pt-10 lg:pt-[146px]">
             <div className="flex items-start gap-3 lg:block mb-6 lg:mb-10">
