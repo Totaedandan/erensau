@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import docNietalievHd from '@/assets/images/doc-nietaliev-hd.png'
 import docKospanov from '@/assets/images/doc-kospanov.png'
-import docKospanovHd from '@/assets/images/doc-kospanov-hd.png'
 import docEshmuratov from '@/assets/images/doc-eshmuratov.png'
 import docKusainov from '@/assets/images/doc-kusainov.png'
 import docIzhanov from '@/assets/images/doc-izhanov.png'
@@ -15,7 +14,7 @@ import CTASlider from '@/components/ui/CTASlider'
 // top/h/w в px при ширине карточки 1440, x — сдвиг центра фото от середины.
 // Торсовые фото (290×408) увеличены до бюст-масштаба (h 1064 ≈ ширина 756, как у HD-кропов),
 // top подобран по прозрачным полям PNG — макушки у всех почти на одном уровне.
-// heroPhoto — крупный кроп для hero (пока есть только у Ниеталиева и Коспанова).
+// heroPhoto — крупный кроп для hero (пока есть только у Ниеталиева, остальные — обычное фото).
 type TeamDoctor = {
   photo: string
   heroPhoto: string
@@ -26,7 +25,7 @@ type TeamDoctor = {
 }
 const teamDoctors: TeamDoctor[] = [
   { photo: docNietalievHd, heroPhoto: docNietalievHd, hero: { top: 78, h: 673,  x: 16 },  title: 'к.м.н., ассоциированный профессор', name: ['Ниеталиев Кайрат', 'Ниеталиевич'],   position: ['Руководитель отделения', 'Кардиохирургии и Кардиологии'] },
-  { photo: docKospanov,   heroPhoto: docKospanovHd,   hero: { top: 78, h: 520,   x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
+  { photo: docKospanov,   heroPhoto: docKospanov,     hero: { top: 32, h: 1064, x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Коспанов Нурсултан', 'Айдарханович'], position: ['Руководитель профиля', 'сосудистой хирургии'] },
   { photo: docEshmuratov, heroPhoto: docEshmuratov,   hero: { top: 49, h: 1064, x: -40 }, title: 'к.м.н., ассоциированный профессор', name: ['Ешмуратов Темур', 'Шерханович'],     position: ['Руководитель профиля Торакальной', 'хирургии и Пульмонологии'] },
   { photo: docKusainov,   heroPhoto: docKusainov,     hero: { top: 69, h: 1064, x: -40 }, title: 'к.м.н. (PhD)',                      name: ['Кусаинов Адилет', 'Шингисович'],     position: ['Руководитель профиля ОАРИТ'] },
   { photo: docIzhanov,    heroPhoto: docIzhanov,      hero: { top: 77, h: 1064, x: -40 }, title: 'Доктор медицинских наук, профессор', name: ['Ижанов Ерген', 'Бахчанович'],        position: ['Руководитель профиля общей', 'хирургии и онкологии'] },
