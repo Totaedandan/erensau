@@ -99,7 +99,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
             <div key={d.label} className="border-b border-gray-100 last:border-b-0">
               <button
                 onClick={() => setOpenIdx(isOpen ? null : i)}
-                className="w-full flex items-center gap-2 py-3 text-left text-sm text-black leading-[1.53] tracking-[-0.28px] hover:text-[#00b5e2] transition-colors"
+                className="w-full flex items-center gap-2 py-3 text-left text-[11px] lg:text-sm text-black leading-[1.53] tracking-[-0.28px] hover:text-[#00b5e2] transition-colors"
               >
                 <span>{d.label}</span>
                 <svg
@@ -110,7 +110,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
                 </svg>
               </button>
               {isOpen && (
-                <p className="text-black/50 text-sm leading-[1.53] tracking-[-0.28px] pb-3">{d.content}</p>
+                <p className="text-black/50 text-[11px] lg:text-sm leading-[1.53] tracking-[-0.28px] pb-3">{d.content}</p>
               )}
             </div>
           )
@@ -121,11 +121,11 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       <div className="flex items-center justify-between mt-6">
         <Link
           to="/contacts"
-          className="text-black text-sm font-semibold tracking-[-0.28px] underline underline-offset-4 hover:text-[#00b5e2] transition-colors"
+          className="text-black text-[11px] lg:text-sm font-semibold tracking-[-0.28px] underline underline-offset-4 hover:text-[#00b5e2] transition-colors"
         >
           Записаться
         </Link>
-        <span className="text-black text-sm font-medium tracking-[-0.14px]">{item.price}</span>
+        <span className="text-black text-[11px] lg:text-sm font-medium tracking-[-0.14px]">{item.price}</span>
       </div>
     </article>
   )
@@ -162,11 +162,11 @@ export default function ServicesPage() {
             <div className="max-w-[420px]">
               <div className="flex items-start gap-3.5 lg:gap-7 mb-6 lg:mb-8">
                 <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
-                <h1 className="text-[27px] lg:text-5xl font-semibold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
+                <h1 className="text-2xl lg:text-5xl font-semibold text-gray-900 leading-[1.15] lg:leading-[1.05] tracking-tight">
                   Медицинские<br />услуги
                 </h1>
               </div>
-              <p className="text-gray-800 text-[13px] leading-relaxed max-w-[180px] lg:max-w-[340px]">
+              <p className="text-gray-800 text-[10px] lg:text-[13px] leading-relaxed max-w-[180px] lg:max-w-[340px]">
                 Erensau Hospital предоставляет широкий спектр
                 медицинских услуг по международным стандартам.
               </p>
@@ -188,11 +188,11 @@ export default function ServicesPage() {
 
           {/* Белая карточка «30+» внизу слева (мобилка) */}
           <div className="lg:hidden absolute left-5 bottom-16 bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] w-[262px] z-10">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="text-[40px] font-bold text-[#00b5e2] leading-none">30+</div>
-              <div className="text-gray-700 text-xs leading-tight">направлений<br />медицины</div>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="text-[26px] font-semibold text-[#00b5e2] leading-none">30+</div>
+              <div className="text-black text-[10px] leading-tight">направлений<br />медицины</div>
             </div>
-            <p className="text-gray-700 text-xs leading-relaxed">
+            <p className="text-black text-[10px] font-light leading-relaxed">
               Кардиология, онкология, хирургия
               и другие специализации
               под одной крышей.

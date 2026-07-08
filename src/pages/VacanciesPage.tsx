@@ -29,19 +29,19 @@ function VacancyCard({ v }: { v: (typeof baseVacancies)[number] }) {
       <div className="w-14 h-14 lg:w-12 lg:h-12 rounded-full bg-[#cdeefb] flex items-center justify-center mb-5">
         <img src={v.icon} alt="" className="w-full h-full" />
       </div>
-      <h3 className="font-semibold text-gray-900 text-lg mb-0.5">{v.title}</h3>
-      <p className="text-gray-400 text-base lg:text-xs mb-4 lg:mb-5">Полный рабочий день</p>
+      <h3 className="font-semibold text-gray-900 text-xl lg:text-lg mb-0.5">{v.title}</h3>
+      <p className="text-[#b7b7b7] text-[10px] lg:text-xs mb-4 lg:mb-5">Полный рабочий день</p>
       <p className="text-gray-900 text-sm font-medium mb-2">Обязанности:</p>
       <ul className="space-y-1.5 mb-6 flex-1">
         {duties.map((d) => (
-          <li key={d} className="text-gray-600 lg:text-gray-500 text-[13px] lg:text-xs leading-snug flex gap-2">
-            <span className="text-gray-600 lg:text-[#00b5e2]">•</span>{d}
+          <li key={d} className="text-black lg:text-gray-500 font-light text-[11px] lg:text-xs leading-snug flex gap-2">
+            <span className="text-black lg:text-[#00b5e2]">•</span>{d}
           </li>
         ))}
       </ul>
       <button
         onClick={() => openModal('vacancy-apply', { position: v.title })}
-        className="block text-center text-sm font-semibold py-3 lg:py-2.5 rounded-full border border-gray-300 text-gray-900 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
+        className="block text-center text-xs font-semibold py-3 lg:py-2.5 rounded-full border border-[#b7b7b7] text-black hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors"
       >
         Подать заявку
       </button>
@@ -68,7 +68,7 @@ export default function VacanciesPage() {
               Станьте частью<br />команды erensau
             </h1>
           </div>
-          <p className="text-white/70 lg:text-white/60 text-sm max-w-[280px] lg:max-w-xl mb-8">
+          <p className="text-white/70 lg:text-white/60 text-xs lg:text-sm max-w-[280px] lg:max-w-xl mb-8">
             Мы ищем врачей, медсестёр и административных специалистов, готовых работать на высшем уровне
           </p>
           <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3.5 lg:gap-3 mt-auto lg:mt-0">
@@ -82,7 +82,7 @@ export default function VacanciesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </span>
-              <span className="text-left leading-tight">
+              <span className="text-left leading-tight text-[11px] lg:text-sm">
                 <span className="block text-[11px] lg:text-[10px] text-gray-500 lg:text-gray-400">Для отклика на вакансию</span>
                 <span className="underline underline-offset-2 lg:no-underline">info@erensau.kz</span>
               </span>
@@ -95,9 +95,28 @@ export default function VacanciesPage() {
       {/* ── Список вакансий + поиск ── */}
       <section id="vacancies" className="py-12 lg:py-16">
         <div className="container-main flex flex-col items-center lg:flex-row lg:items-center justify-between gap-6 lg:gap-5 mb-9 lg:mb-8">
-          <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 text-center">Список вакансий</h2>
-          <div className="flex flex-col items-center lg:flex-row lg:items-center gap-5 lg:gap-4 w-full lg:w-96">
-            <div className="flex items-center w-full max-w-[300px] lg:max-w-none lg:flex-1 border-b border-gray-300 pb-2">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-gray-900 text-center">Список вакансий</h2>
+
+          {/* Мобилка: единая пилюля с полем и кнопкой «Поиск» внутри (по Figma) */}
+          <div className="lg:hidden w-full max-w-[299px] flex items-center bg-white rounded-full shadow-[-1.827px_3.654px_11.603px_rgba(0,0,0,0.08)] h-10 pl-4 pr-1">
+            <svg className="w-[15px] h-[15px] text-black opacity-20 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Вакансия"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="flex-1 min-w-0 bg-transparent border-0 px-2.5 text-[11px] outline-none placeholder:text-black/30"
+            />
+            <button className="bg-[#00b5e2] text-white text-xs font-semibold rounded-full h-8 px-6 flex-shrink-0 hover:bg-[#0099c4] transition-colors">
+              Поиск
+            </button>
+          </div>
+
+          {/* Десктоп: строка + отдельная кнопка */}
+          <div className="hidden lg:flex lg:items-center gap-4 w-96">
+            <div className="flex items-center flex-1 border-b border-gray-300 pb-2">
               <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -109,7 +128,7 @@ export default function VacanciesPage() {
                 className="flex-1 bg-transparent border-0 px-3 text-sm outline-none placeholder:text-gray-400"
               />
             </div>
-            <button className="bg-[#00b5e2] text-white text-base lg:text-sm font-semibold rounded-full px-10 lg:px-8 py-3 lg:py-2.5 hover:bg-[#0099c4] transition-colors">
+            <button className="bg-[#00b5e2] text-white text-sm font-semibold rounded-full px-8 py-2.5 hover:bg-[#0099c4] transition-colors">
               Поиск
             </button>
           </div>
@@ -133,7 +152,7 @@ export default function VacanciesPage() {
         </div>
 
         <div className="text-center mt-10">
-          <a href="#vacancies" className="inline-block bg-white border border-gray-200 text-gray-900 text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
+          <a href="#vacancies" className="inline-block bg-white border border-black text-black text-xs lg:text-sm font-semibold rounded-full px-8 py-3.5 hover:border-[#00b5e2] hover:text-[#00b5e2] transition-colors">
             Смотреть все вакансии
           </a>
         </div>

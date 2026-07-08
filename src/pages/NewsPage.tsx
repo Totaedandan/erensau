@@ -272,15 +272,15 @@ export default function NewsPage() {
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover object-top" />
               </div>
               <div className="p-5">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3 leading-snug">{p.title}</h3>
-                <p className="text-gray-600 text-[13px] leading-relaxed mb-5 line-clamp-3">{featured.excerpt}</p>
+                <h3 className="text-sm font-semibold text-gray-900 mb-3 leading-snug">{p.title}</h3>
+                <p className="text-black font-light text-[11px] leading-relaxed mb-5 line-clamp-3">{featured.excerpt}</p>
                 <div className="flex items-center justify-between">
                   {i === 0 ? (
-                    <Link to="/news/kak-rabotaet-erensau" className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</Link>
+                    <Link to="/news/kak-rabotaet-erensau" className="inline-block text-[11px] font-semibold text-black border border-black rounded-full px-8 py-2.5">Подробнее</Link>
                   ) : (
-                    <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</span>
+                    <span className="inline-block text-[11px] font-semibold text-black border border-black rounded-full px-8 py-2.5">Подробнее</span>
                   )}
-                  <span className="text-xs text-gray-500">{featured.date}</span>
+                  <span className="text-[11px] text-gray-500">{featured.date}</span>
                 </div>
               </div>
             </article>
@@ -345,15 +345,15 @@ export default function NewsPage() {
           <img src={confBg} alt="" className="absolute inset-0 w-full h-full object-cover object-right" />
           <div className="absolute inset-0 bg-black/70" />
           <div className="relative z-10 p-6 pb-8">
-            <p className="text-[#00b5e2] text-[11px] font-bold uppercase tracking-[0.25em] mb-3">Конференция</p>
-            <h3 className="text-[28px] font-semibold text-white leading-tight mb-4 max-w-[300px]">
+            <p className="text-[#00b5e2] text-[10px] font-bold uppercase tracking-[0.2em] mb-3 text-center">Конференция</p>
+            <h3 className="text-[22px] font-semibold text-white leading-tight mb-4 max-w-[300px] text-center mx-auto">
               Заболевания органов дыхания в практике врача терапевта
             </h3>
             <div className="h-40" />
             <div className="bg-white rounded-2xl p-5 mb-6">
-              <p className="text-gray-500 text-xs mb-2 leading-relaxed">Конференцию ведёт Руководитель профиля Торакальной хирургии и Пульмонологии</p>
-              <div className="font-bold text-gray-900">Ешмуратов Темур Шерханович</div>
-              <div className="text-[#00b5e2] text-xs font-semibold mt-0.5">к.м.н., ассоциированный профессор</div>
+              <p className="text-black font-light text-[10px] mb-2 leading-relaxed text-center">Конференцию ведёт Руководитель профиля Торакальной хирургии и Пульмонологии</p>
+              <div className="font-bold text-black text-xs text-center">Ешмуратов Темур Шерханович</div>
+              <div className="text-[#00b5e2] text-[10px] font-semibold mt-0.5 text-center">к.м.н., ассоциированный профессор</div>
             </div>
             <div className="grid grid-cols-2 gap-6 text-white mb-6 px-1">
               <div><div className="text-white/60 text-sm mb-1">Дата:</div><div className="text-2xl font-bold">15.06.26</div></div>
@@ -445,19 +445,19 @@ export default function NewsPage() {
                 <img src={lecture.img} alt={lecture.name.join(' ')} className="h-full w-1/2 object-cover object-top" />
                 <div className="flex-1 p-4 flex flex-col justify-center">
                   <p className="text-[#00b5e2] text-[11px] font-semibold mb-1.5">{lecture.degree}</p>
-                  <h3 className="text-[19px] font-bold text-gray-900 leading-tight mb-3">{lecture.name[0]}<br />{lecture.name[1]}</h3>
+                  <h3 className="text-sm font-bold text-gray-900 leading-tight mb-3">{lecture.name[0]}<br />{lecture.name[1]}</h3>
                   <div className="inline-flex items-center gap-2 bg-white rounded-full pl-1 pr-3 py-1 w-fit shadow-sm">
                     <span className="w-8 h-8 rounded-full bg-[#cdeefb] flex items-center justify-center flex-shrink-0"><img src={pictoHeart} alt="" className="w-full h-full" /></span>
-                    <span className="text-gray-900 text-[10px] leading-tight">{lecture.position}</span>
+                    <span className="text-black font-light text-[10px] leading-tight">{lecture.position}</span>
                   </div>
                 </div>
               </div>
               <div className="p-5">
-                <h4 className="text-lg font-semibold text-gray-900 leading-snug mb-3">{lecture.title}</h4>
-                <p className="text-gray-600 text-[13px] leading-relaxed mb-5 line-clamp-4">{lecture.excerpt}</p>
+                <h4 className="text-sm font-semibold text-gray-900 leading-snug mb-3">{lecture.title}</h4>
+                <p className="text-black font-light text-[10px] leading-relaxed mb-5 line-clamp-4">{lecture.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-7 py-2.5">Подробнее</span>
-                  <span className="text-xs text-gray-500">{lecture.date}</span>
+                  <span className="inline-block text-[11px] font-semibold text-black border border-black rounded-full px-7 py-2.5">Подробнее</span>
+                  <span className="text-[10px] text-gray-500">{lecture.date}</span>
                 </div>
               </div>
             </article>
@@ -536,10 +536,10 @@ export default function NewsPage() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 text-lg leading-snug mb-2.5">{item.title}</h3>
-                  <p className="text-gray-500 text-[13px] leading-relaxed mb-4 line-clamp-2">{item.excerpt}</p>
-                  <p className="text-gray-400 text-xs mb-4">{item.date}</p>
-                  <span className="inline-block text-sm font-semibold text-gray-900 border border-gray-900 rounded-full px-8 py-2.5">Подробнее</span>
+                  <h3 className="font-semibold text-gray-900 text-sm leading-snug mb-2.5">{item.title}</h3>
+                  <p className="text-black font-light text-[11px] leading-relaxed mb-4 line-clamp-2">{item.excerpt}</p>
+                  <p className="text-gray-400 text-[11px] mb-4">{item.date}</p>
+                  <span className="inline-block text-[11px] font-semibold text-black border border-black rounded-full px-8 py-2.5">Подробнее</span>
                 </div>
               </article>
             ))}

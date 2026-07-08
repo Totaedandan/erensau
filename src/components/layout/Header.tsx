@@ -83,13 +83,13 @@ export default function Header() {
   const { openModal } = useModal()
 
   return (
-    <header className="bg-white sticky top-0 z-50">
+    <header className="bg-transparent lg:bg-white sticky top-0 z-50">
 
       {/* ── Row 1: utility bar ── */}
-      <div className="container-main flex items-center justify-between h-16 lg:h-[100px]">
+      <div className="container-main flex items-center justify-between py-5 lg:py-0 lg:h-[100px]">
 
-        {/* Logo erensau / hospital — «hospital» прижат вправо (начинается под буквой «s») */}
-        <Link to="/" className="flex flex-col items-stretch leading-none flex-shrink-0">
+        {/* Logo erensau / hospital — «hospital» прижат вправо (начинается под буквой «s»); на мобилке логотип не в хедере, а в hero каждой страницы */}
+        <Link to="/" className="hidden lg:flex flex-col items-stretch leading-none flex-shrink-0">
           <span className="text-gray-900 font-bold text-2xl lg:text-[28px] tracking-tight lowercase">erensau</span>
           <span className="text-[#00b5e2] text-[11px] lg:text-xs font-medium tracking-wide lowercase mt-0.5 text-right">hospital</span>
         </Link>
@@ -211,19 +211,34 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile right side */}
-        <div className="lg:hidden flex items-center gap-2">
-          <Link to="/contacts" className="text-[#00b5e2] underline underline-offset-4 text-xs font-medium">
-            Записаться
-          </Link>
+        {/* Mobile floating bar: гамбургер — пилюля записи — профиль (плавают поверх hero) */}
+        <div className="lg:hidden flex items-center justify-between w-full">
           <button
-            className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+            aria-label="Меню"
+            className="w-[54px] h-[54px] rounded-full bg-white shadow-[-2px_4px_13px_rgba(0,0,0,0.05)] flex items-center justify-center flex-shrink-0"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-[18px] h-[15px]" fill="none" viewBox="0 0 18 15" stroke="#00b5e2" strokeWidth={2.2} strokeLinecap="round">
               {mobileOpen
-                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
+                ? <path d="M1.5 1.5l15 12M16.5 1.5l-15 12" />
+                : <path d="M0 1.5h18M0 7.5h18M0 13.5h18" />}
+            </svg>
+          </button>
+
+          <Link
+            to="/contacts"
+            className="bg-white shadow-[-2px_4px_13px_rgba(0,0,0,0.05)] rounded-full h-[54px] px-9 flex items-center justify-center"
+          >
+            <span className="text-[#00b5e2] text-xs font-semibold underline underline-offset-2 whitespace-nowrap">Записаться на приём</span>
+          </Link>
+
+          <button
+            aria-label="Войти"
+            onClick={() => openModal('login')}
+            className="w-[54px] h-[54px] rounded-full bg-white shadow-[-2px_4px_13px_rgba(0,0,0,0.05)] flex items-center justify-center flex-shrink-0"
+          >
+            <svg className="w-4 h-4 text-[#00b5e2]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
           </button>
         </div>

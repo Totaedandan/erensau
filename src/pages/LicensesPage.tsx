@@ -1,11 +1,41 @@
+import { Link } from 'react-router-dom'
 import aboutCertificate from '@/assets/images/about-certificate.jpg'
+import heroLab from '@/assets/images/underconstruction-hero.png'
+import logoMark from '@/assets/images/logo-mark.png'
+import CTASlider from '@/components/ui/CTASlider'
 
 // Отдельная страница «Лицензии» (ссылка в футере, Корпоративные → Лицензии).
-// Figma 2672:9699 — та же секция сертификации, что раньше стояла на «О клинике».
+// Десктоп: секция сертификации (Figma 2672:9699). Мобилка: по Figma 2702:2313
+// эта страница на мобильном ещё не спроектирована — показывается заглушка
+// «Страница в разработке», как на несуществующих роутах (UnderConstructionPage).
 export default function LicensesPage() {
   return (
     <div className="bg-[#f4f4f4]">
-      <section className="pt-10 pb-12 lg:pt-16 lg:pb-24">
+
+      {/* ── Мобилка: заглушка «Страница в разработке» (по Figma) ── */}
+      <section className="lg:hidden px-2.5 pt-2">
+        <div className="relative overflow-hidden rounded-[24px] min-h-[560px]">
+          <img src={heroLab} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/10 pointer-events-none" />
+          <div className="relative z-10 flex flex-col justify-center min-h-[560px] px-6 py-12">
+            <div className="flex items-center gap-4">
+              <img src={logoMark} alt="" className="h-[52px] w-auto flex-shrink-0" />
+              <h1 className="font-semibold text-gray-900 text-[32px] leading-[1.2] tracking-[-0.06em]">
+                Страница в<br />разработке
+              </h1>
+            </div>
+            <Link
+              to="/"
+              className="mt-8 w-full bg-[#00b5e2] text-white text-sm font-semibold text-center rounded-full px-12 py-4 shadow-lg hover:bg-[#0099c4] transition-colors"
+            >
+              Вернуться на главную
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Десктоп: сертификация клиники ── */}
+      <section className="hidden lg:block pt-10 pb-12 lg:pt-16 lg:pb-24">
         <div className="container-main">
           <h1 className="text-[26px] lg:text-[40px] font-semibold text-neutral-900 mb-8 lg:mb-14 leading-[1.25] max-w-[720px]">
             Клиника сертифицирована и соответствует международным стандартам
@@ -24,11 +54,6 @@ export default function LicensesPage() {
 
             {/* Крупное фото лицензии — справа, перекрывает край карточки (десктоп) */}
             <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 w-[300px] h-[420px] rounded-[13px] overflow-hidden shadow-[1px_18px_29px_rgba(0,0,0,0.1)]">
-              <img src={aboutCertificate} alt="Государственная лицензия МЗ РК" className="w-full h-full object-cover object-top" />
-            </div>
-
-            {/* Мобильное фото */}
-            <div className="lg:hidden w-full h-[320px] rounded-2xl overflow-hidden mb-6">
               <img src={aboutCertificate} alt="Государственная лицензия МЗ РК" className="w-full h-full object-cover object-top" />
             </div>
 
@@ -57,6 +82,10 @@ export default function LicensesPage() {
           </div>
         </div>
       </section>
+
+      {/* ── CTA-слайдер «Многопрофильная клиника» ── */}
+      <CTASlider />
+
     </div>
   )
 }

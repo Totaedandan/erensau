@@ -32,6 +32,13 @@ const teamDoctors: TeamDoctor[] = [
   { photo: docAkanov,     heroPhoto: docAkanov,       hero: { top: 61, h: 1064, x: -40 }, title: 'к.м.н., профессор',                 name: ['Аканов Ержан', 'Кусманович'],        position: ['Руководитель узких', 'хирургических профилей'] },
 ]
 
+const statsData = [
+  { val: '10K', label: 'операций\nна счету' },
+  { val: '12K', label: 'пациентов\nв год' },
+  { val: '60+', label: 'ведущих\nэкспертов' },
+  { val: '20',  label: 'лет\nопыта' },
+]
+
 export default function AboutPage() {
   const [selected, setSelected] = useState(0)
   const doc = teamDoctors[selected]
@@ -75,12 +82,7 @@ export default function AboutPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-x-16 gap-y-7 pt-1">
-                {[
-                  { val: '10K', label: 'операций\nна счету' },
-                  { val: '12K', label: 'пациентов\nв год' },
-                  { val: '60+', label: 'ведущих\nэкспертов' },
-                  { val: '20',  label: 'лет\nопыта' },
-                ].map((s) => (
+                {statsData.map((s) => (
                   <div key={s.label} className="flex items-start gap-3">
                     <div className="text-[42px] font-bold text-[#00b5e2] leading-none">{s.val}</div>
                     <div className="text-gray-700 text-[13px] whitespace-pre-line leading-tight mt-1">{s.label}</div>
@@ -159,19 +161,14 @@ export default function AboutPage() {
               </h1>
             </div>
             <div className="grid grid-cols-2 gap-x-10 gap-y-4 mb-6">
-              {[
-                { val: '10K', label: 'операций\nна счету' },
-                { val: '12K', label: 'пациентов\nв год' },
-                { val: '60+', label: 'ведущих\nэкспертов' },
-                { val: '20',  label: 'лет\nопыта' },
-              ].map((s) => (
+              {statsData.map((s) => (
                 <div key={s.label} className="flex items-start gap-2.5">
-                  <div className="text-[34px] font-bold text-gray-900 leading-none">{s.val}</div>
-                  <div className="text-gray-700 text-[11px] whitespace-pre-line leading-tight mt-0.5">{s.label}</div>
+                  <div className="text-[26px] font-semibold text-[#00b5e2] leading-none">{s.val}</div>
+                  <div className="text-black text-[10px] whitespace-pre-line leading-tight mt-0.5">{s.label}</div>
                 </div>
               ))}
             </div>
-            <p className="text-gray-800 text-[13px] leading-relaxed mb-6">
+            <p className="text-gray-800 text-[11px] leading-relaxed mb-6">
               В Erensau Hospital мы применяем современные методы сердечно-сосудистой хирургии, чтобы восстанавливать здоровье и продлевать жизнь нашим пациентам.
             </p>
             <div className="flex items-center gap-2 mb-6">
@@ -214,15 +211,15 @@ export default function AboutPage() {
           {/* Левая колонка: Миссия + Видение (с разделителями) */}
           <div className="space-y-9 lg:space-y-11">
             <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
-              <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Миссия</h2>
-              <p className="text-[#656565] text-[13px] leading-relaxed">
+              <h2 className="text-2xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Миссия</h2>
+              <p className="text-[#656565] text-[11px] lg:text-[13px] leading-relaxed">
                 Обеспечение точных решений для сложных случаев с акцентом на высокое
                 качество медицинской помощи с вниманием к каждому пациенту
               </p>
             </div>
             <div className="max-w-[520px] border-b border-neutral-300 pb-9 lg:pb-11">
-              <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Видение</h2>
-              <p className="text-[#656565] text-[13px] leading-relaxed">
+              <h2 className="text-2xl lg:text-[42px] font-semibold text-neutral-900 mb-5">Видение</h2>
+              <p className="text-[#656565] text-[11px] lg:text-[13px] leading-relaxed">
                 Стать национальным лидером в решении сложных медицинских случаев,
                 формируя в Казахстане центр притяжения лучших врачей, передовых
                 медицинских технологий для пациентов из Казахстана и зарубежных стран.
@@ -232,7 +229,7 @@ export default function AboutPage() {
 
           {/* Правая колонка: Ценности — таблица с разделителями */}
           <div>
-            <h2 className="text-3xl lg:text-[42px] font-semibold text-neutral-900 mb-6">Ценности</h2>
+            <h2 className="text-2xl lg:text-[42px] font-semibold text-neutral-900 mb-6">Ценности</h2>
             <ul>
               {[
                 { t: 'Профессионализм', d: ['предоставление медицинских', 'услуг на самом высоком уровне.'] },
@@ -243,8 +240,8 @@ export default function AboutPage() {
               ].map((v, i) => (
                 <li key={v.t} className="grid grid-cols-[20px_126px_1fr] lg:grid-cols-[32px_185px_1fr] gap-3 items-start py-3 lg:py-4 border-b border-neutral-200 last:border-b-0">
                   <span className="text-[#00b5e2] font-bold text-base lg:text-lg leading-snug">{i + 1}</span>
-                  <span className="font-bold text-neutral-900 text-[13px] lg:text-sm leading-snug">{v.t}</span>
-                  <span className="text-[#565656] text-[13px] italic leading-relaxed">
+                  <span className="font-bold text-neutral-900 text-[11px] lg:text-sm leading-snug">{v.t}</span>
+                  <span className="text-[#565656] text-[10px] lg:text-[13px] italic leading-relaxed">
                     {v.d.map((l, j) => (<span key={j}>{l}{j < v.d.length - 1 && <br />}</span>))}
                   </span>
                 </li>

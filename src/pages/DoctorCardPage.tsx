@@ -66,28 +66,28 @@ const internships = [
 function PersonalInfoCard({ className = '' }: { className?: string }) {
   return (
     <div className={`bg-white rounded-[28px] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] ${className}`}>
-      <h3 className="text-[20px] lg:text-[22px] font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Персональная информация</h3>
-      <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed mb-3.5 lg:mb-4">
+      <h3 className="text-sm lg:text-[22px] font-bold lg:font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Персональная информация</h3>
+      <p className="text-black lg:text-gray-500 font-normal lg:font-normal text-[10px] lg:text-sm opacity-50 lg:opacity-100 leading-relaxed mb-3.5 lg:mb-4">
         Ему присвоена высшая квалификационная категория по специальности
         "взрослая и детская кардиохирургия".
       </p>
-      <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed mb-5 lg:mb-6">
+      <p className="text-black lg:text-gray-500 text-[10px] lg:text-sm opacity-50 lg:opacity-100 leading-relaxed mb-5 lg:mb-6">
         Доктор, стоявший у истоков детской кардиохирургии в Казахстане,
         провёл первую открытую операцию на сердце в Кызылординской области.
       </p>
       <div className="border-t border-gray-200 pt-5 lg:pt-6 mb-2">
-        <h3 className="text-[20px] lg:text-[22px] font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
+        <h3 className="text-sm lg:text-[22px] font-bold lg:font-semibold text-gray-900 mb-4 lg:mb-5 whitespace-nowrap">Пройденные стажировки:</h3>
         <div className="grid grid-cols-2 gap-x-6 gap-y-3 lg:gap-y-4 mb-5 lg:mb-6">
           {internships.map((s) => (
             <div key={s.label} className="flex items-center gap-3">
               {s.flag}
-              <span className="text-gray-900 text-[13px] lg:text-sm font-medium">{s.label}</span>
+              <span className="text-gray-900 text-[10px] lg:text-sm font-bold lg:font-medium">{s.label}</span>
             </div>
           ))}
         </div>
       </div>
       <div className="border-t border-gray-200 pt-4 lg:pt-5">
-        <p className="text-gray-500 text-[13px] lg:text-sm leading-relaxed">
+        <p className="text-black lg:text-gray-500 text-[10px] lg:text-sm opacity-50 lg:opacity-100 leading-relaxed">
           Автор 113 научных работ, 8 патентов и 3 методических рекомендаций.
           Наставник многих кардиохирургов страны.
         </p>
@@ -173,7 +173,7 @@ export default function DoctorCardPage() {
           <div className="relative px-6 lg:px-28 pt-8 lg:pt-20 pb-0 lg:pb-16">
             {/* Левая колонка */}
             <div className="max-w-[560px]">
-              <p className="text-[#00b5e2] text-sm lg:text-lg font-semibold mb-4 text-center lg:text-left">к.м.н., ассоциированный профессор</p>
+              <p className="text-[#00b5e2] text-[10px] lg:text-lg font-semibold mb-4 text-center lg:text-left">к.м.н., ассоциированный профессор</p>
               <div className="flex items-start gap-3 lg:gap-4 mb-6 lg:mb-9">
                 <img src={logoMark} alt="" className="h-12 lg:h-24 w-auto flex-shrink-0" />
                 <h1 className="text-[25px] lg:text-[48px] font-semibold text-gray-900 leading-[1.2] lg:leading-[1.15] tracking-tight">
@@ -186,22 +186,22 @@ export default function DoctorCardPage() {
                 <span className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-[#cdeefb] flex items-center justify-center flex-shrink-0">
                   <img src={pictoHeart} alt="" className="w-full h-full" />
                 </span>
-                <span className="text-gray-900 text-[13px] lg:text-[15px] leading-snug">
+                <span className="text-black lg:text-gray-900 font-light lg:font-normal text-[10px] lg:text-[15px] leading-snug">
                   Руководитель отделения<br />Кардиохирургии и Кардиологии
                 </span>
               </div>
 
               {/* Рейтинг */}
-              <h2 className="text-[24px] lg:text-2xl font-semibold text-gray-900 mb-3">Рейтинг врача</h2>
+              <h2 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-3">Рейтинг врача</h2>
               <div className="flex items-center gap-1.5 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-7 h-7 text-[#00b5e2]" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-3 h-3 lg:w-7 lg:h-7 text-[#00b5e2]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
-                <span className="text-[#00b5e2] text-2xl font-bold ml-2">5.0 / 5</span>
+                <span className="text-[#00b5e2] text-sm lg:text-2xl font-bold ml-2">5.0 / 5</span>
               </div>
-              <p className="text-gray-400 text-[13px] mb-0 lg:mb-12">На основе 127 отзывов пациентов</p>
+              <p className="text-black lg:text-gray-400 opacity-50 lg:opacity-100 text-[10px] lg:text-[13px] mb-0 lg:mb-12">На основе 127 отзывов пациентов</p>
 
               <Link
                 to="/contacts"
@@ -358,11 +358,11 @@ export default function DoctorCardPage() {
                   <img src={l.img} alt={l.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 text-lg leading-snug mb-2">{l.title}</h3>
-                  <p className="text-gray-600 text-[13px] leading-relaxed mb-4">{l.desc}</p>
+                  <h3 className="font-semibold text-gray-900 text-sm leading-snug mb-2">{l.title}</h3>
+                  <p className="text-black font-light text-[10px] leading-relaxed mb-4">{l.desc}</p>
                   <Link
                     to="/news"
-                    className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-10 py-2.5"
+                    className="inline-block text-xs font-semibold text-black border border-black rounded-full px-10 py-2.5"
                   >
                     Подробнее
                   </Link>

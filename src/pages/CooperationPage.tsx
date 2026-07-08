@@ -35,8 +35,8 @@ export default function CooperationPage() {
               </h1>
             </div>
             <div className="bg-white rounded-2xl lg:rounded-3xl p-5 lg:p-7 max-w-none lg:max-w-[355px] shadow-2xl">
-              <p className="text-gray-600 text-[13px] leading-relaxed">
-                <span className="text-[#00b5e2] font-semibold">Мы открыты</span> для партнерств, которые
+              <p className="text-black font-light text-[10px] lg:text-[13px] leading-relaxed">
+                <span className="text-[#00b5e2] font-bold lg:font-semibold">Мы открыты</span> для партнерств, которые
                 повышают качество медицинской помощи.
                 Корпоративное обслуживание, страховые
                 программы, научные исследования - мы
@@ -61,9 +61,9 @@ export default function CooperationPage() {
                   <img src={d.img} alt={d.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-semibold text-gray-900 mb-2.5 leading-snug">{d.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{d.desc}</p>
-                  <Link to="/contacts" className="inline-block text-sm font-semibold text-gray-900 border border-gray-300 rounded-full px-10 py-2.5">
+                  <h3 className="font-semibold text-gray-900 text-sm mb-2.5 leading-snug">{d.title}</h3>
+                  <p className="text-black font-light text-[11px] leading-relaxed mb-5">{d.desc}</p>
+                  <Link to="/contacts" className="inline-block text-[11px] font-semibold text-black border border-black rounded-full px-10 py-2.5">
                     Подробнее
                   </Link>
                 </div>
@@ -104,19 +104,22 @@ export default function CooperationPage() {
           </h2>
         </div>
 
-        {/* Мобилка: плитки «кирпичиками» с выходом за края */}
-        <div className="lg:hidden space-y-3">
-          {[0, 1, 2].map((row) => (
-            <div
-              key={row}
-              className={`flex gap-3 justify-center ${row === 1 ? 'translate-x-10' : '-translate-x-6'}`}
-            >
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="bg-white rounded-2xl h-[70px] w-[145px] flex-shrink-0 flex flex-col items-center justify-center">
-                  <span className="text-gray-400 font-bold text-base lowercase leading-none">erensau</span>
-                  <span className="text-gray-300 text-[8px] tracking-[0.2em] lowercase mt-0.5">hospital</span>
-                </div>
-              ))}
+        {/* Мобилка: 3 бегущие строки логотипов партнёров, чередующиеся направления (по Figma) */}
+        <div className="lg:hidden flex flex-col gap-3 mb-8">
+          {[
+            { dir: 'animate-marquee-left', key: 'row1' },
+            { dir: 'animate-marquee-right', key: 'row2' },
+            { dir: 'animate-marquee-left', key: 'row3' },
+          ].map((row) => (
+            <div key={row.key} className="overflow-hidden">
+              <div className={`flex gap-3 w-max ${row.dir} hover:[animation-play-state:paused]`}>
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <div key={i} className="bg-white rounded-2xl h-[71px] w-[144px] flex-shrink-0 flex flex-col items-center justify-center">
+                    <span className="text-gray-400 font-bold text-sm lowercase leading-none">erensau</span>
+                    <span className="text-gray-300 text-[7px] tracking-[0.2em] lowercase mt-0.5">hospital</span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

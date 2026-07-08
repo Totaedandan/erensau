@@ -38,7 +38,7 @@ export default function ContactsPage() {
               </h2>
               <ul className="space-y-2.5 lg:space-y-3 mb-9 lg:mb-11">
                 {complexPoints.map((p) => (
-                  <li key={p.n} className="text-base lg:text-[15px] text-gray-800">
+                  <li key={p.n} className="text-[15px] text-gray-800">
                     {p.n} - {p.label}
                   </li>
                 ))}
@@ -58,7 +58,7 @@ export default function ContactsPage() {
               href="https://2gis.kz/almaty"
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bg-white border border-gray-800 rounded-full px-10 py-3.5 text-sm font-semibold text-gray-900 whitespace-nowrap"
+              className="lg:hidden absolute bottom-8 left-1/2 -translate-x-1/2 z-10 bg-white border border-black rounded-full px-10 py-3.5 text-xs font-semibold text-black whitespace-nowrap"
             >
               Проложить маршрут
             </a>

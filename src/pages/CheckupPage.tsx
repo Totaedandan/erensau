@@ -52,21 +52,21 @@ function ProgramCard({ name, price, img, path }: { name: string; price: string; 
             <div key={d.label} className="border-b border-gray-100 last:border-b-0">
               <button
                 onClick={() => setOpenIdx(isOpen ? null : i)}
-                className="w-full flex items-center gap-2 py-3 text-left text-sm text-black leading-[1.53] tracking-[-0.28px] hover:text-[#00b5e2] transition-colors"
+                className="w-full flex items-center gap-2 py-3 text-left text-[11px] lg:text-sm text-black leading-[1.53] tracking-[-0.28px] hover:text-[#00b5e2] transition-colors"
               >
                 <span>{d.label}</span>
                 <svg className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {isOpen && <p className="text-black/50 text-sm leading-[1.53] tracking-[-0.28px] pb-3">{d.content}</p>}
+              {isOpen && <p className="text-black/50 text-[11px] lg:text-sm leading-[1.53] tracking-[-0.28px] pb-3">{d.content}</p>}
             </div>
           )
         })}
       </div>
       <div className="flex items-center justify-between mt-6">
-        <Link to="/contacts" className="text-black text-sm font-semibold tracking-[-0.28px] underline underline-offset-4 hover:text-[#00b5e2] transition-colors">Записаться</Link>
-        <span className="text-black text-sm font-medium tracking-[-0.14px]">{price}</span>
+        <Link to="/contacts" className="text-black text-[11px] lg:text-sm font-semibold tracking-[-0.28px] underline underline-offset-4 hover:text-[#00b5e2] transition-colors">Записаться</Link>
+        <span className="text-black text-[11px] lg:text-sm font-medium tracking-[-0.14px]">{price}</span>
       </div>
     </article>
   )
@@ -169,7 +169,7 @@ export default function CheckupPage() {
             <h1 className="text-[32px] font-semibold text-white leading-[1.15] mb-4">
               Checkup<br />программы
             </h1>
-            <p className="text-white/95 text-[13px] leading-relaxed max-w-[210px] mb-7">
+            <p className="text-white/95 text-[11px] leading-relaxed max-w-[210px] mb-7">
               Комплексная диагностика по международным стандартам,
               с заключением врача и персональными рекомендациями
             </p>
@@ -285,19 +285,48 @@ export default function CheckupPage() {
         </div>
       </section>
 
-      {/* ── FAQ — 2 колонки ── */}
+      {/* ── FAQ — пилюли на мобилке, 2 колонки на десктопе ── */}
       <section className="bg-[#f4f4f4] pt-10 pb-12 lg:py-24">
         <div className="container-main">
-          <h2 className="text-[28px] lg:text-3xl font-semibold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5 lg:gap-3">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-gray-900 mb-7 lg:mb-8 text-center max-w-[280px] lg:max-w-none mx-auto leading-[1.3]">Ответы на популярные вопросы</h2>
+
+          {/* Мобилка: закрытые вопросы — пилюли, открытый — скруглённая карточка */}
+          <div className="lg:hidden flex flex-col gap-2.5">
+            {faqs.map((faq, i) => {
+              const isOpen = openFaq === i
+              return (
+                <div key={i} className={`bg-white overflow-hidden transition-[border-radius] ${isOpen ? 'rounded-[20px]' : 'rounded-full'}`}>
+                  <button
+                    className="w-full flex justify-between items-center gap-3 px-5 py-2.5 text-left"
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                  >
+                    <span className="font-semibold text-black text-[11px] tracking-[-0.22px]">{faq.q}</span>
+                    <span className={`w-[30px] h-[30px] rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${isOpen ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        {isOpen
+                          ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
+                          : <path strokeLinecap="round" d="M12 5v14M5 12h14" />}
+                      </svg>
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-4 text-black font-light text-[10px] leading-relaxed">{faq.a}</div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Десктоп: сетка 2×N */}
+          <div className="hidden lg:grid grid-cols-2 gap-3">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden">
                 <button
-                  className="w-full flex justify-between items-center px-5 lg:px-6 py-3 lg:py-4 text-left"
+                  className="w-full flex justify-between items-center px-6 py-4 text-left"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-gray-900 text-xs lg:text-sm pr-3 lg:pr-4 whitespace-nowrap lg:whitespace-normal overflow-hidden text-ellipsis">{faq.q}</span>
-                  <span className={`w-6 h-6 lg:w-7 lg:h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
+                  <span className="font-medium text-gray-900 text-sm pr-4">{faq.q}</span>
+                  <span className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center transition-colors ${openFaq === i ? 'bg-[#00b5e2] text-white' : 'bg-[#cdeefb] text-[#00b5e2]'}`}>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       {openFaq === i
                         ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
@@ -306,7 +335,7 @@ export default function CheckupPage() {
                   </span>
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 lg:px-6 pb-4 lg:pb-5 text-gray-500 text-[13px] lg:text-sm leading-relaxed">{faq.a}</div>
+                  <div className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</div>
                 )}
               </div>
             ))}

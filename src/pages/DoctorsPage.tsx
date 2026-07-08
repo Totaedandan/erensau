@@ -131,20 +131,20 @@ export default function DoctorsPage() {
             {/* Логомарк + заголовок */}
             <div className="flex items-start gap-3.5 lg:gap-5 mb-4 lg:mb-5">
               <img src={logoMark} alt="" className="h-12 lg:h-[109px] w-auto flex-shrink-0" />
-              <h1 className="text-[27px] lg:text-5xl font-semibold text-white leading-[1.15] lg:leading-[1.1] tracking-tight">
+              <h1 className="text-2xl lg:text-5xl font-semibold text-white leading-[1.15] lg:leading-[1.1] tracking-tight">
                 Командная<br />модель
               </h1>
             </div>
-            <p className="text-white/90 lg:text-white/85 text-sm lg:text-[15px] max-w-[240px] lg:max-w-[245px] leading-snug lg:leading-relaxed mb-52 lg:mb-[68px]">
+            <p className="text-white/90 lg:text-white/85 text-xs lg:text-[15px] max-w-[240px] lg:max-w-[245px] leading-snug lg:leading-relaxed mb-52 lg:mb-[68px]">
               высокой подготовки, объединяющая технологии, опыт и заботу
             </p>
 
             {/* Карточка «60+ экспертов» — белая */}
             <div className="bg-white rounded-3xl p-6 lg:p-7 w-full lg:w-[358px] lg:max-w-full shadow-xl">
-              <div className="text-[24px] lg:text-[28px] font-bold text-gray-900 mb-3">
+              <div className="text-[22px] lg:text-[28px] font-bold text-gray-900 mb-3">
                 <span className="text-[#00b5e2]">60+</span> экспертов
               </div>
-              <p className="text-gray-700 text-[13px] leading-relaxed">
+              <p className="text-gray-700 text-[10px] lg:text-[13px] leading-relaxed">
                 Ассоциированные профессоры, доктора медицинских наук, кандидаты
                 медицинских наук, врачи высшей и первой категории с многолетним
                 международным опытом.
